@@ -45,7 +45,7 @@ pub type RX_TL_W<'a, const O: u8> = crate::FieldWriter<'a, u32, SMHC_FIFOTH_SPEC
 #[doc = "Field `bsize_of_trans` reader - sBurst Size of Multiple Transaction"]
 pub type BSIZE_OF_TRANS_R = crate::FieldReader<u8, BSIZE_OF_TRANS_A>;
 #[doc = "sBurst Size of Multiple Transaction\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum BSIZE_OF_TRANS_A {
     #[doc = "0: 1 transfer"]
@@ -141,16 +141,19 @@ impl R {
 impl W {
     #[doc = "Bits 0:7 - TX Trigger Level"]
     #[inline(always)]
+    #[must_use]
     pub fn tx_tl(&mut self) -> TX_TL_W<0> {
         TX_TL_W::new(self)
     }
     #[doc = "Bits 16:23 - RX Trigger Level"]
     #[inline(always)]
+    #[must_use]
     pub fn rx_tl(&mut self) -> RX_TL_W<16> {
         RX_TL_W::new(self)
     }
     #[doc = "Bits 28:30 - sBurst Size of Multiple Transaction"]
     #[inline(always)]
+    #[must_use]
     pub fn bsize_of_trans(&mut self) -> BSIZE_OF_TRANS_W<28> {
         BSIZE_OF_TRANS_W::new(self)
     }
@@ -173,11 +176,10 @@ impl crate::Readable for SMHC_FIFOTH_SPEC {
 #[doc = "`write(|w| ..)` method takes [smhc_fifoth::W](W) writer structure"]
 impl crate::Writable for SMHC_FIFOTH_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets smhc_fifoth to value 0"]
 impl crate::Resettable for SMHC_FIFOTH_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

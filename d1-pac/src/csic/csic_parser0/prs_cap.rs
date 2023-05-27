@@ -37,12 +37,12 @@ impl From<crate::W<PRS_CAP_SPEC>> for W {
 #[doc = "Field `ch_scap_on[0-3]` reader - Still capture control: Capture a single still image frame on channel \\[i\\].\n\nThe field is **cleared** (set to zero) following a read operation."]
 pub type CH_SCAP_ON_R = crate::BitReader<CH_SCAP_ON_A>;
 #[doc = "Still capture control: Capture a single still image frame on channel \\[i\\].\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum CH_SCAP_ON_A {
     #[doc = "0: Disable still capture"]
-    D_ISABLE = 0,
+    DISABLE = 0,
     #[doc = "1: Enable still capture\n\nThe CSI module starts capturing image data at the start of the next frame. The CSI module captures only one frame of image data. This bit is self cleared and always reads as a 0."]
-    E_NABLE = 1,
+    ENABLE = 1,
 }
 impl From<CH_SCAP_ON_A> for bool {
     #[inline(always)]
@@ -55,30 +55,30 @@ impl CH_SCAP_ON_R {
     #[inline(always)]
     pub fn variant(&self) -> CH_SCAP_ON_A {
         match self.bits {
-            false => CH_SCAP_ON_A::D_ISABLE,
-            true => CH_SCAP_ON_A::E_NABLE,
+            false => CH_SCAP_ON_A::DISABLE,
+            true => CH_SCAP_ON_A::ENABLE,
         }
     }
-    #[doc = "Checks if the value of the field is `D_ISABLE`"]
+    #[doc = "Checks if the value of the field is `DISABLE`"]
     #[inline(always)]
-    pub fn is_d_isable(&self) -> bool {
-        *self == CH_SCAP_ON_A::D_ISABLE
+    pub fn is_disable(&self) -> bool {
+        *self == CH_SCAP_ON_A::DISABLE
     }
-    #[doc = "Checks if the value of the field is `E_NABLE`"]
+    #[doc = "Checks if the value of the field is `ENABLE`"]
     #[inline(always)]
-    pub fn is_e_nable(&self) -> bool {
-        *self == CH_SCAP_ON_A::E_NABLE
+    pub fn is_enable(&self) -> bool {
+        *self == CH_SCAP_ON_A::ENABLE
     }
 }
 #[doc = "Field `ch_vcap_on[0-3]` reader - Video capture control: Capture the video image data stream on channel \\[i\\]."]
 pub type CH_VCAP_ON_R = crate::BitReader<CH_VCAP_ON_A>;
 #[doc = "Video capture control: Capture the video image data stream on channel \\[i\\].\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum CH_VCAP_ON_A {
     #[doc = "0: Disable video capture\n\nIf video capture is in progress, the CSI stops capturing image data at the end of the current frame, and all of the current frame data is written to output FIFO."]
-    D_ISABLE = 0,
+    DISABLE = 0,
     #[doc = "1: Enable video capture\n\nThe CSI starts capturing image data at the start of the next frame."]
-    E_NABLE = 1,
+    ENABLE = 1,
 }
 impl From<CH_VCAP_ON_A> for bool {
     #[inline(always)]
@@ -91,19 +91,19 @@ impl CH_VCAP_ON_R {
     #[inline(always)]
     pub fn variant(&self) -> CH_VCAP_ON_A {
         match self.bits {
-            false => CH_VCAP_ON_A::D_ISABLE,
-            true => CH_VCAP_ON_A::E_NABLE,
+            false => CH_VCAP_ON_A::DISABLE,
+            true => CH_VCAP_ON_A::ENABLE,
         }
     }
-    #[doc = "Checks if the value of the field is `D_ISABLE`"]
+    #[doc = "Checks if the value of the field is `DISABLE`"]
     #[inline(always)]
-    pub fn is_d_isable(&self) -> bool {
-        *self == CH_VCAP_ON_A::D_ISABLE
+    pub fn is_disable(&self) -> bool {
+        *self == CH_VCAP_ON_A::DISABLE
     }
-    #[doc = "Checks if the value of the field is `E_NABLE`"]
+    #[doc = "Checks if the value of the field is `ENABLE`"]
     #[inline(always)]
-    pub fn is_e_nable(&self) -> bool {
-        *self == CH_VCAP_ON_A::E_NABLE
+    pub fn is_enable(&self) -> bool {
+        *self == CH_VCAP_ON_A::ENABLE
     }
 }
 #[doc = "Field `ch_vcap_on[0-3]` writer - Video capture control: Capture the video image data stream on channel \\[i\\]."]
@@ -111,19 +111,19 @@ pub type CH_VCAP_ON_W<'a, const O: u8> = crate::BitWriter<'a, u32, PRS_CAP_SPEC,
 impl<'a, const O: u8> CH_VCAP_ON_W<'a, O> {
     #[doc = "Disable video capture\n\nIf video capture is in progress, the CSI stops capturing image data at the end of the current frame, and all of the current frame data is written to output FIFO."]
     #[inline(always)]
-    pub fn d_isable(self) -> &'a mut W {
-        self.variant(CH_VCAP_ON_A::D_ISABLE)
+    pub fn disable(self) -> &'a mut W {
+        self.variant(CH_VCAP_ON_A::DISABLE)
     }
     #[doc = "Enable video capture\n\nThe CSI starts capturing image data at the start of the next frame."]
     #[inline(always)]
-    pub fn e_nable(self) -> &'a mut W {
-        self.variant(CH_VCAP_ON_A::E_NABLE)
+    pub fn enable(self) -> &'a mut W {
+        self.variant(CH_VCAP_ON_A::ENABLE)
     }
 }
 #[doc = "Field `ch_fps_ds[0-3]` reader - Fps down sample"]
 pub type CH_FPS_DS_R = crate::FieldReader<u8, CH_FPS_DS_A>;
 #[doc = "Fps down sample\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum CH_FPS_DS_A {
     #[doc = "0: no down sample"]
@@ -422,51 +422,61 @@ impl R {
 impl W {
     #[doc = "Video capture control: Capture the video image data stream on channel \\[i\\]."]
     #[inline(always)]
+    #[must_use]
     pub unsafe fn ch_vcap_on<const O: u8>(&mut self) -> CH_VCAP_ON_W<O> {
         CH_VCAP_ON_W::new(self)
     }
     #[doc = "Bit 1 - Video capture control: Capture the video image data stream on channel \\[i\\]."]
     #[inline(always)]
+    #[must_use]
     pub fn ch0_vcap_on(&mut self) -> CH_VCAP_ON_W<1> {
         CH_VCAP_ON_W::new(self)
     }
     #[doc = "Bit 9 - Video capture control: Capture the video image data stream on channel \\[i\\]."]
     #[inline(always)]
+    #[must_use]
     pub fn ch1_vcap_on(&mut self) -> CH_VCAP_ON_W<9> {
         CH_VCAP_ON_W::new(self)
     }
     #[doc = "Bit 17 - Video capture control: Capture the video image data stream on channel \\[i\\]."]
     #[inline(always)]
+    #[must_use]
     pub fn ch2_vcap_on(&mut self) -> CH_VCAP_ON_W<17> {
         CH_VCAP_ON_W::new(self)
     }
     #[doc = "Bit 25 - Video capture control: Capture the video image data stream on channel \\[i\\]."]
     #[inline(always)]
+    #[must_use]
     pub fn ch3_vcap_on(&mut self) -> CH_VCAP_ON_W<25> {
         CH_VCAP_ON_W::new(self)
     }
     #[doc = "Fps down sample"]
     #[inline(always)]
+    #[must_use]
     pub unsafe fn ch_fps_ds<const O: u8>(&mut self) -> CH_FPS_DS_W<O> {
         CH_FPS_DS_W::new(self)
     }
     #[doc = "Bits 2:5 - Fps down sample"]
     #[inline(always)]
+    #[must_use]
     pub fn ch0_fps_ds(&mut self) -> CH_FPS_DS_W<2> {
         CH_FPS_DS_W::new(self)
     }
     #[doc = "Bits 10:13 - Fps down sample"]
     #[inline(always)]
+    #[must_use]
     pub fn ch1_fps_ds(&mut self) -> CH_FPS_DS_W<10> {
         CH_FPS_DS_W::new(self)
     }
     #[doc = "Bits 18:21 - Fps down sample"]
     #[inline(always)]
+    #[must_use]
     pub fn ch2_fps_ds(&mut self) -> CH_FPS_DS_W<18> {
         CH_FPS_DS_W::new(self)
     }
     #[doc = "Bits 26:29 - Fps down sample"]
     #[inline(always)]
+    #[must_use]
     pub fn ch3_fps_ds(&mut self) -> CH_FPS_DS_W<26> {
         CH_FPS_DS_W::new(self)
     }
@@ -489,11 +499,10 @@ impl crate::Readable for PRS_CAP_SPEC {
 #[doc = "`write(|w| ..)` method takes [prs_cap::W](W) writer structure"]
 impl crate::Writable for PRS_CAP_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets prs_cap to value 0"]
 impl crate::Resettable for PRS_CAP_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

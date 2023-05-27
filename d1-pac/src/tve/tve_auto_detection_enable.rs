@@ -47,7 +47,7 @@ pub type DAC0_AUTO_DETECT_INTERRUPT_EN_W<'a, const O: u8> =
 #[doc = "Field `dac_auto_detect_mode_sel` reader - "]
 pub type DAC_AUTO_DETECT_MODE_SEL_R = crate::BitReader<DAC_AUTO_DETECT_MODE_SEL_A>;
 #[doc = "\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum DAC_AUTO_DETECT_MODE_SEL_A {
     #[doc = "0: Old Mode"]
     O_LD = 0,
@@ -115,16 +115,19 @@ impl R {
 impl W {
     #[doc = "Bit 0"]
     #[inline(always)]
+    #[must_use]
     pub fn dac0_auto_detect_enable(&mut self) -> DAC0_AUTO_DETECT_ENABLE_W<0> {
         DAC0_AUTO_DETECT_ENABLE_W::new(self)
     }
     #[doc = "Bit 16"]
     #[inline(always)]
+    #[must_use]
     pub fn dac0_auto_detect_interrupt_en(&mut self) -> DAC0_AUTO_DETECT_INTERRUPT_EN_W<16> {
         DAC0_AUTO_DETECT_INTERRUPT_EN_W::new(self)
     }
     #[doc = "Bit 31"]
     #[inline(always)]
+    #[must_use]
     pub fn dac_auto_detect_mode_sel(&mut self) -> DAC_AUTO_DETECT_MODE_SEL_W<31> {
         DAC_AUTO_DETECT_MODE_SEL_W::new(self)
     }
@@ -147,11 +150,10 @@ impl crate::Readable for TVE_AUTO_DETECTION_ENABLE_SPEC {
 #[doc = "`write(|w| ..)` method takes [tve_auto_detection_enable::W](W) writer structure"]
 impl crate::Writable for TVE_AUTO_DETECTION_ENABLE_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets tve_auto_detection_enable to value 0"]
 impl crate::Resettable for TVE_AUTO_DETECTION_ENABLE_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

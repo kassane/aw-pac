@@ -37,7 +37,7 @@ impl From<crate::W<ALARM0_IRQ_STA_SPEC>> for W {
 #[doc = "Field `alarm0_irq_pend` reader - Alarm 0 IRQ Pending bit"]
 pub type ALARM0_IRQ_PEND_R = crate::BitReader<ALARM0_IRQ_PEND_A>;
 #[doc = "Alarm 0 IRQ Pending bit\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum ALARM0_IRQ_PEND_A {
     #[doc = "0: No effect"]
     NO_EFFECT = 0,
@@ -95,6 +95,7 @@ impl R {
 impl W {
     #[doc = "Bit 0 - Alarm 0 IRQ Pending bit"]
     #[inline(always)]
+    #[must_use]
     pub fn alarm0_irq_pend(&mut self) -> ALARM0_IRQ_PEND_W<0> {
         ALARM0_IRQ_PEND_W::new(self)
     }
@@ -117,11 +118,10 @@ impl crate::Readable for ALARM0_IRQ_STA_SPEC {
 #[doc = "`write(|w| ..)` method takes [alarm0_irq_sta::W](W) writer structure"]
 impl crate::Writable for ALARM0_IRQ_STA_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0x01;
 }
 #[doc = "`reset()` method sets alarm0_irq_sta to value 0"]
 impl crate::Resettable for ALARM0_IRQ_STA_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

@@ -37,12 +37,12 @@ impl From<crate::W<LCD_HV_IF_SPEC>> for W {
 #[doc = "Field `ccir_csc_dis` reader - LCD convert source from RGB to YUV.\n\nOnly valid when HV mode is “1100”."]
 pub type CCIR_CSC_DIS_R = crate::BitReader<CCIR_CSC_DIS_A>;
 #[doc = "LCD convert source from RGB to YUV.\n\nOnly valid when HV mode is “1100”.\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum CCIR_CSC_DIS_A {
     #[doc = "0: Enable"]
-    E_NABLE = 0,
+    ENABLE = 0,
     #[doc = "1: Disable"]
-    D_ISABLE = 1,
+    DISABLE = 1,
 }
 impl From<CCIR_CSC_DIS_A> for bool {
     #[inline(always)]
@@ -55,19 +55,19 @@ impl CCIR_CSC_DIS_R {
     #[inline(always)]
     pub fn variant(&self) -> CCIR_CSC_DIS_A {
         match self.bits {
-            false => CCIR_CSC_DIS_A::E_NABLE,
-            true => CCIR_CSC_DIS_A::D_ISABLE,
+            false => CCIR_CSC_DIS_A::ENABLE,
+            true => CCIR_CSC_DIS_A::DISABLE,
         }
     }
-    #[doc = "Checks if the value of the field is `E_NABLE`"]
+    #[doc = "Checks if the value of the field is `ENABLE`"]
     #[inline(always)]
-    pub fn is_e_nable(&self) -> bool {
-        *self == CCIR_CSC_DIS_A::E_NABLE
+    pub fn is_enable(&self) -> bool {
+        *self == CCIR_CSC_DIS_A::ENABLE
     }
-    #[doc = "Checks if the value of the field is `D_ISABLE`"]
+    #[doc = "Checks if the value of the field is `DISABLE`"]
     #[inline(always)]
-    pub fn is_d_isable(&self) -> bool {
-        *self == CCIR_CSC_DIS_A::D_ISABLE
+    pub fn is_disable(&self) -> bool {
+        *self == CCIR_CSC_DIS_A::DISABLE
     }
 }
 #[doc = "Field `ccir_csc_dis` writer - LCD convert source from RGB to YUV.\n\nOnly valid when HV mode is “1100”."]
@@ -76,19 +76,19 @@ pub type CCIR_CSC_DIS_W<'a, const O: u8> =
 impl<'a, const O: u8> CCIR_CSC_DIS_W<'a, O> {
     #[doc = "Enable"]
     #[inline(always)]
-    pub fn e_nable(self) -> &'a mut W {
-        self.variant(CCIR_CSC_DIS_A::E_NABLE)
+    pub fn enable(self) -> &'a mut W {
+        self.variant(CCIR_CSC_DIS_A::ENABLE)
     }
     #[doc = "Disable"]
     #[inline(always)]
-    pub fn d_isable(self) -> &'a mut W {
-        self.variant(CCIR_CSC_DIS_A::D_ISABLE)
+    pub fn disable(self) -> &'a mut W {
+        self.variant(CCIR_CSC_DIS_A::DISABLE)
     }
 }
 #[doc = "Field `yuv_eav_sav_f_line_dly` reader - Set the delay line mode."]
 pub type YUV_EAV_SAV_F_LINE_DLY_R = crate::FieldReader<u8, YUV_EAV_SAV_F_LINE_DLY_A>;
 #[doc = "Set the delay line mode.\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum YUV_EAV_SAV_F_LINE_DLY_A {
     #[doc = "0: F toggle right after active video line"]
@@ -154,7 +154,7 @@ impl<'a, const O: u8> YUV_EAV_SAV_F_LINE_DLY_W<'a, O> {
 #[doc = "Field `yuv_sm` reader - Serial YUV mode Output sequence 2-pixel-pair of every scan line."]
 pub type YUV_SM_R = crate::FieldReader<u8, YUV_SM_A>;
 #[doc = "Serial YUV mode Output sequence 2-pixel-pair of every scan line.\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum YUV_SM_A {
     #[doc = "0: YUYV"]
@@ -233,7 +233,7 @@ impl<'a, const O: u8> YUV_SM_W<'a, O> {
 #[doc = "Field `rgb888_even_order` reader - Serial RGB888 mode Output sequence at even lines of the panel (line 2, 4, 6, 8...)."]
 pub type RGB888_EVEN_ORDER_R = crate::FieldReader<u8, RGB888_EVEN_ORDER_A>;
 #[doc = "Serial RGB888 mode Output sequence at even lines of the panel (line 2, 4, 6, 8...).\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum RGB888_EVEN_ORDER_A {
     #[doc = "0: R -> G -> B"]
@@ -299,7 +299,7 @@ impl<'a, const O: u8> RGB888_EVEN_ORDER_W<'a, O> {
 #[doc = "Field `rgb888_odd_order` reader - Serial RGB888 mode Output sequence at odd lines of the panel (line 1, 3, 5, 7...)."]
 pub type RGB888_ODD_ORDER_R = crate::FieldReader<u8, RGB888_ODD_ORDER_A>;
 #[doc = "Serial RGB888 mode Output sequence at odd lines of the panel (line 1, 3, 5, 7...).\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum RGB888_ODD_ORDER_A {
     #[doc = "0: R -> G -> B"]
@@ -365,7 +365,7 @@ impl<'a, const O: u8> RGB888_ODD_ORDER_W<'a, O> {
 #[doc = "Field `hv_mode` reader - Set the HV mode of LCD controller"]
 pub type HV_MODE_R = crate::FieldReader<u8, HV_MODE_A>;
 #[doc = "Set the HV mode of LCD controller\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum HV_MODE_A {
     #[doc = "0: 24-bit/1-cycle parallel mode"]
@@ -489,31 +489,37 @@ impl R {
 impl W {
     #[doc = "Bit 19 - LCD convert source from RGB to YUV.\n\nOnly valid when HV mode is “1100”."]
     #[inline(always)]
+    #[must_use]
     pub fn ccir_csc_dis(&mut self) -> CCIR_CSC_DIS_W<19> {
         CCIR_CSC_DIS_W::new(self)
     }
     #[doc = "Bits 20:21 - Set the delay line mode."]
     #[inline(always)]
+    #[must_use]
     pub fn yuv_eav_sav_f_line_dly(&mut self) -> YUV_EAV_SAV_F_LINE_DLY_W<20> {
         YUV_EAV_SAV_F_LINE_DLY_W::new(self)
     }
     #[doc = "Bits 22:23 - Serial YUV mode Output sequence 2-pixel-pair of every scan line."]
     #[inline(always)]
+    #[must_use]
     pub fn yuv_sm(&mut self) -> YUV_SM_W<22> {
         YUV_SM_W::new(self)
     }
     #[doc = "Bits 24:25 - Serial RGB888 mode Output sequence at even lines of the panel (line 2, 4, 6, 8...)."]
     #[inline(always)]
+    #[must_use]
     pub fn rgb888_even_order(&mut self) -> RGB888_EVEN_ORDER_W<24> {
         RGB888_EVEN_ORDER_W::new(self)
     }
     #[doc = "Bits 26:27 - Serial RGB888 mode Output sequence at odd lines of the panel (line 1, 3, 5, 7...)."]
     #[inline(always)]
+    #[must_use]
     pub fn rgb888_odd_order(&mut self) -> RGB888_ODD_ORDER_W<26> {
         RGB888_ODD_ORDER_W::new(self)
     }
     #[doc = "Bits 28:31 - Set the HV mode of LCD controller"]
     #[inline(always)]
+    #[must_use]
     pub fn hv_mode(&mut self) -> HV_MODE_W<28> {
         HV_MODE_W::new(self)
     }
@@ -536,11 +542,10 @@ impl crate::Readable for LCD_HV_IF_SPEC {
 #[doc = "`write(|w| ..)` method takes [lcd_hv_if::W](W) writer structure"]
 impl crate::Writable for LCD_HV_IF_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets lcd_hv_if to value 0"]
 impl crate::Resettable for LCD_HV_IF_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

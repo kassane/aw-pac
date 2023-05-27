@@ -39,7 +39,7 @@ pub type RXA_CNT_R = crate::FieldReader<u8, u8>;
 #[doc = "Field `fifo_data_pending` reader - ADC FIFO Data Available Pending Bit"]
 pub type FIFO_DATA_PENDING_R = crate::BitReader<FIFO_DATA_PENDING_A>;
 #[doc = "ADC FIFO Data Available Pending Bit\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum FIFO_DATA_PENDING_A {
     #[doc = "0: NO Pending IRQ"]
     NO_PENDING = 0,
@@ -90,7 +90,7 @@ impl<'a, const O: u8> FIFO_DATA_PENDING_W<'a, O> {
 #[doc = "Field `fifo_overrun_pending` reader - ADC FIFO Overrun IRQ Pending"]
 pub type FIFO_OVERRUN_PENDING_R = crate::BitReader<FIFO_OVERRUN_PENDING_A>;
 #[doc = "ADC FIFO Overrun IRQ Pending\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum FIFO_OVERRUN_PENDING_A {
     #[doc = "0: No Pending IRQ"]
     NP_PENDING = 0,
@@ -158,11 +158,13 @@ impl R {
 impl W {
     #[doc = "Bit 16 - ADC FIFO Data Available Pending Bit"]
     #[inline(always)]
+    #[must_use]
     pub fn fifo_data_pending(&mut self) -> FIFO_DATA_PENDING_W<16> {
         FIFO_DATA_PENDING_W::new(self)
     }
     #[doc = "Bit 17 - ADC FIFO Overrun IRQ Pending"]
     #[inline(always)]
+    #[must_use]
     pub fn fifo_overrun_pending(&mut self) -> FIFO_OVERRUN_PENDING_W<17> {
         FIFO_OVERRUN_PENDING_W::new(self)
     }
@@ -185,11 +187,10 @@ impl crate::Readable for GP_FIFO_INTS_SPEC {
 #[doc = "`write(|w| ..)` method takes [gp_fifo_ints::W](W) writer structure"]
 impl crate::Writable for GP_FIFO_INTS_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0x0003_0000;
 }
 #[doc = "`reset()` method sets gp_fifo_ints to value 0"]
 impl crate::Resettable for GP_FIFO_INTS_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

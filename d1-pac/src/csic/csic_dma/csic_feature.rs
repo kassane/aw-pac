@@ -37,10 +37,10 @@ impl From<crate::W<CSIC_FEATURE_SPEC>> for W {
 #[doc = "Field `dma0_embedded_fbc` reader - "]
 pub type DMA0_EMBEDDED_FBC_R = crate::BitReader<DMA0_EMBEDDED_FBC_A>;
 #[doc = "\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum DMA0_EMBEDDED_FBC_A {
     #[doc = "0: No Embedded DMA"]
-    N_O_E_MBEDDED = 0,
+    NO_E_MBEDDED = 0,
     #[doc = "1: Embedded FBC"]
     E_MBEDDED = 1,
 }
@@ -55,14 +55,14 @@ impl DMA0_EMBEDDED_FBC_R {
     #[inline(always)]
     pub fn variant(&self) -> DMA0_EMBEDDED_FBC_A {
         match self.bits {
-            false => DMA0_EMBEDDED_FBC_A::N_O_E_MBEDDED,
+            false => DMA0_EMBEDDED_FBC_A::NO_E_MBEDDED,
             true => DMA0_EMBEDDED_FBC_A::E_MBEDDED,
         }
     }
-    #[doc = "Checks if the value of the field is `N_O_E_MBEDDED`"]
+    #[doc = "Checks if the value of the field is `NO_E_MBEDDED`"]
     #[inline(always)]
-    pub fn is_n_o_e_mbedded(&self) -> bool {
-        *self == DMA0_EMBEDDED_FBC_A::N_O_E_MBEDDED
+    pub fn is_no_e_mbedded(&self) -> bool {
+        *self == DMA0_EMBEDDED_FBC_A::NO_E_MBEDDED
     }
     #[doc = "Checks if the value of the field is `E_MBEDDED`"]
     #[inline(always)]
@@ -73,10 +73,10 @@ impl DMA0_EMBEDDED_FBC_R {
 #[doc = "Field `dma0_embedded_lbc` reader - "]
 pub type DMA0_EMBEDDED_LBC_R = crate::BitReader<DMA0_EMBEDDED_LBC_A>;
 #[doc = "\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum DMA0_EMBEDDED_LBC_A {
     #[doc = "0: No Embedded LBC"]
-    N_O_E_MBEDDED = 0,
+    NO_E_MBEDDED = 0,
     #[doc = "1: Embedded LBC"]
     E_MBEDDED = 1,
 }
@@ -91,14 +91,14 @@ impl DMA0_EMBEDDED_LBC_R {
     #[inline(always)]
     pub fn variant(&self) -> DMA0_EMBEDDED_LBC_A {
         match self.bits {
-            false => DMA0_EMBEDDED_LBC_A::N_O_E_MBEDDED,
+            false => DMA0_EMBEDDED_LBC_A::NO_E_MBEDDED,
             true => DMA0_EMBEDDED_LBC_A::E_MBEDDED,
         }
     }
-    #[doc = "Checks if the value of the field is `N_O_E_MBEDDED`"]
+    #[doc = "Checks if the value of the field is `NO_E_MBEDDED`"]
     #[inline(always)]
-    pub fn is_n_o_e_mbedded(&self) -> bool {
-        *self == DMA0_EMBEDDED_LBC_A::N_O_E_MBEDDED
+    pub fn is_no_e_mbedded(&self) -> bool {
+        *self == DMA0_EMBEDDED_LBC_A::NO_E_MBEDDED
     }
     #[doc = "Checks if the value of the field is `E_MBEDDED`"]
     #[inline(always)]
@@ -138,11 +138,10 @@ impl crate::Readable for CSIC_FEATURE_SPEC {
 #[doc = "`write(|w| ..)` method takes [csic_feature::W](W) writer structure"]
 impl crate::Writable for CSIC_FEATURE_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets csic_feature to value 0"]
 impl crate::Resettable for CSIC_FEATURE_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

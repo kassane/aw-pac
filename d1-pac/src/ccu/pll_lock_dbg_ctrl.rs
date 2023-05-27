@@ -37,7 +37,7 @@ impl From<crate::W<PLL_LOCK_DBG_CTRL_SPEC>> for W {
 #[doc = "Field `clk_src_sel` reader - Clock Source Select"]
 pub type CLK_SRC_SEL_R = crate::FieldReader<u8, CLK_SRC_SEL_A>;
 #[doc = "Clock Source Select\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum CLK_SRC_SEL_A {
     #[doc = "0: `0`"]
@@ -168,7 +168,7 @@ impl<'a, const O: u8> CLK_SRC_SEL_W<'a, O> {
 #[doc = "Field `pll_lock_flag_en` reader - Debug Enable"]
 pub type PLL_LOCK_FLAG_EN_R = crate::BitReader<PLL_LOCK_FLAG_EN_A>;
 #[doc = "Debug Enable\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum PLL_LOCK_FLAG_EN_A {
     #[doc = "0: `0`"]
     DISABLE = 0,
@@ -231,11 +231,13 @@ impl R {
 impl W {
     #[doc = "Bits 20:22 - Clock Source Select"]
     #[inline(always)]
+    #[must_use]
     pub fn clk_src_sel(&mut self) -> CLK_SRC_SEL_W<20> {
         CLK_SRC_SEL_W::new(self)
     }
     #[doc = "Bit 31 - Debug Enable"]
     #[inline(always)]
+    #[must_use]
     pub fn pll_lock_flag_en(&mut self) -> PLL_LOCK_FLAG_EN_W<31> {
         PLL_LOCK_FLAG_EN_W::new(self)
     }
@@ -258,11 +260,10 @@ impl crate::Readable for PLL_LOCK_DBG_CTRL_SPEC {
 #[doc = "`write(|w| ..)` method takes [pll_lock_dbg_ctrl::W](W) writer structure"]
 impl crate::Writable for PLL_LOCK_DBG_CTRL_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets pll_lock_dbg_ctrl to value 0"]
 impl crate::Resettable for PLL_LOCK_DBG_CTRL_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

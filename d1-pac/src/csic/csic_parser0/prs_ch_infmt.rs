@@ -37,7 +37,7 @@ impl From<crate::W<PRS_CH_INFMT_SPEC>> for W {
 #[doc = "Field `input_fmt` reader - input data format"]
 pub type INPUT_FMT_R = crate::FieldReader<u8, INPUT_FMT_A>;
 #[doc = "input data format\n\nValue on reset: 3"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum INPUT_FMT_A {
     #[doc = "0: RAW stream"]
@@ -110,6 +110,7 @@ impl R {
 impl W {
     #[doc = "Bits 0:3 - input data format"]
     #[inline(always)]
+    #[must_use]
     pub fn input_fmt(&mut self) -> INPUT_FMT_W<0> {
         INPUT_FMT_W::new(self)
     }
@@ -120,8 +121,7 @@ impl W {
         self
     }
 }
-#[doc = "Parser Channel\\[i\\]
-Input Format Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [prs_ch_infmt](index.html) module"]
+#[doc = "Parser Channel\\[i\\] Input Format Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [prs_ch_infmt](index.html) module"]
 pub struct PRS_CH_INFMT_SPEC;
 impl crate::RegisterSpec for PRS_CH_INFMT_SPEC {
     type Ux = u32;
@@ -133,11 +133,10 @@ impl crate::Readable for PRS_CH_INFMT_SPEC {
 #[doc = "`write(|w| ..)` method takes [prs_ch_infmt::W](W) writer structure"]
 impl crate::Writable for PRS_CH_INFMT_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets prs_ch%s_infmt to value 0x03"]
 impl crate::Resettable for PRS_CH_INFMT_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0x03
-    }
+    const RESET_VALUE: Self::Ux = 0x03;
 }

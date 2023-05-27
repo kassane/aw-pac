@@ -5,7 +5,7 @@ pub struct RegisterBlock {
     pub msgbox: crate::ArrayProxy<MSGBOX, 2, 0x0100>,
 }
 #[doc = "Communicate with CPU\\[N\\]"]
-pub use msgbox::MSGBOX;
+pub use self::msgbox::MSGBOX;
 #[doc = r"Cluster"]
 #[doc = "Communicate with CPU\\[N\\]"]
 pub mod msgbox;

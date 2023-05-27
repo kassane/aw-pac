@@ -37,7 +37,7 @@ impl From<crate::W<PIER_SPEC>> for W {
 #[doc = "Field `pcie[0-7]` reader - PWM Channel Interrupt Enable"]
 pub type PCIE_R = crate::BitReader<PCIE_A>;
 #[doc = "PWM Channel Interrupt Enable\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum PCIE_A {
     #[doc = "0: PWM Channel Interrupt Disable"]
     DISABLE = 0,
@@ -87,7 +87,7 @@ impl<'a, const O: u8> PCIE_W<'a, O> {
 #[doc = "Field `pgie[0-3]` reader - PWM Group Interrupt Enable"]
 pub type PGIE_R = crate::BitReader<PGIE_A>;
 #[doc = "PWM Group Interrupt Enable\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum PGIE_A {
     #[doc = "0: Disable"]
     DISABLE = 0,
@@ -209,71 +209,85 @@ impl R {
 impl W {
     #[doc = "PWM Channel Interrupt Enable"]
     #[inline(always)]
+    #[must_use]
     pub unsafe fn pcie<const O: u8>(&mut self) -> PCIE_W<O> {
         PCIE_W::new(self)
     }
     #[doc = "Bit 0 - PWM Channel Interrupt Enable"]
     #[inline(always)]
+    #[must_use]
     pub fn pcie0(&mut self) -> PCIE_W<0> {
         PCIE_W::new(self)
     }
     #[doc = "Bit 1 - PWM Channel Interrupt Enable"]
     #[inline(always)]
+    #[must_use]
     pub fn pcie1(&mut self) -> PCIE_W<1> {
         PCIE_W::new(self)
     }
     #[doc = "Bit 2 - PWM Channel Interrupt Enable"]
     #[inline(always)]
+    #[must_use]
     pub fn pcie2(&mut self) -> PCIE_W<2> {
         PCIE_W::new(self)
     }
     #[doc = "Bit 3 - PWM Channel Interrupt Enable"]
     #[inline(always)]
+    #[must_use]
     pub fn pcie3(&mut self) -> PCIE_W<3> {
         PCIE_W::new(self)
     }
     #[doc = "Bit 4 - PWM Channel Interrupt Enable"]
     #[inline(always)]
+    #[must_use]
     pub fn pcie4(&mut self) -> PCIE_W<4> {
         PCIE_W::new(self)
     }
     #[doc = "Bit 5 - PWM Channel Interrupt Enable"]
     #[inline(always)]
+    #[must_use]
     pub fn pcie5(&mut self) -> PCIE_W<5> {
         PCIE_W::new(self)
     }
     #[doc = "Bit 6 - PWM Channel Interrupt Enable"]
     #[inline(always)]
+    #[must_use]
     pub fn pcie6(&mut self) -> PCIE_W<6> {
         PCIE_W::new(self)
     }
     #[doc = "Bit 7 - PWM Channel Interrupt Enable"]
     #[inline(always)]
+    #[must_use]
     pub fn pcie7(&mut self) -> PCIE_W<7> {
         PCIE_W::new(self)
     }
     #[doc = "PWM Group Interrupt Enable"]
     #[inline(always)]
+    #[must_use]
     pub unsafe fn pgie<const O: u8>(&mut self) -> PGIE_W<O> {
         PGIE_W::new(self)
     }
     #[doc = "Bit 16 - PWM Group Interrupt Enable"]
     #[inline(always)]
+    #[must_use]
     pub fn pgie0(&mut self) -> PGIE_W<16> {
         PGIE_W::new(self)
     }
     #[doc = "Bit 17 - PWM Group Interrupt Enable"]
     #[inline(always)]
+    #[must_use]
     pub fn pgie1(&mut self) -> PGIE_W<17> {
         PGIE_W::new(self)
     }
     #[doc = "Bit 18 - PWM Group Interrupt Enable"]
     #[inline(always)]
+    #[must_use]
     pub fn pgie2(&mut self) -> PGIE_W<18> {
         PGIE_W::new(self)
     }
     #[doc = "Bit 19 - PWM Group Interrupt Enable"]
     #[inline(always)]
+    #[must_use]
     pub fn pgie3(&mut self) -> PGIE_W<19> {
         PGIE_W::new(self)
     }
@@ -296,11 +310,10 @@ impl crate::Readable for PIER_SPEC {
 #[doc = "`write(|w| ..)` method takes [pier::W](W) writer structure"]
 impl crate::Writable for PIER_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets pier to value 0"]
 impl crate::Resettable for PIER_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

@@ -42,12 +42,13 @@ impl R {
     #[doc = "Bits 5:31 - Link Pointer (LP)\n\nThis field contains the address of the next asynchronous queue head to be executed.\n\nThese bits correspond to memory address signals \\[31:5\\], respectively"]
     #[inline(always)]
     pub fn lp(&self) -> LP_R {
-        LP_R::new(((self.bits >> 5) & 0x07ff_ffff) as u32)
+        LP_R::new((self.bits >> 5) & 0x07ff_ffff)
     }
 }
 impl W {
     #[doc = "Bits 5:31 - Link Pointer (LP)\n\nThis field contains the address of the next asynchronous queue head to be executed.\n\nThese bits correspond to memory address signals \\[31:5\\], respectively"]
     #[inline(always)]
+    #[must_use]
     pub fn lp(&mut self) -> LP_W<5> {
         LP_W::new(self)
     }
@@ -70,11 +71,10 @@ impl crate::Readable for ASYNCLISTADDR_SPEC {
 #[doc = "`write(|w| ..)` method takes [asynclistaddr::W](W) writer structure"]
 impl crate::Writable for ASYNCLISTADDR_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets asynclistaddr to value 0"]
 impl crate::Resettable for ASYNCLISTADDR_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

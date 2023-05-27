@@ -37,12 +37,12 @@ impl From<crate::W<IOMMU_PC_IVLD_ENABLE_SPEC>> for W {
 #[doc = "Field `pc_ivld_enable` reader - Enable PTW Cache invalidation operation\n\nAfter invalidation operation is completed, the bit can clear automatically.\n\nAfter or before invalidation operation starts, there is no absolute relationship between the same address switch operation and invalidation operation."]
 pub type PC_IVLD_ENABLE_R = crate::BitReader<PC_IVLD_ENABLE_A>;
 #[doc = "Enable PTW Cache invalidation operation\n\nAfter invalidation operation is completed, the bit can clear automatically.\n\nAfter or before invalidation operation starts, there is no absolute relationship between the same address switch operation and invalidation operation.\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum PC_IVLD_ENABLE_A {
     #[doc = "0: No operation or operation is completed"]
-    N_O_OPERATION_OR_COMPLETED = 0,
+    NO_OPERATION_OR_COMPLETED = 0,
     #[doc = "1: Enable invalidation operation"]
-    E_NABLE = 1,
+    ENABLE = 1,
 }
 impl From<PC_IVLD_ENABLE_A> for bool {
     #[inline(always)]
@@ -55,19 +55,19 @@ impl PC_IVLD_ENABLE_R {
     #[inline(always)]
     pub fn variant(&self) -> PC_IVLD_ENABLE_A {
         match self.bits {
-            false => PC_IVLD_ENABLE_A::N_O_OPERATION_OR_COMPLETED,
-            true => PC_IVLD_ENABLE_A::E_NABLE,
+            false => PC_IVLD_ENABLE_A::NO_OPERATION_OR_COMPLETED,
+            true => PC_IVLD_ENABLE_A::ENABLE,
         }
     }
-    #[doc = "Checks if the value of the field is `N_O_OPERATION_OR_COMPLETED`"]
+    #[doc = "Checks if the value of the field is `NO_OPERATION_OR_COMPLETED`"]
     #[inline(always)]
-    pub fn is_n_o_operation_or_completed(&self) -> bool {
-        *self == PC_IVLD_ENABLE_A::N_O_OPERATION_OR_COMPLETED
+    pub fn is_no_operation_or_completed(&self) -> bool {
+        *self == PC_IVLD_ENABLE_A::NO_OPERATION_OR_COMPLETED
     }
-    #[doc = "Checks if the value of the field is `E_NABLE`"]
+    #[doc = "Checks if the value of the field is `ENABLE`"]
     #[inline(always)]
-    pub fn is_e_nable(&self) -> bool {
-        *self == PC_IVLD_ENABLE_A::E_NABLE
+    pub fn is_enable(&self) -> bool {
+        *self == PC_IVLD_ENABLE_A::ENABLE
     }
 }
 #[doc = "Field `pc_ivld_enable` writer - Enable PTW Cache invalidation operation\n\nAfter invalidation operation is completed, the bit can clear automatically.\n\nAfter or before invalidation operation starts, there is no absolute relationship between the same address switch operation and invalidation operation."]
@@ -76,13 +76,13 @@ pub type PC_IVLD_ENABLE_W<'a, const O: u8> =
 impl<'a, const O: u8> PC_IVLD_ENABLE_W<'a, O> {
     #[doc = "No operation or operation is completed"]
     #[inline(always)]
-    pub fn n_o_operation_or_completed(self) -> &'a mut W {
-        self.variant(PC_IVLD_ENABLE_A::N_O_OPERATION_OR_COMPLETED)
+    pub fn no_operation_or_completed(self) -> &'a mut W {
+        self.variant(PC_IVLD_ENABLE_A::NO_OPERATION_OR_COMPLETED)
     }
     #[doc = "Enable invalidation operation"]
     #[inline(always)]
-    pub fn e_nable(self) -> &'a mut W {
-        self.variant(PC_IVLD_ENABLE_A::E_NABLE)
+    pub fn enable(self) -> &'a mut W {
+        self.variant(PC_IVLD_ENABLE_A::ENABLE)
     }
 }
 impl R {
@@ -95,6 +95,7 @@ impl R {
 impl W {
     #[doc = "Bit 0 - Enable PTW Cache invalidation operation\n\nAfter invalidation operation is completed, the bit can clear automatically.\n\nAfter or before invalidation operation starts, there is no absolute relationship between the same address switch operation and invalidation operation."]
     #[inline(always)]
+    #[must_use]
     pub fn pc_ivld_enable(&mut self) -> PC_IVLD_ENABLE_W<0> {
         PC_IVLD_ENABLE_W::new(self)
     }
@@ -117,11 +118,10 @@ impl crate::Readable for IOMMU_PC_IVLD_ENABLE_SPEC {
 #[doc = "`write(|w| ..)` method takes [iommu_pc_ivld_enable::W](W) writer structure"]
 impl crate::Writable for IOMMU_PC_IVLD_ENABLE_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets iommu_pc_ivld_enable to value 0"]
 impl crate::Resettable for IOMMU_PC_IVLD_ENABLE_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

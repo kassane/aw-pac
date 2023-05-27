@@ -37,25 +37,25 @@ impl From<crate::W<LCD_CTL_SPEC>> for W {
 #[doc = "Field `lcd_src_sel` reader - LCD Source Select"]
 pub type LCD_SRC_SEL_R = crate::FieldReader<u8, LCD_SRC_SEL_A>;
 #[doc = "LCD Source Select\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum LCD_SRC_SEL_A {
     #[doc = "0: DE"]
     DE = 0,
     #[doc = "1: Color Check"]
-    C_OLOR_C_HECK = 1,
+    COLOR_CHECK = 1,
     #[doc = "2: Grayscale Check"]
-    G_RAYSCALE_C_HECK = 2,
+    GRAYSCALE_CHECK = 2,
     #[doc = "3: Black by White Check"]
-    B_LACK_BY_W_HITE_C_HECK = 3,
+    BLACK_BY_WHITE_CHECK = 3,
     #[doc = "4: Test Data all 0"]
-    T_EST_D_ATA_ALL_0 = 4,
+    TEST_DATA_ALL_0 = 4,
     #[doc = "5: Test Data all 1"]
-    T_EST_D_ATA_ALL_1 = 5,
+    TEST_DATA_ALL_1 = 5,
     #[doc = "6: Reversed"]
-    R_EVERSED = 6,
+    REVERSED = 6,
     #[doc = "7: Gridding Check"]
-    G_RIDDING_C_HECK = 7,
+    GRIDDING_CHECK = 7,
 }
 impl From<LCD_SRC_SEL_A> for u8 {
     #[inline(always)]
@@ -69,13 +69,13 @@ impl LCD_SRC_SEL_R {
     pub fn variant(&self) -> LCD_SRC_SEL_A {
         match self.bits {
             0 => LCD_SRC_SEL_A::DE,
-            1 => LCD_SRC_SEL_A::C_OLOR_C_HECK,
-            2 => LCD_SRC_SEL_A::G_RAYSCALE_C_HECK,
-            3 => LCD_SRC_SEL_A::B_LACK_BY_W_HITE_C_HECK,
-            4 => LCD_SRC_SEL_A::T_EST_D_ATA_ALL_0,
-            5 => LCD_SRC_SEL_A::T_EST_D_ATA_ALL_1,
-            6 => LCD_SRC_SEL_A::R_EVERSED,
-            7 => LCD_SRC_SEL_A::G_RIDDING_C_HECK,
+            1 => LCD_SRC_SEL_A::COLOR_CHECK,
+            2 => LCD_SRC_SEL_A::GRAYSCALE_CHECK,
+            3 => LCD_SRC_SEL_A::BLACK_BY_WHITE_CHECK,
+            4 => LCD_SRC_SEL_A::TEST_DATA_ALL_0,
+            5 => LCD_SRC_SEL_A::TEST_DATA_ALL_1,
+            6 => LCD_SRC_SEL_A::REVERSED,
+            7 => LCD_SRC_SEL_A::GRIDDING_CHECK,
             _ => unreachable!(),
         }
     }
@@ -84,40 +84,40 @@ impl LCD_SRC_SEL_R {
     pub fn is_de(&self) -> bool {
         *self == LCD_SRC_SEL_A::DE
     }
-    #[doc = "Checks if the value of the field is `C_OLOR_C_HECK`"]
+    #[doc = "Checks if the value of the field is `COLOR_CHECK`"]
     #[inline(always)]
-    pub fn is_c_olor_c_heck(&self) -> bool {
-        *self == LCD_SRC_SEL_A::C_OLOR_C_HECK
+    pub fn is_color_check(&self) -> bool {
+        *self == LCD_SRC_SEL_A::COLOR_CHECK
     }
-    #[doc = "Checks if the value of the field is `G_RAYSCALE_C_HECK`"]
+    #[doc = "Checks if the value of the field is `GRAYSCALE_CHECK`"]
     #[inline(always)]
-    pub fn is_g_rayscale_c_heck(&self) -> bool {
-        *self == LCD_SRC_SEL_A::G_RAYSCALE_C_HECK
+    pub fn is_grayscale_check(&self) -> bool {
+        *self == LCD_SRC_SEL_A::GRAYSCALE_CHECK
     }
-    #[doc = "Checks if the value of the field is `B_LACK_BY_W_HITE_C_HECK`"]
+    #[doc = "Checks if the value of the field is `BLACK_BY_WHITE_CHECK`"]
     #[inline(always)]
-    pub fn is_b_lack_by_w_hite_c_heck(&self) -> bool {
-        *self == LCD_SRC_SEL_A::B_LACK_BY_W_HITE_C_HECK
+    pub fn is_black_by_white_check(&self) -> bool {
+        *self == LCD_SRC_SEL_A::BLACK_BY_WHITE_CHECK
     }
-    #[doc = "Checks if the value of the field is `T_EST_D_ATA_ALL_0`"]
+    #[doc = "Checks if the value of the field is `TEST_DATA_ALL_0`"]
     #[inline(always)]
-    pub fn is_t_est_d_ata_all_0(&self) -> bool {
-        *self == LCD_SRC_SEL_A::T_EST_D_ATA_ALL_0
+    pub fn is_test_data_all_0(&self) -> bool {
+        *self == LCD_SRC_SEL_A::TEST_DATA_ALL_0
     }
-    #[doc = "Checks if the value of the field is `T_EST_D_ATA_ALL_1`"]
+    #[doc = "Checks if the value of the field is `TEST_DATA_ALL_1`"]
     #[inline(always)]
-    pub fn is_t_est_d_ata_all_1(&self) -> bool {
-        *self == LCD_SRC_SEL_A::T_EST_D_ATA_ALL_1
+    pub fn is_test_data_all_1(&self) -> bool {
+        *self == LCD_SRC_SEL_A::TEST_DATA_ALL_1
     }
-    #[doc = "Checks if the value of the field is `R_EVERSED`"]
+    #[doc = "Checks if the value of the field is `REVERSED`"]
     #[inline(always)]
-    pub fn is_r_eversed(&self) -> bool {
-        *self == LCD_SRC_SEL_A::R_EVERSED
+    pub fn is_reversed(&self) -> bool {
+        *self == LCD_SRC_SEL_A::REVERSED
     }
-    #[doc = "Checks if the value of the field is `G_RIDDING_C_HECK`"]
+    #[doc = "Checks if the value of the field is `GRIDDING_CHECK`"]
     #[inline(always)]
-    pub fn is_g_ridding_c_heck(&self) -> bool {
-        *self == LCD_SRC_SEL_A::G_RIDDING_C_HECK
+    pub fn is_gridding_check(&self) -> bool {
+        *self == LCD_SRC_SEL_A::GRIDDING_CHECK
     }
 }
 #[doc = "Field `lcd_src_sel` writer - LCD Source Select"]
@@ -131,38 +131,38 @@ impl<'a, const O: u8> LCD_SRC_SEL_W<'a, O> {
     }
     #[doc = "Color Check"]
     #[inline(always)]
-    pub fn c_olor_c_heck(self) -> &'a mut W {
-        self.variant(LCD_SRC_SEL_A::C_OLOR_C_HECK)
+    pub fn color_check(self) -> &'a mut W {
+        self.variant(LCD_SRC_SEL_A::COLOR_CHECK)
     }
     #[doc = "Grayscale Check"]
     #[inline(always)]
-    pub fn g_rayscale_c_heck(self) -> &'a mut W {
-        self.variant(LCD_SRC_SEL_A::G_RAYSCALE_C_HECK)
+    pub fn grayscale_check(self) -> &'a mut W {
+        self.variant(LCD_SRC_SEL_A::GRAYSCALE_CHECK)
     }
     #[doc = "Black by White Check"]
     #[inline(always)]
-    pub fn b_lack_by_w_hite_c_heck(self) -> &'a mut W {
-        self.variant(LCD_SRC_SEL_A::B_LACK_BY_W_HITE_C_HECK)
+    pub fn black_by_white_check(self) -> &'a mut W {
+        self.variant(LCD_SRC_SEL_A::BLACK_BY_WHITE_CHECK)
     }
     #[doc = "Test Data all 0"]
     #[inline(always)]
-    pub fn t_est_d_ata_all_0(self) -> &'a mut W {
-        self.variant(LCD_SRC_SEL_A::T_EST_D_ATA_ALL_0)
+    pub fn test_data_all_0(self) -> &'a mut W {
+        self.variant(LCD_SRC_SEL_A::TEST_DATA_ALL_0)
     }
     #[doc = "Test Data all 1"]
     #[inline(always)]
-    pub fn t_est_d_ata_all_1(self) -> &'a mut W {
-        self.variant(LCD_SRC_SEL_A::T_EST_D_ATA_ALL_1)
+    pub fn test_data_all_1(self) -> &'a mut W {
+        self.variant(LCD_SRC_SEL_A::TEST_DATA_ALL_1)
     }
     #[doc = "Reversed"]
     #[inline(always)]
-    pub fn r_eversed(self) -> &'a mut W {
-        self.variant(LCD_SRC_SEL_A::R_EVERSED)
+    pub fn reversed(self) -> &'a mut W {
+        self.variant(LCD_SRC_SEL_A::REVERSED)
     }
     #[doc = "Gridding Check"]
     #[inline(always)]
-    pub fn g_ridding_c_heck(self) -> &'a mut W {
-        self.variant(LCD_SRC_SEL_A::G_RIDDING_C_HECK)
+    pub fn gridding_check(self) -> &'a mut W {
+        self.variant(LCD_SRC_SEL_A::GRIDDING_CHECK)
     }
 }
 #[doc = "Field `lcd_start_dly` reader - The unit of delay is T_line.\n\nNote: Valid only when LCD_EN == 1"]
@@ -172,12 +172,12 @@ pub type LCD_START_DLY_W<'a, const O: u8> = crate::FieldWriter<'a, u32, LCD_CTL_
 #[doc = "Field `lcd_interlace_en` reader - This flag is valid only when LCD_EN == 1"]
 pub type LCD_INTERLACE_EN_R = crate::BitReader<LCD_INTERLACE_EN_A>;
 #[doc = "This flag is valid only when LCD_EN == 1\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum LCD_INTERLACE_EN_A {
     #[doc = "0: Disable"]
-    D_ISABLE = 0,
+    DISABLE = 0,
     #[doc = "1: Enable"]
-    E_NABLE = 1,
+    ENABLE = 1,
 }
 impl From<LCD_INTERLACE_EN_A> for bool {
     #[inline(always)]
@@ -190,19 +190,19 @@ impl LCD_INTERLACE_EN_R {
     #[inline(always)]
     pub fn variant(&self) -> LCD_INTERLACE_EN_A {
         match self.bits {
-            false => LCD_INTERLACE_EN_A::D_ISABLE,
-            true => LCD_INTERLACE_EN_A::E_NABLE,
+            false => LCD_INTERLACE_EN_A::DISABLE,
+            true => LCD_INTERLACE_EN_A::ENABLE,
         }
     }
-    #[doc = "Checks if the value of the field is `D_ISABLE`"]
+    #[doc = "Checks if the value of the field is `DISABLE`"]
     #[inline(always)]
-    pub fn is_d_isable(&self) -> bool {
-        *self == LCD_INTERLACE_EN_A::D_ISABLE
+    pub fn is_disable(&self) -> bool {
+        *self == LCD_INTERLACE_EN_A::DISABLE
     }
-    #[doc = "Checks if the value of the field is `E_NABLE`"]
+    #[doc = "Checks if the value of the field is `ENABLE`"]
     #[inline(always)]
-    pub fn is_e_nable(&self) -> bool {
-        *self == LCD_INTERLACE_EN_A::E_NABLE
+    pub fn is_enable(&self) -> bool {
+        *self == LCD_INTERLACE_EN_A::ENABLE
     }
 }
 #[doc = "Field `lcd_interlace_en` writer - This flag is valid only when LCD_EN == 1"]
@@ -211,13 +211,13 @@ pub type LCD_INTERLACE_EN_W<'a, const O: u8> =
 impl<'a, const O: u8> LCD_INTERLACE_EN_W<'a, O> {
     #[doc = "Disable"]
     #[inline(always)]
-    pub fn d_isable(self) -> &'a mut W {
-        self.variant(LCD_INTERLACE_EN_A::D_ISABLE)
+    pub fn disable(self) -> &'a mut W {
+        self.variant(LCD_INTERLACE_EN_A::DISABLE)
     }
     #[doc = "Enable"]
     #[inline(always)]
-    pub fn e_nable(self) -> &'a mut W {
-        self.variant(LCD_INTERLACE_EN_A::E_NABLE)
+    pub fn enable(self) -> &'a mut W {
+        self.variant(LCD_INTERLACE_EN_A::ENABLE)
     }
 }
 #[doc = "Field `lcd_fifo1_rst` reader - Writing 1 and then 0 to this bit will reset FIFO 1\n\nNote: 1 holding time must more than 1 DCLK"]
@@ -227,7 +227,7 @@ pub type LCD_FIFO1_RST_W<'a, const O: u8> = crate::BitWriter<'a, u32, LCD_CTL_SP
 #[doc = "Field `lcd_rb_swap` reader - Enable the function to swap red data and blue data in fifo1."]
 pub type LCD_RB_SWAP_R = crate::BitReader<LCD_RB_SWAP_A>;
 #[doc = "Enable the function to swap red data and blue data in fifo1.\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum LCD_RB_SWAP_A {
     #[doc = "0: Default"]
     D_EFAULT = 0,
@@ -277,7 +277,7 @@ impl<'a, const O: u8> LCD_RB_SWAP_W<'a, O> {
 #[doc = "Field `lcd_if` reader - Set the interface type of LCD controller"]
 pub type LCD_IF_R = crate::FieldReader<u8, LCD_IF_A>;
 #[doc = "Set the interface type of LCD controller\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum LCD_IF_A {
     #[doc = "0: HV (Sync + DE)"]
@@ -329,12 +329,12 @@ impl<'a, const O: u8> LCD_IF_W<'a, O> {
 #[doc = "Field `lcd_en` reader - It executes at the beginning of the first blank line of LCD timing."]
 pub type LCD_EN_R = crate::BitReader<LCD_EN_A>;
 #[doc = "It executes at the beginning of the first blank line of LCD timing.\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum LCD_EN_A {
     #[doc = "0: Disable"]
-    D_ISABLE = 0,
+    DISABLE = 0,
     #[doc = "1: Enable"]
-    E_NABLE = 1,
+    ENABLE = 1,
 }
 impl From<LCD_EN_A> for bool {
     #[inline(always)]
@@ -347,19 +347,19 @@ impl LCD_EN_R {
     #[inline(always)]
     pub fn variant(&self) -> LCD_EN_A {
         match self.bits {
-            false => LCD_EN_A::D_ISABLE,
-            true => LCD_EN_A::E_NABLE,
+            false => LCD_EN_A::DISABLE,
+            true => LCD_EN_A::ENABLE,
         }
     }
-    #[doc = "Checks if the value of the field is `D_ISABLE`"]
+    #[doc = "Checks if the value of the field is `DISABLE`"]
     #[inline(always)]
-    pub fn is_d_isable(&self) -> bool {
-        *self == LCD_EN_A::D_ISABLE
+    pub fn is_disable(&self) -> bool {
+        *self == LCD_EN_A::DISABLE
     }
-    #[doc = "Checks if the value of the field is `E_NABLE`"]
+    #[doc = "Checks if the value of the field is `ENABLE`"]
     #[inline(always)]
-    pub fn is_e_nable(&self) -> bool {
-        *self == LCD_EN_A::E_NABLE
+    pub fn is_enable(&self) -> bool {
+        *self == LCD_EN_A::ENABLE
     }
 }
 #[doc = "Field `lcd_en` writer - It executes at the beginning of the first blank line of LCD timing."]
@@ -367,13 +367,13 @@ pub type LCD_EN_W<'a, const O: u8> = crate::BitWriter<'a, u32, LCD_CTL_SPEC, LCD
 impl<'a, const O: u8> LCD_EN_W<'a, O> {
     #[doc = "Disable"]
     #[inline(always)]
-    pub fn d_isable(self) -> &'a mut W {
-        self.variant(LCD_EN_A::D_ISABLE)
+    pub fn disable(self) -> &'a mut W {
+        self.variant(LCD_EN_A::DISABLE)
     }
     #[doc = "Enable"]
     #[inline(always)]
-    pub fn e_nable(self) -> &'a mut W {
-        self.variant(LCD_EN_A::E_NABLE)
+    pub fn enable(self) -> &'a mut W {
+        self.variant(LCD_EN_A::ENABLE)
     }
 }
 impl R {
@@ -416,36 +416,43 @@ impl R {
 impl W {
     #[doc = "Bits 0:2 - LCD Source Select"]
     #[inline(always)]
+    #[must_use]
     pub fn lcd_src_sel(&mut self) -> LCD_SRC_SEL_W<0> {
         LCD_SRC_SEL_W::new(self)
     }
     #[doc = "Bits 4:8 - The unit of delay is T_line.\n\nNote: Valid only when LCD_EN == 1"]
     #[inline(always)]
+    #[must_use]
     pub fn lcd_start_dly(&mut self) -> LCD_START_DLY_W<4> {
         LCD_START_DLY_W::new(self)
     }
     #[doc = "Bit 20 - This flag is valid only when LCD_EN == 1"]
     #[inline(always)]
+    #[must_use]
     pub fn lcd_interlace_en(&mut self) -> LCD_INTERLACE_EN_W<20> {
         LCD_INTERLACE_EN_W::new(self)
     }
     #[doc = "Bit 21 - Writing 1 and then 0 to this bit will reset FIFO 1\n\nNote: 1 holding time must more than 1 DCLK"]
     #[inline(always)]
+    #[must_use]
     pub fn lcd_fifo1_rst(&mut self) -> LCD_FIFO1_RST_W<21> {
         LCD_FIFO1_RST_W::new(self)
     }
     #[doc = "Bit 23 - Enable the function to swap red data and blue data in fifo1."]
     #[inline(always)]
+    #[must_use]
     pub fn lcd_rb_swap(&mut self) -> LCD_RB_SWAP_W<23> {
         LCD_RB_SWAP_W::new(self)
     }
     #[doc = "Bits 24:25 - Set the interface type of LCD controller"]
     #[inline(always)]
+    #[must_use]
     pub fn lcd_if(&mut self) -> LCD_IF_W<24> {
         LCD_IF_W::new(self)
     }
     #[doc = "Bit 31 - It executes at the beginning of the first blank line of LCD timing."]
     #[inline(always)]
+    #[must_use]
     pub fn lcd_en(&mut self) -> LCD_EN_W<31> {
         LCD_EN_W::new(self)
     }
@@ -468,11 +475,10 @@ impl crate::Readable for LCD_CTL_SPEC {
 #[doc = "`write(|w| ..)` method takes [lcd_ctl::W](W) writer structure"]
 impl crate::Writable for LCD_CTL_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets lcd_ctl to value 0"]
 impl crate::Resettable for LCD_CTL_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

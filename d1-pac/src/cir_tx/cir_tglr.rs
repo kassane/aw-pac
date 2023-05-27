@@ -37,7 +37,7 @@ impl From<crate::W<CIR_TGLR_SPEC>> for W {
 #[doc = "Field `txen` reader - Transmit Block Enable"]
 pub type TXEN_R = crate::BitReader<TXEN_A>;
 #[doc = "Transmit Block Enable\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum TXEN_A {
     #[doc = "0: Disable the CIR Transmitter"]
     DISABLE = 0,
@@ -91,7 +91,7 @@ pub type TR_W<'a, const O: u8> = crate::BitWriter<'a, u32, CIR_TGLR_SPEC, bool, 
 #[doc = "Field `tppi` reader - Transmit Pulse Polarity Invert"]
 pub type TPPI_R = crate::BitReader<TPPI_A>;
 #[doc = "Transmit Pulse Polarity Invert\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum TPPI_A {
     #[doc = "0: Not invert transmit pulse"]
     NOT_INVERT = 0,
@@ -141,7 +141,7 @@ impl<'a, const O: u8> TPPI_W<'a, O> {
 #[doc = "Field `drmc` reader - Duty ratio of modulated carrier is high level/low level."]
 pub type DRMC_R = crate::FieldReader<u8, DRMC_A>;
 #[doc = "Duty ratio of modulated carrier is high level/low level.\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum DRMC_A {
     #[doc = "0: Low level is equal to high level"]
@@ -206,7 +206,7 @@ impl<'a, const O: u8> DRMC_W<'a, O> {
 #[doc = "Field `ims` reader - Internal Modulation Select"]
 pub type IMS_R = crate::BitReader<IMS_A>;
 #[doc = "Internal Modulation Select\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum IMS_A {
     #[doc = "0: The transmitting signal is not modulated"]
     NOT_MODULATED = 0,
@@ -283,26 +283,31 @@ impl R {
 impl W {
     #[doc = "Bit 0 - Transmit Block Enable"]
     #[inline(always)]
+    #[must_use]
     pub fn txen(&mut self) -> TXEN_W<0> {
         TXEN_W::new(self)
     }
     #[doc = "Bit 1 - Transmit Reset\n\nWhen this bit is set, the transmitting is reset. The FIFO will be flushed, the TIC filed and the CSS field will be cleared during Transmit Reset. This field will automatically be cleared when the Transmit Reset is finished, and the CIR transmitter will state Idle."]
     #[inline(always)]
+    #[must_use]
     pub fn tr(&mut self) -> TR_W<1> {
         TR_W::new(self)
     }
     #[doc = "Bit 2 - Transmit Pulse Polarity Invert"]
     #[inline(always)]
+    #[must_use]
     pub fn tppi(&mut self) -> TPPI_W<2> {
         TPPI_W::new(self)
     }
     #[doc = "Bits 5:6 - Duty ratio of modulated carrier is high level/low level."]
     #[inline(always)]
+    #[must_use]
     pub fn drmc(&mut self) -> DRMC_W<5> {
         DRMC_W::new(self)
     }
     #[doc = "Bit 7 - Internal Modulation Select"]
     #[inline(always)]
+    #[must_use]
     pub fn ims(&mut self) -> IMS_W<7> {
         IMS_W::new(self)
     }
@@ -325,11 +330,10 @@ impl crate::Readable for CIR_TGLR_SPEC {
 #[doc = "`write(|w| ..)` method takes [cir_tglr::W](W) writer structure"]
 impl crate::Writable for CIR_TGLR_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets cir_tglr to value 0"]
 impl crate::Resettable for CIR_TGLR_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

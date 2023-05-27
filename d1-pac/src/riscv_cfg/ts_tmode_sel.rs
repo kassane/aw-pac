@@ -37,7 +37,7 @@ impl From<crate::W<TS_TMODE_SEL_SPEC>> for W {
 #[doc = "Field `ts_test_mode_en` reader - Timestamp Test Mode Enable"]
 pub type TS_TEST_MODE_EN_R = crate::BitReader<TS_TEST_MODE_EN_A>;
 #[doc = "Timestamp Test Mode Enable\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum TS_TEST_MODE_EN_A {
     #[doc = "0: `0`"]
     NORMAL = 0,
@@ -95,6 +95,7 @@ impl R {
 impl W {
     #[doc = "Bit 0 - Timestamp Test Mode Enable"]
     #[inline(always)]
+    #[must_use]
     pub fn ts_test_mode_en(&mut self) -> TS_TEST_MODE_EN_W<0> {
         TS_TEST_MODE_EN_W::new(self)
     }
@@ -117,11 +118,10 @@ impl crate::Readable for TS_TMODE_SEL_SPEC {
 #[doc = "`write(|w| ..)` method takes [ts_tmode_sel::W](W) writer structure"]
 impl crate::Writable for TS_TMODE_SEL_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets ts_tmode_sel to value 0"]
 impl crate::Resettable for TS_TMODE_SEL_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

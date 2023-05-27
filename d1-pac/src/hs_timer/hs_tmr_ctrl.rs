@@ -37,7 +37,7 @@ impl From<crate::W<HS_TMR_CTRL_SPEC>> for W {
 #[doc = "Field `hs_tmr_en` reader - HSTimer Enable"]
 pub type HS_TMR_EN_R = crate::BitReader<HS_TMR_EN_A>;
 #[doc = "HSTimer Enable\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum HS_TMR_EN_A {
     #[doc = "0: `0`"]
     STOP_PAUSE = 0,
@@ -87,7 +87,7 @@ impl<'a, const O: u8> HS_TMR_EN_W<'a, O> {
 #[doc = "Field `hs_tmr_reload` reader - HSTimer Reload"]
 pub type HS_TMR_RELOAD_R = crate::BitReader<HS_TMR_RELOAD_A>;
 #[doc = "HSTimer Reload\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum HS_TMR_RELOAD_A {
     #[doc = "0: `0`"]
     NO_EFFECT = 0,
@@ -138,7 +138,7 @@ impl<'a, const O: u8> HS_TMR_RELOAD_W<'a, O> {
 #[doc = "Field `hs_tmr_clk` reader - Select the pre-scale for the HSTimer clock sources"]
 pub type HS_TMR_CLK_R = crate::FieldReader<u8, HS_TMR_CLK_A>;
 #[doc = "Select the pre-scale for the HSTimer clock sources\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum HS_TMR_CLK_A {
     #[doc = "0: `0`"]
@@ -230,7 +230,7 @@ impl<'a, const O: u8> HS_TMR_CLK_W<'a, O> {
 #[doc = "Field `hs_tmr_mode` reader - Select the timing mode for HSTimer"]
 pub type HS_TMR_MODE_R = crate::BitReader<HS_TMR_MODE_A>;
 #[doc = "Select the timing mode for HSTimer\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum HS_TMR_MODE_A {
     #[doc = "0: `0`"]
     PERIODIC = 0,
@@ -281,7 +281,7 @@ impl<'a, const O: u8> HS_TMR_MODE_W<'a, O> {
 #[doc = "Field `hs_tmr_test` reader - Select the operating mode for HSTimer"]
 pub type HS_TMR_TEST_R = crate::BitReader<HS_TMR_TEST_A>;
 #[doc = "Select the operating mode for HSTimer\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum HS_TMR_TEST_A {
     #[doc = "0: `0`"]
     NORMAL = 0,
@@ -359,26 +359,31 @@ impl R {
 impl W {
     #[doc = "Bit 0 - HSTimer Enable"]
     #[inline(always)]
+    #[must_use]
     pub fn hs_tmr_en(&mut self) -> HS_TMR_EN_W<0> {
         HS_TMR_EN_W::new(self)
     }
     #[doc = "Bit 1 - HSTimer Reload"]
     #[inline(always)]
+    #[must_use]
     pub fn hs_tmr_reload(&mut self) -> HS_TMR_RELOAD_W<1> {
         HS_TMR_RELOAD_W::new(self)
     }
     #[doc = "Bits 4:6 - Select the pre-scale for the HSTimer clock sources"]
     #[inline(always)]
+    #[must_use]
     pub fn hs_tmr_clk(&mut self) -> HS_TMR_CLK_W<4> {
         HS_TMR_CLK_W::new(self)
     }
     #[doc = "Bit 7 - Select the timing mode for HSTimer"]
     #[inline(always)]
+    #[must_use]
     pub fn hs_tmr_mode(&mut self) -> HS_TMR_MODE_W<7> {
         HS_TMR_MODE_W::new(self)
     }
     #[doc = "Bit 31 - Select the operating mode for HSTimer"]
     #[inline(always)]
+    #[must_use]
     pub fn hs_tmr_test(&mut self) -> HS_TMR_TEST_W<31> {
         HS_TMR_TEST_W::new(self)
     }
@@ -401,11 +406,10 @@ impl crate::Readable for HS_TMR_CTRL_SPEC {
 #[doc = "`write(|w| ..)` method takes [hs_tmr_ctrl::W](W) writer structure"]
 impl crate::Writable for HS_TMR_CTRL_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0x02;
 }
 #[doc = "`reset()` method sets hs_tmr%s_ctrl to value 0"]
 impl crate::Resettable for HS_TMR_CTRL_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

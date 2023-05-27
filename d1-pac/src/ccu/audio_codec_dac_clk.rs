@@ -42,7 +42,7 @@ pub type FACTOR_M_W<'a, const O: u8> =
 #[doc = "Field `factor_n` reader - Factor N"]
 pub type FACTOR_N_R = crate::FieldReader<u8, FACTOR_N_A>;
 #[doc = "Factor N\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum FACTOR_N_A {
     #[doc = "0: `0`"]
@@ -121,7 +121,7 @@ impl<'a, const O: u8> FACTOR_N_W<'a, O> {
 #[doc = "Field `clk_src_sel` reader - Clock Source Select"]
 pub type CLK_SRC_SEL_R = crate::FieldReader<u8, CLK_SRC_SEL_A>;
 #[doc = "Clock Source Select\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum CLK_SRC_SEL_A {
     #[doc = "0: `0`"]
@@ -187,7 +187,7 @@ impl<'a, const O: u8> CLK_SRC_SEL_W<'a, O> {
 #[doc = "Field `clk_gating` reader - Gating Clock"]
 pub type CLK_GATING_R = crate::BitReader<CLK_GATING_A>;
 #[doc = "Gating Clock\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum CLK_GATING_A {
     #[doc = "0: `0`"]
     OFF = 0,
@@ -260,21 +260,25 @@ impl R {
 impl W {
     #[doc = "Bits 0:4 - Factor M"]
     #[inline(always)]
+    #[must_use]
     pub fn factor_m(&mut self) -> FACTOR_M_W<0> {
         FACTOR_M_W::new(self)
     }
     #[doc = "Bits 8:9 - Factor N"]
     #[inline(always)]
+    #[must_use]
     pub fn factor_n(&mut self) -> FACTOR_N_W<8> {
         FACTOR_N_W::new(self)
     }
     #[doc = "Bits 24:26 - Clock Source Select"]
     #[inline(always)]
+    #[must_use]
     pub fn clk_src_sel(&mut self) -> CLK_SRC_SEL_W<24> {
         CLK_SRC_SEL_W::new(self)
     }
     #[doc = "Bit 31 - Gating Clock"]
     #[inline(always)]
+    #[must_use]
     pub fn clk_gating(&mut self) -> CLK_GATING_W<31> {
         CLK_GATING_W::new(self)
     }
@@ -297,11 +301,10 @@ impl crate::Readable for AUDIO_CODEC_DAC_CLK_SPEC {
 #[doc = "`write(|w| ..)` method takes [audio_codec_dac_clk::W](W) writer structure"]
 impl crate::Writable for AUDIO_CODEC_DAC_CLK_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets audio_codec_dac_clk to value 0"]
 impl crate::Resettable for AUDIO_CODEC_DAC_CLK_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

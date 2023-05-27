@@ -37,12 +37,12 @@ impl From<crate::W<TVE_LOW_PASS_CONTROL_SPEC>> for W {
 #[doc = "Field `en` reader - LP function enable"]
 pub type EN_R = crate::BitReader<EN_A>;
 #[doc = "LP function enable\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum EN_A {
     #[doc = "0: Disable"]
-    D_ISABLE = 0,
+    DISABLE = 0,
     #[doc = "1: Enable"]
-    E_NABLE = 1,
+    ENABLE = 1,
 }
 impl From<EN_A> for bool {
     #[inline(always)]
@@ -55,19 +55,19 @@ impl EN_R {
     #[inline(always)]
     pub fn variant(&self) -> EN_A {
         match self.bits {
-            false => EN_A::D_ISABLE,
-            true => EN_A::E_NABLE,
+            false => EN_A::DISABLE,
+            true => EN_A::ENABLE,
         }
     }
-    #[doc = "Checks if the value of the field is `D_ISABLE`"]
+    #[doc = "Checks if the value of the field is `DISABLE`"]
     #[inline(always)]
-    pub fn is_d_isable(&self) -> bool {
-        *self == EN_A::D_ISABLE
+    pub fn is_disable(&self) -> bool {
+        *self == EN_A::DISABLE
     }
-    #[doc = "Checks if the value of the field is `E_NABLE`"]
+    #[doc = "Checks if the value of the field is `ENABLE`"]
     #[inline(always)]
-    pub fn is_e_nable(&self) -> bool {
-        *self == EN_A::E_NABLE
+    pub fn is_enable(&self) -> bool {
+        *self == EN_A::ENABLE
     }
 }
 #[doc = "Field `en` writer - LP function enable"]
@@ -75,24 +75,24 @@ pub type EN_W<'a, const O: u8> = crate::BitWriter<'a, u32, TVE_LOW_PASS_CONTROL_
 impl<'a, const O: u8> EN_W<'a, O> {
     #[doc = "Disable"]
     #[inline(always)]
-    pub fn d_isable(self) -> &'a mut W {
-        self.variant(EN_A::D_ISABLE)
+    pub fn disable(self) -> &'a mut W {
+        self.variant(EN_A::DISABLE)
     }
     #[doc = "Enable"]
     #[inline(always)]
-    pub fn e_nable(self) -> &'a mut W {
-        self.variant(EN_A::E_NABLE)
+    pub fn enable(self) -> &'a mut W {
+        self.variant(EN_A::ENABLE)
     }
 }
 #[doc = "Field `enable_deflicker` reader - Enable_deflicker"]
 pub type ENABLE_DEFLICKER_R = crate::BitReader<ENABLE_DEFLICKER_A>;
 #[doc = "Enable_deflicker\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum ENABLE_DEFLICKER_A {
     #[doc = "0: Disable deflicker"]
-    D_ISABLE = 0,
+    DISABLE = 0,
     #[doc = "1: Enable deflicker"]
-    E_NABLE = 1,
+    ENABLE = 1,
 }
 impl From<ENABLE_DEFLICKER_A> for bool {
     #[inline(always)]
@@ -105,19 +105,19 @@ impl ENABLE_DEFLICKER_R {
     #[inline(always)]
     pub fn variant(&self) -> ENABLE_DEFLICKER_A {
         match self.bits {
-            false => ENABLE_DEFLICKER_A::D_ISABLE,
-            true => ENABLE_DEFLICKER_A::E_NABLE,
+            false => ENABLE_DEFLICKER_A::DISABLE,
+            true => ENABLE_DEFLICKER_A::ENABLE,
         }
     }
-    #[doc = "Checks if the value of the field is `D_ISABLE`"]
+    #[doc = "Checks if the value of the field is `DISABLE`"]
     #[inline(always)]
-    pub fn is_d_isable(&self) -> bool {
-        *self == ENABLE_DEFLICKER_A::D_ISABLE
+    pub fn is_disable(&self) -> bool {
+        *self == ENABLE_DEFLICKER_A::DISABLE
     }
-    #[doc = "Checks if the value of the field is `E_NABLE`"]
+    #[doc = "Checks if the value of the field is `ENABLE`"]
     #[inline(always)]
-    pub fn is_e_nable(&self) -> bool {
-        *self == ENABLE_DEFLICKER_A::E_NABLE
+    pub fn is_enable(&self) -> bool {
+        *self == ENABLE_DEFLICKER_A::ENABLE
     }
 }
 #[doc = "Field `enable_deflicker` writer - Enable_deflicker"]
@@ -126,19 +126,19 @@ pub type ENABLE_DEFLICKER_W<'a, const O: u8> =
 impl<'a, const O: u8> ENABLE_DEFLICKER_W<'a, O> {
     #[doc = "Disable deflicker"]
     #[inline(always)]
-    pub fn d_isable(self) -> &'a mut W {
-        self.variant(ENABLE_DEFLICKER_A::D_ISABLE)
+    pub fn disable(self) -> &'a mut W {
+        self.variant(ENABLE_DEFLICKER_A::DISABLE)
     }
     #[doc = "Enable deflicker"]
     #[inline(always)]
-    pub fn e_nable(self) -> &'a mut W {
-        self.variant(ENABLE_DEFLICKER_A::E_NABLE)
+    pub fn enable(self) -> &'a mut W {
+        self.variant(ENABLE_DEFLICKER_A::ENABLE)
     }
 }
 #[doc = "Field `fix_coef_deflicker` reader - Fix_coef_deflicker"]
 pub type FIX_COEF_DEFLICKER_R = crate::BitReader<FIX_COEF_DEFLICKER_A>;
 #[doc = "Fix_coef_deflicker\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum FIX_COEF_DEFLICKER_A {
     #[doc = "0: Auto deflicker"]
     A_UTO = 0,
@@ -216,21 +216,25 @@ impl R {
 impl W {
     #[doc = "Bit 0 - LP function enable"]
     #[inline(always)]
+    #[must_use]
     pub fn en(&mut self) -> EN_W<0> {
         EN_W::new(self)
     }
     #[doc = "Bit 8 - Enable_deflicker"]
     #[inline(always)]
+    #[must_use]
     pub fn enable_deflicker(&mut self) -> ENABLE_DEFLICKER_W<8> {
         ENABLE_DEFLICKER_W::new(self)
     }
     #[doc = "Bit 9 - Fix_coef_deflicker"]
     #[inline(always)]
+    #[must_use]
     pub fn fix_coef_deflicker(&mut self) -> FIX_COEF_DEFLICKER_W<9> {
         FIX_COEF_DEFLICKER_W::new(self)
     }
     #[doc = "Bits 10:13 - User_deflicker_coef\n\nup: coef/32\n\nCenter: 1-coef/16\n\nDown: coef/32"]
     #[inline(always)]
+    #[must_use]
     pub fn user_deflicker_coef(&mut self) -> USER_DEFLICKER_COEF_W<10> {
         USER_DEFLICKER_COEF_W::new(self)
     }
@@ -253,11 +257,10 @@ impl crate::Readable for TVE_LOW_PASS_CONTROL_SPEC {
 #[doc = "`write(|w| ..)` method takes [tve_low_pass_control::W](W) writer structure"]
 impl crate::Writable for TVE_LOW_PASS_CONTROL_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets tve_low_pass_control to value 0"]
 impl crate::Resettable for TVE_LOW_PASS_CONTROL_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

@@ -37,7 +37,7 @@ impl From<crate::W<TVE_CONFIGURATION_SPEC>> for W {
 #[doc = "Field `tvmode_select` reader - TVMode_Select\n\nNote: Changing this register value will cause some relative register setting to relative value."]
 pub type TVMODE_SELECT_R = crate::FieldReader<u8, TVMODE_SELECT_A>;
 #[doc = "TVMode_Select\n\nNote: Changing this register value will cause some relative register setting to relative value.\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum TVMODE_SELECT_A {
     #[doc = "0: NTSC"]
@@ -90,7 +90,7 @@ impl<'a, const O: u8> TVMODE_SELECT_W<'a, O> {
 #[doc = "Field `mode_1080i_1250line_sel` reader - Mode_1080i_1250Line_Sel"]
 pub type MODE_1080I_1250LINE_SEL_R = crate::BitReader<MODE_1080I_1250LINE_SEL_A>;
 #[doc = "Mode_1080i_1250Line_Sel\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum MODE_1080I_1250LINE_SEL_A {
     #[doc = "0: 1125 Line mode"]
     _1125 = 0,
@@ -141,7 +141,7 @@ impl<'a, const O: u8> MODE_1080I_1250LINE_SEL_W<'a, O> {
 #[doc = "Field `color_bar_mode` reader - Standard Color bar input selection\n\nThis bit selects whether the Video Encoder video data input is replaced by an internal standard color bar generator or not."]
 pub type COLOR_BAR_MODE_R = crate::BitReader<COLOR_BAR_MODE_A>;
 #[doc = "Standard Color bar input selection\n\nThis bit selects whether the Video Encoder video data input is replaced by an internal standard color bar generator or not.\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum COLOR_BAR_MODE_A {
     #[doc = "0: The Video Encoder input is coming from the Display Engineer"]
     D_ISPLAY_E_NGINEER = 0,
@@ -192,7 +192,7 @@ impl<'a, const O: u8> COLOR_BAR_MODE_W<'a, O> {
 #[doc = "Field `color_bar_type` reader - "]
 pub type COLOR_BAR_TYPE_R = crate::BitReader<COLOR_BAR_TYPE_A>;
 #[doc = "\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum COLOR_BAR_TYPE_A {
     #[doc = "0: 75/7.5/75/7.5 (NTSC), 100/0/75/0(PAL)"]
     _75 = 0,
@@ -243,7 +243,7 @@ impl<'a, const O: u8> COLOR_BAR_TYPE_W<'a, O> {
 #[doc = "Field `cvbs_en` reader - Composite video enables selection\n\nThis bit selects whether the composite video output (CVBS) is enabled or disabled."]
 pub type CVBS_EN_R = crate::BitReader<CVBS_EN_A>;
 #[doc = "Composite video enables selection\n\nThis bit selects whether the composite video output (CVBS) is enabled or disabled.\n\nValue on reset: 1"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum CVBS_EN_A {
     #[doc = "0: Composite video is disabled, Only Y/C is enabled"]
     DISABLED = 0,
@@ -294,7 +294,7 @@ impl<'a, const O: u8> CVBS_EN_W<'a, O> {
 #[doc = "Field `yc_en` reader - S-port Video enable Selection.\n\nThis bit selects whether the S-port(Y/C) video output is enabled or disabled."]
 pub type YC_EN_R = crate::BitReader<YC_EN_A>;
 #[doc = "S-port Video enable Selection.\n\nThis bit selects whether the S-port(Y/C) video output is enabled or disabled.\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum YC_EN_A {
     #[doc = "0: Y/C is disable"]
     Y_C = 0,
@@ -332,7 +332,7 @@ impl<'a, const O: u8> YC_EN_W<'a, O> {
 #[doc = "Field `yuv_rgb_output_en` reader - "]
 pub type YUV_RGB_OUTPUT_EN_R = crate::BitReader<YUV_RGB_OUTPUT_EN_A>;
 #[doc = "\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum YUV_RGB_OUTPUT_EN_A {
     #[doc = "0: CVBS"]
     CVBS = 0,
@@ -372,7 +372,7 @@ impl<'a, const O: u8> YUV_RGB_OUTPUT_EN_W<'a, O> {
 pub type INPUT_CHROMA_DATA_SAMPLING_RATE_SEL_R =
     crate::BitReader<INPUT_CHROMA_DATA_SAMPLING_RATE_SEL_A>;
 #[doc = "\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum INPUT_CHROMA_DATA_SAMPLING_RATE_SEL_A {
     #[doc = "0: 4:4:4"]
     _4_4_4 = 0,
@@ -423,7 +423,7 @@ impl<'a, const O: u8> INPUT_CHROMA_DATA_SAMPLING_RATE_SEL_W<'a, O> {
 #[doc = "Field `cb_cr_seq_for_422_mode` reader - Cb_Cr_Seq_For_422_Mode"]
 pub type CB_CR_SEQ_FOR_422_MODE_R = crate::BitReader<CB_CR_SEQ_FOR_422_MODE_A>;
 #[doc = "Cb_Cr_Seq_For_422_Mode\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum CB_CR_SEQ_FOR_422_MODE_A {
     #[doc = "0: Cb first"]
     C_B = 0,
@@ -474,7 +474,7 @@ impl<'a, const O: u8> CB_CR_SEQ_FOR_422_MODE_W<'a, O> {
 #[doc = "Field `core_control_logic_clock_sel` reader - "]
 pub type CORE_CONTROL_LOGIC_CLOCK_SEL_R = crate::BitReader<CORE_CONTROL_LOGIC_CLOCK_SEL_A>;
 #[doc = "\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum CORE_CONTROL_LOGIC_CLOCK_SEL_A {
     #[doc = "0: Using 27 MHz clock or 74.25 MHz clock depend on CCU setting"]
     _27M_74_25M = 0,
@@ -525,7 +525,7 @@ impl<'a, const O: u8> CORE_CONTROL_LOGIC_CLOCK_SEL_W<'a, O> {
 #[doc = "Field `core_datapath_logic_clock_sel` reader - "]
 pub type CORE_DATAPATH_LOGIC_CLOCK_SEL_R = crate::BitReader<CORE_DATAPATH_LOGIC_CLOCK_SEL_A>;
 #[doc = "\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum CORE_DATAPATH_LOGIC_CLOCK_SEL_A {
     #[doc = "0: Using 27 MHz clock or 74.25 MHz clock depend on CCU setting"]
     _27M_74_25M = 0,
@@ -576,7 +576,7 @@ impl<'a, const O: u8> CORE_DATAPATH_LOGIC_CLOCK_SEL_W<'a, O> {
 #[doc = "Field `dac_control_logic_clock_sel` reader - "]
 pub type DAC_CONTROL_LOGIC_CLOCK_SEL_R = crate::BitReader<DAC_CONTROL_LOGIC_CLOCK_SEL_A>;
 #[doc = "\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum DAC_CONTROL_LOGIC_CLOCK_SEL_A {
     #[doc = "0: Using 27 MHz clock or 74.25 MHz clock depend on CCU setting"]
     _27M_74_25M = 0,
@@ -627,7 +627,7 @@ impl<'a, const O: u8> DAC_CONTROL_LOGIC_CLOCK_SEL_W<'a, O> {
 #[doc = "Field `dac_src_sel` reader - "]
 pub type DAC_SRC_SEL_R = crate::FieldReader<u8, DAC_SRC_SEL_A>;
 #[doc = "\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum DAC_SRC_SEL_A {
     #[doc = "0: TV Encoder"]
@@ -706,12 +706,12 @@ impl<'a, const O: u8> DAC_SRC_SEL_W<'a, O> {
 #[doc = "Field `bypass_tv` reader - "]
 pub type BYPASS_TV_R = crate::BitReader<BYPASS_TV_A>;
 #[doc = "\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum BYPASS_TV_A {
     #[doc = "0: Disable"]
-    D_ISABLE = 0,
+    DISABLE = 0,
     #[doc = "1: Enable"]
-    E_NABLE = 1,
+    ENABLE = 1,
 }
 impl From<BYPASS_TV_A> for bool {
     #[inline(always)]
@@ -724,19 +724,19 @@ impl BYPASS_TV_R {
     #[inline(always)]
     pub fn variant(&self) -> BYPASS_TV_A {
         match self.bits {
-            false => BYPASS_TV_A::D_ISABLE,
-            true => BYPASS_TV_A::E_NABLE,
+            false => BYPASS_TV_A::DISABLE,
+            true => BYPASS_TV_A::ENABLE,
         }
     }
-    #[doc = "Checks if the value of the field is `D_ISABLE`"]
+    #[doc = "Checks if the value of the field is `DISABLE`"]
     #[inline(always)]
-    pub fn is_d_isable(&self) -> bool {
-        *self == BYPASS_TV_A::D_ISABLE
+    pub fn is_disable(&self) -> bool {
+        *self == BYPASS_TV_A::DISABLE
     }
-    #[doc = "Checks if the value of the field is `E_NABLE`"]
+    #[doc = "Checks if the value of the field is `ENABLE`"]
     #[inline(always)]
-    pub fn is_e_nable(&self) -> bool {
-        *self == BYPASS_TV_A::E_NABLE
+    pub fn is_enable(&self) -> bool {
+        *self == BYPASS_TV_A::ENABLE
     }
 }
 #[doc = "Field `bypass_tv` writer - "]
@@ -745,13 +745,13 @@ pub type BYPASS_TV_W<'a, const O: u8> =
 impl<'a, const O: u8> BYPASS_TV_W<'a, O> {
     #[doc = "Disable"]
     #[inline(always)]
-    pub fn d_isable(self) -> &'a mut W {
-        self.variant(BYPASS_TV_A::D_ISABLE)
+    pub fn disable(self) -> &'a mut W {
+        self.variant(BYPASS_TV_A::DISABLE)
     }
     #[doc = "Enable"]
     #[inline(always)]
-    pub fn e_nable(self) -> &'a mut W {
-        self.variant(BYPASS_TV_A::E_NABLE)
+    pub fn enable(self) -> &'a mut W {
+        self.variant(BYPASS_TV_A::ENABLE)
     }
 }
 impl R {
@@ -829,41 +829,49 @@ impl R {
 impl W {
     #[doc = "Bits 0:3 - TVMode_Select\n\nNote: Changing this register value will cause some relative register setting to relative value."]
     #[inline(always)]
+    #[must_use]
     pub fn tvmode_select(&mut self) -> TVMODE_SELECT_W<0> {
         TVMODE_SELECT_W::new(self)
     }
     #[doc = "Bit 4 - Mode_1080i_1250Line_Sel"]
     #[inline(always)]
+    #[must_use]
     pub fn mode_1080i_1250line_sel(&mut self) -> MODE_1080I_1250LINE_SEL_W<4> {
         MODE_1080I_1250LINE_SEL_W::new(self)
     }
     #[doc = "Bit 8 - Standard Color bar input selection\n\nThis bit selects whether the Video Encoder video data input is replaced by an internal standard color bar generator or not."]
     #[inline(always)]
+    #[must_use]
     pub fn color_bar_mode(&mut self) -> COLOR_BAR_MODE_W<8> {
         COLOR_BAR_MODE_W::new(self)
     }
     #[doc = "Bit 9"]
     #[inline(always)]
+    #[must_use]
     pub fn color_bar_type(&mut self) -> COLOR_BAR_TYPE_W<9> {
         COLOR_BAR_TYPE_W::new(self)
     }
     #[doc = "Bit 16 - Composite video enables selection\n\nThis bit selects whether the composite video output (CVBS) is enabled or disabled."]
     #[inline(always)]
+    #[must_use]
     pub fn cvbs_en(&mut self) -> CVBS_EN_W<16> {
         CVBS_EN_W::new(self)
     }
     #[doc = "Bit 17 - S-port Video enable Selection.\n\nThis bit selects whether the S-port(Y/C) video output is enabled or disabled."]
     #[inline(always)]
+    #[must_use]
     pub fn yc_en(&mut self) -> YC_EN_W<17> {
         YC_EN_W::new(self)
     }
     #[doc = "Bit 18"]
     #[inline(always)]
+    #[must_use]
     pub fn yuv_rgb_output_en(&mut self) -> YUV_RGB_OUTPUT_EN_W<18> {
         YUV_RGB_OUTPUT_EN_W::new(self)
     }
     #[doc = "Bit 19"]
     #[inline(always)]
+    #[must_use]
     pub fn input_chroma_data_sampling_rate_sel(
         &mut self,
     ) -> INPUT_CHROMA_DATA_SAMPLING_RATE_SEL_W<19> {
@@ -871,31 +879,37 @@ impl W {
     }
     #[doc = "Bit 20 - Cb_Cr_Seq_For_422_Mode"]
     #[inline(always)]
+    #[must_use]
     pub fn cb_cr_seq_for_422_mode(&mut self) -> CB_CR_SEQ_FOR_422_MODE_W<20> {
         CB_CR_SEQ_FOR_422_MODE_W::new(self)
     }
     #[doc = "Bit 24"]
     #[inline(always)]
+    #[must_use]
     pub fn core_control_logic_clock_sel(&mut self) -> CORE_CONTROL_LOGIC_CLOCK_SEL_W<24> {
         CORE_CONTROL_LOGIC_CLOCK_SEL_W::new(self)
     }
     #[doc = "Bit 25"]
     #[inline(always)]
+    #[must_use]
     pub fn core_datapath_logic_clock_sel(&mut self) -> CORE_DATAPATH_LOGIC_CLOCK_SEL_W<25> {
         CORE_DATAPATH_LOGIC_CLOCK_SEL_W::new(self)
     }
     #[doc = "Bit 26"]
     #[inline(always)]
+    #[must_use]
     pub fn dac_control_logic_clock_sel(&mut self) -> DAC_CONTROL_LOGIC_CLOCK_SEL_W<26> {
         DAC_CONTROL_LOGIC_CLOCK_SEL_W::new(self)
     }
     #[doc = "Bits 27:28"]
     #[inline(always)]
+    #[must_use]
     pub fn dac_src_sel(&mut self) -> DAC_SRC_SEL_W<27> {
         DAC_SRC_SEL_W::new(self)
     }
     #[doc = "Bit 29"]
     #[inline(always)]
+    #[must_use]
     pub fn bypass_tv(&mut self) -> BYPASS_TV_W<29> {
         BYPASS_TV_W::new(self)
     }
@@ -918,11 +932,10 @@ impl crate::Readable for TVE_CONFIGURATION_SPEC {
 #[doc = "`write(|w| ..)` method takes [tve_configuration::W](W) writer structure"]
 impl crate::Writable for TVE_CONFIGURATION_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets tve_configuration to value 0x0001_0000"]
 impl crate::Resettable for TVE_CONFIGURATION_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0x0001_0000
-    }
+    const RESET_VALUE: Self::Ux = 0x0001_0000;
 }

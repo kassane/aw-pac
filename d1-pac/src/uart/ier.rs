@@ -37,7 +37,7 @@ impl From<crate::W<IER_SPEC>> for W {
 #[doc = "Field `erbfi` reader - Enable Received Data Available Interrupt"]
 pub type ERBFI_R = crate::BitReader<ERBFI_A>;
 #[doc = "Enable Received Data Available Interrupt\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum ERBFI_A {
     #[doc = "0: `0`"]
     DISABLE = 0,
@@ -87,7 +87,7 @@ impl<'a, const O: u8> ERBFI_W<'a, O> {
 #[doc = "Field `etbei` reader - Enable Transmit Holding Register Empty Interrupt"]
 pub type ETBEI_R = crate::BitReader<ETBEI_A>;
 #[doc = "Enable Transmit Holding Register Empty Interrupt\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum ETBEI_A {
     #[doc = "0: `0`"]
     DISABLE = 0,
@@ -137,7 +137,7 @@ impl<'a, const O: u8> ETBEI_W<'a, O> {
 #[doc = "Field `elsi` reader - Enable Receiver Line Status Interrupt"]
 pub type ELSI_R = crate::BitReader<ELSI_A>;
 #[doc = "Enable Receiver Line Status Interrupt\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum ELSI_A {
     #[doc = "0: `0`"]
     DISABLE = 0,
@@ -187,7 +187,7 @@ impl<'a, const O: u8> ELSI_W<'a, O> {
 #[doc = "Field `edssi` reader - Enable Modem Status Interrupt"]
 pub type EDSSI_R = crate::BitReader<EDSSI_A>;
 #[doc = "Enable Modem Status Interrupt\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum EDSSI_A {
     #[doc = "0: `0`"]
     DISABLE = 0,
@@ -237,7 +237,7 @@ impl<'a, const O: u8> EDSSI_W<'a, O> {
 #[doc = "Field `rs485_int_en` reader - RS485 Interrupt Enable"]
 pub type RS485_INT_EN_R = crate::BitReader<RS485_INT_EN_A>;
 #[doc = "RS485 Interrupt Enable\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum RS485_INT_EN_A {
     #[doc = "0: `0`"]
     DISABLE = 0,
@@ -287,7 +287,7 @@ impl<'a, const O: u8> RS485_INT_EN_W<'a, O> {
 #[doc = "Field `ptime` reader - Programmable THRE Interrupt Mode Enable"]
 pub type PTIME_R = crate::BitReader<PTIME_A>;
 #[doc = "Programmable THRE Interrupt Mode Enable\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum PTIME_A {
     #[doc = "0: `0`"]
     DISABLE = 0,
@@ -369,31 +369,37 @@ impl R {
 impl W {
     #[doc = "Bit 0 - Enable Received Data Available Interrupt"]
     #[inline(always)]
+    #[must_use]
     pub fn erbfi(&mut self) -> ERBFI_W<0> {
         ERBFI_W::new(self)
     }
     #[doc = "Bit 1 - Enable Transmit Holding Register Empty Interrupt"]
     #[inline(always)]
+    #[must_use]
     pub fn etbei(&mut self) -> ETBEI_W<1> {
         ETBEI_W::new(self)
     }
     #[doc = "Bit 2 - Enable Receiver Line Status Interrupt"]
     #[inline(always)]
+    #[must_use]
     pub fn elsi(&mut self) -> ELSI_W<2> {
         ELSI_W::new(self)
     }
     #[doc = "Bit 3 - Enable Modem Status Interrupt"]
     #[inline(always)]
+    #[must_use]
     pub fn edssi(&mut self) -> EDSSI_W<3> {
         EDSSI_W::new(self)
     }
     #[doc = "Bit 4 - RS485 Interrupt Enable"]
     #[inline(always)]
+    #[must_use]
     pub fn rs485_int_en(&mut self) -> RS485_INT_EN_W<4> {
         RS485_INT_EN_W::new(self)
     }
     #[doc = "Bit 7 - Programmable THRE Interrupt Mode Enable"]
     #[inline(always)]
+    #[must_use]
     pub fn ptime(&mut self) -> PTIME_W<7> {
         PTIME_W::new(self)
     }
@@ -416,11 +422,10 @@ impl crate::Readable for IER_SPEC {
 #[doc = "`write(|w| ..)` method takes [ier::W](W) writer structure"]
 impl crate::Writable for IER_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets ier to value 0"]
 impl crate::Resettable for IER_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

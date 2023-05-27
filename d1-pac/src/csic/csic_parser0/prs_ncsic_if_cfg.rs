@@ -37,7 +37,7 @@ impl From<crate::W<PRS_NCSIC_IF_CFG_SPEC>> for W {
 #[doc = "Field `csi_if` reader - "]
 pub type CSI_IF_R = crate::FieldReader<u8, CSI_IF_A>;
 #[doc = "\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum CSI_IF_A {
     #[doc = "0: RAW or YUV420/YUYV422 (each cycle one component input)"]
@@ -116,7 +116,7 @@ impl<'a, const O: u8> CSI_IF_W<'a, O> {
 #[doc = "Field `input_seq` reader - Input data sequence, only valid for YUV422 and YUV420 input format"]
 pub type INPUT_SEQ_R = crate::FieldReader<u8, INPUT_SEQ_A>;
 #[doc = "Input data sequence, only valid for YUV422 and YUV420 input format\n\nValue on reset: 2"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum INPUT_SEQ_A {
     #[doc = "0: `0`"]
@@ -195,7 +195,7 @@ impl<'a, const O: u8> INPUT_SEQ_W<'a, O> {
 #[doc = "Field `if_data_width` reader - "]
 pub type IF_DATA_WIDTH_R = crate::FieldReader<u8, IF_DATA_WIDTH_A>;
 #[doc = "\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum IF_DATA_WIDTH_A {
     #[doc = "0: 8 bit data bus"]
@@ -284,20 +284,17 @@ impl<'a, const O: u8> IF_DATA_WIDTH_W<'a, O> {
         self.variant(IF_DATA_WIDTH_A::_2X8BIT)
     }
 }
-#[doc = "Field `seq_8plus2` reader - When select IF_DATA_WIDTH to be 8+2bit, odd/even pixel byte at CSI-D\\[11:4\\]
-will be rearranged to D\\[11:2\\]+2'b0 at the actual CSI data bus according to these sequences"]
+#[doc = "Field `seq_8plus2` reader - When select IF_DATA_WIDTH to be 8+2bit, odd/even pixel byte at CSI-D\\[11:4\\] will be rearranged to D\\[11:2\\]+2'b0 at the actual CSI data bus according to these sequences"]
 pub type SEQ_8PLUS2_R = crate::FieldReader<u8, SEQ_8PLUS2_A>;
-#[doc = "When select IF_DATA_WIDTH to be 8+2bit, odd/even pixel byte at CSI-D\\[11:4\\]
-will be rearranged to D\\[11:2\\]+2'b0 at the actual CSI data bus according to these sequences\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[doc = "When select IF_DATA_WIDTH to be 8+2bit, odd/even pixel byte at CSI-D\\[11:4\\] will be rearranged to D\\[11:2\\]+2'b0 at the actual CSI data bus according to these sequences\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum SEQ_8PLUS2_A {
     #[doc = "0: 6'bx + D\\[9:8\\], D\\[7:0\\]"]
     PD98_D70 = 0,
     #[doc = "1: D\\[9:2\\], 6'bx + D\\[1:0\\]"]
     D92_PD10 = 1,
-    #[doc = "2: D\\[7:0\\], D\\[9:8\\]
-+ 6'bx"]
+    #[doc = "2: D\\[7:0\\], D\\[9:8\\] + 6'bx"]
     D70_D98P = 2,
     #[doc = "3: D\\[7:0\\], 6'bx + D\\[9:8\\]"]
     D70_PD98 = 3,
@@ -341,8 +338,7 @@ impl SEQ_8PLUS2_R {
         *self == SEQ_8PLUS2_A::D70_PD98
     }
 }
-#[doc = "Field `seq_8plus2` writer - When select IF_DATA_WIDTH to be 8+2bit, odd/even pixel byte at CSI-D\\[11:4\\]
-will be rearranged to D\\[11:2\\]+2'b0 at the actual CSI data bus according to these sequences"]
+#[doc = "Field `seq_8plus2` writer - When select IF_DATA_WIDTH to be 8+2bit, odd/even pixel byte at CSI-D\\[11:4\\] will be rearranged to D\\[11:2\\]+2'b0 at the actual CSI data bus according to these sequences"]
 pub type SEQ_8PLUS2_W<'a, const O: u8> =
     crate::FieldWriterSafe<'a, u32, PRS_NCSIC_IF_CFG_SPEC, u8, SEQ_8PLUS2_A, 2, O>;
 impl<'a, const O: u8> SEQ_8PLUS2_W<'a, O> {
@@ -356,8 +352,7 @@ impl<'a, const O: u8> SEQ_8PLUS2_W<'a, O> {
     pub fn d92_pd10(self) -> &'a mut W {
         self.variant(SEQ_8PLUS2_A::D92_PD10)
     }
-    #[doc = "D\\[7:0\\], D\\[9:8\\]
-+ 6'bx"]
+    #[doc = "D\\[7:0\\], D\\[9:8\\] + 6'bx"]
     #[inline(always)]
     pub fn d70_d98p(self) -> &'a mut W {
         self.variant(SEQ_8PLUS2_A::D70_D98P)
@@ -371,7 +366,7 @@ impl<'a, const O: u8> SEQ_8PLUS2_W<'a, O> {
 #[doc = "Field `ddr_sample_mode_en` reader - "]
 pub type DDR_SAMPLE_MODE_EN_R = crate::BitReader<DDR_SAMPLE_MODE_EN_A>;
 #[doc = "\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum DDR_SAMPLE_MODE_EN_A {
     #[doc = "0: `0`"]
     DISABLE = 0,
@@ -422,7 +417,7 @@ impl<'a, const O: u8> DDR_SAMPLE_MODE_EN_W<'a, O> {
 #[doc = "Field `field_dt_mode` reader - only valid when CSI_IF is YUB and source type is interlaced"]
 pub type FIELD_DT_MODE_R = crate::FieldReader<u8, FIELD_DT_MODE_A>;
 #[doc = "only valid when CSI_IF is YUB and source type is interlaced\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum FIELD_DT_MODE_A {
     #[doc = "0: by both field and vsync"]
@@ -488,7 +483,7 @@ impl<'a, const O: u8> FIELD_DT_MODE_W<'a, O> {
 #[doc = "Field `clk_pol` reader - Data clock type"]
 pub type CLK_POL_R = crate::BitReader<CLK_POL_A>;
 #[doc = "Data clock type\n\nValue on reset: 1"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum CLK_POL_A {
     #[doc = "0: active in rising edge"]
     RISING = 0,
@@ -539,7 +534,7 @@ impl<'a, const O: u8> CLK_POL_W<'a, O> {
 #[doc = "Field `href_pol` reader - Href polarity\n\nThis register is not applied to CCIR656 interface"]
 pub type HREF_POL_R = crate::BitReader<HREF_POL_A>;
 #[doc = "Href polarity\n\nThis register is not applied to CCIR656 interface\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum HREF_POL_A {
     #[doc = "0: `0`"]
     NEGATIVE = 0,
@@ -590,7 +585,7 @@ impl<'a, const O: u8> HREF_POL_W<'a, O> {
 #[doc = "Field `vref_pol` reader - Vref polarity\n\nThis register is not applied to CCIR656 interface"]
 pub type VREF_POL_R = crate::BitReader<VREF_POL_A>;
 #[doc = "Vref polarity\n\nThis register is not applied to CCIR656 interface\n\nValue on reset: 1"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum VREF_POL_A {
     #[doc = "0: `0`"]
     NEGATIVE = 0,
@@ -641,7 +636,7 @@ impl<'a, const O: u8> VREF_POL_W<'a, O> {
 #[doc = "Field `field` reader - Field polarity (For YUV HV timing) / Field sequence (For BT656 timing)"]
 pub type FIELD_R = crate::BitReader<FIELD_A>;
 #[doc = "Field polarity (For YUV HV timing) / Field sequence (For BT656 timing)\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum FIELD_A {
     #[doc = "0: `0`"]
     NEGATIVE_NORMAL_SEQ = 0,
@@ -691,13 +686,13 @@ impl<'a, const O: u8> FIELD_W<'a, O> {
 #[doc = "Field `source_type` reader - Bit 20-23 corresponding to the SRC_TYPEs for channel 0-3"]
 pub type SOURCE_TYPE_R = crate::FieldReader<u8, SOURCE_TYPE_A>;
 #[doc = "Bit 20-23 corresponding to the SRC_TYPEs for channel 0-3\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum SOURCE_TYPE_A {
     #[doc = "0: `0`"]
     P_ROGRESSED = 0,
     #[doc = "1: `1`"]
-    I_NTERLACED = 1,
+    INTERLACED = 1,
 }
 impl From<SOURCE_TYPE_A> for u8 {
     #[inline(always)]
@@ -711,7 +706,7 @@ impl SOURCE_TYPE_R {
     pub fn variant(&self) -> Option<SOURCE_TYPE_A> {
         match self.bits {
             0 => Some(SOURCE_TYPE_A::P_ROGRESSED),
-            1 => Some(SOURCE_TYPE_A::I_NTERLACED),
+            1 => Some(SOURCE_TYPE_A::INTERLACED),
             _ => None,
         }
     }
@@ -720,10 +715,10 @@ impl SOURCE_TYPE_R {
     pub fn is_p_rogressed(&self) -> bool {
         *self == SOURCE_TYPE_A::P_ROGRESSED
     }
-    #[doc = "Checks if the value of the field is `I_NTERLACED`"]
+    #[doc = "Checks if the value of the field is `INTERLACED`"]
     #[inline(always)]
-    pub fn is_i_nterlaced(&self) -> bool {
-        *self == SOURCE_TYPE_A::I_NTERLACED
+    pub fn is_interlaced(&self) -> bool {
+        *self == SOURCE_TYPE_A::INTERLACED
     }
 }
 #[doc = "Field `source_type` writer - Bit 20-23 corresponding to the SRC_TYPEs for channel 0-3"]
@@ -737,8 +732,8 @@ impl<'a, const O: u8> SOURCE_TYPE_W<'a, O> {
     }
     #[doc = "`1`"]
     #[inline(always)]
-    pub fn i_nterlaced(self) -> &'a mut W {
-        self.variant(SOURCE_TYPE_A::I_NTERLACED)
+    pub fn interlaced(self) -> &'a mut W {
+        self.variant(SOURCE_TYPE_A::INTERLACED)
     }
 }
 #[doc = "Field `field_dt_pclk_shift` reader - Only for vsync detected field mode, the odd field permitted pclk\n\nshift = 4 * FIELD_DT_PCLK_SHIFT"]
@@ -749,7 +744,7 @@ pub type FIELD_DT_PCLK_SHIFT_W<'a, const O: u8> =
 #[doc = "Field `yuv420_line_order` reader - "]
 pub type YUV420_LINE_ORDER_R = crate::BitReader<YUV420_LINE_ORDER_A>;
 #[doc = "\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum YUV420_LINE_ORDER_A {
     #[doc = "0: YUV420 input in Y_YC_Y_YC line order"]
     Y_YC_Y_YC = 0,
@@ -813,8 +808,7 @@ impl R {
     pub fn if_data_width(&self) -> IF_DATA_WIDTH_R {
         IF_DATA_WIDTH_R::new(((self.bits >> 8) & 7) as u8)
     }
-    #[doc = "Bits 11:12 - When select IF_DATA_WIDTH to be 8+2bit, odd/even pixel byte at CSI-D\\[11:4\\]
-will be rearranged to D\\[11:2\\]+2'b0 at the actual CSI data bus according to these sequences"]
+    #[doc = "Bits 11:12 - When select IF_DATA_WIDTH to be 8+2bit, odd/even pixel byte at CSI-D\\[11:4\\] will be rearranged to D\\[11:2\\]+2'b0 at the actual CSI data bus according to these sequences"]
     #[inline(always)]
     pub fn seq_8plus2(&self) -> SEQ_8PLUS2_R {
         SEQ_8PLUS2_R::new(((self.bits >> 11) & 3) as u8)
@@ -868,67 +862,79 @@ will be rearranged to D\\[11:2\\]+2'b0 at the actual CSI data bus according to t
 impl W {
     #[doc = "Bits 0:4"]
     #[inline(always)]
+    #[must_use]
     pub fn csi_if(&mut self) -> CSI_IF_W<0> {
         CSI_IF_W::new(self)
     }
     #[doc = "Bits 6:7 - Input data sequence, only valid for YUV422 and YUV420 input format"]
     #[inline(always)]
+    #[must_use]
     pub fn input_seq(&mut self) -> INPUT_SEQ_W<6> {
         INPUT_SEQ_W::new(self)
     }
     #[doc = "Bits 8:10"]
     #[inline(always)]
+    #[must_use]
     pub fn if_data_width(&mut self) -> IF_DATA_WIDTH_W<8> {
         IF_DATA_WIDTH_W::new(self)
     }
-    #[doc = "Bits 11:12 - When select IF_DATA_WIDTH to be 8+2bit, odd/even pixel byte at CSI-D\\[11:4\\]
-will be rearranged to D\\[11:2\\]+2'b0 at the actual CSI data bus according to these sequences"]
+    #[doc = "Bits 11:12 - When select IF_DATA_WIDTH to be 8+2bit, odd/even pixel byte at CSI-D\\[11:4\\] will be rearranged to D\\[11:2\\]+2'b0 at the actual CSI data bus according to these sequences"]
     #[inline(always)]
+    #[must_use]
     pub fn seq_8plus2(&mut self) -> SEQ_8PLUS2_W<11> {
         SEQ_8PLUS2_W::new(self)
     }
     #[doc = "Bit 13"]
     #[inline(always)]
+    #[must_use]
     pub fn ddr_sample_mode_en(&mut self) -> DDR_SAMPLE_MODE_EN_W<13> {
         DDR_SAMPLE_MODE_EN_W::new(self)
     }
     #[doc = "Bits 14:15 - only valid when CSI_IF is YUB and source type is interlaced"]
     #[inline(always)]
+    #[must_use]
     pub fn field_dt_mode(&mut self) -> FIELD_DT_MODE_W<14> {
         FIELD_DT_MODE_W::new(self)
     }
     #[doc = "Bit 16 - Data clock type"]
     #[inline(always)]
+    #[must_use]
     pub fn clk_pol(&mut self) -> CLK_POL_W<16> {
         CLK_POL_W::new(self)
     }
     #[doc = "Bit 17 - Href polarity\n\nThis register is not applied to CCIR656 interface"]
     #[inline(always)]
+    #[must_use]
     pub fn href_pol(&mut self) -> HREF_POL_W<17> {
         HREF_POL_W::new(self)
     }
     #[doc = "Bit 18 - Vref polarity\n\nThis register is not applied to CCIR656 interface"]
     #[inline(always)]
+    #[must_use]
     pub fn vref_pol(&mut self) -> VREF_POL_W<18> {
         VREF_POL_W::new(self)
     }
     #[doc = "Bit 19 - Field polarity (For YUV HV timing) / Field sequence (For BT656 timing)"]
     #[inline(always)]
+    #[must_use]
     pub fn field(&mut self) -> FIELD_W<19> {
         FIELD_W::new(self)
     }
     #[doc = "Bits 20:23 - Bit 20-23 corresponding to the SRC_TYPEs for channel 0-3"]
     #[inline(always)]
+    #[must_use]
     pub fn source_type(&mut self) -> SOURCE_TYPE_W<20> {
         SOURCE_TYPE_W::new(self)
     }
     #[doc = "Bits 24:27 - Only for vsync detected field mode, the odd field permitted pclk\n\nshift = 4 * FIELD_DT_PCLK_SHIFT"]
     #[inline(always)]
+    #[must_use]
     pub fn field_dt_pclk_shift(&mut self) -> FIELD_DT_PCLK_SHIFT_W<24> {
         FIELD_DT_PCLK_SHIFT_W::new(self)
     }
     #[doc = "Bit 31"]
     #[inline(always)]
+    #[must_use]
     pub fn yuv420_line_order(&mut self) -> YUV420_LINE_ORDER_W<31> {
         YUV420_LINE_ORDER_W::new(self)
     }
@@ -951,11 +957,10 @@ impl crate::Readable for PRS_NCSIC_IF_CFG_SPEC {
 #[doc = "`write(|w| ..)` method takes [prs_ncsic_if_cfg::W](W) writer structure"]
 impl crate::Writable for PRS_NCSIC_IF_CFG_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets prs_ncsic_if_cfg to value 0x0105_0080"]
 impl crate::Resettable for PRS_NCSIC_IF_CFG_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0x0105_0080
-    }
+    const RESET_VALUE: Self::Ux = 0x0105_0080;
 }

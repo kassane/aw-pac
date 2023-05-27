@@ -37,7 +37,7 @@ impl From<crate::W<EMAC_RGMII_STA_SPEC>> for W {
 #[doc = "Field `rgmii_link_md` reader - The link mode of the RGMII interface"]
 pub type RGMII_LINK_MD_R = crate::BitReader<RGMII_LINK_MD_A>;
 #[doc = "The link mode of the RGMII interface\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum RGMII_LINK_MD_A {
     #[doc = "0: `0`"]
     HALF_DUPLEX = 0,
@@ -88,7 +88,7 @@ impl<'a, const O: u8> RGMII_LINK_MD_W<'a, O> {
 #[doc = "Field `rgmii_link_spd` reader - The link speed of the RGMII interface"]
 pub type RGMII_LINK_SPD_R = crate::FieldReader<u8, RGMII_LINK_SPD_A>;
 #[doc = "The link speed of the RGMII interface\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum RGMII_LINK_SPD_A {
     #[doc = "0: `0`"]
@@ -154,7 +154,7 @@ impl<'a, const O: u8> RGMII_LINK_SPD_W<'a, O> {
 #[doc = "Field `rgmii_link` reader - The link status of the RGMII interface"]
 pub type RGMII_LINK_R = crate::BitReader<RGMII_LINK_A>;
 #[doc = "The link status of the RGMII interface\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum RGMII_LINK_A {
     #[doc = "0: `0`"]
     DOWN = 0,
@@ -222,16 +222,19 @@ impl R {
 impl W {
     #[doc = "Bit 0 - The link mode of the RGMII interface"]
     #[inline(always)]
+    #[must_use]
     pub fn rgmii_link_md(&mut self) -> RGMII_LINK_MD_W<0> {
         RGMII_LINK_MD_W::new(self)
     }
     #[doc = "Bits 1:2 - The link speed of the RGMII interface"]
     #[inline(always)]
+    #[must_use]
     pub fn rgmii_link_spd(&mut self) -> RGMII_LINK_SPD_W<1> {
         RGMII_LINK_SPD_W::new(self)
     }
     #[doc = "Bit 3 - The link status of the RGMII interface"]
     #[inline(always)]
+    #[must_use]
     pub fn rgmii_link(&mut self) -> RGMII_LINK_W<3> {
         RGMII_LINK_W::new(self)
     }
@@ -254,11 +257,10 @@ impl crate::Readable for EMAC_RGMII_STA_SPEC {
 #[doc = "`write(|w| ..)` method takes [emac_rgmii_sta::W](W) writer structure"]
 impl crate::Writable for EMAC_RGMII_STA_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets emac_rgmii_sta to value 0"]
 impl crate::Resettable for EMAC_RGMII_STA_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

@@ -37,7 +37,7 @@ impl From<crate::W<HS_TMR_IRQ_STAS_SPEC>> for W {
 #[doc = "Field `hs_tmr_irq_pend[0-1]` reader - HSTimer IRQ Pending"]
 pub type HS_TMR_IRQ_PEND_R = crate::BitReader<HS_TMR_IRQ_PEND_A>;
 #[doc = "HSTimer IRQ Pending\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum HS_TMR_IRQ_PEND_A {
     #[doc = "0: `0`"]
     NO_EFFECT = 0,
@@ -105,16 +105,19 @@ impl R {
 impl W {
     #[doc = "HSTimer IRQ Pending"]
     #[inline(always)]
+    #[must_use]
     pub unsafe fn hs_tmr_irq_pend<const O: u8>(&mut self) -> HS_TMR_IRQ_PEND_W<O> {
         HS_TMR_IRQ_PEND_W::new(self)
     }
     #[doc = "Bit 0 - HSTimer IRQ Pending"]
     #[inline(always)]
+    #[must_use]
     pub fn hs_tmr0_irq_pend(&mut self) -> HS_TMR_IRQ_PEND_W<0> {
         HS_TMR_IRQ_PEND_W::new(self)
     }
     #[doc = "Bit 1 - HSTimer IRQ Pending"]
     #[inline(always)]
+    #[must_use]
     pub fn hs_tmr1_irq_pend(&mut self) -> HS_TMR_IRQ_PEND_W<1> {
         HS_TMR_IRQ_PEND_W::new(self)
     }
@@ -137,11 +140,10 @@ impl crate::Readable for HS_TMR_IRQ_STAS_SPEC {
 #[doc = "`write(|w| ..)` method takes [hs_tmr_irq_stas::W](W) writer structure"]
 impl crate::Writable for HS_TMR_IRQ_STAS_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0x01;
 }
 #[doc = "`reset()` method sets hs_tmr_irq_stas to value 0"]
 impl crate::Resettable for HS_TMR_IRQ_STAS_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

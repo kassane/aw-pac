@@ -34,7 +34,25 @@ impl From<crate::W<AC_DAC_DRC_HHPFC_SPEC>> for W {
         W(writer)
     }
 }
+#[doc = "Field `hhpfc` reader - HPF coefficient setting and the data is 3.24 format."]
+pub type HHPFC_R = crate::FieldReader<u16, u16>;
+#[doc = "Field `hhpfc` writer - HPF coefficient setting and the data is 3.24 format."]
+pub type HHPFC_W<'a, const O: u8> =
+    crate::FieldWriter<'a, u32, AC_DAC_DRC_HHPFC_SPEC, u16, u16, 11, O>;
+impl R {
+    #[doc = "Bits 0:10 - HPF coefficient setting and the data is 3.24 format."]
+    #[inline(always)]
+    pub fn hhpfc(&self) -> HHPFC_R {
+        HHPFC_R::new((self.bits & 0x07ff) as u16)
+    }
+}
 impl W {
+    #[doc = "Bits 0:10 - HPF coefficient setting and the data is 3.24 format."]
+    #[inline(always)]
+    #[must_use]
+    pub fn hhpfc(&mut self) -> HHPFC_W<0> {
+        HHPFC_W::new(self)
+    }
     #[doc = "Writes raw bits to the register."]
     #[inline(always)]
     pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
@@ -54,11 +72,10 @@ impl crate::Readable for AC_DAC_DRC_HHPFC_SPEC {
 #[doc = "`write(|w| ..)` method takes [ac_dac_drc_hhpfc::W](W) writer structure"]
 impl crate::Writable for AC_DAC_DRC_HHPFC_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
-#[doc = "`reset()` method sets ac_dac_drc_hhpfc to value 0"]
+#[doc = "`reset()` method sets ac_dac_drc_hhpfc to value 0xff"]
 impl crate::Resettable for AC_DAC_DRC_HHPFC_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0xff;
 }

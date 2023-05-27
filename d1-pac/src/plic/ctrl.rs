@@ -37,7 +37,7 @@ impl From<crate::W<CTRL_SPEC>> for W {
 #[doc = "Field `ctrl` reader - PLIC Control"]
 pub type CTRL_R = crate::BitReader<CTRL_A>;
 #[doc = "PLIC Control\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum CTRL_A {
     #[doc = "0: Only the machine mode can access to all registers in PLIC. Supervisor mode can only access the interrupt threshold register and the interrupt response/completion register."]
     M = 0,
@@ -94,6 +94,7 @@ impl R {
 impl W {
     #[doc = "Bit 0 - PLIC Control"]
     #[inline(always)]
+    #[must_use]
     pub fn ctrl(&mut self) -> CTRL_W<0> {
         CTRL_W::new(self)
     }
@@ -116,11 +117,10 @@ impl crate::Readable for CTRL_SPEC {
 #[doc = "`write(|w| ..)` method takes [ctrl::W](W) writer structure"]
 impl crate::Writable for CTRL_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets ctrl to value 0"]
 impl crate::Resettable for CTRL_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

@@ -37,12 +37,12 @@ impl From<crate::W<IOMMU_PMU_CLR_SPEC>> for W {
 #[doc = "Field `pmu_clr` reader - "]
 pub type PMU_CLR_R = crate::BitReader<PMU_CLR_A>;
 #[doc = "\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum PMU_CLR_A {
     #[doc = "0: No clear operation or clear operation is completed"]
-    N_O_CLEAR_OR_COMPLETED = 0,
+    NO_CLEAR_OR_COMPLETED = 0,
     #[doc = "1: Clear counter data"]
-    C_LEAR = 1,
+    CLEAR = 1,
 }
 impl From<PMU_CLR_A> for bool {
     #[inline(always)]
@@ -55,19 +55,19 @@ impl PMU_CLR_R {
     #[inline(always)]
     pub fn variant(&self) -> PMU_CLR_A {
         match self.bits {
-            false => PMU_CLR_A::N_O_CLEAR_OR_COMPLETED,
-            true => PMU_CLR_A::C_LEAR,
+            false => PMU_CLR_A::NO_CLEAR_OR_COMPLETED,
+            true => PMU_CLR_A::CLEAR,
         }
     }
-    #[doc = "Checks if the value of the field is `N_O_CLEAR_OR_COMPLETED`"]
+    #[doc = "Checks if the value of the field is `NO_CLEAR_OR_COMPLETED`"]
     #[inline(always)]
-    pub fn is_n_o_clear_or_completed(&self) -> bool {
-        *self == PMU_CLR_A::N_O_CLEAR_OR_COMPLETED
+    pub fn is_no_clear_or_completed(&self) -> bool {
+        *self == PMU_CLR_A::NO_CLEAR_OR_COMPLETED
     }
-    #[doc = "Checks if the value of the field is `C_LEAR`"]
+    #[doc = "Checks if the value of the field is `CLEAR`"]
     #[inline(always)]
-    pub fn is_c_lear(&self) -> bool {
-        *self == PMU_CLR_A::C_LEAR
+    pub fn is_clear(&self) -> bool {
+        *self == PMU_CLR_A::CLEAR
     }
 }
 #[doc = "Field `pmu_clr` writer - "]
@@ -75,13 +75,13 @@ pub type PMU_CLR_W<'a, const O: u8> = crate::BitWriter<'a, u32, IOMMU_PMU_CLR_SP
 impl<'a, const O: u8> PMU_CLR_W<'a, O> {
     #[doc = "No clear operation or clear operation is completed"]
     #[inline(always)]
-    pub fn n_o_clear_or_completed(self) -> &'a mut W {
-        self.variant(PMU_CLR_A::N_O_CLEAR_OR_COMPLETED)
+    pub fn no_clear_or_completed(self) -> &'a mut W {
+        self.variant(PMU_CLR_A::NO_CLEAR_OR_COMPLETED)
     }
     #[doc = "Clear counter data"]
     #[inline(always)]
-    pub fn c_lear(self) -> &'a mut W {
-        self.variant(PMU_CLR_A::C_LEAR)
+    pub fn clear(self) -> &'a mut W {
+        self.variant(PMU_CLR_A::CLEAR)
     }
 }
 impl R {
@@ -94,6 +94,7 @@ impl R {
 impl W {
     #[doc = "Bit 0"]
     #[inline(always)]
+    #[must_use]
     pub fn pmu_clr(&mut self) -> PMU_CLR_W<0> {
         PMU_CLR_W::new(self)
     }
@@ -116,11 +117,10 @@ impl crate::Readable for IOMMU_PMU_CLR_SPEC {
 #[doc = "`write(|w| ..)` method takes [iommu_pmu_clr::W](W) writer structure"]
 impl crate::Writable for IOMMU_PMU_CLR_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets iommu_pmu_clr to value 0"]
 impl crate::Resettable for IOMMU_PMU_CLR_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

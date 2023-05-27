@@ -37,7 +37,7 @@ impl From<crate::W<IOMMU_TLB_IVLD_MODE_SEL_SPEC>> for W {
 #[doc = "Field `tlb_ivld_mode_sel` reader - "]
 pub type TLB_IVLD_MODE_SEL_R = crate::BitReader<TLB_IVLD_MODE_SEL_A>;
 #[doc = "\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum TLB_IVLD_MODE_SEL_A {
     #[doc = "0: Invalidate TLB by using the Mask mode"]
     M_ASK_MODE = 0,
@@ -95,6 +95,7 @@ impl R {
 impl W {
     #[doc = "Bit 0"]
     #[inline(always)]
+    #[must_use]
     pub fn tlb_ivld_mode_sel(&mut self) -> TLB_IVLD_MODE_SEL_W<0> {
         TLB_IVLD_MODE_SEL_W::new(self)
     }
@@ -117,11 +118,10 @@ impl crate::Readable for IOMMU_TLB_IVLD_MODE_SEL_SPEC {
 #[doc = "`write(|w| ..)` method takes [iommu_tlb_ivld_mode_sel::W](W) writer structure"]
 impl crate::Writable for IOMMU_TLB_IVLD_MODE_SEL_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets iommu_tlb_ivld_mode_sel to value 0"]
 impl crate::Resettable for IOMMU_TLB_IVLD_MODE_SEL_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

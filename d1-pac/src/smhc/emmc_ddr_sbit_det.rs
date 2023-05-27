@@ -37,7 +37,7 @@ impl From<crate::W<EMMC_DDR_SBIT_DET_SPEC>> for W {
 #[doc = "Field `half_start_bit` reader - Control for start bit detection mechanism inside mstorage based on duration of start bit"]
 pub type HALF_START_BIT_R = crate::BitReader<HALF_START_BIT_A>;
 #[doc = "Control for start bit detection mechanism inside mstorage based on duration of start bit\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum HALF_START_BIT_A {
     #[doc = "0: Full cycle"]
     FULL = 0,
@@ -88,7 +88,7 @@ impl<'a, const O: u8> HALF_START_BIT_W<'a, O> {
 #[doc = "Field `hs400_md_en` reader - HS400 Mode Enable"]
 pub type HS400_MD_EN_R = crate::BitReader<HS400_MD_EN_A>;
 #[doc = "HS400 Mode Enable\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum HS400_MD_EN_A {
     #[doc = "0: Disabled"]
     DISABLED = 0,
@@ -151,11 +151,13 @@ impl R {
 impl W {
     #[doc = "Bit 0 - Control for start bit detection mechanism inside mstorage based on duration of start bit"]
     #[inline(always)]
+    #[must_use]
     pub fn half_start_bit(&mut self) -> HALF_START_BIT_W<0> {
         HALF_START_BIT_W::new(self)
     }
     #[doc = "Bit 31 - HS400 Mode Enable"]
     #[inline(always)]
+    #[must_use]
     pub fn hs400_md_en(&mut self) -> HS400_MD_EN_W<31> {
         HS400_MD_EN_W::new(self)
     }
@@ -178,11 +180,10 @@ impl crate::Readable for EMMC_DDR_SBIT_DET_SPEC {
 #[doc = "`write(|w| ..)` method takes [emmc_ddr_sbit_det::W](W) writer structure"]
 impl crate::Writable for EMMC_DDR_SBIT_DET_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets emmc_ddr_sbit_det to value 0"]
 impl crate::Resettable for EMMC_DDR_SBIT_DET_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

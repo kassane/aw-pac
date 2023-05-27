@@ -37,7 +37,7 @@ impl From<crate::W<DSP_BGR_SPEC>> for W {
 #[doc = "Field `cfg_gating` reader - Gating Clock"]
 pub type CFG_GATING_R = crate::BitReader<CFG_GATING_A>;
 #[doc = "Gating Clock\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum CFG_GATING_A {
     #[doc = "0: `0`"]
     MASK = 0,
@@ -87,7 +87,7 @@ impl<'a, const O: u8> CFG_GATING_W<'a, O> {
 #[doc = "Field `rst` reader - Reset"]
 pub type RST_R = crate::BitReader<RST_A>;
 #[doc = "Reset\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum RST_A {
     #[doc = "0: `0`"]
     ASSERT = 0,
@@ -137,7 +137,7 @@ impl<'a, const O: u8> RST_W<'a, O> {
 #[doc = "Field `cfg_rst` reader - Reset"]
 pub type CFG_RST_R = crate::BitReader<CFG_RST_A>;
 #[doc = "Reset\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum CFG_RST_A {
     #[doc = "0: `0`"]
     ASSERT = 0,
@@ -187,7 +187,7 @@ impl<'a, const O: u8> CFG_RST_W<'a, O> {
 #[doc = "Field `dbg_rst` reader - Reset"]
 pub type DBG_RST_R = crate::BitReader<DBG_RST_A>;
 #[doc = "Reset\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum DBG_RST_A {
     #[doc = "0: `0`"]
     ASSERT = 0,
@@ -259,21 +259,25 @@ impl R {
 impl W {
     #[doc = "Bit 1 - Gating Clock"]
     #[inline(always)]
+    #[must_use]
     pub fn cfg_gating(&mut self) -> CFG_GATING_W<1> {
         CFG_GATING_W::new(self)
     }
     #[doc = "Bit 16 - Reset"]
     #[inline(always)]
+    #[must_use]
     pub fn rst(&mut self) -> RST_W<16> {
         RST_W::new(self)
     }
     #[doc = "Bit 17 - Reset"]
     #[inline(always)]
+    #[must_use]
     pub fn cfg_rst(&mut self) -> CFG_RST_W<17> {
         CFG_RST_W::new(self)
     }
     #[doc = "Bit 18 - Reset"]
     #[inline(always)]
+    #[must_use]
     pub fn dbg_rst(&mut self) -> DBG_RST_W<18> {
         DBG_RST_W::new(self)
     }
@@ -296,11 +300,10 @@ impl crate::Readable for DSP_BGR_SPEC {
 #[doc = "`write(|w| ..)` method takes [dsp_bgr::W](W) writer structure"]
 impl crate::Writable for DSP_BGR_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets dsp_bgr to value 0"]
 impl crate::Resettable for DSP_BGR_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

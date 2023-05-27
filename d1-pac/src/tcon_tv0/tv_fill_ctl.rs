@@ -37,12 +37,12 @@ impl From<crate::W<TV_FILL_CTL_SPEC>> for W {
 #[doc = "Field `tv_fill_en` reader - TV Fill Enable"]
 pub type TV_FILL_EN_R = crate::BitReader<TV_FILL_EN_A>;
 #[doc = "TV Fill Enable\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum TV_FILL_EN_A {
     #[doc = "0: Bypass"]
-    B_YPASS = 0,
+    BYPASS = 0,
     #[doc = "1: Enable"]
-    E_NABLE = 1,
+    ENABLE = 1,
 }
 impl From<TV_FILL_EN_A> for bool {
     #[inline(always)]
@@ -55,19 +55,19 @@ impl TV_FILL_EN_R {
     #[inline(always)]
     pub fn variant(&self) -> TV_FILL_EN_A {
         match self.bits {
-            false => TV_FILL_EN_A::B_YPASS,
-            true => TV_FILL_EN_A::E_NABLE,
+            false => TV_FILL_EN_A::BYPASS,
+            true => TV_FILL_EN_A::ENABLE,
         }
     }
-    #[doc = "Checks if the value of the field is `B_YPASS`"]
+    #[doc = "Checks if the value of the field is `BYPASS`"]
     #[inline(always)]
-    pub fn is_b_ypass(&self) -> bool {
-        *self == TV_FILL_EN_A::B_YPASS
+    pub fn is_bypass(&self) -> bool {
+        *self == TV_FILL_EN_A::BYPASS
     }
-    #[doc = "Checks if the value of the field is `E_NABLE`"]
+    #[doc = "Checks if the value of the field is `ENABLE`"]
     #[inline(always)]
-    pub fn is_e_nable(&self) -> bool {
-        *self == TV_FILL_EN_A::E_NABLE
+    pub fn is_enable(&self) -> bool {
+        *self == TV_FILL_EN_A::ENABLE
     }
 }
 #[doc = "Field `tv_fill_en` writer - TV Fill Enable"]
@@ -76,13 +76,13 @@ pub type TV_FILL_EN_W<'a, const O: u8> =
 impl<'a, const O: u8> TV_FILL_EN_W<'a, O> {
     #[doc = "Bypass"]
     #[inline(always)]
-    pub fn b_ypass(self) -> &'a mut W {
-        self.variant(TV_FILL_EN_A::B_YPASS)
+    pub fn bypass(self) -> &'a mut W {
+        self.variant(TV_FILL_EN_A::BYPASS)
     }
     #[doc = "Enable"]
     #[inline(always)]
-    pub fn e_nable(self) -> &'a mut W {
-        self.variant(TV_FILL_EN_A::E_NABLE)
+    pub fn enable(self) -> &'a mut W {
+        self.variant(TV_FILL_EN_A::ENABLE)
     }
 }
 impl R {
@@ -95,6 +95,7 @@ impl R {
 impl W {
     #[doc = "Bit 31 - TV Fill Enable"]
     #[inline(always)]
+    #[must_use]
     pub fn tv_fill_en(&mut self) -> TV_FILL_EN_W<31> {
         TV_FILL_EN_W::new(self)
     }
@@ -117,11 +118,10 @@ impl crate::Readable for TV_FILL_CTL_SPEC {
 #[doc = "`write(|w| ..)` method takes [tv_fill_ctl::W](W) writer structure"]
 impl crate::Writable for TV_FILL_CTL_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets tv_fill_ctl to value 0"]
 impl crate::Resettable for TV_FILL_CTL_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

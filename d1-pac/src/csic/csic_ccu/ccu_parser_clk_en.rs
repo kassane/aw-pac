@@ -37,7 +37,7 @@ impl From<crate::W<CCU_PARSER_CLK_EN_SPEC>> for W {
 #[doc = "Field `mcsi_parser0_clk_enable` reader - "]
 pub type MCSI_PARSER0_CLK_ENABLE_R = crate::BitReader<MCSI_PARSER0_CLK_ENABLE_A>;
 #[doc = "\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum MCSI_PARSER0_CLK_ENABLE_A {
     #[doc = "0: CSI Parser0 clock disable"]
     DISABLE = 0,
@@ -95,6 +95,7 @@ impl R {
 impl W {
     #[doc = "Bit 0"]
     #[inline(always)]
+    #[must_use]
     pub fn mcsi_parser0_clk_enable(&mut self) -> MCSI_PARSER0_CLK_ENABLE_W<0> {
         MCSI_PARSER0_CLK_ENABLE_W::new(self)
     }
@@ -117,11 +118,10 @@ impl crate::Readable for CCU_PARSER_CLK_EN_SPEC {
 #[doc = "`write(|w| ..)` method takes [ccu_parser_clk_en::W](W) writer structure"]
 impl crate::Writable for CCU_PARSER_CLK_EN_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets ccu_parser_clk_en to value 0"]
 impl crate::Resettable for CCU_PARSER_CLK_EN_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

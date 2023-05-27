@@ -34,12 +34,10 @@ impl From<crate::W<IOMMU_DM_AUT_OVWT_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `m_rd_aut_ovwt_ctrl[0-6]` reader - Master\\[i\\]
-read permission overwrite control"]
+#[doc = "Field `m_rd_aut_ovwt_ctrl[0-6]` reader - Master\\[i\\] read permission overwrite control"]
 pub type M_RD_AUT_OVWT_CTRL_R = crate::BitReader<M_RD_AUT_OVWT_CTRL_A>;
-#[doc = "Master\\[i\\]
-read permission overwrite control\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[doc = "Master\\[i\\] read permission overwrite control\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum M_RD_AUT_OVWT_CTRL_A {
     #[doc = "0: The read-operation is permitted"]
     PERMITTED = 0,
@@ -72,8 +70,7 @@ impl M_RD_AUT_OVWT_CTRL_R {
         *self == M_RD_AUT_OVWT_CTRL_A::PROHIBITED
     }
 }
-#[doc = "Field `m_rd_aut_ovwt_ctrl[0-6]` writer - Master\\[i\\]
-read permission overwrite control"]
+#[doc = "Field `m_rd_aut_ovwt_ctrl[0-6]` writer - Master\\[i\\] read permission overwrite control"]
 pub type M_RD_AUT_OVWT_CTRL_W<'a, const O: u8> =
     crate::BitWriter<'a, u32, IOMMU_DM_AUT_OVWT_SPEC, M_RD_AUT_OVWT_CTRL_A, O>;
 impl<'a, const O: u8> M_RD_AUT_OVWT_CTRL_W<'a, O> {
@@ -88,12 +85,10 @@ impl<'a, const O: u8> M_RD_AUT_OVWT_CTRL_W<'a, O> {
         self.variant(M_RD_AUT_OVWT_CTRL_A::PROHIBITED)
     }
 }
-#[doc = "Field `m_wt_aut_ovwt_ctrl[0-6]` reader - Master\\[i\\]
-write permission overwrite control"]
+#[doc = "Field `m_wt_aut_ovwt_ctrl[0-6]` reader - Master\\[i\\] write permission overwrite control"]
 pub type M_WT_AUT_OVWT_CTRL_R = crate::BitReader<M_WT_AUT_OVWT_CTRL_A>;
-#[doc = "Master\\[i\\]
-write permission overwrite control\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[doc = "Master\\[i\\] write permission overwrite control\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum M_WT_AUT_OVWT_CTRL_A {
     #[doc = "0: The write-operation is permitted"]
     PERMITTED = 0,
@@ -126,8 +121,7 @@ impl M_WT_AUT_OVWT_CTRL_R {
         *self == M_WT_AUT_OVWT_CTRL_A::PROHIBITED
     }
 }
-#[doc = "Field `m_wt_aut_ovwt_ctrl[0-6]` writer - Master\\[i\\]
-write permission overwrite control"]
+#[doc = "Field `m_wt_aut_ovwt_ctrl[0-6]` writer - Master\\[i\\] write permission overwrite control"]
 pub type M_WT_AUT_OVWT_CTRL_W<'a, const O: u8> =
     crate::BitWriter<'a, u32, IOMMU_DM_AUT_OVWT_SPEC, M_WT_AUT_OVWT_CTRL_A, O>;
 impl<'a, const O: u8> M_WT_AUT_OVWT_CTRL_W<'a, O> {
@@ -145,12 +139,12 @@ impl<'a, const O: u8> M_WT_AUT_OVWT_CTRL_W<'a, O> {
 #[doc = "Field `dm_aut_ovwt_enable` reader - Domain write/read permission overwrite enable"]
 pub type DM_AUT_OVWT_ENABLE_R = crate::BitReader<DM_AUT_OVWT_ENABLE_A>;
 #[doc = "Domain write/read permission overwrite enable\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum DM_AUT_OVWT_ENABLE_A {
     #[doc = "0: Disable"]
-    D_ISABLE = 0,
+    DISABLE = 0,
     #[doc = "1: Enable"]
-    E_NABLE = 1,
+    ENABLE = 1,
 }
 impl From<DM_AUT_OVWT_ENABLE_A> for bool {
     #[inline(always)]
@@ -163,19 +157,19 @@ impl DM_AUT_OVWT_ENABLE_R {
     #[inline(always)]
     pub fn variant(&self) -> DM_AUT_OVWT_ENABLE_A {
         match self.bits {
-            false => DM_AUT_OVWT_ENABLE_A::D_ISABLE,
-            true => DM_AUT_OVWT_ENABLE_A::E_NABLE,
+            false => DM_AUT_OVWT_ENABLE_A::DISABLE,
+            true => DM_AUT_OVWT_ENABLE_A::ENABLE,
         }
     }
-    #[doc = "Checks if the value of the field is `D_ISABLE`"]
+    #[doc = "Checks if the value of the field is `DISABLE`"]
     #[inline(always)]
-    pub fn is_d_isable(&self) -> bool {
-        *self == DM_AUT_OVWT_ENABLE_A::D_ISABLE
+    pub fn is_disable(&self) -> bool {
+        *self == DM_AUT_OVWT_ENABLE_A::DISABLE
     }
-    #[doc = "Checks if the value of the field is `E_NABLE`"]
+    #[doc = "Checks if the value of the field is `ENABLE`"]
     #[inline(always)]
-    pub fn is_e_nable(&self) -> bool {
-        *self == DM_AUT_OVWT_ENABLE_A::E_NABLE
+    pub fn is_enable(&self) -> bool {
+        *self == DM_AUT_OVWT_ENABLE_A::ENABLE
     }
 }
 #[doc = "Field `dm_aut_ovwt_enable` writer - Domain write/read permission overwrite enable"]
@@ -184,108 +178,92 @@ pub type DM_AUT_OVWT_ENABLE_W<'a, const O: u8> =
 impl<'a, const O: u8> DM_AUT_OVWT_ENABLE_W<'a, O> {
     #[doc = "Disable"]
     #[inline(always)]
-    pub fn d_isable(self) -> &'a mut W {
-        self.variant(DM_AUT_OVWT_ENABLE_A::D_ISABLE)
+    pub fn disable(self) -> &'a mut W {
+        self.variant(DM_AUT_OVWT_ENABLE_A::DISABLE)
     }
     #[doc = "Enable"]
     #[inline(always)]
-    pub fn e_nable(self) -> &'a mut W {
-        self.variant(DM_AUT_OVWT_ENABLE_A::E_NABLE)
+    pub fn enable(self) -> &'a mut W {
+        self.variant(DM_AUT_OVWT_ENABLE_A::ENABLE)
     }
 }
 impl R {
-    #[doc = "Master\\[i\\]
-read permission overwrite control"]
+    #[doc = "Master\\[i\\] read permission overwrite control"]
     #[inline(always)]
     pub unsafe fn m_rd_aut_ovwt_ctrl(&self, n: u8) -> M_RD_AUT_OVWT_CTRL_R {
         M_RD_AUT_OVWT_CTRL_R::new(((self.bits >> (n * 2)) & 1) != 0)
     }
-    #[doc = "Bit 0 - Master\\[i\\]
-read permission overwrite control"]
+    #[doc = "Bit 0 - Master\\[i\\] read permission overwrite control"]
     #[inline(always)]
     pub fn m0_rd_aut_ovwt_ctrl(&self) -> M_RD_AUT_OVWT_CTRL_R {
         M_RD_AUT_OVWT_CTRL_R::new((self.bits & 1) != 0)
     }
-    #[doc = "Bit 2 - Master\\[i\\]
-read permission overwrite control"]
+    #[doc = "Bit 2 - Master\\[i\\] read permission overwrite control"]
     #[inline(always)]
     pub fn m1_rd_aut_ovwt_ctrl(&self) -> M_RD_AUT_OVWT_CTRL_R {
         M_RD_AUT_OVWT_CTRL_R::new(((self.bits >> 2) & 1) != 0)
     }
-    #[doc = "Bit 4 - Master\\[i\\]
-read permission overwrite control"]
+    #[doc = "Bit 4 - Master\\[i\\] read permission overwrite control"]
     #[inline(always)]
     pub fn m2_rd_aut_ovwt_ctrl(&self) -> M_RD_AUT_OVWT_CTRL_R {
         M_RD_AUT_OVWT_CTRL_R::new(((self.bits >> 4) & 1) != 0)
     }
-    #[doc = "Bit 6 - Master\\[i\\]
-read permission overwrite control"]
+    #[doc = "Bit 6 - Master\\[i\\] read permission overwrite control"]
     #[inline(always)]
     pub fn m3_rd_aut_ovwt_ctrl(&self) -> M_RD_AUT_OVWT_CTRL_R {
         M_RD_AUT_OVWT_CTRL_R::new(((self.bits >> 6) & 1) != 0)
     }
-    #[doc = "Bit 8 - Master\\[i\\]
-read permission overwrite control"]
+    #[doc = "Bit 8 - Master\\[i\\] read permission overwrite control"]
     #[inline(always)]
     pub fn m4_rd_aut_ovwt_ctrl(&self) -> M_RD_AUT_OVWT_CTRL_R {
         M_RD_AUT_OVWT_CTRL_R::new(((self.bits >> 8) & 1) != 0)
     }
-    #[doc = "Bit 10 - Master\\[i\\]
-read permission overwrite control"]
+    #[doc = "Bit 10 - Master\\[i\\] read permission overwrite control"]
     #[inline(always)]
     pub fn m5_rd_aut_ovwt_ctrl(&self) -> M_RD_AUT_OVWT_CTRL_R {
         M_RD_AUT_OVWT_CTRL_R::new(((self.bits >> 10) & 1) != 0)
     }
-    #[doc = "Bit 12 - Master\\[i\\]
-read permission overwrite control"]
+    #[doc = "Bit 12 - Master\\[i\\] read permission overwrite control"]
     #[inline(always)]
     pub fn m6_rd_aut_ovwt_ctrl(&self) -> M_RD_AUT_OVWT_CTRL_R {
         M_RD_AUT_OVWT_CTRL_R::new(((self.bits >> 12) & 1) != 0)
     }
-    #[doc = "Master\\[i\\]
-write permission overwrite control"]
+    #[doc = "Master\\[i\\] write permission overwrite control"]
     #[inline(always)]
     pub unsafe fn m_wt_aut_ovwt_ctrl(&self, n: u8) -> M_WT_AUT_OVWT_CTRL_R {
         M_WT_AUT_OVWT_CTRL_R::new(((self.bits >> (n * 2 + 1)) & 1) != 0)
     }
-    #[doc = "Bit 1 - Master\\[i\\]
-write permission overwrite control"]
+    #[doc = "Bit 1 - Master\\[i\\] write permission overwrite control"]
     #[inline(always)]
     pub fn m0_wt_aut_ovwt_ctrl(&self) -> M_WT_AUT_OVWT_CTRL_R {
         M_WT_AUT_OVWT_CTRL_R::new(((self.bits >> 1) & 1) != 0)
     }
-    #[doc = "Bit 3 - Master\\[i\\]
-write permission overwrite control"]
+    #[doc = "Bit 3 - Master\\[i\\] write permission overwrite control"]
     #[inline(always)]
     pub fn m1_wt_aut_ovwt_ctrl(&self) -> M_WT_AUT_OVWT_CTRL_R {
         M_WT_AUT_OVWT_CTRL_R::new(((self.bits >> 3) & 1) != 0)
     }
-    #[doc = "Bit 5 - Master\\[i\\]
-write permission overwrite control"]
+    #[doc = "Bit 5 - Master\\[i\\] write permission overwrite control"]
     #[inline(always)]
     pub fn m2_wt_aut_ovwt_ctrl(&self) -> M_WT_AUT_OVWT_CTRL_R {
         M_WT_AUT_OVWT_CTRL_R::new(((self.bits >> 5) & 1) != 0)
     }
-    #[doc = "Bit 7 - Master\\[i\\]
-write permission overwrite control"]
+    #[doc = "Bit 7 - Master\\[i\\] write permission overwrite control"]
     #[inline(always)]
     pub fn m3_wt_aut_ovwt_ctrl(&self) -> M_WT_AUT_OVWT_CTRL_R {
         M_WT_AUT_OVWT_CTRL_R::new(((self.bits >> 7) & 1) != 0)
     }
-    #[doc = "Bit 9 - Master\\[i\\]
-write permission overwrite control"]
+    #[doc = "Bit 9 - Master\\[i\\] write permission overwrite control"]
     #[inline(always)]
     pub fn m4_wt_aut_ovwt_ctrl(&self) -> M_WT_AUT_OVWT_CTRL_R {
         M_WT_AUT_OVWT_CTRL_R::new(((self.bits >> 9) & 1) != 0)
     }
-    #[doc = "Bit 11 - Master\\[i\\]
-write permission overwrite control"]
+    #[doc = "Bit 11 - Master\\[i\\] write permission overwrite control"]
     #[inline(always)]
     pub fn m5_wt_aut_ovwt_ctrl(&self) -> M_WT_AUT_OVWT_CTRL_R {
         M_WT_AUT_OVWT_CTRL_R::new(((self.bits >> 11) & 1) != 0)
     }
-    #[doc = "Bit 13 - Master\\[i\\]
-write permission overwrite control"]
+    #[doc = "Bit 13 - Master\\[i\\] write permission overwrite control"]
     #[inline(always)]
     pub fn m6_wt_aut_ovwt_ctrl(&self) -> M_WT_AUT_OVWT_CTRL_R {
         M_WT_AUT_OVWT_CTRL_R::new(((self.bits >> 13) & 1) != 0)
@@ -297,104 +275,105 @@ write permission overwrite control"]
     }
 }
 impl W {
-    #[doc = "Master\\[i\\]
-read permission overwrite control"]
+    #[doc = "Master\\[i\\] read permission overwrite control"]
     #[inline(always)]
+    #[must_use]
     pub unsafe fn m_rd_aut_ovwt_ctrl<const O: u8>(&mut self) -> M_RD_AUT_OVWT_CTRL_W<O> {
         M_RD_AUT_OVWT_CTRL_W::new(self)
     }
-    #[doc = "Bit 0 - Master\\[i\\]
-read permission overwrite control"]
+    #[doc = "Bit 0 - Master\\[i\\] read permission overwrite control"]
     #[inline(always)]
+    #[must_use]
     pub fn m0_rd_aut_ovwt_ctrl(&mut self) -> M_RD_AUT_OVWT_CTRL_W<0> {
         M_RD_AUT_OVWT_CTRL_W::new(self)
     }
-    #[doc = "Bit 2 - Master\\[i\\]
-read permission overwrite control"]
+    #[doc = "Bit 2 - Master\\[i\\] read permission overwrite control"]
     #[inline(always)]
+    #[must_use]
     pub fn m1_rd_aut_ovwt_ctrl(&mut self) -> M_RD_AUT_OVWT_CTRL_W<2> {
         M_RD_AUT_OVWT_CTRL_W::new(self)
     }
-    #[doc = "Bit 4 - Master\\[i\\]
-read permission overwrite control"]
+    #[doc = "Bit 4 - Master\\[i\\] read permission overwrite control"]
     #[inline(always)]
+    #[must_use]
     pub fn m2_rd_aut_ovwt_ctrl(&mut self) -> M_RD_AUT_OVWT_CTRL_W<4> {
         M_RD_AUT_OVWT_CTRL_W::new(self)
     }
-    #[doc = "Bit 6 - Master\\[i\\]
-read permission overwrite control"]
+    #[doc = "Bit 6 - Master\\[i\\] read permission overwrite control"]
     #[inline(always)]
+    #[must_use]
     pub fn m3_rd_aut_ovwt_ctrl(&mut self) -> M_RD_AUT_OVWT_CTRL_W<6> {
         M_RD_AUT_OVWT_CTRL_W::new(self)
     }
-    #[doc = "Bit 8 - Master\\[i\\]
-read permission overwrite control"]
+    #[doc = "Bit 8 - Master\\[i\\] read permission overwrite control"]
     #[inline(always)]
+    #[must_use]
     pub fn m4_rd_aut_ovwt_ctrl(&mut self) -> M_RD_AUT_OVWT_CTRL_W<8> {
         M_RD_AUT_OVWT_CTRL_W::new(self)
     }
-    #[doc = "Bit 10 - Master\\[i\\]
-read permission overwrite control"]
+    #[doc = "Bit 10 - Master\\[i\\] read permission overwrite control"]
     #[inline(always)]
+    #[must_use]
     pub fn m5_rd_aut_ovwt_ctrl(&mut self) -> M_RD_AUT_OVWT_CTRL_W<10> {
         M_RD_AUT_OVWT_CTRL_W::new(self)
     }
-    #[doc = "Bit 12 - Master\\[i\\]
-read permission overwrite control"]
+    #[doc = "Bit 12 - Master\\[i\\] read permission overwrite control"]
     #[inline(always)]
+    #[must_use]
     pub fn m6_rd_aut_ovwt_ctrl(&mut self) -> M_RD_AUT_OVWT_CTRL_W<12> {
         M_RD_AUT_OVWT_CTRL_W::new(self)
     }
-    #[doc = "Master\\[i\\]
-write permission overwrite control"]
+    #[doc = "Master\\[i\\] write permission overwrite control"]
     #[inline(always)]
+    #[must_use]
     pub unsafe fn m_wt_aut_ovwt_ctrl<const O: u8>(&mut self) -> M_WT_AUT_OVWT_CTRL_W<O> {
         M_WT_AUT_OVWT_CTRL_W::new(self)
     }
-    #[doc = "Bit 1 - Master\\[i\\]
-write permission overwrite control"]
+    #[doc = "Bit 1 - Master\\[i\\] write permission overwrite control"]
     #[inline(always)]
+    #[must_use]
     pub fn m0_wt_aut_ovwt_ctrl(&mut self) -> M_WT_AUT_OVWT_CTRL_W<1> {
         M_WT_AUT_OVWT_CTRL_W::new(self)
     }
-    #[doc = "Bit 3 - Master\\[i\\]
-write permission overwrite control"]
+    #[doc = "Bit 3 - Master\\[i\\] write permission overwrite control"]
     #[inline(always)]
+    #[must_use]
     pub fn m1_wt_aut_ovwt_ctrl(&mut self) -> M_WT_AUT_OVWT_CTRL_W<3> {
         M_WT_AUT_OVWT_CTRL_W::new(self)
     }
-    #[doc = "Bit 5 - Master\\[i\\]
-write permission overwrite control"]
+    #[doc = "Bit 5 - Master\\[i\\] write permission overwrite control"]
     #[inline(always)]
+    #[must_use]
     pub fn m2_wt_aut_ovwt_ctrl(&mut self) -> M_WT_AUT_OVWT_CTRL_W<5> {
         M_WT_AUT_OVWT_CTRL_W::new(self)
     }
-    #[doc = "Bit 7 - Master\\[i\\]
-write permission overwrite control"]
+    #[doc = "Bit 7 - Master\\[i\\] write permission overwrite control"]
     #[inline(always)]
+    #[must_use]
     pub fn m3_wt_aut_ovwt_ctrl(&mut self) -> M_WT_AUT_OVWT_CTRL_W<7> {
         M_WT_AUT_OVWT_CTRL_W::new(self)
     }
-    #[doc = "Bit 9 - Master\\[i\\]
-write permission overwrite control"]
+    #[doc = "Bit 9 - Master\\[i\\] write permission overwrite control"]
     #[inline(always)]
+    #[must_use]
     pub fn m4_wt_aut_ovwt_ctrl(&mut self) -> M_WT_AUT_OVWT_CTRL_W<9> {
         M_WT_AUT_OVWT_CTRL_W::new(self)
     }
-    #[doc = "Bit 11 - Master\\[i\\]
-write permission overwrite control"]
+    #[doc = "Bit 11 - Master\\[i\\] write permission overwrite control"]
     #[inline(always)]
+    #[must_use]
     pub fn m5_wt_aut_ovwt_ctrl(&mut self) -> M_WT_AUT_OVWT_CTRL_W<11> {
         M_WT_AUT_OVWT_CTRL_W::new(self)
     }
-    #[doc = "Bit 13 - Master\\[i\\]
-write permission overwrite control"]
+    #[doc = "Bit 13 - Master\\[i\\] write permission overwrite control"]
     #[inline(always)]
+    #[must_use]
     pub fn m6_wt_aut_ovwt_ctrl(&mut self) -> M_WT_AUT_OVWT_CTRL_W<13> {
         M_WT_AUT_OVWT_CTRL_W::new(self)
     }
     #[doc = "Bit 31 - Domain write/read permission overwrite enable"]
     #[inline(always)]
+    #[must_use]
     pub fn dm_aut_ovwt_enable(&mut self) -> DM_AUT_OVWT_ENABLE_W<31> {
         DM_AUT_OVWT_ENABLE_W::new(self)
     }
@@ -417,11 +396,10 @@ impl crate::Readable for IOMMU_DM_AUT_OVWT_SPEC {
 #[doc = "`write(|w| ..)` method takes [iommu_dm_aut_ovwt::W](W) writer structure"]
 impl crate::Writable for IOMMU_DM_AUT_OVWT_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets iommu_dm_aut_ovwt to value 0"]
 impl crate::Resettable for IOMMU_DM_AUT_OVWT_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

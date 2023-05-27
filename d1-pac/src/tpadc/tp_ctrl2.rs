@@ -42,7 +42,7 @@ pub type PRE_MEA_THRE_CNT_W<'a, const O: u8> =
 #[doc = "Field `pre_mea_en` reader - TP Pressure Measurement Enable Control"]
 pub type PRE_MEA_EN_R = crate::BitReader<PRE_MEA_EN_A>;
 #[doc = "TP Pressure Measurement Enable Control\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum PRE_MEA_EN_A {
     #[doc = "0: `0`"]
     DISABLE = 0,
@@ -92,7 +92,7 @@ impl<'a, const O: u8> PRE_MEA_EN_W<'a, O> {
 #[doc = "Field `tp_fifo_mode_select` reader - TP Access Data Mode Select"]
 pub type TP_FIFO_MODE_SELECT_R = crate::FieldReader<u8, TP_FIFO_MODE_SELECT_A>;
 #[doc = "TP Access Data Mode Select\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum TP_FIFO_MODE_SELECT_A {
     #[doc = "0: FIFO store X1 Y1 data for single touch no pressure mode"]
@@ -177,7 +177,7 @@ impl R {
     #[doc = "Bits 0:23 - TP Pressure Measurement Threshold Control"]
     #[inline(always)]
     pub fn pre_mea_thre_cnt(&self) -> PRE_MEA_THRE_CNT_R {
-        PRE_MEA_THRE_CNT_R::new((self.bits & 0x00ff_ffff) as u32)
+        PRE_MEA_THRE_CNT_R::new(self.bits & 0x00ff_ffff)
     }
     #[doc = "Bit 24 - TP Pressure Measurement Enable Control"]
     #[inline(always)]
@@ -198,21 +198,25 @@ impl R {
 impl W {
     #[doc = "Bits 0:23 - TP Pressure Measurement Threshold Control"]
     #[inline(always)]
+    #[must_use]
     pub fn pre_mea_thre_cnt(&mut self) -> PRE_MEA_THRE_CNT_W<0> {
         PRE_MEA_THRE_CNT_W::new(self)
     }
     #[doc = "Bit 24 - TP Pressure Measurement Enable Control"]
     #[inline(always)]
+    #[must_use]
     pub fn pre_mea_en(&mut self) -> PRE_MEA_EN_W<24> {
         PRE_MEA_EN_W::new(self)
     }
     #[doc = "Bits 26:27 - TP Access Data Mode Select"]
     #[inline(always)]
+    #[must_use]
     pub fn tp_fifo_mode_select(&mut self) -> TP_FIFO_MODE_SELECT_W<26> {
         TP_FIFO_MODE_SELECT_W::new(self)
     }
     #[doc = "Bits 28:31 - Internal Pull-up Resistor Control"]
     #[inline(always)]
+    #[must_use]
     pub fn tp_sensitive_adjust(&mut self) -> TP_SENSITIVE_ADJUST_W<28> {
         TP_SENSITIVE_ADJUST_W::new(self)
     }
@@ -235,11 +239,10 @@ impl crate::Readable for TP_CTRL2_SPEC {
 #[doc = "`write(|w| ..)` method takes [tp_ctrl2::W](W) writer structure"]
 impl crate::Writable for TP_CTRL2_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets tp_ctrl2 to value 0"]
 impl crate::Resettable for TP_CTRL2_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

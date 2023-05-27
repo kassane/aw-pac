@@ -37,7 +37,7 @@ impl From<crate::W<TP_INT_FIFO_STAT_SPEC>> for W {
 #[doc = "Field `tp_down_pending` reader - TP First Touch (Stylus DOWN) Pending"]
 pub type TP_DOWN_PENDING_R = crate::BitReader<TP_DOWN_PENDING_A>;
 #[doc = "TP First Touch (Stylus DOWN) Pending\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum TP_DOWN_PENDING_A {
     #[doc = "0: `0`"]
     NO_PENDING = 0,
@@ -88,7 +88,7 @@ impl<'a, const O: u8> TP_DOWN_PENDING_W<'a, O> {
 #[doc = "Field `tp_up_pending` reader - TP Last Touch (Stylus UP) Pending"]
 pub type TP_UP_PENDING_R = crate::BitReader<TP_UP_PENDING_A>;
 #[doc = "TP Last Touch (Stylus UP) Pending\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum TP_UP_PENDING_A {
     #[doc = "0: `0`"]
     NO_PENDING = 0,
@@ -139,7 +139,7 @@ impl<'a, const O: u8> TP_UP_PENDING_W<'a, O> {
 #[doc = "Field `tp_idle_flg` reader - TP Idle Flag"]
 pub type TP_IDLE_FLG_R = crate::BitReader<TP_IDLE_FLG_A>;
 #[doc = "TP Idle Flag\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum TP_IDLE_FLG_A {
     #[doc = "0: `0`"]
     IDLE = 0,
@@ -177,7 +177,7 @@ pub type RXA_CNT_R = crate::FieldReader<u8, u8>;
 #[doc = "Field `fifo_data_pending` reader - TP FIFO Data Available Pending"]
 pub type FIFO_DATA_PENDING_R = crate::BitReader<FIFO_DATA_PENDING_A>;
 #[doc = "TP FIFO Data Available Pending\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum FIFO_DATA_PENDING_A {
     #[doc = "0: `0`"]
     NO_PENDING = 0,
@@ -228,7 +228,7 @@ impl<'a, const O: u8> FIFO_DATA_PENDING_W<'a, O> {
 #[doc = "Field `fifo_overrun_pending` reader - TP FIFO Overrun Pending"]
 pub type FIFO_OVERRUN_PENDING_R = crate::BitReader<FIFO_OVERRUN_PENDING_A>;
 #[doc = "TP FIFO Overrun Pending\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum FIFO_OVERRUN_PENDING_A {
     #[doc = "0: `0`"]
     NO_PENDING = 0,
@@ -311,21 +311,25 @@ impl R {
 impl W {
     #[doc = "Bit 0 - TP First Touch (Stylus DOWN) Pending"]
     #[inline(always)]
+    #[must_use]
     pub fn tp_down_pending(&mut self) -> TP_DOWN_PENDING_W<0> {
         TP_DOWN_PENDING_W::new(self)
     }
     #[doc = "Bit 1 - TP Last Touch (Stylus UP) Pending"]
     #[inline(always)]
+    #[must_use]
     pub fn tp_up_pending(&mut self) -> TP_UP_PENDING_W<1> {
         TP_UP_PENDING_W::new(self)
     }
     #[doc = "Bit 16 - TP FIFO Data Available Pending"]
     #[inline(always)]
+    #[must_use]
     pub fn fifo_data_pending(&mut self) -> FIFO_DATA_PENDING_W<16> {
         FIFO_DATA_PENDING_W::new(self)
     }
     #[doc = "Bit 17 - TP FIFO Overrun Pending"]
     #[inline(always)]
+    #[must_use]
     pub fn fifo_overrun_pending(&mut self) -> FIFO_OVERRUN_PENDING_W<17> {
         FIFO_OVERRUN_PENDING_W::new(self)
     }
@@ -348,11 +352,10 @@ impl crate::Readable for TP_INT_FIFO_STAT_SPEC {
 #[doc = "`write(|w| ..)` method takes [tp_int_fifo_stat::W](W) writer structure"]
 impl crate::Writable for TP_INT_FIFO_STAT_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0x0003_0003;
 }
 #[doc = "`reset()` method sets tp_int_fifo_stat to value 0"]
 impl crate::Resettable for TP_INT_FIFO_STAT_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

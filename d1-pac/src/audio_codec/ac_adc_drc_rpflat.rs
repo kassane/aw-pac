@@ -34,7 +34,25 @@ impl From<crate::W<AC_ADC_DRC_RPFLAT_SPEC>> for W {
         W(writer)
     }
 }
+#[doc = "Field `adc_drc_rpflat` reader - The right peak filter attack time parameter setting, which is determined by the equation that AT = 1-exp (-2.2Ts/ta). The format is 3.24. (The default value is 1 ms)"]
+pub type ADC_DRC_RPFLAT_R = crate::FieldReader<u16, u16>;
+#[doc = "Field `adc_drc_rpflat` writer - The right peak filter attack time parameter setting, which is determined by the equation that AT = 1-exp (-2.2Ts/ta). The format is 3.24. (The default value is 1 ms)"]
+pub type ADC_DRC_RPFLAT_W<'a, const O: u8> =
+    crate::FieldWriter<'a, u32, AC_ADC_DRC_RPFLAT_SPEC, u16, u16, 16, O>;
+impl R {
+    #[doc = "Bits 0:15 - The right peak filter attack time parameter setting, which is determined by the equation that AT = 1-exp (-2.2Ts/ta). The format is 3.24. (The default value is 1 ms)"]
+    #[inline(always)]
+    pub fn adc_drc_rpflat(&self) -> ADC_DRC_RPFLAT_R {
+        ADC_DRC_RPFLAT_R::new((self.bits & 0xffff) as u16)
+    }
+}
 impl W {
+    #[doc = "Bits 0:15 - The right peak filter attack time parameter setting, which is determined by the equation that AT = 1-exp (-2.2Ts/ta). The format is 3.24. (The default value is 1 ms)"]
+    #[inline(always)]
+    #[must_use]
+    pub fn adc_drc_rpflat(&mut self) -> ADC_DRC_RPFLAT_W<0> {
+        ADC_DRC_RPFLAT_W::new(self)
+    }
     #[doc = "Writes raw bits to the register."]
     #[inline(always)]
     pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
@@ -54,11 +72,10 @@ impl crate::Readable for AC_ADC_DRC_RPFLAT_SPEC {
 #[doc = "`write(|w| ..)` method takes [ac_adc_drc_rpflat::W](W) writer structure"]
 impl crate::Writable for AC_ADC_DRC_RPFLAT_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
-#[doc = "`reset()` method sets ac_adc_drc_rpflat to value 0"]
+#[doc = "`reset()` method sets ac_adc_drc_rpflat to value 0x77bf"]
 impl crate::Resettable for AC_ADC_DRC_RPFLAT_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0x77bf;
 }

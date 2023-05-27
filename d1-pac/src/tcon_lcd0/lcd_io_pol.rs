@@ -34,22 +34,20 @@ impl From<crate::W<LCD_IO_POL_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `data_inv` reader - LCD output port D\\[23:0\\]
-polarity control, with independent bit control."]
+#[doc = "Field `data_inv` reader - LCD output port D\\[23:0\\] polarity control, with independent bit control."]
 pub type DATA_INV_R = crate::FieldReader<u32, u32>;
-#[doc = "Field `data_inv` writer - LCD output port D\\[23:0\\]
-polarity control, with independent bit control."]
+#[doc = "Field `data_inv` writer - LCD output port D\\[23:0\\] polarity control, with independent bit control."]
 pub type DATA_INV_W<'a, const O: u8> =
     crate::FieldWriter<'a, u32, LCD_IO_POL_SPEC, u32, u32, 24, O>;
 #[doc = "Field `io_inv[0-3]` reader - Enable invert function of IO\\[i\\]"]
 pub type IO_INV_R = crate::BitReader<IO_INV_A>;
 #[doc = "Enable invert function of IO\\[i\\]\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum IO_INV_A {
     #[doc = "0: Not invert"]
-    N_OT_INVERT = 0,
+    NOT_INVERT = 0,
     #[doc = "1: Invert"]
-    I_NVERT = 1,
+    INVERT = 1,
 }
 impl From<IO_INV_A> for bool {
     #[inline(always)]
@@ -62,19 +60,19 @@ impl IO_INV_R {
     #[inline(always)]
     pub fn variant(&self) -> IO_INV_A {
         match self.bits {
-            false => IO_INV_A::N_OT_INVERT,
-            true => IO_INV_A::I_NVERT,
+            false => IO_INV_A::NOT_INVERT,
+            true => IO_INV_A::INVERT,
         }
     }
-    #[doc = "Checks if the value of the field is `N_OT_INVERT`"]
+    #[doc = "Checks if the value of the field is `NOT_INVERT`"]
     #[inline(always)]
-    pub fn is_n_ot_invert(&self) -> bool {
-        *self == IO_INV_A::N_OT_INVERT
+    pub fn is_not_invert(&self) -> bool {
+        *self == IO_INV_A::NOT_INVERT
     }
-    #[doc = "Checks if the value of the field is `I_NVERT`"]
+    #[doc = "Checks if the value of the field is `INVERT`"]
     #[inline(always)]
-    pub fn is_i_nvert(&self) -> bool {
-        *self == IO_INV_A::I_NVERT
+    pub fn is_invert(&self) -> bool {
+        *self == IO_INV_A::INVERT
     }
 }
 #[doc = "Field `io_inv[0-3]` writer - Enable invert function of IO\\[i\\]"]
@@ -82,19 +80,19 @@ pub type IO_INV_W<'a, const O: u8> = crate::BitWriter<'a, u32, LCD_IO_POL_SPEC, 
 impl<'a, const O: u8> IO_INV_W<'a, O> {
     #[doc = "Not invert"]
     #[inline(always)]
-    pub fn n_ot_invert(self) -> &'a mut W {
-        self.variant(IO_INV_A::N_OT_INVERT)
+    pub fn not_invert(self) -> &'a mut W {
+        self.variant(IO_INV_A::NOT_INVERT)
     }
     #[doc = "Invert"]
     #[inline(always)]
-    pub fn i_nvert(self) -> &'a mut W {
-        self.variant(IO_INV_A::I_NVERT)
+    pub fn invert(self) -> &'a mut W {
+        self.variant(IO_INV_A::INVERT)
     }
 }
 #[doc = "Field `dclk_sel` reader - Set the phase offset of clock and data in hv mode."]
 pub type DCLK_SEL_R = crate::FieldReader<u8, DCLK_SEL_A>;
 #[doc = "Set the phase offset of clock and data in hv mode.\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum DCLK_SEL_A {
     #[doc = "0: Used DCLK0 (normal phase offset)"]
@@ -186,10 +184,10 @@ impl<'a, const O: u8> DCLK_SEL_W<'a, O> {
 #[doc = "Field `io_output_sel` reader - When it is set as '1', the d\\[23:0\\], io0, io1, io3 are sync to dclk."]
 pub type IO_OUTPUT_SEL_R = crate::BitReader<IO_OUTPUT_SEL_A>;
 #[doc = "When it is set as '1', the d\\[23:0\\], io0, io1, io3 are sync to dclk.\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum IO_OUTPUT_SEL_A {
     #[doc = "0: Normal output"]
-    N_ORMAL = 0,
+    NORMAL = 0,
     #[doc = "1: Register output"]
     R_EGISTER = 1,
 }
@@ -204,14 +202,14 @@ impl IO_OUTPUT_SEL_R {
     #[inline(always)]
     pub fn variant(&self) -> IO_OUTPUT_SEL_A {
         match self.bits {
-            false => IO_OUTPUT_SEL_A::N_ORMAL,
+            false => IO_OUTPUT_SEL_A::NORMAL,
             true => IO_OUTPUT_SEL_A::R_EGISTER,
         }
     }
-    #[doc = "Checks if the value of the field is `N_ORMAL`"]
+    #[doc = "Checks if the value of the field is `NORMAL`"]
     #[inline(always)]
-    pub fn is_n_ormal(&self) -> bool {
-        *self == IO_OUTPUT_SEL_A::N_ORMAL
+    pub fn is_normal(&self) -> bool {
+        *self == IO_OUTPUT_SEL_A::NORMAL
     }
     #[doc = "Checks if the value of the field is `R_EGISTER`"]
     #[inline(always)]
@@ -225,8 +223,8 @@ pub type IO_OUTPUT_SEL_W<'a, const O: u8> =
 impl<'a, const O: u8> IO_OUTPUT_SEL_W<'a, O> {
     #[doc = "Normal output"]
     #[inline(always)]
-    pub fn n_ormal(self) -> &'a mut W {
-        self.variant(IO_OUTPUT_SEL_A::N_ORMAL)
+    pub fn normal(self) -> &'a mut W {
+        self.variant(IO_OUTPUT_SEL_A::NORMAL)
     }
     #[doc = "Register output"]
     #[inline(always)]
@@ -235,11 +233,10 @@ impl<'a, const O: u8> IO_OUTPUT_SEL_W<'a, O> {
     }
 }
 impl R {
-    #[doc = "Bits 0:23 - LCD output port D\\[23:0\\]
-polarity control, with independent bit control."]
+    #[doc = "Bits 0:23 - LCD output port D\\[23:0\\] polarity control, with independent bit control."]
     #[inline(always)]
     pub fn data_inv(&self) -> DATA_INV_R {
-        DATA_INV_R::new((self.bits & 0x00ff_ffff) as u32)
+        DATA_INV_R::new(self.bits & 0x00ff_ffff)
     }
     #[doc = "Enable invert function of IO\\[i\\]"]
     #[inline(always)]
@@ -278,44 +275,51 @@ polarity control, with independent bit control."]
     }
 }
 impl W {
-    #[doc = "Bits 0:23 - LCD output port D\\[23:0\\]
-polarity control, with independent bit control."]
+    #[doc = "Bits 0:23 - LCD output port D\\[23:0\\] polarity control, with independent bit control."]
     #[inline(always)]
+    #[must_use]
     pub fn data_inv(&mut self) -> DATA_INV_W<0> {
         DATA_INV_W::new(self)
     }
     #[doc = "Enable invert function of IO\\[i\\]"]
     #[inline(always)]
+    #[must_use]
     pub unsafe fn io_inv<const O: u8>(&mut self) -> IO_INV_W<O> {
         IO_INV_W::new(self)
     }
     #[doc = "Bit 24 - Enable invert function of IO\\[i\\]"]
     #[inline(always)]
+    #[must_use]
     pub fn io0_inv(&mut self) -> IO_INV_W<24> {
         IO_INV_W::new(self)
     }
     #[doc = "Bit 25 - Enable invert function of IO\\[i\\]"]
     #[inline(always)]
+    #[must_use]
     pub fn io1_inv(&mut self) -> IO_INV_W<25> {
         IO_INV_W::new(self)
     }
     #[doc = "Bit 26 - Enable invert function of IO\\[i\\]"]
     #[inline(always)]
+    #[must_use]
     pub fn io2_inv(&mut self) -> IO_INV_W<26> {
         IO_INV_W::new(self)
     }
     #[doc = "Bit 27 - Enable invert function of IO\\[i\\]"]
     #[inline(always)]
+    #[must_use]
     pub fn io3_inv(&mut self) -> IO_INV_W<27> {
         IO_INV_W::new(self)
     }
     #[doc = "Bits 28:30 - Set the phase offset of clock and data in hv mode."]
     #[inline(always)]
+    #[must_use]
     pub fn dclk_sel(&mut self) -> DCLK_SEL_W<28> {
         DCLK_SEL_W::new(self)
     }
     #[doc = "Bit 31 - When it is set as '1', the d\\[23:0\\], io0, io1, io3 are sync to dclk."]
     #[inline(always)]
+    #[must_use]
     pub fn io_output_sel(&mut self) -> IO_OUTPUT_SEL_W<31> {
         IO_OUTPUT_SEL_W::new(self)
     }
@@ -338,11 +342,10 @@ impl crate::Readable for LCD_IO_POL_SPEC {
 #[doc = "`write(|w| ..)` method takes [lcd_io_pol::W](W) writer structure"]
 impl crate::Writable for LCD_IO_POL_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets lcd_io_pol to value 0"]
 impl crate::Resettable for LCD_IO_POL_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

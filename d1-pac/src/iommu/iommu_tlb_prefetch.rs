@@ -37,12 +37,12 @@ impl From<crate::W<IOMMU_TLB_PREFETCH_SPEC>> for W {
 #[doc = "Field `mi_tlb_pf[0-6]` reader - Micro TLB6 prefetch enable"]
 pub type MI_TLB_PF_R = crate::BitReader<MI_TLB_PF_A>;
 #[doc = "Micro TLB6 prefetch enable\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum MI_TLB_PF_A {
     #[doc = "0: Disable"]
-    D_ISABLE = 0,
+    DISABLE = 0,
     #[doc = "1: Enable"]
-    E_NABLE = 1,
+    ENABLE = 1,
 }
 impl From<MI_TLB_PF_A> for bool {
     #[inline(always)]
@@ -55,19 +55,19 @@ impl MI_TLB_PF_R {
     #[inline(always)]
     pub fn variant(&self) -> MI_TLB_PF_A {
         match self.bits {
-            false => MI_TLB_PF_A::D_ISABLE,
-            true => MI_TLB_PF_A::E_NABLE,
+            false => MI_TLB_PF_A::DISABLE,
+            true => MI_TLB_PF_A::ENABLE,
         }
     }
-    #[doc = "Checks if the value of the field is `D_ISABLE`"]
+    #[doc = "Checks if the value of the field is `DISABLE`"]
     #[inline(always)]
-    pub fn is_d_isable(&self) -> bool {
-        *self == MI_TLB_PF_A::D_ISABLE
+    pub fn is_disable(&self) -> bool {
+        *self == MI_TLB_PF_A::DISABLE
     }
-    #[doc = "Checks if the value of the field is `E_NABLE`"]
+    #[doc = "Checks if the value of the field is `ENABLE`"]
     #[inline(always)]
-    pub fn is_e_nable(&self) -> bool {
-        *self == MI_TLB_PF_A::E_NABLE
+    pub fn is_enable(&self) -> bool {
+        *self == MI_TLB_PF_A::ENABLE
     }
 }
 #[doc = "Field `mi_tlb_pf[0-6]` writer - Micro TLB6 prefetch enable"]
@@ -76,24 +76,24 @@ pub type MI_TLB_PF_W<'a, const O: u8> =
 impl<'a, const O: u8> MI_TLB_PF_W<'a, O> {
     #[doc = "Disable"]
     #[inline(always)]
-    pub fn d_isable(self) -> &'a mut W {
-        self.variant(MI_TLB_PF_A::D_ISABLE)
+    pub fn disable(self) -> &'a mut W {
+        self.variant(MI_TLB_PF_A::DISABLE)
     }
     #[doc = "Enable"]
     #[inline(always)]
-    pub fn e_nable(self) -> &'a mut W {
-        self.variant(MI_TLB_PF_A::E_NABLE)
+    pub fn enable(self) -> &'a mut W {
+        self.variant(MI_TLB_PF_A::ENABLE)
     }
 }
 #[doc = "Field `pf_vl_pt_to_mt` reader - Prefetch Value Pagetable to Macro TLB\n\nIf the function is enabled, the prefetch function will not update the invalid Level2 page table to Macro TLB."]
 pub type PF_VL_PT_TO_MT_R = crate::BitReader<PF_VL_PT_TO_MT_A>;
 #[doc = "Prefetch Value Pagetable to Macro TLB\n\nIf the function is enabled, the prefetch function will not update the invalid Level2 page table to Macro TLB.\n\nValue on reset: 1"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum PF_VL_PT_TO_MT_A {
     #[doc = "0: Disable"]
-    D_ISABLE = 0,
+    DISABLE = 0,
     #[doc = "1: Enable If the function is enabled, the prefetch function will not update the invalid Level2 page table to Macro TLB."]
-    E_NABLE = 1,
+    ENABLE = 1,
 }
 impl From<PF_VL_PT_TO_MT_A> for bool {
     #[inline(always)]
@@ -106,19 +106,19 @@ impl PF_VL_PT_TO_MT_R {
     #[inline(always)]
     pub fn variant(&self) -> PF_VL_PT_TO_MT_A {
         match self.bits {
-            false => PF_VL_PT_TO_MT_A::D_ISABLE,
-            true => PF_VL_PT_TO_MT_A::E_NABLE,
+            false => PF_VL_PT_TO_MT_A::DISABLE,
+            true => PF_VL_PT_TO_MT_A::ENABLE,
         }
     }
-    #[doc = "Checks if the value of the field is `D_ISABLE`"]
+    #[doc = "Checks if the value of the field is `DISABLE`"]
     #[inline(always)]
-    pub fn is_d_isable(&self) -> bool {
-        *self == PF_VL_PT_TO_MT_A::D_ISABLE
+    pub fn is_disable(&self) -> bool {
+        *self == PF_VL_PT_TO_MT_A::DISABLE
     }
-    #[doc = "Checks if the value of the field is `E_NABLE`"]
+    #[doc = "Checks if the value of the field is `ENABLE`"]
     #[inline(always)]
-    pub fn is_e_nable(&self) -> bool {
-        *self == PF_VL_PT_TO_MT_A::E_NABLE
+    pub fn is_enable(&self) -> bool {
+        *self == PF_VL_PT_TO_MT_A::ENABLE
     }
 }
 #[doc = "Field `pf_vl_pt_to_mt` writer - Prefetch Value Pagetable to Macro TLB\n\nIf the function is enabled, the prefetch function will not update the invalid Level2 page table to Macro TLB."]
@@ -127,24 +127,24 @@ pub type PF_VL_PT_TO_MT_W<'a, const O: u8> =
 impl<'a, const O: u8> PF_VL_PT_TO_MT_W<'a, O> {
     #[doc = "Disable"]
     #[inline(always)]
-    pub fn d_isable(self) -> &'a mut W {
-        self.variant(PF_VL_PT_TO_MT_A::D_ISABLE)
+    pub fn disable(self) -> &'a mut W {
+        self.variant(PF_VL_PT_TO_MT_A::DISABLE)
     }
     #[doc = "Enable If the function is enabled, the prefetch function will not update the invalid Level2 page table to Macro TLB."]
     #[inline(always)]
-    pub fn e_nable(self) -> &'a mut W {
-        self.variant(PF_VL_PT_TO_MT_A::E_NABLE)
+    pub fn enable(self) -> &'a mut W {
+        self.variant(PF_VL_PT_TO_MT_A::ENABLE)
     }
 }
 #[doc = "Field `pf_vl_pt_to_pc` reader - Prefetch Value Pagetable to PTW Cache\n\nIf the function is enabled, the prefetch function will not update the invalid Level1 page table to PTW cache."]
 pub type PF_VL_PT_TO_PC_R = crate::BitReader<PF_VL_PT_TO_PC_A>;
 #[doc = "Prefetch Value Pagetable to PTW Cache\n\nIf the function is enabled, the prefetch function will not update the invalid Level1 page table to PTW cache.\n\nValue on reset: 1"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum PF_VL_PT_TO_PC_A {
     #[doc = "0: Disable"]
-    D_ISABLE = 0,
+    DISABLE = 0,
     #[doc = "1: Enable If the function is enabled, the prefetch function will not update the invalid Level1 page table to PTW cache."]
-    E_NABLE = 1,
+    ENABLE = 1,
 }
 impl From<PF_VL_PT_TO_PC_A> for bool {
     #[inline(always)]
@@ -157,19 +157,19 @@ impl PF_VL_PT_TO_PC_R {
     #[inline(always)]
     pub fn variant(&self) -> PF_VL_PT_TO_PC_A {
         match self.bits {
-            false => PF_VL_PT_TO_PC_A::D_ISABLE,
-            true => PF_VL_PT_TO_PC_A::E_NABLE,
+            false => PF_VL_PT_TO_PC_A::DISABLE,
+            true => PF_VL_PT_TO_PC_A::ENABLE,
         }
     }
-    #[doc = "Checks if the value of the field is `D_ISABLE`"]
+    #[doc = "Checks if the value of the field is `DISABLE`"]
     #[inline(always)]
-    pub fn is_d_isable(&self) -> bool {
-        *self == PF_VL_PT_TO_PC_A::D_ISABLE
+    pub fn is_disable(&self) -> bool {
+        *self == PF_VL_PT_TO_PC_A::DISABLE
     }
-    #[doc = "Checks if the value of the field is `E_NABLE`"]
+    #[doc = "Checks if the value of the field is `ENABLE`"]
     #[inline(always)]
-    pub fn is_e_nable(&self) -> bool {
-        *self == PF_VL_PT_TO_PC_A::E_NABLE
+    pub fn is_enable(&self) -> bool {
+        *self == PF_VL_PT_TO_PC_A::ENABLE
     }
 }
 #[doc = "Field `pf_vl_pt_to_pc` writer - Prefetch Value Pagetable to PTW Cache\n\nIf the function is enabled, the prefetch function will not update the invalid Level1 page table to PTW cache."]
@@ -178,13 +178,13 @@ pub type PF_VL_PT_TO_PC_W<'a, const O: u8> =
 impl<'a, const O: u8> PF_VL_PT_TO_PC_W<'a, O> {
     #[doc = "Disable"]
     #[inline(always)]
-    pub fn d_isable(self) -> &'a mut W {
-        self.variant(PF_VL_PT_TO_PC_A::D_ISABLE)
+    pub fn disable(self) -> &'a mut W {
+        self.variant(PF_VL_PT_TO_PC_A::DISABLE)
     }
     #[doc = "Enable If the function is enabled, the prefetch function will not update the invalid Level1 page table to PTW cache."]
     #[inline(always)]
-    pub fn e_nable(self) -> &'a mut W {
-        self.variant(PF_VL_PT_TO_PC_A::E_NABLE)
+    pub fn enable(self) -> &'a mut W {
+        self.variant(PF_VL_PT_TO_PC_A::ENABLE)
     }
 }
 impl R {
@@ -242,51 +242,61 @@ impl R {
 impl W {
     #[doc = "Micro TLB6 prefetch enable"]
     #[inline(always)]
+    #[must_use]
     pub unsafe fn mi_tlb_pf<const O: u8>(&mut self) -> MI_TLB_PF_W<O> {
         MI_TLB_PF_W::new(self)
     }
     #[doc = "Bit 0 - Micro TLB6 prefetch enable"]
     #[inline(always)]
+    #[must_use]
     pub fn mi_tlb0_pf(&mut self) -> MI_TLB_PF_W<0> {
         MI_TLB_PF_W::new(self)
     }
     #[doc = "Bit 1 - Micro TLB6 prefetch enable"]
     #[inline(always)]
+    #[must_use]
     pub fn mi_tlb1_pf(&mut self) -> MI_TLB_PF_W<1> {
         MI_TLB_PF_W::new(self)
     }
     #[doc = "Bit 2 - Micro TLB6 prefetch enable"]
     #[inline(always)]
+    #[must_use]
     pub fn mi_tlb2_pf(&mut self) -> MI_TLB_PF_W<2> {
         MI_TLB_PF_W::new(self)
     }
     #[doc = "Bit 3 - Micro TLB6 prefetch enable"]
     #[inline(always)]
+    #[must_use]
     pub fn mi_tlb3_pf(&mut self) -> MI_TLB_PF_W<3> {
         MI_TLB_PF_W::new(self)
     }
     #[doc = "Bit 4 - Micro TLB6 prefetch enable"]
     #[inline(always)]
+    #[must_use]
     pub fn mi_tlb4_pf(&mut self) -> MI_TLB_PF_W<4> {
         MI_TLB_PF_W::new(self)
     }
     #[doc = "Bit 5 - Micro TLB6 prefetch enable"]
     #[inline(always)]
+    #[must_use]
     pub fn mi_tlb5_pf(&mut self) -> MI_TLB_PF_W<5> {
         MI_TLB_PF_W::new(self)
     }
     #[doc = "Bit 6 - Micro TLB6 prefetch enable"]
     #[inline(always)]
+    #[must_use]
     pub fn mi_tlb6_pf(&mut self) -> MI_TLB_PF_W<6> {
         MI_TLB_PF_W::new(self)
     }
     #[doc = "Bit 16 - Prefetch Value Pagetable to Macro TLB\n\nIf the function is enabled, the prefetch function will not update the invalid Level2 page table to Macro TLB."]
     #[inline(always)]
+    #[must_use]
     pub fn pf_vl_pt_to_mt(&mut self) -> PF_VL_PT_TO_MT_W<16> {
         PF_VL_PT_TO_MT_W::new(self)
     }
     #[doc = "Bit 17 - Prefetch Value Pagetable to PTW Cache\n\nIf the function is enabled, the prefetch function will not update the invalid Level1 page table to PTW cache."]
     #[inline(always)]
+    #[must_use]
     pub fn pf_vl_pt_to_pc(&mut self) -> PF_VL_PT_TO_PC_W<17> {
         PF_VL_PT_TO_PC_W::new(self)
     }
@@ -309,11 +319,10 @@ impl crate::Readable for IOMMU_TLB_PREFETCH_SPEC {
 #[doc = "`write(|w| ..)` method takes [iommu_tlb_prefetch::W](W) writer structure"]
 impl crate::Writable for IOMMU_TLB_PREFETCH_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets iommu_tlb_prefetch to value 0x0003_0000"]
 impl crate::Resettable for IOMMU_TLB_PREFETCH_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0x0003_0000
-    }
+    const RESET_VALUE: Self::Ux = 0x0003_0000;
 }

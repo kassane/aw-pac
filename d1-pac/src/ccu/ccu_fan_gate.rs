@@ -37,7 +37,7 @@ impl From<crate::W<CCU_FAN_GATE_SPEC>> for W {
 #[doc = "Field `clk24m_en` reader - Gating for CLK24M"]
 pub type CLK24M_EN_R = crate::BitReader<CLK24M_EN_A>;
 #[doc = "Gating for CLK24M\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum CLK24M_EN_A {
     #[doc = "0: `0`"]
     OFF = 0,
@@ -88,7 +88,7 @@ impl<'a, const O: u8> CLK24M_EN_W<'a, O> {
 #[doc = "Field `clk12m_en` reader - Gating for CLK12M"]
 pub type CLK12M_EN_R = crate::BitReader<CLK12M_EN_A>;
 #[doc = "Gating for CLK12M\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum CLK12M_EN_A {
     #[doc = "0: `0`"]
     OFF = 0,
@@ -139,7 +139,7 @@ impl<'a, const O: u8> CLK12M_EN_W<'a, O> {
 #[doc = "Field `clk16m_en` reader - Gating for CLK16M"]
 pub type CLK16M_EN_R = crate::BitReader<CLK16M_EN_A>;
 #[doc = "Gating for CLK16M\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum CLK16M_EN_A {
     #[doc = "0: `0`"]
     OFF = 0,
@@ -190,7 +190,7 @@ impl<'a, const O: u8> CLK16M_EN_W<'a, O> {
 #[doc = "Field `clk25m_en` reader - Gating for CLK25M"]
 pub type CLK25M_EN_R = crate::BitReader<CLK25M_EN_A>;
 #[doc = "Gating for CLK25M\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum CLK25M_EN_A {
     #[doc = "0: `0`"]
     OFF = 0,
@@ -241,7 +241,7 @@ impl<'a, const O: u8> CLK25M_EN_W<'a, O> {
 #[doc = "Field `clk32k_en` reader - Gating for CLK32K"]
 pub type CLK32K_EN_R = crate::BitReader<CLK32K_EN_A>;
 #[doc = "Gating for CLK32K\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum CLK32K_EN_A {
     #[doc = "0: `0`"]
     OFF = 0,
@@ -319,26 +319,31 @@ impl R {
 impl W {
     #[doc = "Bit 0 - Gating for CLK24M"]
     #[inline(always)]
+    #[must_use]
     pub fn clk24m_en(&mut self) -> CLK24M_EN_W<0> {
         CLK24M_EN_W::new(self)
     }
     #[doc = "Bit 1 - Gating for CLK12M"]
     #[inline(always)]
+    #[must_use]
     pub fn clk12m_en(&mut self) -> CLK12M_EN_W<1> {
         CLK12M_EN_W::new(self)
     }
     #[doc = "Bit 2 - Gating for CLK16M"]
     #[inline(always)]
+    #[must_use]
     pub fn clk16m_en(&mut self) -> CLK16M_EN_W<2> {
         CLK16M_EN_W::new(self)
     }
     #[doc = "Bit 3 - Gating for CLK25M"]
     #[inline(always)]
+    #[must_use]
     pub fn clk25m_en(&mut self) -> CLK25M_EN_W<3> {
         CLK25M_EN_W::new(self)
     }
     #[doc = "Bit 4 - Gating for CLK32K"]
     #[inline(always)]
+    #[must_use]
     pub fn clk32k_en(&mut self) -> CLK32K_EN_W<4> {
         CLK32K_EN_W::new(self)
     }
@@ -361,11 +366,10 @@ impl crate::Readable for CCU_FAN_GATE_SPEC {
 #[doc = "`write(|w| ..)` method takes [ccu_fan_gate::W](W) writer structure"]
 impl crate::Writable for CCU_FAN_GATE_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets ccu_fan_gate to value 0"]
 impl crate::Resettable for CCU_FAN_GATE_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

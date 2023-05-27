@@ -37,7 +37,7 @@ impl From<crate::W<PDZCR45_SPEC>> for W {
 #[doc = "Field `pwm45_dz_en` reader - PWM45 Dead Zone Enable"]
 pub type PWM45_DZ_EN_R = crate::BitReader<PWM45_DZ_EN_A>;
 #[doc = "PWM45 Dead Zone Enable\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum PWM45_DZ_EN_A {
     #[doc = "0: Dead Zone disable"]
     DISABLE = 0,
@@ -103,11 +103,13 @@ impl R {
 impl W {
     #[doc = "Bit 0 - PWM45 Dead Zone Enable"]
     #[inline(always)]
+    #[must_use]
     pub fn pwm45_dz_en(&mut self) -> PWM45_DZ_EN_W<0> {
         PWM45_DZ_EN_W::new(self)
     }
     #[doc = "Bits 8:15 - PWM45 Dead Zone Interval Value"]
     #[inline(always)]
+    #[must_use]
     pub fn pwm45_dz_intv(&mut self) -> PWM45_DZ_INTV_W<8> {
         PWM45_DZ_INTV_W::new(self)
     }
@@ -130,11 +132,10 @@ impl crate::Readable for PDZCR45_SPEC {
 #[doc = "`write(|w| ..)` method takes [pdzcr45::W](W) writer structure"]
 impl crate::Writable for PDZCR45_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets pdzcr45 to value 0"]
 impl crate::Resettable for PDZCR45_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

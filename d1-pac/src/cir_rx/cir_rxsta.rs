@@ -37,7 +37,7 @@ impl From<crate::W<CIR_RXSTA_SPEC>> for W {
 #[doc = "Field `roi` reader - Receiver FIFO Overrun"]
 pub type ROI_R = crate::BitReader<ROI_A>;
 #[doc = "Receiver FIFO Overrun\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum ROI_A {
     #[doc = "0: Receiver FIFO not overrun"]
     NOT_OVERRUN = 0,
@@ -87,7 +87,7 @@ impl<'a, const O: u8> ROI_W<'a, O> {
 #[doc = "Field `rpe` reader - Receiver Packet End Flag"]
 pub type RPE_R = crate::BitReader<RPE_A>;
 #[doc = "Receiver Packet End Flag\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum RPE_A {
     #[doc = "0: STO was not detected. In CIR mode, one CIR symbol is receiving or not detected."]
     NOT_DETECTED = 0,
@@ -137,7 +137,7 @@ impl<'a, const O: u8> RPE_W<'a, O> {
 #[doc = "Field `ra` reader - RX FIFO Available"]
 pub type RA_R = crate::BitReader<RA_A>;
 #[doc = "RX FIFO Available\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum RA_A {
     #[doc = "0: RX FIFO not available according to its level"]
     NO_AVAILABLE = 0,
@@ -187,7 +187,7 @@ impl<'a, const O: u8> RA_W<'a, O> {
 #[doc = "Field `stat` reader - Status of CIR"]
 pub type STAT_R = crate::BitReader<STAT_A>;
 #[doc = "Status of CIR\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum STAT_A {
     #[doc = "0: Idle"]
     IDLE = 0,
@@ -223,7 +223,7 @@ impl STAT_R {
 #[doc = "Field `rac` reader - RX FIFO Available Counter"]
 pub type RAC_R = crate::FieldReader<u8, RAC_A>;
 #[doc = "RX FIFO Available Counter\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum RAC_A {
     #[doc = "0: No available data in RX FIFO"]
@@ -792,16 +792,19 @@ impl R {
 impl W {
     #[doc = "Bit 0 - Receiver FIFO Overrun"]
     #[inline(always)]
+    #[must_use]
     pub fn roi(&mut self) -> ROI_W<0> {
         ROI_W::new(self)
     }
     #[doc = "Bit 1 - Receiver Packet End Flag"]
     #[inline(always)]
+    #[must_use]
     pub fn rpe(&mut self) -> RPE_W<1> {
         RPE_W::new(self)
     }
     #[doc = "Bit 4 - RX FIFO Available"]
     #[inline(always)]
+    #[must_use]
     pub fn ra(&mut self) -> RA_W<4> {
         RA_W::new(self)
     }
@@ -824,11 +827,10 @@ impl crate::Readable for CIR_RXSTA_SPEC {
 #[doc = "`write(|w| ..)` method takes [cir_rxsta::W](W) writer structure"]
 impl crate::Writable for CIR_RXSTA_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0x13;
 }
 #[doc = "`reset()` method sets cir_rxsta to value 0"]
 impl crate::Resettable for CIR_RXSTA_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

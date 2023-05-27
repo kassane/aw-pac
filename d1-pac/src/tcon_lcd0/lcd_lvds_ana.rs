@@ -34,21 +34,19 @@ impl From<crate::W<LCD_LVDS_ANA_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `lvds_plr` reader - LVDS data channel \\[3:0\\]
-direction."]
+#[doc = "Field `lvds_plr` reader - LVDS data channel \\[3:0\\] direction."]
 pub type LVDS_PLR_R = crate::FieldReader<u8, u8>;
-#[doc = "Field `lvds_plr` writer - LVDS data channel \\[3:0\\]
-direction."]
+#[doc = "Field `lvds_plr` writer - LVDS data channel \\[3:0\\] direction."]
 pub type LVDS_PLR_W<'a, const O: u8> = crate::FieldWriter<'a, u32, LCD_LVDS_ANA_SPEC, u8, u8, 4, O>;
 #[doc = "Field `lvds_plrc` reader - LVDS clock channel direction."]
 pub type LVDS_PLRC_R = crate::BitReader<LVDS_PLRC_A>;
 #[doc = "LVDS clock channel direction.\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum LVDS_PLRC_A {
     #[doc = "0: Normal"]
-    N_ORMAL = 0,
+    NORMAL = 0,
     #[doc = "1: Reverse"]
-    R_EVERSE = 1,
+    REVERSE = 1,
 }
 impl From<LVDS_PLRC_A> for bool {
     #[inline(always)]
@@ -61,19 +59,19 @@ impl LVDS_PLRC_R {
     #[inline(always)]
     pub fn variant(&self) -> LVDS_PLRC_A {
         match self.bits {
-            false => LVDS_PLRC_A::N_ORMAL,
-            true => LVDS_PLRC_A::R_EVERSE,
+            false => LVDS_PLRC_A::NORMAL,
+            true => LVDS_PLRC_A::REVERSE,
         }
     }
-    #[doc = "Checks if the value of the field is `N_ORMAL`"]
+    #[doc = "Checks if the value of the field is `NORMAL`"]
     #[inline(always)]
-    pub fn is_n_ormal(&self) -> bool {
-        *self == LVDS_PLRC_A::N_ORMAL
+    pub fn is_normal(&self) -> bool {
+        *self == LVDS_PLRC_A::NORMAL
     }
-    #[doc = "Checks if the value of the field is `R_EVERSE`"]
+    #[doc = "Checks if the value of the field is `REVERSE`"]
     #[inline(always)]
-    pub fn is_r_everse(&self) -> bool {
-        *self == LVDS_PLRC_A::R_EVERSE
+    pub fn is_reverse(&self) -> bool {
+        *self == LVDS_PLRC_A::REVERSE
     }
 }
 #[doc = "Field `lvds_plrc` writer - LVDS clock channel direction."]
@@ -82,19 +80,19 @@ pub type LVDS_PLRC_W<'a, const O: u8> =
 impl<'a, const O: u8> LVDS_PLRC_W<'a, O> {
     #[doc = "Normal"]
     #[inline(always)]
-    pub fn n_ormal(self) -> &'a mut W {
-        self.variant(LVDS_PLRC_A::N_ORMAL)
+    pub fn normal(self) -> &'a mut W {
+        self.variant(LVDS_PLRC_A::NORMAL)
     }
     #[doc = "Reverse"]
     #[inline(always)]
-    pub fn r_everse(self) -> &'a mut W {
-        self.variant(LVDS_PLRC_A::R_EVERSE)
+    pub fn reverse(self) -> &'a mut W {
+        self.variant(LVDS_PLRC_A::REVERSE)
     }
 }
 #[doc = "Field `lvds_r` reader - Adjust current flowing through R of R to change the common signals amplitude."]
 pub type LVDS_R_R = crate::FieldReader<u8, LVDS_R_A>;
 #[doc = "Adjust current flowing through R of R to change the common signals amplitude.\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum LVDS_R_A {
     #[doc = "0: 0.925 V"]
@@ -233,25 +231,25 @@ pub type LVDS_DENC_W<'a, const O: u8> = crate::BitWriter<'a, u32, LCD_LVDS_ANA_S
 #[doc = "Field `lvds_c` reader - Adjust current flowing through Rload of Rx to change the differential signals amplitude."]
 pub type LVDS_C_R = crate::FieldReader<u8, LVDS_C_A>;
 #[doc = "Adjust current flowing through Rload of Rx to change the differential signals amplitude.\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum LVDS_C_A {
     #[doc = "0: 216 mV"]
-    _216_M_V = 0,
+    _216MV = 0,
     #[doc = "1: 252 mV"]
-    _252_M_V = 1,
+    _252MV = 1,
     #[doc = "2: 276 mV"]
-    _276_M_V = 2,
+    _276MV = 2,
     #[doc = "3: 312 mV"]
-    _312_M_V = 3,
+    _312MV = 3,
     #[doc = "4: 336 mV"]
-    _336_M_V = 4,
+    _336MV = 4,
     #[doc = "5: 372 mV"]
-    _372_M_V = 5,
+    _372MV = 5,
     #[doc = "6: 395 mV"]
-    _395_M_V = 6,
+    _395MV = 6,
     #[doc = "7: 432 mV"]
-    _432_M_V = 7,
+    _432MV = 7,
 }
 impl From<LVDS_C_A> for u8 {
     #[inline(always)]
@@ -264,56 +262,56 @@ impl LVDS_C_R {
     #[inline(always)]
     pub fn variant(&self) -> LVDS_C_A {
         match self.bits {
-            0 => LVDS_C_A::_216_M_V,
-            1 => LVDS_C_A::_252_M_V,
-            2 => LVDS_C_A::_276_M_V,
-            3 => LVDS_C_A::_312_M_V,
-            4 => LVDS_C_A::_336_M_V,
-            5 => LVDS_C_A::_372_M_V,
-            6 => LVDS_C_A::_395_M_V,
-            7 => LVDS_C_A::_432_M_V,
+            0 => LVDS_C_A::_216MV,
+            1 => LVDS_C_A::_252MV,
+            2 => LVDS_C_A::_276MV,
+            3 => LVDS_C_A::_312MV,
+            4 => LVDS_C_A::_336MV,
+            5 => LVDS_C_A::_372MV,
+            6 => LVDS_C_A::_395MV,
+            7 => LVDS_C_A::_432MV,
             _ => unreachable!(),
         }
     }
-    #[doc = "Checks if the value of the field is `_216_M_V`"]
+    #[doc = "Checks if the value of the field is `_216MV`"]
     #[inline(always)]
-    pub fn is_216_m_v(&self) -> bool {
-        *self == LVDS_C_A::_216_M_V
+    pub fn is_216mv(&self) -> bool {
+        *self == LVDS_C_A::_216MV
     }
-    #[doc = "Checks if the value of the field is `_252_M_V`"]
+    #[doc = "Checks if the value of the field is `_252MV`"]
     #[inline(always)]
-    pub fn is_252_m_v(&self) -> bool {
-        *self == LVDS_C_A::_252_M_V
+    pub fn is_252mv(&self) -> bool {
+        *self == LVDS_C_A::_252MV
     }
-    #[doc = "Checks if the value of the field is `_276_M_V`"]
+    #[doc = "Checks if the value of the field is `_276MV`"]
     #[inline(always)]
-    pub fn is_276_m_v(&self) -> bool {
-        *self == LVDS_C_A::_276_M_V
+    pub fn is_276mv(&self) -> bool {
+        *self == LVDS_C_A::_276MV
     }
-    #[doc = "Checks if the value of the field is `_312_M_V`"]
+    #[doc = "Checks if the value of the field is `_312MV`"]
     #[inline(always)]
-    pub fn is_312_m_v(&self) -> bool {
-        *self == LVDS_C_A::_312_M_V
+    pub fn is_312mv(&self) -> bool {
+        *self == LVDS_C_A::_312MV
     }
-    #[doc = "Checks if the value of the field is `_336_M_V`"]
+    #[doc = "Checks if the value of the field is `_336MV`"]
     #[inline(always)]
-    pub fn is_336_m_v(&self) -> bool {
-        *self == LVDS_C_A::_336_M_V
+    pub fn is_336mv(&self) -> bool {
+        *self == LVDS_C_A::_336MV
     }
-    #[doc = "Checks if the value of the field is `_372_M_V`"]
+    #[doc = "Checks if the value of the field is `_372MV`"]
     #[inline(always)]
-    pub fn is_372_m_v(&self) -> bool {
-        *self == LVDS_C_A::_372_M_V
+    pub fn is_372mv(&self) -> bool {
+        *self == LVDS_C_A::_372MV
     }
-    #[doc = "Checks if the value of the field is `_395_M_V`"]
+    #[doc = "Checks if the value of the field is `_395MV`"]
     #[inline(always)]
-    pub fn is_395_m_v(&self) -> bool {
-        *self == LVDS_C_A::_395_M_V
+    pub fn is_395mv(&self) -> bool {
+        *self == LVDS_C_A::_395MV
     }
-    #[doc = "Checks if the value of the field is `_432_M_V`"]
+    #[doc = "Checks if the value of the field is `_432MV`"]
     #[inline(always)]
-    pub fn is_432_m_v(&self) -> bool {
-        *self == LVDS_C_A::_432_M_V
+    pub fn is_432mv(&self) -> bool {
+        *self == LVDS_C_A::_432MV
     }
 }
 #[doc = "Field `lvds_c` writer - Adjust current flowing through Rload of Rx to change the differential signals amplitude."]
@@ -322,61 +320,59 @@ pub type LVDS_C_W<'a, const O: u8> =
 impl<'a, const O: u8> LVDS_C_W<'a, O> {
     #[doc = "216 mV"]
     #[inline(always)]
-    pub fn _216_m_v(self) -> &'a mut W {
-        self.variant(LVDS_C_A::_216_M_V)
+    pub fn _216mv(self) -> &'a mut W {
+        self.variant(LVDS_C_A::_216MV)
     }
     #[doc = "252 mV"]
     #[inline(always)]
-    pub fn _252_m_v(self) -> &'a mut W {
-        self.variant(LVDS_C_A::_252_M_V)
+    pub fn _252mv(self) -> &'a mut W {
+        self.variant(LVDS_C_A::_252MV)
     }
     #[doc = "276 mV"]
     #[inline(always)]
-    pub fn _276_m_v(self) -> &'a mut W {
-        self.variant(LVDS_C_A::_276_M_V)
+    pub fn _276mv(self) -> &'a mut W {
+        self.variant(LVDS_C_A::_276MV)
     }
     #[doc = "312 mV"]
     #[inline(always)]
-    pub fn _312_m_v(self) -> &'a mut W {
-        self.variant(LVDS_C_A::_312_M_V)
+    pub fn _312mv(self) -> &'a mut W {
+        self.variant(LVDS_C_A::_312MV)
     }
     #[doc = "336 mV"]
     #[inline(always)]
-    pub fn _336_m_v(self) -> &'a mut W {
-        self.variant(LVDS_C_A::_336_M_V)
+    pub fn _336mv(self) -> &'a mut W {
+        self.variant(LVDS_C_A::_336MV)
     }
     #[doc = "372 mV"]
     #[inline(always)]
-    pub fn _372_m_v(self) -> &'a mut W {
-        self.variant(LVDS_C_A::_372_M_V)
+    pub fn _372mv(self) -> &'a mut W {
+        self.variant(LVDS_C_A::_372MV)
     }
     #[doc = "395 mV"]
     #[inline(always)]
-    pub fn _395_m_v(self) -> &'a mut W {
-        self.variant(LVDS_C_A::_395_M_V)
+    pub fn _395mv(self) -> &'a mut W {
+        self.variant(LVDS_C_A::_395MV)
     }
     #[doc = "432 mV"]
     #[inline(always)]
-    pub fn _432_m_v(self) -> &'a mut W {
-        self.variant(LVDS_C_A::_432_M_V)
+    pub fn _432mv(self) -> &'a mut W {
+        self.variant(LVDS_C_A::_432MV)
     }
 }
-#[doc = "Field `lvds_hpren_drv` reader - Enable data channel\\[3:0\\]
-drive"]
+#[doc = "Field `lvds_hpren_drv` reader - Enable data channel\\[3:0\\] drive"]
 pub type LVDS_HPREN_DRV_R = crate::FieldReader<u8, u8>;
-#[doc = "Field `lvds_hpren_drv` writer - Enable data channel\\[3:0\\]
-drive"]
+#[doc = "Field `lvds_hpren_drv` writer - Enable data channel\\[3:0\\] drive"]
 pub type LVDS_HPREN_DRV_W<'a, const O: u8> =
     crate::FieldWriter<'a, u32, LCD_LVDS_ANA_SPEC, u8, u8, 4, O>;
 #[doc = "Field `lvds_hpren_drvc` reader - Enable clock channel drive"]
 pub type LVDS_HPREN_DRVC_R = crate::BitReader<LVDS_HPREN_DRVC_A>;
 #[doc = "Enable clock channel drive\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum LVDS_HPREN_DRVC_A {
     #[doc = "0: Disable"]
-    D_ISABLE = 0,
+    DISABLE = 0,
     #[doc = "1: Enable"]
-    E_NABLE = 1,
+    ENABLE = 1,
 }
 impl From<LVDS_HPREN_DRVC_A> for bool {
     #[inline(always)]
@@ -389,19 +385,19 @@ impl LVDS_HPREN_DRVC_R {
     #[inline(always)]
     pub fn variant(&self) -> LVDS_HPREN_DRVC_A {
         match self.bits {
-            false => LVDS_HPREN_DRVC_A::D_ISABLE,
-            true => LVDS_HPREN_DRVC_A::E_NABLE,
+            false => LVDS_HPREN_DRVC_A::DISABLE,
+            true => LVDS_HPREN_DRVC_A::ENABLE,
         }
     }
-    #[doc = "Checks if the value of the field is `D_ISABLE`"]
+    #[doc = "Checks if the value of the field is `DISABLE`"]
     #[inline(always)]
-    pub fn is_d_isable(&self) -> bool {
-        *self == LVDS_HPREN_DRVC_A::D_ISABLE
+    pub fn is_disable(&self) -> bool {
+        *self == LVDS_HPREN_DRVC_A::DISABLE
     }
-    #[doc = "Checks if the value of the field is `E_NABLE`"]
+    #[doc = "Checks if the value of the field is `ENABLE`"]
     #[inline(always)]
-    pub fn is_e_nable(&self) -> bool {
-        *self == LVDS_HPREN_DRVC_A::E_NABLE
+    pub fn is_enable(&self) -> bool {
+        *self == LVDS_HPREN_DRVC_A::ENABLE
     }
 }
 #[doc = "Field `lvds_hpren_drvc` writer - Enable clock channel drive"]
@@ -410,13 +406,13 @@ pub type LVDS_HPREN_DRVC_W<'a, const O: u8> =
 impl<'a, const O: u8> LVDS_HPREN_DRVC_W<'a, O> {
     #[doc = "Disable"]
     #[inline(always)]
-    pub fn d_isable(self) -> &'a mut W {
-        self.variant(LVDS_HPREN_DRVC_A::D_ISABLE)
+    pub fn disable(self) -> &'a mut W {
+        self.variant(LVDS_HPREN_DRVC_A::DISABLE)
     }
     #[doc = "Enable"]
     #[inline(always)]
-    pub fn e_nable(self) -> &'a mut W {
-        self.variant(LVDS_HPREN_DRVC_A::E_NABLE)
+    pub fn enable(self) -> &'a mut W {
+        self.variant(LVDS_HPREN_DRVC_A::ENABLE)
     }
 }
 #[doc = "Field `en_24m` reader - Enable the 24M clock"]
@@ -430,12 +426,12 @@ pub type EN_LVDS_W<'a, const O: u8> = crate::BitWriter<'a, u32, LCD_LVDS_ANA_SPE
 #[doc = "Field `lvds_en_mb` reader - Enable the bias circuit of the LVDS_Ana module."]
 pub type LVDS_EN_MB_R = crate::BitReader<LVDS_EN_MB_A>;
 #[doc = "Enable the bias circuit of the LVDS_Ana module.\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum LVDS_EN_MB_A {
     #[doc = "0: Disable"]
-    D_ISABLE = 0,
+    DISABLE = 0,
     #[doc = "1: Enable"]
-    E_NABLE = 1,
+    ENABLE = 1,
 }
 impl From<LVDS_EN_MB_A> for bool {
     #[inline(always)]
@@ -448,19 +444,19 @@ impl LVDS_EN_MB_R {
     #[inline(always)]
     pub fn variant(&self) -> LVDS_EN_MB_A {
         match self.bits {
-            false => LVDS_EN_MB_A::D_ISABLE,
-            true => LVDS_EN_MB_A::E_NABLE,
+            false => LVDS_EN_MB_A::DISABLE,
+            true => LVDS_EN_MB_A::ENABLE,
         }
     }
-    #[doc = "Checks if the value of the field is `D_ISABLE`"]
+    #[doc = "Checks if the value of the field is `DISABLE`"]
     #[inline(always)]
-    pub fn is_d_isable(&self) -> bool {
-        *self == LVDS_EN_MB_A::D_ISABLE
+    pub fn is_disable(&self) -> bool {
+        *self == LVDS_EN_MB_A::DISABLE
     }
-    #[doc = "Checks if the value of the field is `E_NABLE`"]
+    #[doc = "Checks if the value of the field is `ENABLE`"]
     #[inline(always)]
-    pub fn is_e_nable(&self) -> bool {
-        *self == LVDS_EN_MB_A::E_NABLE
+    pub fn is_enable(&self) -> bool {
+        *self == LVDS_EN_MB_A::ENABLE
     }
 }
 #[doc = "Field `lvds_en_mb` writer - Enable the bias circuit of the LVDS_Ana module."]
@@ -469,18 +465,17 @@ pub type LVDS_EN_MB_W<'a, const O: u8> =
 impl<'a, const O: u8> LVDS_EN_MB_W<'a, O> {
     #[doc = "Disable"]
     #[inline(always)]
-    pub fn d_isable(self) -> &'a mut W {
-        self.variant(LVDS_EN_MB_A::D_ISABLE)
+    pub fn disable(self) -> &'a mut W {
+        self.variant(LVDS_EN_MB_A::DISABLE)
     }
     #[doc = "Enable"]
     #[inline(always)]
-    pub fn e_nable(self) -> &'a mut W {
-        self.variant(LVDS_EN_MB_A::E_NABLE)
+    pub fn enable(self) -> &'a mut W {
+        self.variant(LVDS_EN_MB_A::ENABLE)
     }
 }
 impl R {
-    #[doc = "Bits 0:3 - LVDS data channel \\[3:0\\]
-direction."]
+    #[doc = "Bits 0:3 - LVDS data channel \\[3:0\\] direction."]
     #[inline(always)]
     pub fn lvds_plr(&self) -> LVDS_PLR_R {
         LVDS_PLR_R::new((self.bits & 0x0f) as u8)
@@ -510,8 +505,7 @@ direction."]
     pub fn lvds_c(&self) -> LVDS_C_R {
         LVDS_C_R::new(((self.bits >> 17) & 7) as u8)
     }
-    #[doc = "Bits 20:23 - Enable data channel\\[3:0\\]
-drive"]
+    #[doc = "Bits 20:23 - Enable data channel\\[3:0\\] drive"]
     #[inline(always)]
     pub fn lvds_hpren_drv(&self) -> LVDS_HPREN_DRV_R {
         LVDS_HPREN_DRV_R::new(((self.bits >> 20) & 0x0f) as u8)
@@ -538,60 +532,69 @@ drive"]
     }
 }
 impl W {
-    #[doc = "Bits 0:3 - LVDS data channel \\[3:0\\]
-direction."]
+    #[doc = "Bits 0:3 - LVDS data channel \\[3:0\\] direction."]
     #[inline(always)]
+    #[must_use]
     pub fn lvds_plr(&mut self) -> LVDS_PLR_W<0> {
         LVDS_PLR_W::new(self)
     }
     #[doc = "Bit 4 - LVDS clock channel direction."]
     #[inline(always)]
+    #[must_use]
     pub fn lvds_plrc(&mut self) -> LVDS_PLRC_W<4> {
         LVDS_PLRC_W::new(self)
     }
     #[doc = "Bits 8:10 - Adjust current flowing through R of R to change the common signals amplitude."]
     #[inline(always)]
+    #[must_use]
     pub fn lvds_r(&mut self) -> LVDS_R_W<8> {
         LVDS_R_W::new(self)
     }
     #[doc = "Bits 12:15 - Choose data output or PLL test clock output in LVDS_tx."]
     #[inline(always)]
+    #[must_use]
     pub fn lvds_den(&mut self) -> LVDS_DEN_W<12> {
         LVDS_DEN_W::new(self)
     }
     #[doc = "Bit 16 - Choose data output or PLL test clock output in LVDS_tx."]
     #[inline(always)]
+    #[must_use]
     pub fn lvds_denc(&mut self) -> LVDS_DENC_W<16> {
         LVDS_DENC_W::new(self)
     }
     #[doc = "Bits 17:19 - Adjust current flowing through Rload of Rx to change the differential signals amplitude."]
     #[inline(always)]
+    #[must_use]
     pub fn lvds_c(&mut self) -> LVDS_C_W<17> {
         LVDS_C_W::new(self)
     }
-    #[doc = "Bits 20:23 - Enable data channel\\[3:0\\]
-drive"]
+    #[doc = "Bits 20:23 - Enable data channel\\[3:0\\] drive"]
     #[inline(always)]
+    #[must_use]
     pub fn lvds_hpren_drv(&mut self) -> LVDS_HPREN_DRV_W<20> {
         LVDS_HPREN_DRV_W::new(self)
     }
     #[doc = "Bit 24 - Enable clock channel drive"]
     #[inline(always)]
+    #[must_use]
     pub fn lvds_hpren_drvc(&mut self) -> LVDS_HPREN_DRVC_W<24> {
         LVDS_HPREN_DRVC_W::new(self)
     }
     #[doc = "Bit 28 - Enable the 24M clock"]
     #[inline(always)]
+    #[must_use]
     pub fn en_24m(&mut self) -> EN_24M_W<28> {
         EN_24M_W::new(self)
     }
     #[doc = "Bit 29 - Enable LVDS"]
     #[inline(always)]
+    #[must_use]
     pub fn en_lvds(&mut self) -> EN_LVDS_W<29> {
         EN_LVDS_W::new(self)
     }
     #[doc = "Bit 31 - Enable the bias circuit of the LVDS_Ana module."]
     #[inline(always)]
+    #[must_use]
     pub fn lvds_en_mb(&mut self) -> LVDS_EN_MB_W<31> {
         LVDS_EN_MB_W::new(self)
     }
@@ -614,11 +617,10 @@ impl crate::Readable for LCD_LVDS_ANA_SPEC {
 #[doc = "`write(|w| ..)` method takes [lcd_lvds_ana::W](W) writer structure"]
 impl crate::Writable for LCD_LVDS_ANA_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets lcd_lvds_ana%s to value 0"]
 impl crate::Resettable for LCD_LVDS_ANA_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

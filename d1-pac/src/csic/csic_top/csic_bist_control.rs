@@ -41,7 +41,7 @@ pub type BIST_EN_W<'a, const O: u8> = crate::BitWriter<'a, u32, CSIC_BIST_CONTRO
 #[doc = "Field `bist_wdata_pat` reader - BIST write data pattern"]
 pub type BIST_WDATA_PAT_R = crate::FieldReader<u8, BIST_WDATA_PAT_A>;
 #[doc = "BIST write data pattern\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum BIST_WDATA_PAT_A {
     #[doc = "0: `0`"]
@@ -156,7 +156,7 @@ pub type BIST_REG_SEL_W<'a, const O: u8> =
 #[doc = "Field `bist_busy` reader - BIST busy"]
 pub type BIST_BUSY_R = crate::BitReader<BIST_BUSY_A>;
 #[doc = "BIST busy\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum BIST_BUSY_A {
     #[doc = "0: `0`"]
     IDLE = 0,
@@ -192,7 +192,7 @@ impl BIST_BUSY_R {
 #[doc = "Field `bist_stop` reader - BIST stop"]
 pub type BIST_STOP_R = crate::BitReader<BIST_STOP_A>;
 #[doc = "BIST stop\n\nValue on reset: 1"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum BIST_STOP_A {
     #[doc = "0: `0`"]
     RUNNING = 0,
@@ -232,7 +232,7 @@ pub type BIST_ERR_PAT_R = crate::FieldReader<u8, u8>;
 #[doc = "Field `bist_err_sta` reader - BIST error status"]
 pub type BIST_ERR_STA_R = crate::BitReader<BIST_ERR_STA_A>;
 #[doc = "BIST error status\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum BIST_ERR_STA_A {
     #[doc = "0: `0`"]
     NO_EFFECT = 0,
@@ -315,21 +315,25 @@ impl R {
 impl W {
     #[doc = "Bit 0 - BIST enable\n\nA positive will trigger the BIST to start."]
     #[inline(always)]
+    #[must_use]
     pub fn bist_en(&mut self) -> BIST_EN_W<0> {
         BIST_EN_W::new(self)
     }
     #[doc = "Bits 1:3 - BIST write data pattern"]
     #[inline(always)]
+    #[must_use]
     pub fn bist_wdata_pat(&mut self) -> BIST_WDATA_PAT_W<1> {
         BIST_WDATA_PAT_W::new(self)
     }
     #[doc = "Bit 4 - BIST address mode select"]
     #[inline(always)]
+    #[must_use]
     pub fn bist_addr_mode_sel(&mut self) -> BIST_ADDR_MODE_SEL_W<4> {
         BIST_ADDR_MODE_SEL_W::new(self)
     }
     #[doc = "Bits 5:7 - BIST register select"]
     #[inline(always)]
+    #[must_use]
     pub fn bist_reg_sel(&mut self) -> BIST_REG_SEL_W<5> {
         BIST_REG_SEL_W::new(self)
     }
@@ -352,11 +356,10 @@ impl crate::Readable for CSIC_BIST_CONTROL_SPEC {
 #[doc = "`write(|w| ..)` method takes [csic_bist_control::W](W) writer structure"]
 impl crate::Writable for CSIC_BIST_CONTROL_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets csic_bist_control to value 0x0200"]
 impl crate::Resettable for CSIC_BIST_CONTROL_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0x0200
-    }
+    const RESET_VALUE: Self::Ux = 0x0200;
 }

@@ -47,11 +47,11 @@ pub type COUNTER_N_W<'a, const O: u8> =
 #[doc = "Field `tri_int_mode` reader - When set as 01, the Tri_Counter_Int occurs in cycle of (Count_N+1) * (Count_M+1) * 4 dclk.\n\nWhen set as 10 or 11, the io0 is map as TE input."]
 pub type TRI_INT_MODE_R = crate::FieldReader<u8, TRI_INT_MODE_A>;
 #[doc = "When set as 01, the Tri_Counter_Int occurs in cycle of (Count_N+1) * (Count_M+1) * 4 dclk.\n\nWhen set as 10 or 11, the io0 is map as TE input.\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum TRI_INT_MODE_A {
     #[doc = "0: Disable"]
-    D_ISABLE = 0,
+    DISABLE = 0,
     #[doc = "1: Counter mode"]
     C_OUNTER = 1,
     #[doc = "2: TE rising mode"]
@@ -70,17 +70,17 @@ impl TRI_INT_MODE_R {
     #[inline(always)]
     pub fn variant(&self) -> TRI_INT_MODE_A {
         match self.bits {
-            0 => TRI_INT_MODE_A::D_ISABLE,
+            0 => TRI_INT_MODE_A::DISABLE,
             1 => TRI_INT_MODE_A::C_OUNTER,
             2 => TRI_INT_MODE_A::TE_RISING,
             3 => TRI_INT_MODE_A::TE_FALLING,
             _ => unreachable!(),
         }
     }
-    #[doc = "Checks if the value of the field is `D_ISABLE`"]
+    #[doc = "Checks if the value of the field is `DISABLE`"]
     #[inline(always)]
-    pub fn is_d_isable(&self) -> bool {
-        *self == TRI_INT_MODE_A::D_ISABLE
+    pub fn is_disable(&self) -> bool {
+        *self == TRI_INT_MODE_A::DISABLE
     }
     #[doc = "Checks if the value of the field is `C_OUNTER`"]
     #[inline(always)]
@@ -104,8 +104,8 @@ pub type TRI_INT_MODE_W<'a, const O: u8> =
 impl<'a, const O: u8> TRI_INT_MODE_W<'a, O> {
     #[doc = "Disable"]
     #[inline(always)]
-    pub fn d_isable(self) -> &'a mut W {
-        self.variant(TRI_INT_MODE_A::D_ISABLE)
+    pub fn disable(self) -> &'a mut W {
+        self.variant(TRI_INT_MODE_A::DISABLE)
     }
     #[doc = "Counter mode"]
     #[inline(always)]
@@ -143,16 +143,19 @@ impl R {
 impl W {
     #[doc = "Bits 0:7 - The value of counter factor"]
     #[inline(always)]
+    #[must_use]
     pub fn counter_m(&mut self) -> COUNTER_M_W<0> {
         COUNTER_M_W::new(self)
     }
     #[doc = "Bits 8:23 - The value of counter factor"]
     #[inline(always)]
+    #[must_use]
     pub fn counter_n(&mut self) -> COUNTER_N_W<8> {
         COUNTER_N_W::new(self)
     }
     #[doc = "Bits 28:29 - When set as 01, the Tri_Counter_Int occurs in cycle of (Count_N+1) * (Count_M+1) * 4 dclk.\n\nWhen set as 10 or 11, the io0 is map as TE input."]
     #[inline(always)]
+    #[must_use]
     pub fn tri_int_mode(&mut self) -> TRI_INT_MODE_W<28> {
         TRI_INT_MODE_W::new(self)
     }
@@ -175,11 +178,10 @@ impl crate::Readable for LCD_CPU_TRI3_SPEC {
 #[doc = "`write(|w| ..)` method takes [lcd_cpu_tri3::W](W) writer structure"]
 impl crate::Writable for LCD_CPU_TRI3_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets lcd_cpu_tri3 to value 0"]
 impl crate::Resettable for LCD_CPU_TRI3_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

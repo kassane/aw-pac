@@ -37,7 +37,7 @@ impl From<crate::W<SPI_TCR_SPEC>> for W {
 #[doc = "Field `cpha` reader - SPI Clock/Data Phase Control"]
 pub type CPHA_R = crate::BitReader<CPHA_A>;
 #[doc = "SPI Clock/Data Phase Control\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum CPHA_A {
     #[doc = "0: Phase 0 (Leading edge for sample data)"]
     P0 = 0,
@@ -87,7 +87,7 @@ impl<'a, const O: u8> CPHA_W<'a, O> {
 #[doc = "Field `cpol` reader - SPI Clock Polarity Control"]
 pub type CPOL_R = crate::BitReader<CPOL_A>;
 #[doc = "SPI Clock Polarity Control\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum CPOL_A {
     #[doc = "0: Active high polarity"]
     HIGH = 0,
@@ -137,7 +137,7 @@ impl<'a, const O: u8> CPOL_W<'a, O> {
 #[doc = "Field `spol` reader - SPI Chip Select Signal Polarity Control"]
 pub type SPOL_R = crate::BitReader<SPOL_A>;
 #[doc = "SPI Chip Select Signal Polarity Control\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum SPOL_A {
     #[doc = "0: Active high polarity"]
     HIGH = 0,
@@ -187,7 +187,7 @@ impl<'a, const O: u8> SPOL_W<'a, O> {
 #[doc = "Field `ssctl` reader - "]
 pub type SSCTL_R = crate::BitReader<SSCTL_A>;
 #[doc = "\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum SSCTL_A {
     #[doc = "0: SPI_SSx remains asserted between SPI bursts"]
     ASSERT = 0,
@@ -237,7 +237,7 @@ impl<'a, const O: u8> SSCTL_W<'a, O> {
 #[doc = "Field `ss_sel` reader - "]
 pub type SS_SEL_R = crate::FieldReader<u8, SS_SEL_A>;
 #[doc = "\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum SS_SEL_A {
     #[doc = "0: `0`"]
@@ -316,7 +316,7 @@ impl<'a, const O: u8> SS_SEL_W<'a, O> {
 #[doc = "Field `ss_owner` reader - "]
 pub type SS_OWNER_R = crate::BitReader<SS_OWNER_A>;
 #[doc = "\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum SS_OWNER_A {
     #[doc = "0: `0`"]
     SPI_CONTROLLER = 0,
@@ -366,7 +366,7 @@ impl<'a, const O: u8> SS_OWNER_W<'a, O> {
 #[doc = "Field `ss_level` reader - "]
 pub type SS_LEVEL_R = crate::BitReader<SS_LEVEL_A>;
 #[doc = "\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum SS_LEVEL_A {
     #[doc = "0: `0`"]
     LOW = 0,
@@ -416,7 +416,7 @@ impl<'a, const O: u8> SS_LEVEL_W<'a, O> {
 #[doc = "Field `dhb` reader - Discard Hash Burst"]
 pub type DHB_R = crate::BitReader<DHB_A>;
 #[doc = "Discard Hash Burst\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum DHB_A {
     #[doc = "0: Receiving all SPI bursts in the BC period"]
     RECEIVE = 0,
@@ -466,7 +466,7 @@ impl<'a, const O: u8> DHB_W<'a, O> {
 #[doc = "Field `ddb` reader - Dummy Burst Type"]
 pub type DDB_R = crate::BitReader<DDB_A>;
 #[doc = "Dummy Burst Type\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum DDB_A {
     #[doc = "0: The bit value of dummy SPI burst is zero"]
     ZERO = 0,
@@ -516,7 +516,7 @@ impl<'a, const O: u8> DDB_W<'a, O> {
 #[doc = "Field `rpsm` reader - Rapids Mode Select"]
 pub type RPSM_R = crate::BitReader<RPSM_A>;
 #[doc = "Rapids Mode Select\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum RPSM_A {
     #[doc = "0: Normal write mode"]
     NORMAL = 0,
@@ -566,7 +566,7 @@ impl<'a, const O: u8> RPSM_W<'a, O> {
 #[doc = "Field `sdc` reader - Master Sample Data Control"]
 pub type SDC_R = crate::BitReader<SDC_A>;
 #[doc = "Master Sample Data Control\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum SDC_A {
     #[doc = "0: Normal operation, do not delay the internal read sample point"]
     NORMAL = 0,
@@ -616,7 +616,7 @@ impl<'a, const O: u8> SDC_W<'a, O> {
 #[doc = "Field `fbs` reader - First Transmit Bit Select"]
 pub type FBS_R = crate::BitReader<FBS_A>;
 #[doc = "First Transmit Bit Select\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum FBS_A {
     #[doc = "0: MSB first"]
     MSB = 0,
@@ -666,7 +666,7 @@ impl<'a, const O: u8> FBS_W<'a, O> {
 #[doc = "Field `sdm` reader - Master Sample Data Mode"]
 pub type SDM_R = crate::BitReader<SDM_A>;
 #[doc = "Master Sample Data Mode\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum SDM_A {
     #[doc = "0: delay sample mode"]
     DELAY = 0,
@@ -716,7 +716,7 @@ impl<'a, const O: u8> SDM_W<'a, O> {
 #[doc = "Field `sddm` reader - Sending Data Delay Mode"]
 pub type SDDM_R = crate::BitReader<SDDM_A>;
 #[doc = "Sending Data Delay Mode\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum SDDM_A {
     #[doc = "0: normal sending"]
     NORMAL = 0,
@@ -766,7 +766,7 @@ impl<'a, const O: u8> SDDM_W<'a, O> {
 #[doc = "Field `sdc1` reader - Master Sample Data Control register1"]
 pub type SDC1_R = crate::BitReader<SDC1_A>;
 #[doc = "Master Sample Data Control register1\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum SDC1_A {
     #[doc = "0: normal operation, do not delay the internal read sample point"]
     NORMAL = 0,
@@ -816,7 +816,7 @@ impl<'a, const O: u8> SDC1_W<'a, O> {
 #[doc = "Field `xch` reader - Exchange Burst"]
 pub type XCH_R = crate::BitReader<XCH_A>;
 #[doc = "Exchange Burst\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum XCH_A {
     #[doc = "0: `0`"]
     IDLE = 0,
@@ -948,81 +948,97 @@ impl R {
 impl W {
     #[doc = "Bit 0 - SPI Clock/Data Phase Control"]
     #[inline(always)]
+    #[must_use]
     pub fn cpha(&mut self) -> CPHA_W<0> {
         CPHA_W::new(self)
     }
     #[doc = "Bit 1 - SPI Clock Polarity Control"]
     #[inline(always)]
+    #[must_use]
     pub fn cpol(&mut self) -> CPOL_W<1> {
         CPOL_W::new(self)
     }
     #[doc = "Bit 2 - SPI Chip Select Signal Polarity Control"]
     #[inline(always)]
+    #[must_use]
     pub fn spol(&mut self) -> SPOL_W<2> {
         SPOL_W::new(self)
     }
     #[doc = "Bit 3"]
     #[inline(always)]
+    #[must_use]
     pub fn ssctl(&mut self) -> SSCTL_W<3> {
         SSCTL_W::new(self)
     }
     #[doc = "Bits 4:5"]
     #[inline(always)]
+    #[must_use]
     pub fn ss_sel(&mut self) -> SS_SEL_W<4> {
         SS_SEL_W::new(self)
     }
     #[doc = "Bit 6"]
     #[inline(always)]
+    #[must_use]
     pub fn ss_owner(&mut self) -> SS_OWNER_W<6> {
         SS_OWNER_W::new(self)
     }
     #[doc = "Bit 7"]
     #[inline(always)]
+    #[must_use]
     pub fn ss_level(&mut self) -> SS_LEVEL_W<7> {
         SS_LEVEL_W::new(self)
     }
     #[doc = "Bit 8 - Discard Hash Burst"]
     #[inline(always)]
+    #[must_use]
     pub fn dhb(&mut self) -> DHB_W<8> {
         DHB_W::new(self)
     }
     #[doc = "Bit 9 - Dummy Burst Type"]
     #[inline(always)]
+    #[must_use]
     pub fn ddb(&mut self) -> DDB_W<9> {
         DDB_W::new(self)
     }
     #[doc = "Bit 10 - Rapids Mode Select"]
     #[inline(always)]
+    #[must_use]
     pub fn rpsm(&mut self) -> RPSM_W<10> {
         RPSM_W::new(self)
     }
     #[doc = "Bit 11 - Master Sample Data Control"]
     #[inline(always)]
+    #[must_use]
     pub fn sdc(&mut self) -> SDC_W<11> {
         SDC_W::new(self)
     }
     #[doc = "Bit 12 - First Transmit Bit Select"]
     #[inline(always)]
+    #[must_use]
     pub fn fbs(&mut self) -> FBS_W<12> {
         FBS_W::new(self)
     }
     #[doc = "Bit 13 - Master Sample Data Mode"]
     #[inline(always)]
+    #[must_use]
     pub fn sdm(&mut self) -> SDM_W<13> {
         SDM_W::new(self)
     }
     #[doc = "Bit 14 - Sending Data Delay Mode"]
     #[inline(always)]
+    #[must_use]
     pub fn sddm(&mut self) -> SDDM_W<14> {
         SDDM_W::new(self)
     }
     #[doc = "Bit 15 - Master Sample Data Control register1"]
     #[inline(always)]
+    #[must_use]
     pub fn sdc1(&mut self) -> SDC1_W<15> {
         SDC1_W::new(self)
     }
     #[doc = "Bit 31 - Exchange Burst"]
     #[inline(always)]
+    #[must_use]
     pub fn xch(&mut self) -> XCH_W<31> {
         XCH_W::new(self)
     }
@@ -1045,11 +1061,10 @@ impl crate::Readable for SPI_TCR_SPEC {
 #[doc = "`write(|w| ..)` method takes [spi_tcr::W](W) writer structure"]
 impl crate::Writable for SPI_TCR_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets spi_tcr to value 0"]
 impl crate::Resettable for SPI_TCR_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

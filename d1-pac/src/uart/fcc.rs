@@ -37,7 +37,7 @@ impl From<crate::W<FCC_SPEC>> for W {
 #[doc = "Field `rx_fifo_clock_enable` reader - "]
 pub type RX_FIFO_CLOCK_ENABLE_R = crate::BitReader<RX_FIFO_CLOCK_ENABLE_A>;
 #[doc = "\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum RX_FIFO_CLOCK_ENABLE_A {
     #[doc = "0: `0`"]
     DISABLE = 0,
@@ -88,7 +88,7 @@ impl<'a, const O: u8> RX_FIFO_CLOCK_ENABLE_W<'a, O> {
 #[doc = "Field `tx_fifo_clock_enable` reader - "]
 pub type TX_FIFO_CLOCK_ENABLE_R = crate::BitReader<TX_FIFO_CLOCK_ENABLE_A>;
 #[doc = "\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum TX_FIFO_CLOCK_ENABLE_A {
     #[doc = "0: `0`"]
     DISABLE = 0,
@@ -139,7 +139,7 @@ impl<'a, const O: u8> TX_FIFO_CLOCK_ENABLE_W<'a, O> {
 #[doc = "Field `rx_fifo_clock_mode` reader - "]
 pub type RX_FIFO_CLOCK_MODE_R = crate::BitReader<RX_FIFO_CLOCK_MODE_A>;
 #[doc = "\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum RX_FIFO_CLOCK_MODE_A {
     #[doc = "0: Sync mode, writing/reading clocks use apb clock"]
     WR_APB = 0,
@@ -208,22 +208,25 @@ impl R {
     #[doc = "Bits 8:31"]
     #[inline(always)]
     pub fn fifo_depth(&self) -> FIFO_DEPTH_R {
-        FIFO_DEPTH_R::new(((self.bits >> 8) & 0x00ff_ffff) as u32)
+        FIFO_DEPTH_R::new((self.bits >> 8) & 0x00ff_ffff)
     }
 }
 impl W {
     #[doc = "Bit 0"]
     #[inline(always)]
+    #[must_use]
     pub fn rx_fifo_clock_enable(&mut self) -> RX_FIFO_CLOCK_ENABLE_W<0> {
         RX_FIFO_CLOCK_ENABLE_W::new(self)
     }
     #[doc = "Bit 1"]
     #[inline(always)]
+    #[must_use]
     pub fn tx_fifo_clock_enable(&mut self) -> TX_FIFO_CLOCK_ENABLE_W<1> {
         TX_FIFO_CLOCK_ENABLE_W::new(self)
     }
     #[doc = "Bit 2"]
     #[inline(always)]
+    #[must_use]
     pub fn rx_fifo_clock_mode(&mut self) -> RX_FIFO_CLOCK_MODE_W<2> {
         RX_FIFO_CLOCK_MODE_W::new(self)
     }
@@ -246,11 +249,10 @@ impl crate::Readable for FCC_SPEC {
 #[doc = "`write(|w| ..)` method takes [fcc::W](W) writer structure"]
 impl crate::Writable for FCC_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets fcc to value 0"]
 impl crate::Resettable for FCC_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

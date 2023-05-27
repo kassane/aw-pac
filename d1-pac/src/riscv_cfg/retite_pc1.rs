@@ -18,7 +18,7 @@ pub type RT_PC_H_R = crate::FieldReader<u8, u8>;
 #[doc = "Field `rt_sig` reader - Retire Signal"]
 pub type RT_SIG_R = crate::BitReader<RT_SIG_A>;
 #[doc = "Retire Signal\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum RT_SIG_A {
     #[doc = "0: `0`"]
     NOT_HAVE = 0,
@@ -74,8 +74,5 @@ impl crate::Readable for RETITE_PC1_SPEC {
 }
 #[doc = "`reset()` method sets retite_pc1 to value 0"]
 impl crate::Resettable for RETITE_PC1_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

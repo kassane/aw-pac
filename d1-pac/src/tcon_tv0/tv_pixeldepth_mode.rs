@@ -37,7 +37,7 @@ impl From<crate::W<TV_PIXELDEPTH_MODE_SPEC>> for W {
 #[doc = "Field `colorbar_pd_mode` reader - Colorbar Pixeldepth mode"]
 pub type COLORBAR_PD_MODE_R = crate::BitReader<COLORBAR_PD_MODE_A>;
 #[doc = "Colorbar Pixeldepth mode\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum COLORBAR_PD_MODE_A {
     #[doc = "0: 8 bit mode\n\nWhen data source is the embedded colorbar, the 8-bit colorbar pattern is transmitted."]
     B_IT8 = 0,
@@ -95,6 +95,7 @@ impl R {
 impl W {
     #[doc = "Bit 0 - Colorbar Pixeldepth mode"]
     #[inline(always)]
+    #[must_use]
     pub fn colorbar_pd_mode(&mut self) -> COLORBAR_PD_MODE_W<0> {
         COLORBAR_PD_MODE_W::new(self)
     }
@@ -117,11 +118,10 @@ impl crate::Readable for TV_PIXELDEPTH_MODE_SPEC {
 #[doc = "`write(|w| ..)` method takes [tv_pixeldepth_mode::W](W) writer structure"]
 impl crate::Writable for TV_PIXELDEPTH_MODE_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets tv_pixeldepth_mode to value 0"]
 impl crate::Resettable for TV_PIXELDEPTH_MODE_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

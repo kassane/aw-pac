@@ -37,7 +37,7 @@ impl From<crate::W<DCXO_CTRL_SPEC>> for W {
 #[doc = "Field `clk16m_rc_en` reader - The related register configuration is necessary to ensure the reset debounce circuit has a stable clock source. The first time SoC starts up, by default, the reset debounce circuit of SoC uses 32K divided by RC16M. In power-off, software reads the related bit to ensure whether EXT32K is working normally, if it is normal, first switch the clock source of debounce circuit to EXT32K, then close RC16M. Without EXT32K scenario or external RTC scenario, software confirms firstly whether EXT32K is working normally before switching, or software does not close RC16M."]
 pub type CLK16M_RC_EN_R = crate::BitReader<CLK16M_RC_EN_A>;
 #[doc = "The related register configuration is necessary to ensure the reset debounce circuit has a stable clock source. The first time SoC starts up, by default, the reset debounce circuit of SoC uses 32K divided by RC16M. In power-off, software reads the related bit to ensure whether EXT32K is working normally, if it is normal, first switch the clock source of debounce circuit to EXT32K, then close RC16M. Without EXT32K scenario or external RTC scenario, software confirms firstly whether EXT32K is working normally before switching, or software does not close RC16M.\n\nValue on reset: 1"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum CLK16M_RC_EN_A {
     #[doc = "1: Enable"]
     ENABLE = 1,
@@ -88,7 +88,7 @@ impl<'a, const O: u8> CLK16M_RC_EN_W<'a, O> {
 #[doc = "Field `dcxo_en` reader - DCXO enable"]
 pub type DCXO_EN_R = crate::BitReader<DCXO_EN_A>;
 #[doc = "DCXO enable\n\nValue on reset: 1"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum DCXO_EN_A {
     #[doc = "1: Enable"]
     ENABLE = 1,
@@ -147,7 +147,7 @@ pub type DCXO_RFCLK_ENHANCE_W<'a, const O: u8> =
 #[doc = "Field `xtal_mode` reader - Xtal mode enable signal, active high"]
 pub type XTAL_MODE_R = crate::BitReader<XTAL_MODE_A>;
 #[doc = "Xtal mode enable signal, active high\n\nValue on reset: 1"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum XTAL_MODE_A {
     #[doc = "0: For external clk input mode"]
     FOR_EXTERNAL = 0,
@@ -213,7 +213,7 @@ pub type DCXO_ICTRL_W<'a, const O: u8> = crate::FieldWriter<'a, u32, DCXO_CTRL_S
 #[doc = "Field `clk_req_enb` reader - Clock REQ enable"]
 pub type CLK_REQ_ENB_R = crate::BitReader<CLK_REQ_ENB_A>;
 #[doc = "Clock REQ enable\n\nValue on reset: 1"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum CLK_REQ_ENB_A {
     #[doc = "0: Enable DCXO wake up function"]
     ENABLE = 0,
@@ -316,51 +316,61 @@ impl R {
 impl W {
     #[doc = "Bit 0 - The related register configuration is necessary to ensure the reset debounce circuit has a stable clock source. The first time SoC starts up, by default, the reset debounce circuit of SoC uses 32K divided by RC16M. In power-off, software reads the related bit to ensure whether EXT32K is working normally, if it is normal, first switch the clock source of debounce circuit to EXT32K, then close RC16M. Without EXT32K scenario or external RTC scenario, software confirms firstly whether EXT32K is working normally before switching, or software does not close RC16M."]
     #[inline(always)]
+    #[must_use]
     pub fn clk16m_rc_en(&mut self) -> CLK16M_RC_EN_W<0> {
         CLK16M_RC_EN_W::new(self)
     }
     #[doc = "Bit 1 - DCXO enable"]
     #[inline(always)]
+    #[must_use]
     pub fn dcxo_en(&mut self) -> DCXO_EN_W<1> {
         DCXO_EN_W::new(self)
     }
     #[doc = "Bit 2 - For Debug Use Only.\n\nIt cannot configure to 0 in normal state."]
     #[inline(always)]
+    #[must_use]
     pub fn rsto_dly_sel(&mut self) -> RSTO_DLY_SEL_W<2> {
         RSTO_DLY_SEL_W::new(self)
     }
     #[doc = "Bits 4:5 - DCXO rfclk enhance\n\nEnhance driving capacity of output OUT_RF_REFCLK, 0x0 for 5 pF, 0x1 for 10 pF, 0x2 for 15 pF, 0x3 for 20 pF."]
     #[inline(always)]
+    #[must_use]
     pub fn dcxo_rfclk_enhance(&mut self) -> DCXO_RFCLK_ENHANCE_W<4> {
         DCXO_RFCLK_ENHANCE_W::new(self)
     }
     #[doc = "Bit 6 - Xtal mode enable signal, active high"]
     #[inline(always)]
+    #[must_use]
     pub fn xtal_mode(&mut self) -> XTAL_MODE_W<6> {
         XTAL_MODE_W::new(self)
     }
     #[doc = "Bit 7 - DCXO LDO driving capacity signal, active high"]
     #[inline(always)]
+    #[must_use]
     pub fn dcxo_ldo_inrushb(&mut self) -> DCXO_LDO_INRUSHB_W<7> {
         DCXO_LDO_INRUSHB_W::new(self)
     }
     #[doc = "Bits 8:12 - DCXO bandgap output voltage"]
     #[inline(always)]
+    #[must_use]
     pub fn dcxo_bg(&mut self) -> DCXO_BG_W<8> {
         DCXO_BG_W::new(self)
     }
     #[doc = "Bits 16:22 - DCXO cap array value\n\nThe capacity cell is 55 fF."]
     #[inline(always)]
+    #[must_use]
     pub fn dcxo_trim(&mut self) -> DCXO_TRIM_W<16> {
         DCXO_TRIM_W::new(self)
     }
     #[doc = "Bits 24:27 - DCXO current control value"]
     #[inline(always)]
+    #[must_use]
     pub fn dcxo_ictrl(&mut self) -> DCXO_ICTRL_W<24> {
         DCXO_ICTRL_W::new(self)
     }
     #[doc = "Bit 31 - Clock REQ enable"]
     #[inline(always)]
+    #[must_use]
     pub fn clk_req_enb(&mut self) -> CLK_REQ_ENB_W<31> {
         CLK_REQ_ENB_W::new(self)
     }
@@ -383,11 +393,10 @@ impl crate::Readable for DCXO_CTRL_SPEC {
 #[doc = "`write(|w| ..)` method takes [dcxo_ctrl::W](W) writer structure"]
 impl crate::Writable for DCXO_CTRL_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets dcxo_ctrl to value 0x883f_10f7"]
 impl crate::Resettable for DCXO_CTRL_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0x883f_10f7
-    }
+    const RESET_VALUE: Self::Ux = 0x883f_10f7;
 }

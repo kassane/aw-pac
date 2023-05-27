@@ -14,22 +14,22 @@ pub struct RegisterBlock {
     pub csic_dma: crate::ArrayProxy<CSIC_DMA, 2, 0x0200>,
 }
 #[doc = "CSIC_CCU"]
-pub use csic_ccu::CSIC_CCU;
+pub use self::csic_ccu::CSIC_CCU;
 #[doc = r"Cluster"]
 #[doc = "CSIC_CCU"]
 pub mod csic_ccu;
 #[doc = "CSIC_TOP"]
-pub use csic_top::CSIC_TOP;
+pub use self::csic_top::CSIC_TOP;
 #[doc = r"Cluster"]
 #[doc = "CSIC_TOP"]
 pub mod csic_top;
 #[doc = "CSIC_PARSER0"]
-pub use csic_parser0::CSIC_PARSER0;
+pub use self::csic_parser0::CSIC_PARSER0;
 #[doc = r"Cluster"]
 #[doc = "CSIC_PARSER0"]
 pub mod csic_parser0;
 #[doc = "CSIC_DMA"]
-pub use csic_dma::CSIC_DMA;
+pub use self::csic_dma::CSIC_DMA;
 #[doc = r"Cluster"]
 #[doc = "CSIC_DMA"]
 pub mod csic_dma;

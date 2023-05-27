@@ -37,7 +37,7 @@ impl From<crate::W<PIO_POW_VOL_SEL_CTL_SPEC>> for W {
 #[doc = "Field `vcc_pf_pwr_vol_sel` reader - VCC_PF Power Voltage Select Control"]
 pub type VCC_PF_PWR_VOL_SEL_R = crate::BitReader<VCC_PF_PWR_VOL_SEL_A>;
 #[doc = "VCC_PF Power Voltage Select Control\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum VCC_PF_PWR_VOL_SEL_A {
     #[doc = "0: 1.8V"]
     V18 = 0,
@@ -95,6 +95,7 @@ impl R {
 impl W {
     #[doc = "Bit 0 - VCC_PF Power Voltage Select Control"]
     #[inline(always)]
+    #[must_use]
     pub fn vcc_pf_pwr_vol_sel(&mut self) -> VCC_PF_PWR_VOL_SEL_W<0> {
         VCC_PF_PWR_VOL_SEL_W::new(self)
     }
@@ -117,11 +118,10 @@ impl crate::Readable for PIO_POW_VOL_SEL_CTL_SPEC {
 #[doc = "`write(|w| ..)` method takes [pio_pow_vol_sel_ctl::W](W) writer structure"]
 impl crate::Writable for PIO_POW_VOL_SEL_CTL_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets pio_pow_vol_sel_ctl to value 0"]
 impl crate::Resettable for PIO_POW_VOL_SEL_CTL_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

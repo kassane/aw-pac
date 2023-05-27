@@ -37,7 +37,7 @@ impl From<crate::W<SMHC_CTYPE_SPEC>> for W {
 #[doc = "Field `card_wid` reader - Card Width"]
 pub type CARD_WID_R = crate::FieldReader<u8, CARD_WID_A>;
 #[doc = "Card Width\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum CARD_WID_A {
     #[doc = "0: 1-bit width"]
@@ -110,6 +110,7 @@ impl R {
 impl W {
     #[doc = "Bits 0:1 - Card Width"]
     #[inline(always)]
+    #[must_use]
     pub fn card_wid(&mut self) -> CARD_WID_W<0> {
         CARD_WID_W::new(self)
     }
@@ -132,11 +133,10 @@ impl crate::Readable for SMHC_CTYPE_SPEC {
 #[doc = "`write(|w| ..)` method takes [smhc_ctype::W](W) writer structure"]
 impl crate::Writable for SMHC_CTYPE_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets smhc_ctype to value 0"]
 impl crate::Resettable for SMHC_CTYPE_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

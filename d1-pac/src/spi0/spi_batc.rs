@@ -37,7 +37,7 @@ impl From<crate::W<SPI_BATC_SPEC>> for W {
 #[doc = "Field `wms` reader - Work Mode Select"]
 pub type WMS_R = crate::FieldReader<u8, WMS_A>;
 #[doc = "Work Mode Select\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum WMS_A {
     #[doc = "0: `0`"]
@@ -102,7 +102,7 @@ impl<'a, const O: u8> WMS_W<'a, O> {
 #[doc = "Field `ss_sel` reader - SPI Chip Select"]
 pub type SS_SEL_R = crate::FieldReader<u8, SS_SEL_A>;
 #[doc = "SPI Chip Select\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum SS_SEL_A {
     #[doc = "0: `0`"]
@@ -181,7 +181,7 @@ impl<'a, const O: u8> SS_SEL_W<'a, O> {
 #[doc = "Field `spol` reader - SPI Chip Select Signal Polarity Control"]
 pub type SPOL_R = crate::BitReader<SPOL_A>;
 #[doc = "SPI Chip Select Signal Polarity Control\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum SPOL_A {
     #[doc = "0: `0`"]
     HIGH = 0,
@@ -231,7 +231,7 @@ impl<'a, const O: u8> SPOL_W<'a, O> {
 #[doc = "Field `ss_owner` reader - SS Output Owner Select"]
 pub type SS_OWNER_R = crate::BitReader<SS_OWNER_A>;
 #[doc = "SS Output Owner Select\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum SS_OWNER_A {
     #[doc = "0: `0`"]
     SPI_CONTROLLER = 0,
@@ -281,7 +281,7 @@ impl<'a, const O: u8> SS_OWNER_W<'a, O> {
 #[doc = "Field `ss_level` reader - "]
 pub type SS_LEVEL_R = crate::BitReader<SS_LEVEL_A>;
 #[doc = "\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum SS_LEVEL_A {
     #[doc = "0: `0`"]
     LOW = 0,
@@ -339,7 +339,7 @@ pub type RX_FRM_LEN_W<'a, const O: u8> = crate::FieldWriter<'a, u32, SPI_BATC_SP
 #[doc = "Field `tbc_int_en` reader - Transfer Bits Completed Interrupt Enable"]
 pub type TBC_INT_EN_R = crate::BitReader<TBC_INT_EN_A>;
 #[doc = "Transfer Bits Completed Interrupt Enable\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum TBC_INT_EN_A {
     #[doc = "0: `0`"]
     DISABLE = 0,
@@ -389,7 +389,7 @@ impl<'a, const O: u8> TBC_INT_EN_W<'a, O> {
 #[doc = "Field `tbc` reader - Transfer Bits Completed"]
 pub type TBC_R = crate::BitReader<TBC_A>;
 #[doc = "Transfer Bits Completed\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum TBC_A {
     #[doc = "0: `0`"]
     BUSY = 0,
@@ -439,7 +439,7 @@ impl<'a, const O: u8> TBC_W<'a, O> {
 #[doc = "Field `msms` reader - Master Sample Standard"]
 pub type MSMS_R = crate::BitReader<MSMS_A>;
 #[doc = "Master Sample Standard\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum MSMS_A {
     #[doc = "0: `0`"]
     DELAY = 0,
@@ -489,7 +489,7 @@ impl<'a, const O: u8> MSMS_W<'a, O> {
 #[doc = "Field `tce` reader - Transfer Control Enable"]
 pub type TCE_R = crate::BitReader<TCE_A>;
 #[doc = "Transfer Control Enable\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum TCE_A {
     #[doc = "0: `0`"]
     IDLE = 0,
@@ -596,56 +596,67 @@ impl R {
 impl W {
     #[doc = "Bits 0:1 - Work Mode Select"]
     #[inline(always)]
+    #[must_use]
     pub fn wms(&mut self) -> WMS_W<0> {
         WMS_W::new(self)
     }
     #[doc = "Bits 2:3 - SPI Chip Select"]
     #[inline(always)]
+    #[must_use]
     pub fn ss_sel(&mut self) -> SS_SEL_W<2> {
         SS_SEL_W::new(self)
     }
     #[doc = "Bit 5 - SPI Chip Select Signal Polarity Control"]
     #[inline(always)]
+    #[must_use]
     pub fn spol(&mut self) -> SPOL_W<5> {
         SPOL_W::new(self)
     }
     #[doc = "Bit 6 - SS Output Owner Select"]
     #[inline(always)]
+    #[must_use]
     pub fn ss_owner(&mut self) -> SS_OWNER_W<6> {
         SS_OWNER_W::new(self)
     }
     #[doc = "Bit 7"]
     #[inline(always)]
+    #[must_use]
     pub fn ss_level(&mut self) -> SS_LEVEL_W<7> {
         SS_LEVEL_W::new(self)
     }
     #[doc = "Bits 8:13 - Configure the length of serial data frame of TX"]
     #[inline(always)]
+    #[must_use]
     pub fn tx_frm_len(&mut self) -> TX_FRM_LEN_W<8> {
         TX_FRM_LEN_W::new(self)
     }
     #[doc = "Bits 16:21 - Configure the length of serial data frame of RX"]
     #[inline(always)]
+    #[must_use]
     pub fn rx_frm_len(&mut self) -> RX_FRM_LEN_W<16> {
         RX_FRM_LEN_W::new(self)
     }
     #[doc = "Bit 24 - Transfer Bits Completed Interrupt Enable"]
     #[inline(always)]
+    #[must_use]
     pub fn tbc_int_en(&mut self) -> TBC_INT_EN_W<24> {
         TBC_INT_EN_W::new(self)
     }
     #[doc = "Bit 25 - Transfer Bits Completed"]
     #[inline(always)]
+    #[must_use]
     pub fn tbc(&mut self) -> TBC_W<25> {
         TBC_W::new(self)
     }
     #[doc = "Bit 30 - Master Sample Standard"]
     #[inline(always)]
+    #[must_use]
     pub fn msms(&mut self) -> MSMS_W<30> {
         MSMS_W::new(self)
     }
     #[doc = "Bit 31 - Transfer Control Enable"]
     #[inline(always)]
+    #[must_use]
     pub fn tce(&mut self) -> TCE_W<31> {
         TCE_W::new(self)
     }
@@ -668,11 +679,10 @@ impl crate::Readable for SPI_BATC_SPEC {
 #[doc = "`write(|w| ..)` method takes [spi_batc::W](W) writer structure"]
 impl crate::Writable for SPI_BATC_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets spi_batc to value 0"]
 impl crate::Resettable for SPI_BATC_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

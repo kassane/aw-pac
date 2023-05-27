@@ -37,7 +37,7 @@ impl From<crate::W<SMHC_FUNS_SPEC>> for W {
 #[doc = "Field `host_send_mimc_irqresq` reader - Host Send MMC IRQ Response"]
 pub type HOST_SEND_MIMC_IRQRESQ_R = crate::BitReader<HOST_SEND_MIMC_IRQRESQ_A>;
 #[doc = "Host Send MMC IRQ Response\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum HOST_SEND_MIMC_IRQRESQ_A {
     #[doc = "0: `0`"]
     IGNORED = 0,
@@ -88,7 +88,7 @@ impl<'a, const O: u8> HOST_SEND_MIMC_IRQRESQ_W<'a, O> {
 #[doc = "Field `read_wait` reader - Read Wait"]
 pub type READ_WAIT_R = crate::BitReader<READ_WAIT_A>;
 #[doc = "Read Wait\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum READ_WAIT_A {
     #[doc = "0: Clear SDIO read wait"]
     CLEAR = 0,
@@ -138,7 +138,7 @@ impl<'a, const O: u8> READ_WAIT_W<'a, O> {
 #[doc = "Field `abt_rdata` reader - Abort Read Data"]
 pub type ABT_RDATA_R = crate::BitReader<ABT_RDATA_A>;
 #[doc = "Abort Read Data\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum ABT_RDATA_A {
     #[doc = "0: `0`"]
     IGNORED = 0,
@@ -205,16 +205,19 @@ impl R {
 impl W {
     #[doc = "Bit 0 - Host Send MMC IRQ Response"]
     #[inline(always)]
+    #[must_use]
     pub fn host_send_mimc_irqresq(&mut self) -> HOST_SEND_MIMC_IRQRESQ_W<0> {
         HOST_SEND_MIMC_IRQRESQ_W::new(self)
     }
     #[doc = "Bit 1 - Read Wait"]
     #[inline(always)]
+    #[must_use]
     pub fn read_wait(&mut self) -> READ_WAIT_W<1> {
         READ_WAIT_W::new(self)
     }
     #[doc = "Bit 2 - Abort Read Data"]
     #[inline(always)]
+    #[must_use]
     pub fn abt_rdata(&mut self) -> ABT_RDATA_W<2> {
         ABT_RDATA_W::new(self)
     }
@@ -237,11 +240,10 @@ impl crate::Readable for SMHC_FUNS_SPEC {
 #[doc = "`write(|w| ..)` method takes [smhc_funs::W](W) writer structure"]
 impl crate::Writable for SMHC_FUNS_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets smhc_funs to value 0"]
 impl crate::Resettable for SMHC_FUNS_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

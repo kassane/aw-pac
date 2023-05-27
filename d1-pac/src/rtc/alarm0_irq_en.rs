@@ -37,7 +37,7 @@ impl From<crate::W<ALARM0_IRQ_EN_SPEC>> for W {
 #[doc = "Field `alarm0_irq_en` reader - Alarm 0 IRQ Enable"]
 pub type ALARM0_IRQ_EN_R = crate::BitReader<ALARM0_IRQ_EN_A>;
 #[doc = "Alarm 0 IRQ Enable\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum ALARM0_IRQ_EN_A {
     #[doc = "0: Disable"]
     DISABLE = 0,
@@ -95,6 +95,7 @@ impl R {
 impl W {
     #[doc = "Bit 0 - Alarm 0 IRQ Enable"]
     #[inline(always)]
+    #[must_use]
     pub fn alarm0_irq_en(&mut self) -> ALARM0_IRQ_EN_W<0> {
         ALARM0_IRQ_EN_W::new(self)
     }
@@ -117,11 +118,10 @@ impl crate::Readable for ALARM0_IRQ_EN_SPEC {
 #[doc = "`write(|w| ..)` method takes [alarm0_irq_en::W](W) writer structure"]
 impl crate::Writable for ALARM0_IRQ_EN_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets alarm0_irq_en to value 0"]
 impl crate::Resettable for ALARM0_IRQ_EN_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

@@ -34,7 +34,25 @@ impl From<crate::W<AC_DAC_DRC_LKN_SPEC>> for W {
         W(writer)
     }
 }
+#[doc = "Field `dac_drc_lkn` reader - The slope of the linear, which is determined by the equation that Kn = 1/R. R is the ratio of the linear, which is always an integer. The format is 8.24. (The default value is <1:1>)"]
+pub type DAC_DRC_LKN_R = crate::FieldReader<u16, u16>;
+#[doc = "Field `dac_drc_lkn` writer - The slope of the linear, which is determined by the equation that Kn = 1/R. R is the ratio of the linear, which is always an integer. The format is 8.24. (The default value is <1:1>)"]
+pub type DAC_DRC_LKN_W<'a, const O: u8> =
+    crate::FieldWriter<'a, u32, AC_DAC_DRC_LKN_SPEC, u16, u16, 16, O>;
+impl R {
+    #[doc = "Bits 0:15 - The slope of the linear, which is determined by the equation that Kn = 1/R. R is the ratio of the linear, which is always an integer. The format is 8.24. (The default value is <1:1>)"]
+    #[inline(always)]
+    pub fn dac_drc_lkn(&self) -> DAC_DRC_LKN_R {
+        DAC_DRC_LKN_R::new((self.bits & 0xffff) as u16)
+    }
+}
 impl W {
+    #[doc = "Bits 0:15 - The slope of the linear, which is determined by the equation that Kn = 1/R. R is the ratio of the linear, which is always an integer. The format is 8.24. (The default value is <1:1>)"]
+    #[inline(always)]
+    #[must_use]
+    pub fn dac_drc_lkn(&mut self) -> DAC_DRC_LKN_W<0> {
+        DAC_DRC_LKN_W::new(self)
+    }
     #[doc = "Writes raw bits to the register."]
     #[inline(always)]
     pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
@@ -54,11 +72,10 @@ impl crate::Readable for AC_DAC_DRC_LKN_SPEC {
 #[doc = "`write(|w| ..)` method takes [ac_dac_drc_lkn::W](W) writer structure"]
 impl crate::Writable for AC_DAC_DRC_LKN_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets ac_dac_drc_lkn to value 0"]
 impl crate::Resettable for AC_DAC_DRC_LKN_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

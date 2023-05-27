@@ -41,7 +41,7 @@ pub type MII_BUSY_W<'a, const O: u8> = crate::BitWriter<'a, u32, EMAC_MII_CMD_SP
 #[doc = "Field `mii_wr` reader - MII Write and Read"]
 pub type MII_WR_R = crate::BitReader<MII_WR_A>;
 #[doc = "MII Write and Read\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum MII_WR_A {
     #[doc = "0: `0`"]
     R = 0,
@@ -100,7 +100,7 @@ pub type PHY_ADDR_W<'a, const O: u8> = crate::FieldWriter<'a, u32, EMAC_MII_CMD_
 #[doc = "Field `mdc_div_ratio_m` reader - MDC Clock DIvider Ratio"]
 pub type MDC_DIV_RATIO_M_R = crate::FieldReader<u8, MDC_DIV_RATIO_M_A>;
 #[doc = "MDC Clock DIvider Ratio\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum MDC_DIV_RATIO_M_A {
     #[doc = "0: `0`"]
@@ -206,26 +206,31 @@ impl R {
 impl W {
     #[doc = "Bit 0 - MII Status"]
     #[inline(always)]
+    #[must_use]
     pub fn mii_busy(&mut self) -> MII_BUSY_W<0> {
         MII_BUSY_W::new(self)
     }
     #[doc = "Bit 1 - MII Write and Read"]
     #[inline(always)]
+    #[must_use]
     pub fn mii_wr(&mut self) -> MII_WR_W<1> {
         MII_WR_W::new(self)
     }
     #[doc = "Bits 4:8 - PHY Register Address"]
     #[inline(always)]
+    #[must_use]
     pub fn phy_reg_addr(&mut self) -> PHY_REG_ADDR_W<4> {
         PHY_REG_ADDR_W::new(self)
     }
     #[doc = "Bits 12:16 - PHY Address"]
     #[inline(always)]
+    #[must_use]
     pub fn phy_addr(&mut self) -> PHY_ADDR_W<12> {
         PHY_ADDR_W::new(self)
     }
     #[doc = "Bits 20:22 - MDC Clock DIvider Ratio"]
     #[inline(always)]
+    #[must_use]
     pub fn mdc_div_ratio_m(&mut self) -> MDC_DIV_RATIO_M_W<20> {
         MDC_DIV_RATIO_M_W::new(self)
     }
@@ -248,11 +253,10 @@ impl crate::Readable for EMAC_MII_CMD_SPEC {
 #[doc = "`write(|w| ..)` method takes [emac_mii_cmd::W](W) writer structure"]
 impl crate::Writable for EMAC_MII_CMD_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets emac_mii_cmd to value 0"]
 impl crate::Resettable for EMAC_MII_CMD_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

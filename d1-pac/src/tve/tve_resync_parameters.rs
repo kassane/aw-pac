@@ -47,12 +47,12 @@ pub type RE_SYNC_LINE_NUM_W<'a, const O: u8> =
 #[doc = "Field `re_sync_dis` reader - "]
 pub type RE_SYNC_DIS_R = crate::BitReader<RE_SYNC_DIS_A>;
 #[doc = "\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum RE_SYNC_DIS_A {
     #[doc = "0: Re-Sync Enable"]
-    E_NABLE = 0,
+    ENABLE = 0,
     #[doc = "1: Re-Sync Disable"]
-    D_ISABLE = 1,
+    DISABLE = 1,
 }
 impl From<RE_SYNC_DIS_A> for bool {
     #[inline(always)]
@@ -65,19 +65,19 @@ impl RE_SYNC_DIS_R {
     #[inline(always)]
     pub fn variant(&self) -> RE_SYNC_DIS_A {
         match self.bits {
-            false => RE_SYNC_DIS_A::E_NABLE,
-            true => RE_SYNC_DIS_A::D_ISABLE,
+            false => RE_SYNC_DIS_A::ENABLE,
+            true => RE_SYNC_DIS_A::DISABLE,
         }
     }
-    #[doc = "Checks if the value of the field is `E_NABLE`"]
+    #[doc = "Checks if the value of the field is `ENABLE`"]
     #[inline(always)]
-    pub fn is_e_nable(&self) -> bool {
-        *self == RE_SYNC_DIS_A::E_NABLE
+    pub fn is_enable(&self) -> bool {
+        *self == RE_SYNC_DIS_A::ENABLE
     }
-    #[doc = "Checks if the value of the field is `D_ISABLE`"]
+    #[doc = "Checks if the value of the field is `DISABLE`"]
     #[inline(always)]
-    pub fn is_d_isable(&self) -> bool {
-        *self == RE_SYNC_DIS_A::D_ISABLE
+    pub fn is_disable(&self) -> bool {
+        *self == RE_SYNC_DIS_A::DISABLE
     }
 }
 #[doc = "Field `re_sync_dis` writer - "]
@@ -86,13 +86,13 @@ pub type RE_SYNC_DIS_W<'a, const O: u8> =
 impl<'a, const O: u8> RE_SYNC_DIS_W<'a, O> {
     #[doc = "Re-Sync Enable"]
     #[inline(always)]
-    pub fn e_nable(self) -> &'a mut W {
-        self.variant(RE_SYNC_DIS_A::E_NABLE)
+    pub fn enable(self) -> &'a mut W {
+        self.variant(RE_SYNC_DIS_A::ENABLE)
     }
     #[doc = "Re-Sync Disable"]
     #[inline(always)]
-    pub fn d_isable(self) -> &'a mut W {
-        self.variant(RE_SYNC_DIS_A::D_ISABLE)
+    pub fn disable(self) -> &'a mut W {
+        self.variant(RE_SYNC_DIS_A::DISABLE)
     }
 }
 #[doc = "Field `re_sync_field` reader - Re-sync field"]
@@ -125,21 +125,25 @@ impl R {
 impl W {
     #[doc = "Bits 0:10 - Re-sync line pixel from TCON"]
     #[inline(always)]
+    #[must_use]
     pub fn re_sync_pixel_num(&mut self) -> RE_SYNC_PIXEL_NUM_W<0> {
         RE_SYNC_PIXEL_NUM_W::new(self)
     }
     #[doc = "Bits 16:26 - Re-sync line number from TCON"]
     #[inline(always)]
+    #[must_use]
     pub fn re_sync_line_num(&mut self) -> RE_SYNC_LINE_NUM_W<16> {
         RE_SYNC_LINE_NUM_W::new(self)
     }
     #[doc = "Bit 30"]
     #[inline(always)]
+    #[must_use]
     pub fn re_sync_dis(&mut self) -> RE_SYNC_DIS_W<30> {
         RE_SYNC_DIS_W::new(self)
     }
     #[doc = "Bit 31 - Re-sync field"]
     #[inline(always)]
+    #[must_use]
     pub fn re_sync_field(&mut self) -> RE_SYNC_FIELD_W<31> {
         RE_SYNC_FIELD_W::new(self)
     }
@@ -162,11 +166,10 @@ impl crate::Readable for TVE_RESYNC_PARAMETERS_SPEC {
 #[doc = "`write(|w| ..)` method takes [tve_resync_parameters::W](W) writer structure"]
 impl crate::Writable for TVE_RESYNC_PARAMETERS_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets tve_resync_parameters to value 0x0010_0001"]
 impl crate::Resettable for TVE_RESYNC_PARAMETERS_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0x0010_0001
-    }
+    const RESET_VALUE: Self::Ux = 0x0010_0001;
 }

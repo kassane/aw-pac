@@ -37,7 +37,7 @@ impl From<crate::W<THS_SHUT_INTC_SPEC>> for W {
 #[doc = "Field `shut_int_en` reader - Enable the shutdown interrupt for the sensor"]
 pub type SHUT_INT_EN_R = crate::BitReader<SHUT_INT_EN_A>;
 #[doc = "Enable the shutdown interrupt for the sensor\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum SHUT_INT_EN_A {
     #[doc = "0: Disable"]
     DISABLE = 0,
@@ -95,6 +95,7 @@ impl R {
 impl W {
     #[doc = "Bit 0 - Enable the shutdown interrupt for the sensor"]
     #[inline(always)]
+    #[must_use]
     pub fn shut_int_en(&mut self) -> SHUT_INT_EN_W<0> {
         SHUT_INT_EN_W::new(self)
     }
@@ -117,11 +118,10 @@ impl crate::Readable for THS_SHUT_INTC_SPEC {
 #[doc = "`write(|w| ..)` method takes [ths_shut_intc::W](W) writer structure"]
 impl crate::Writable for THS_SHUT_INTC_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets ths_shut_intc to value 0"]
 impl crate::Resettable for THS_SHUT_INTC_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

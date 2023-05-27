@@ -37,7 +37,7 @@ impl From<crate::W<TVE_SLAVE_PARAMETER_SPEC>> for W {
 #[doc = "Field `slave_mode` reader - Slave mode selection\n\nThis bit selects whether the Video Encoder is sync slave, partial slave or sync master. It should be set to B'0'."]
 pub type SLAVE_MODE_R = crate::BitReader<SLAVE_MODE_A>;
 #[doc = "Slave mode selection\n\nThis bit selects whether the Video Encoder is sync slave, partial slave or sync master. It should be set to B'0'.\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum SLAVE_MODE_A {
     #[doc = "0: The Video Encoder is not a full sync slave (i.e. it is a partial sync slave or a sync master)"]
     NOT_FULL_SYNC_SLAVE = 0,
@@ -76,7 +76,7 @@ impl<'a, const O: u8> SLAVE_MODE_W<'a, O> {
 #[doc = "Field `slave_thresh` reader - Horizontal line adjustment threshold selection\n\nThis bit selects whether the number of lines after which the Video Encoder starts the horizontal line length adjustment is slave mode is 0 or 30."]
 pub type SLAVE_THRESH_R = crate::BitReader<SLAVE_THRESH_A>;
 #[doc = "Horizontal line adjustment threshold selection\n\nThis bit selects whether the number of lines after which the Video Encoder starts the horizontal line length adjustment is slave mode is 0 or 30.\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum SLAVE_THRESH_A {
     #[doc = "0: Number of lines is 0"]
     _0 = 0,
@@ -139,11 +139,13 @@ impl R {
 impl W {
     #[doc = "Bit 0 - Slave mode selection\n\nThis bit selects whether the Video Encoder is sync slave, partial slave or sync master. It should be set to B'0'."]
     #[inline(always)]
+    #[must_use]
     pub fn slave_mode(&mut self) -> SLAVE_MODE_W<0> {
         SLAVE_MODE_W::new(self)
     }
     #[doc = "Bit 8 - Horizontal line adjustment threshold selection\n\nThis bit selects whether the number of lines after which the Video Encoder starts the horizontal line length adjustment is slave mode is 0 or 30."]
     #[inline(always)]
+    #[must_use]
     pub fn slave_thresh(&mut self) -> SLAVE_THRESH_W<8> {
         SLAVE_THRESH_W::new(self)
     }
@@ -166,11 +168,10 @@ impl crate::Readable for TVE_SLAVE_PARAMETER_SPEC {
 #[doc = "`write(|w| ..)` method takes [tve_slave_parameter::W](W) writer structure"]
 impl crate::Writable for TVE_SLAVE_PARAMETER_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets tve_slave_parameter to value 0"]
 impl crate::Resettable for TVE_SLAVE_PARAMETER_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

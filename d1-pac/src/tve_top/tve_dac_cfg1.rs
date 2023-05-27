@@ -37,7 +37,7 @@ impl From<crate::W<TVE_DAC_CFG1_SPEC>> for W {
 #[doc = "Field `ref1_sel` reader - (a_refslct1\\[3:0\\])\n\nThe reference voltage is used for hot plug detect function."]
 pub type REF1_SEL_R = crate::FieldReader<u8, REF1_SEL_A>;
 #[doc = "(a_refslct1\\[3:0\\])\n\nThe reference voltage is used for hot plug detect function.\n\nValue on reset: 10"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum REF1_SEL_A {
     #[doc = "0: 0.50 V"]
@@ -272,7 +272,7 @@ impl<'a, const O: u8> REF1_SEL_W<'a, O> {
 #[doc = "Field `ref2_sel` reader - (a_refslct2\\[1:0\\])"]
 pub type REF2_SEL_R = crate::FieldReader<u8, REF2_SEL_A>;
 #[doc = "(a_refslct2\\[1:0\\])\n\nValue on reset: 3"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum REF2_SEL_A {
     #[doc = "0: 0.25 V"]
@@ -351,12 +351,12 @@ impl<'a, const O: u8> REF2_SEL_W<'a, O> {
 #[doc = "Field `ref_int_sel` reader - (A_SEL_DETREF_RES)"]
 pub type REF_INT_SEL_R = crate::BitReader<REF_INT_SEL_A>;
 #[doc = "(A_SEL_DETREF_RES)\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum REF_INT_SEL_A {
     #[doc = "0: Disable"]
-    D_ISABLE = 0,
+    DISABLE = 0,
     #[doc = "1: Enable"]
-    E_NABLE = 1,
+    ENABLE = 1,
 }
 impl From<REF_INT_SEL_A> for bool {
     #[inline(always)]
@@ -369,19 +369,19 @@ impl REF_INT_SEL_R {
     #[inline(always)]
     pub fn variant(&self) -> REF_INT_SEL_A {
         match self.bits {
-            false => REF_INT_SEL_A::D_ISABLE,
-            true => REF_INT_SEL_A::E_NABLE,
+            false => REF_INT_SEL_A::DISABLE,
+            true => REF_INT_SEL_A::ENABLE,
         }
     }
-    #[doc = "Checks if the value of the field is `D_ISABLE`"]
+    #[doc = "Checks if the value of the field is `DISABLE`"]
     #[inline(always)]
-    pub fn is_d_isable(&self) -> bool {
-        *self == REF_INT_SEL_A::D_ISABLE
+    pub fn is_disable(&self) -> bool {
+        *self == REF_INT_SEL_A::DISABLE
     }
-    #[doc = "Checks if the value of the field is `E_NABLE`"]
+    #[doc = "Checks if the value of the field is `ENABLE`"]
     #[inline(always)]
-    pub fn is_e_nable(&self) -> bool {
-        *self == REF_INT_SEL_A::E_NABLE
+    pub fn is_enable(&self) -> bool {
+        *self == REF_INT_SEL_A::ENABLE
     }
 }
 #[doc = "Field `ref_int_sel` writer - (A_SEL_DETREF_RES)"]
@@ -390,24 +390,24 @@ pub type REF_INT_SEL_W<'a, const O: u8> =
 impl<'a, const O: u8> REF_INT_SEL_W<'a, O> {
     #[doc = "Disable"]
     #[inline(always)]
-    pub fn d_isable(self) -> &'a mut W {
-        self.variant(REF_INT_SEL_A::D_ISABLE)
+    pub fn disable(self) -> &'a mut W {
+        self.variant(REF_INT_SEL_A::DISABLE)
     }
     #[doc = "Enable"]
     #[inline(always)]
-    pub fn e_nable(self) -> &'a mut W {
-        self.variant(REF_INT_SEL_A::E_NABLE)
+    pub fn enable(self) -> &'a mut W {
+        self.variant(REF_INT_SEL_A::ENABLE)
     }
 }
 #[doc = "Field `ref_ext_sel` reader - (A_SEL_DETREF_LDO)"]
 pub type REF_EXT_SEL_R = crate::BitReader<REF_EXT_SEL_A>;
 #[doc = "(A_SEL_DETREF_LDO)\n\nValue on reset: 1"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum REF_EXT_SEL_A {
     #[doc = "0: Disable"]
-    D_ISABLE = 0,
+    DISABLE = 0,
     #[doc = "1: Enable"]
-    E_NABLE = 1,
+    ENABLE = 1,
 }
 impl From<REF_EXT_SEL_A> for bool {
     #[inline(always)]
@@ -420,19 +420,19 @@ impl REF_EXT_SEL_R {
     #[inline(always)]
     pub fn variant(&self) -> REF_EXT_SEL_A {
         match self.bits {
-            false => REF_EXT_SEL_A::D_ISABLE,
-            true => REF_EXT_SEL_A::E_NABLE,
+            false => REF_EXT_SEL_A::DISABLE,
+            true => REF_EXT_SEL_A::ENABLE,
         }
     }
-    #[doc = "Checks if the value of the field is `D_ISABLE`"]
+    #[doc = "Checks if the value of the field is `DISABLE`"]
     #[inline(always)]
-    pub fn is_d_isable(&self) -> bool {
-        *self == REF_EXT_SEL_A::D_ISABLE
+    pub fn is_disable(&self) -> bool {
+        *self == REF_EXT_SEL_A::DISABLE
     }
-    #[doc = "Checks if the value of the field is `E_NABLE`"]
+    #[doc = "Checks if the value of the field is `ENABLE`"]
     #[inline(always)]
-    pub fn is_e_nable(&self) -> bool {
-        *self == REF_EXT_SEL_A::E_NABLE
+    pub fn is_enable(&self) -> bool {
+        *self == REF_EXT_SEL_A::ENABLE
     }
 }
 #[doc = "Field `ref_ext_sel` writer - (A_SEL_DETREF_LDO)"]
@@ -441,13 +441,13 @@ pub type REF_EXT_SEL_W<'a, const O: u8> =
 impl<'a, const O: u8> REF_EXT_SEL_W<'a, O> {
     #[doc = "Disable"]
     #[inline(always)]
-    pub fn d_isable(self) -> &'a mut W {
-        self.variant(REF_EXT_SEL_A::D_ISABLE)
+    pub fn disable(self) -> &'a mut W {
+        self.variant(REF_EXT_SEL_A::DISABLE)
     }
     #[doc = "Enable"]
     #[inline(always)]
-    pub fn e_nable(self) -> &'a mut W {
-        self.variant(REF_EXT_SEL_A::E_NABLE)
+    pub fn enable(self) -> &'a mut W {
+        self.variant(REF_EXT_SEL_A::ENABLE)
     }
 }
 impl R {
@@ -475,21 +475,25 @@ impl R {
 impl W {
     #[doc = "Bits 0:3 - (a_refslct1\\[3:0\\])\n\nThe reference voltage is used for hot plug detect function."]
     #[inline(always)]
+    #[must_use]
     pub fn ref1_sel(&mut self) -> REF1_SEL_W<0> {
         REF1_SEL_W::new(self)
     }
     #[doc = "Bits 4:5 - (a_refslct2\\[1:0\\])"]
     #[inline(always)]
+    #[must_use]
     pub fn ref2_sel(&mut self) -> REF2_SEL_W<4> {
         REF2_SEL_W::new(self)
     }
     #[doc = "Bit 8 - (A_SEL_DETREF_RES)"]
     #[inline(always)]
+    #[must_use]
     pub fn ref_int_sel(&mut self) -> REF_INT_SEL_W<8> {
         REF_INT_SEL_W::new(self)
     }
     #[doc = "Bit 9 - (A_SEL_DETREF_LDO)"]
     #[inline(always)]
+    #[must_use]
     pub fn ref_ext_sel(&mut self) -> REF_EXT_SEL_W<9> {
         REF_EXT_SEL_W::new(self)
     }
@@ -512,11 +516,10 @@ impl crate::Readable for TVE_DAC_CFG1_SPEC {
 #[doc = "`write(|w| ..)` method takes [tve_dac_cfg1::W](W) writer structure"]
 impl crate::Writable for TVE_DAC_CFG1_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets tve_dac_cfg1 to value 0x023a"]
 impl crate::Resettable for TVE_DAC_CFG1_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0x023a
-    }
+    const RESET_VALUE: Self::Ux = 0x023a;
 }

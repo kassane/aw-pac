@@ -34,22 +34,20 @@ impl From<crate::W<LCD_IO_TRI_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `data_output_tri_en` reader - LCD output port D\\[23:0\\]
-output enable, with independent bit control."]
+#[doc = "Field `data_output_tri_en` reader - LCD output port D\\[23:0\\] output enable, with independent bit control."]
 pub type DATA_OUTPUT_TRI_EN_R = crate::FieldReader<u32, u32>;
-#[doc = "Field `data_output_tri_en` writer - LCD output port D\\[23:0\\]
-output enable, with independent bit control."]
+#[doc = "Field `data_output_tri_en` writer - LCD output port D\\[23:0\\] output enable, with independent bit control."]
 pub type DATA_OUTPUT_TRI_EN_W<'a, const O: u8> =
     crate::FieldWriter<'a, u32, LCD_IO_TRI_SPEC, u32, u32, 24, O>;
 #[doc = "Field `io_output_tri_en[0-3]` reader - Enable the output of IO\\[i\\]"]
 pub type IO_OUTPUT_TRI_EN_R = crate::BitReader<IO_OUTPUT_TRI_EN_A>;
 #[doc = "Enable the output of IO\\[i\\]\n\nValue on reset: 1"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum IO_OUTPUT_TRI_EN_A {
     #[doc = "1: Disable"]
-    D_ISABLE = 1,
+    DISABLE = 1,
     #[doc = "0: Enable"]
-    E_NABLE = 0,
+    ENABLE = 0,
 }
 impl From<IO_OUTPUT_TRI_EN_A> for bool {
     #[inline(always)]
@@ -62,19 +60,19 @@ impl IO_OUTPUT_TRI_EN_R {
     #[inline(always)]
     pub fn variant(&self) -> IO_OUTPUT_TRI_EN_A {
         match self.bits {
-            true => IO_OUTPUT_TRI_EN_A::D_ISABLE,
-            false => IO_OUTPUT_TRI_EN_A::E_NABLE,
+            true => IO_OUTPUT_TRI_EN_A::DISABLE,
+            false => IO_OUTPUT_TRI_EN_A::ENABLE,
         }
     }
-    #[doc = "Checks if the value of the field is `D_ISABLE`"]
+    #[doc = "Checks if the value of the field is `DISABLE`"]
     #[inline(always)]
-    pub fn is_d_isable(&self) -> bool {
-        *self == IO_OUTPUT_TRI_EN_A::D_ISABLE
+    pub fn is_disable(&self) -> bool {
+        *self == IO_OUTPUT_TRI_EN_A::DISABLE
     }
-    #[doc = "Checks if the value of the field is `E_NABLE`"]
+    #[doc = "Checks if the value of the field is `ENABLE`"]
     #[inline(always)]
-    pub fn is_e_nable(&self) -> bool {
-        *self == IO_OUTPUT_TRI_EN_A::E_NABLE
+    pub fn is_enable(&self) -> bool {
+        *self == IO_OUTPUT_TRI_EN_A::ENABLE
     }
 }
 #[doc = "Field `io_output_tri_en[0-3]` writer - Enable the output of IO\\[i\\]"]
@@ -83,22 +81,22 @@ pub type IO_OUTPUT_TRI_EN_W<'a, const O: u8> =
 impl<'a, const O: u8> IO_OUTPUT_TRI_EN_W<'a, O> {
     #[doc = "Disable"]
     #[inline(always)]
-    pub fn d_isable(self) -> &'a mut W {
-        self.variant(IO_OUTPUT_TRI_EN_A::D_ISABLE)
+    pub fn disable(self) -> &'a mut W {
+        self.variant(IO_OUTPUT_TRI_EN_A::DISABLE)
     }
     #[doc = "Enable"]
     #[inline(always)]
-    pub fn e_nable(self) -> &'a mut W {
-        self.variant(IO_OUTPUT_TRI_EN_A::E_NABLE)
+    pub fn enable(self) -> &'a mut W {
+        self.variant(IO_OUTPUT_TRI_EN_A::ENABLE)
     }
 }
 #[doc = "Field `rgb_endian` reader - Set the endian of data bits"]
 pub type RGB_ENDIAN_R = crate::BitReader<RGB_ENDIAN_A>;
 #[doc = "Set the endian of data bits\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum RGB_ENDIAN_A {
     #[doc = "0: Normal"]
-    N_ORMAL = 0,
+    NORMAL = 0,
     #[doc = "1: Bits_invert"]
     B_ITS_INVERT = 1,
 }
@@ -113,14 +111,14 @@ impl RGB_ENDIAN_R {
     #[inline(always)]
     pub fn variant(&self) -> RGB_ENDIAN_A {
         match self.bits {
-            false => RGB_ENDIAN_A::N_ORMAL,
+            false => RGB_ENDIAN_A::NORMAL,
             true => RGB_ENDIAN_A::B_ITS_INVERT,
         }
     }
-    #[doc = "Checks if the value of the field is `N_ORMAL`"]
+    #[doc = "Checks if the value of the field is `NORMAL`"]
     #[inline(always)]
-    pub fn is_n_ormal(&self) -> bool {
-        *self == RGB_ENDIAN_A::N_ORMAL
+    pub fn is_normal(&self) -> bool {
+        *self == RGB_ENDIAN_A::NORMAL
     }
     #[doc = "Checks if the value of the field is `B_ITS_INVERT`"]
     #[inline(always)]
@@ -134,8 +132,8 @@ pub type RGB_ENDIAN_W<'a, const O: u8> =
 impl<'a, const O: u8> RGB_ENDIAN_W<'a, O> {
     #[doc = "Normal"]
     #[inline(always)]
-    pub fn n_ormal(self) -> &'a mut W {
-        self.variant(RGB_ENDIAN_A::N_ORMAL)
+    pub fn normal(self) -> &'a mut W {
+        self.variant(RGB_ENDIAN_A::NORMAL)
     }
     #[doc = "Bits_invert"]
     #[inline(always)]
@@ -144,11 +142,10 @@ impl<'a, const O: u8> RGB_ENDIAN_W<'a, O> {
     }
 }
 impl R {
-    #[doc = "Bits 0:23 - LCD output port D\\[23:0\\]
-output enable, with independent bit control."]
+    #[doc = "Bits 0:23 - LCD output port D\\[23:0\\] output enable, with independent bit control."]
     #[inline(always)]
     pub fn data_output_tri_en(&self) -> DATA_OUTPUT_TRI_EN_R {
-        DATA_OUTPUT_TRI_EN_R::new((self.bits & 0x00ff_ffff) as u32)
+        DATA_OUTPUT_TRI_EN_R::new(self.bits & 0x00ff_ffff)
     }
     #[doc = "Enable the output of IO\\[i\\]"]
     #[inline(always)]
@@ -182,39 +179,45 @@ output enable, with independent bit control."]
     }
 }
 impl W {
-    #[doc = "Bits 0:23 - LCD output port D\\[23:0\\]
-output enable, with independent bit control."]
+    #[doc = "Bits 0:23 - LCD output port D\\[23:0\\] output enable, with independent bit control."]
     #[inline(always)]
+    #[must_use]
     pub fn data_output_tri_en(&mut self) -> DATA_OUTPUT_TRI_EN_W<0> {
         DATA_OUTPUT_TRI_EN_W::new(self)
     }
     #[doc = "Enable the output of IO\\[i\\]"]
     #[inline(always)]
+    #[must_use]
     pub unsafe fn io_output_tri_en<const O: u8>(&mut self) -> IO_OUTPUT_TRI_EN_W<O> {
         IO_OUTPUT_TRI_EN_W::new(self)
     }
     #[doc = "Bit 24 - Enable the output of IO\\[i\\]"]
     #[inline(always)]
+    #[must_use]
     pub fn io0_output_tri_en(&mut self) -> IO_OUTPUT_TRI_EN_W<24> {
         IO_OUTPUT_TRI_EN_W::new(self)
     }
     #[doc = "Bit 25 - Enable the output of IO\\[i\\]"]
     #[inline(always)]
+    #[must_use]
     pub fn io1_output_tri_en(&mut self) -> IO_OUTPUT_TRI_EN_W<25> {
         IO_OUTPUT_TRI_EN_W::new(self)
     }
     #[doc = "Bit 26 - Enable the output of IO\\[i\\]"]
     #[inline(always)]
+    #[must_use]
     pub fn io2_output_tri_en(&mut self) -> IO_OUTPUT_TRI_EN_W<26> {
         IO_OUTPUT_TRI_EN_W::new(self)
     }
     #[doc = "Bit 27 - Enable the output of IO\\[i\\]"]
     #[inline(always)]
+    #[must_use]
     pub fn io3_output_tri_en(&mut self) -> IO_OUTPUT_TRI_EN_W<27> {
         IO_OUTPUT_TRI_EN_W::new(self)
     }
     #[doc = "Bit 28 - Set the endian of data bits"]
     #[inline(always)]
+    #[must_use]
     pub fn rgb_endian(&mut self) -> RGB_ENDIAN_W<28> {
         RGB_ENDIAN_W::new(self)
     }
@@ -237,11 +240,10 @@ impl crate::Readable for LCD_IO_TRI_SPEC {
 #[doc = "`write(|w| ..)` method takes [lcd_io_tri::W](W) writer structure"]
 impl crate::Writable for LCD_IO_TRI_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets lcd_io_tri to value 0x0fff_ffff"]
 impl crate::Resettable for LCD_IO_TRI_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0x0fff_ffff
-    }
+    const RESET_VALUE: Self::Ux = 0x0fff_ffff;
 }

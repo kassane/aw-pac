@@ -37,7 +37,7 @@ impl From<crate::W<TP_CTRL3_SPEC>> for W {
 #[doc = "Field `filter_type` reader - Filter Type"]
 pub type FILTER_TYPE_R = crate::FieldReader<u8, FILTER_TYPE_A>;
 #[doc = "Filter Type\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum FILTER_TYPE_A {
     #[doc = "0: 4 / 2"]
@@ -116,7 +116,7 @@ impl<'a, const O: u8> FILTER_TYPE_W<'a, O> {
 #[doc = "Field `filter_en` reader - Filter Enable"]
 pub type FILTER_EN_R = crate::BitReader<FILTER_EN_A>;
 #[doc = "Filter Enable\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum FILTER_EN_A {
     #[doc = "0: `0`"]
     DISABLE = 0,
@@ -178,11 +178,13 @@ impl R {
 impl W {
     #[doc = "Bits 0:1 - Filter Type"]
     #[inline(always)]
+    #[must_use]
     pub fn filter_type(&mut self) -> FILTER_TYPE_W<0> {
         FILTER_TYPE_W::new(self)
     }
     #[doc = "Bit 2 - Filter Enable"]
     #[inline(always)]
+    #[must_use]
     pub fn filter_en(&mut self) -> FILTER_EN_W<2> {
         FILTER_EN_W::new(self)
     }
@@ -205,11 +207,10 @@ impl crate::Readable for TP_CTRL3_SPEC {
 #[doc = "`write(|w| ..)` method takes [tp_ctrl3::W](W) writer structure"]
 impl crate::Writable for TP_CTRL3_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets tp_ctrl3 to value 0"]
 impl crate::Resettable for TP_CTRL3_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

@@ -34,7 +34,25 @@ impl From<crate::W<AC_ADC_DRC_HOPE_SPEC>> for W {
         W(writer)
     }
 }
+#[doc = "Field `adc_drc_hope` reader - The output of the expander, which is determined by equation OPE/6.0206. The format is 8.24. (The default value is -70 dB)"]
+pub type ADC_DRC_HOPE_R = crate::FieldReader<u16, u16>;
+#[doc = "Field `adc_drc_hope` writer - The output of the expander, which is determined by equation OPE/6.0206. The format is 8.24. (The default value is -70 dB)"]
+pub type ADC_DRC_HOPE_W<'a, const O: u8> =
+    crate::FieldWriter<'a, u32, AC_ADC_DRC_HOPE_SPEC, u16, u16, 16, O>;
+impl R {
+    #[doc = "Bits 0:15 - The output of the expander, which is determined by equation OPE/6.0206. The format is 8.24. (The default value is -70 dB)"]
+    #[inline(always)]
+    pub fn adc_drc_hope(&self) -> ADC_DRC_HOPE_R {
+        ADC_DRC_HOPE_R::new((self.bits & 0xffff) as u16)
+    }
+}
 impl W {
+    #[doc = "Bits 0:15 - The output of the expander, which is determined by equation OPE/6.0206. The format is 8.24. (The default value is -70 dB)"]
+    #[inline(always)]
+    #[must_use]
+    pub fn adc_drc_hope(&mut self) -> ADC_DRC_HOPE_W<0> {
+        ADC_DRC_HOPE_W::new(self)
+    }
     #[doc = "Writes raw bits to the register."]
     #[inline(always)]
     pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
@@ -54,11 +72,10 @@ impl crate::Readable for AC_ADC_DRC_HOPE_SPEC {
 #[doc = "`write(|w| ..)` method takes [ac_adc_drc_hope::W](W) writer structure"]
 impl crate::Writable for AC_ADC_DRC_HOPE_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
-#[doc = "`reset()` method sets ac_adc_drc_hope to value 0"]
+#[doc = "`reset()` method sets ac_adc_drc_hope to value 0xf45f"]
 impl crate::Resettable for AC_ADC_DRC_HOPE_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0xf45f;
 }

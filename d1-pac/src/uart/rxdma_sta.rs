@@ -37,7 +37,7 @@ impl From<crate::W<RXDMA_STA_SPEC>> for W {
 #[doc = "Field `busy` reader - "]
 pub type BUSY_R = crate::BitReader<BUSY_A>;
 #[doc = "\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum BUSY_A {
     #[doc = "0: `0`"]
     IDLE = 0,
@@ -87,7 +87,7 @@ impl<'a, const O: u8> BUSY_W<'a, O> {
 #[doc = "Field `buffer_read_address_updating` reader - "]
 pub type BUFFER_READ_ADDRESS_UPDATING_R = crate::BitReader<BUFFER_READ_ADDRESS_UPDATING_A>;
 #[doc = "\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum BUFFER_READ_ADDRESS_UPDATING_A {
     #[doc = "0: `0`"]
     READY = 0,
@@ -150,11 +150,13 @@ impl R {
 impl W {
     #[doc = "Bit 0"]
     #[inline(always)]
+    #[must_use]
     pub fn busy(&mut self) -> BUSY_W<0> {
         BUSY_W::new(self)
     }
     #[doc = "Bit 1"]
     #[inline(always)]
+    #[must_use]
     pub fn buffer_read_address_updating(&mut self) -> BUFFER_READ_ADDRESS_UPDATING_W<1> {
         BUFFER_READ_ADDRESS_UPDATING_W::new(self)
     }
@@ -177,11 +179,10 @@ impl crate::Readable for RXDMA_STA_SPEC {
 #[doc = "`write(|w| ..)` method takes [rxdma_sta::W](W) writer structure"]
 impl crate::Writable for RXDMA_STA_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets rxdma_sta to value 0"]
 impl crate::Resettable for RXDMA_STA_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

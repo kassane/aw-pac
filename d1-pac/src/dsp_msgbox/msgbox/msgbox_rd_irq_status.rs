@@ -34,12 +34,10 @@ impl From<crate::W<MSGBOX_RD_IRQ_STATUS_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `reception_mq_irq_pend[0-3]` reader - Reception Channel\\[i\\]
-Interrupt Pending"]
+#[doc = "Field `reception_mq_irq_pend[0-3]` reader - Reception Channel\\[i\\] Interrupt Pending"]
 pub type RECEPTION_MQ_IRQ_PEND_R = crate::BitReader<RECEPTION_MQ_IRQ_PEND_A>;
-#[doc = "Reception Channel\\[i\\]
-Interrupt Pending\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[doc = "Reception Channel\\[i\\] Interrupt Pending\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum RECEPTION_MQ_IRQ_PEND_A {
     #[doc = "0: No effect"]
     NO_EFFECT = 0,
@@ -72,8 +70,7 @@ impl RECEPTION_MQ_IRQ_PEND_R {
         *self == RECEPTION_MQ_IRQ_PEND_A::PENDING
     }
 }
-#[doc = "Field `reception_mq_irq_pend[0-3]` writer - Reception Channel\\[i\\]
-Interrupt Pending"]
+#[doc = "Field `reception_mq_irq_pend[0-3]` writer - Reception Channel\\[i\\] Interrupt Pending"]
 pub type RECEPTION_MQ_IRQ_PEND_W<'a, const O: u8> =
     crate::BitWriter1C<'a, u32, MSGBOX_RD_IRQ_STATUS_SPEC, RECEPTION_MQ_IRQ_PEND_A, O>;
 impl<'a, const O: u8> RECEPTION_MQ_IRQ_PEND_W<'a, O> {
@@ -89,65 +86,60 @@ impl<'a, const O: u8> RECEPTION_MQ_IRQ_PEND_W<'a, O> {
     }
 }
 impl R {
-    #[doc = "Reception Channel\\[i\\]
-Interrupt Pending"]
+    #[doc = "Reception Channel\\[i\\] Interrupt Pending"]
     #[inline(always)]
     pub unsafe fn reception_mq_irq_pend(&self, n: u8) -> RECEPTION_MQ_IRQ_PEND_R {
         RECEPTION_MQ_IRQ_PEND_R::new(((self.bits >> (n * 2)) & 1) != 0)
     }
-    #[doc = "Bit 0 - Reception Channel\\[i\\]
-Interrupt Pending"]
+    #[doc = "Bit 0 - Reception Channel\\[i\\] Interrupt Pending"]
     #[inline(always)]
     pub fn reception_mq0_irq_pend(&self) -> RECEPTION_MQ_IRQ_PEND_R {
         RECEPTION_MQ_IRQ_PEND_R::new((self.bits & 1) != 0)
     }
-    #[doc = "Bit 2 - Reception Channel\\[i\\]
-Interrupt Pending"]
+    #[doc = "Bit 2 - Reception Channel\\[i\\] Interrupt Pending"]
     #[inline(always)]
     pub fn reception_mq1_irq_pend(&self) -> RECEPTION_MQ_IRQ_PEND_R {
         RECEPTION_MQ_IRQ_PEND_R::new(((self.bits >> 2) & 1) != 0)
     }
-    #[doc = "Bit 4 - Reception Channel\\[i\\]
-Interrupt Pending"]
+    #[doc = "Bit 4 - Reception Channel\\[i\\] Interrupt Pending"]
     #[inline(always)]
     pub fn reception_mq2_irq_pend(&self) -> RECEPTION_MQ_IRQ_PEND_R {
         RECEPTION_MQ_IRQ_PEND_R::new(((self.bits >> 4) & 1) != 0)
     }
-    #[doc = "Bit 6 - Reception Channel\\[i\\]
-Interrupt Pending"]
+    #[doc = "Bit 6 - Reception Channel\\[i\\] Interrupt Pending"]
     #[inline(always)]
     pub fn reception_mq3_irq_pend(&self) -> RECEPTION_MQ_IRQ_PEND_R {
         RECEPTION_MQ_IRQ_PEND_R::new(((self.bits >> 6) & 1) != 0)
     }
 }
 impl W {
-    #[doc = "Reception Channel\\[i\\]
-Interrupt Pending"]
+    #[doc = "Reception Channel\\[i\\] Interrupt Pending"]
     #[inline(always)]
+    #[must_use]
     pub unsafe fn reception_mq_irq_pend<const O: u8>(&mut self) -> RECEPTION_MQ_IRQ_PEND_W<O> {
         RECEPTION_MQ_IRQ_PEND_W::new(self)
     }
-    #[doc = "Bit 0 - Reception Channel\\[i\\]
-Interrupt Pending"]
+    #[doc = "Bit 0 - Reception Channel\\[i\\] Interrupt Pending"]
     #[inline(always)]
+    #[must_use]
     pub fn reception_mq0_irq_pend(&mut self) -> RECEPTION_MQ_IRQ_PEND_W<0> {
         RECEPTION_MQ_IRQ_PEND_W::new(self)
     }
-    #[doc = "Bit 2 - Reception Channel\\[i\\]
-Interrupt Pending"]
+    #[doc = "Bit 2 - Reception Channel\\[i\\] Interrupt Pending"]
     #[inline(always)]
+    #[must_use]
     pub fn reception_mq1_irq_pend(&mut self) -> RECEPTION_MQ_IRQ_PEND_W<2> {
         RECEPTION_MQ_IRQ_PEND_W::new(self)
     }
-    #[doc = "Bit 4 - Reception Channel\\[i\\]
-Interrupt Pending"]
+    #[doc = "Bit 4 - Reception Channel\\[i\\] Interrupt Pending"]
     #[inline(always)]
+    #[must_use]
     pub fn reception_mq2_irq_pend(&mut self) -> RECEPTION_MQ_IRQ_PEND_W<4> {
         RECEPTION_MQ_IRQ_PEND_W::new(self)
     }
-    #[doc = "Bit 6 - Reception Channel\\[i\\]
-Interrupt Pending"]
+    #[doc = "Bit 6 - Reception Channel\\[i\\] Interrupt Pending"]
     #[inline(always)]
+    #[must_use]
     pub fn reception_mq3_irq_pend(&mut self) -> RECEPTION_MQ_IRQ_PEND_W<6> {
         RECEPTION_MQ_IRQ_PEND_W::new(self)
     }
@@ -170,11 +162,10 @@ impl crate::Readable for MSGBOX_RD_IRQ_STATUS_SPEC {
 #[doc = "`write(|w| ..)` method takes [msgbox_rd_irq_status::W](W) writer structure"]
 impl crate::Writable for MSGBOX_RD_IRQ_STATUS_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0x01;
 }
 #[doc = "`reset()` method sets msgbox_rd_irq_status to value 0"]
 impl crate::Resettable for MSGBOX_RD_IRQ_STATUS_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

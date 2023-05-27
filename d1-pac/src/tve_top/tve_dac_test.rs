@@ -37,7 +37,7 @@ impl From<crate::W<TVE_DAC_TEST_SPEC>> for W {
 #[doc = "Field `dac_test_enable` reader - "]
 pub type DAC_TEST_ENABLE_R = crate::BitReader<DAC_TEST_ENABLE_A>;
 #[doc = "\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum DAC_TEST_ENABLE_A {
     #[doc = "1: Repeat DAC data from DAC sram"]
     R_EPEAT = 1,
@@ -76,7 +76,7 @@ impl<'a, const O: u8> DAC_TEST_ENABLE_W<'a, O> {
 #[doc = "Field `dac_test_sel` reader - "]
 pub type DAC_TEST_SEL_R = crate::FieldReader<u8, DAC_TEST_SEL_A>;
 #[doc = "\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum DAC_TEST_SEL_A {
     #[doc = "0: DAC0"]
@@ -138,16 +138,19 @@ impl R {
 impl W {
     #[doc = "Bit 0"]
     #[inline(always)]
+    #[must_use]
     pub fn dac_test_enable(&mut self) -> DAC_TEST_ENABLE_W<0> {
         DAC_TEST_ENABLE_W::new(self)
     }
     #[doc = "Bits 4:5"]
     #[inline(always)]
+    #[must_use]
     pub fn dac_test_sel(&mut self) -> DAC_TEST_SEL_W<4> {
         DAC_TEST_SEL_W::new(self)
     }
     #[doc = "Bits 16:25 - DAC TEST DATA LENGTH"]
     #[inline(always)]
+    #[must_use]
     pub fn dac_test_length(&mut self) -> DAC_TEST_LENGTH_W<16> {
         DAC_TEST_LENGTH_W::new(self)
     }
@@ -170,11 +173,10 @@ impl crate::Readable for TVE_DAC_TEST_SPEC {
 #[doc = "`write(|w| ..)` method takes [tve_dac_test::W](W) writer structure"]
 impl crate::Writable for TVE_DAC_TEST_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets tve_dac_test to value 0"]
 impl crate::Resettable for TVE_DAC_TEST_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

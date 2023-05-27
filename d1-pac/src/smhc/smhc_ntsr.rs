@@ -37,7 +37,7 @@ impl From<crate::W<SMHC_NTSR_SPEC>> for W {
 #[doc = "Field `hs400_new_sample_en` reader - "]
 pub type HS400_NEW_SAMPLE_EN_R = crate::BitReader<HS400_NEW_SAMPLE_EN_A>;
 #[doc = "\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum HS400_NEW_SAMPLE_EN_A {
     #[doc = "0: Disable hs400 new sample method"]
     DISABLE = 0,
@@ -88,7 +88,7 @@ impl<'a, const O: u8> HS400_NEW_SAMPLE_EN_W<'a, O> {
 #[doc = "Field `cmd_sample_timing_phase` reader - "]
 pub type CMD_SAMPLE_TIMING_PHASE_R = crate::FieldReader<u8, CMD_SAMPLE_TIMING_PHASE_A>;
 #[doc = "\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum CMD_SAMPLE_TIMING_PHASE_A {
     #[doc = "0: Sample timing phase offset 90"]
@@ -167,7 +167,7 @@ impl<'a, const O: u8> CMD_SAMPLE_TIMING_PHASE_W<'a, O> {
 #[doc = "Field `dat_sample_timing_phase` reader - "]
 pub type DAT_SAMPLE_TIMING_PHASE_R = crate::FieldReader<u8, DAT_SAMPLE_TIMING_PHASE_A>;
 #[doc = "\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum DAT_SAMPLE_TIMING_PHASE_A {
     #[doc = "0: Sample timing phase offset 90"]
@@ -246,7 +246,7 @@ impl<'a, const O: u8> DAT_SAMPLE_TIMING_PHASE_W<'a, O> {
 #[doc = "Field `cmd_send_rx_phase_clr` reader - Clear command rx phase before sending the command"]
 pub type CMD_SEND_RX_PHASE_CLR_R = crate::BitReader<CMD_SEND_RX_PHASE_CLR_A>;
 #[doc = "Clear command rx phase before sending the command\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum CMD_SEND_RX_PHASE_CLR_A {
     #[doc = "0: Disabled"]
     DISABLED = 0,
@@ -297,7 +297,7 @@ impl<'a, const O: u8> CMD_SEND_RX_PHASE_CLR_W<'a, O> {
 #[doc = "Field `dat_recv_rx_phase_clr` reader - Clear the input phase of data lines before receiving the data"]
 pub type DAT_RECV_RX_PHASE_CLR_R = crate::BitReader<DAT_RECV_RX_PHASE_CLR_A>;
 #[doc = "Clear the input phase of data lines before receiving the data\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum DAT_RECV_RX_PHASE_CLR_A {
     #[doc = "0: Disabled"]
     DISABLED = 0,
@@ -348,7 +348,7 @@ impl<'a, const O: u8> DAT_RECV_RX_PHASE_CLR_W<'a, O> {
 #[doc = "Field `dat_trans_rx_phase_clr` reader - Clear the input phase of data lines before transferring the data"]
 pub type DAT_TRANS_RX_PHASE_CLR_R = crate::BitReader<DAT_TRANS_RX_PHASE_CLR_A>;
 #[doc = "Clear the input phase of data lines before transferring the data\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum DAT_TRANS_RX_PHASE_CLR_A {
     #[doc = "0: Disabled"]
     DISABLED = 0,
@@ -399,7 +399,7 @@ impl<'a, const O: u8> DAT_TRANS_RX_PHASE_CLR_W<'a, O> {
 #[doc = "Field `dat_crc_status_rx_phase_clr` reader - Clear the input phase of data lines before receiving the CRC status"]
 pub type DAT_CRC_STATUS_RX_PHASE_CLR_R = crate::BitReader<DAT_CRC_STATUS_RX_PHASE_CLR_A>;
 #[doc = "Clear the input phase of data lines before receiving the CRC status\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum DAT_CRC_STATUS_RX_PHASE_CLR_A {
     #[doc = "0: Disabled"]
     DISABLED = 0,
@@ -450,7 +450,7 @@ impl<'a, const O: u8> DAT_CRC_STATUS_RX_PHASE_CLR_W<'a, O> {
 #[doc = "Field `cmd_dat_rx_phase_clr` reader - Clear the input phase of command lines and data lines during the update clock operation"]
 pub type CMD_DAT_RX_PHASE_CLR_R = crate::BitReader<CMD_DAT_RX_PHASE_CLR_A>;
 #[doc = "Clear the input phase of command lines and data lines during the update clock operation\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum CMD_DAT_RX_PHASE_CLR_A {
     #[doc = "0: Disabled"]
     DISABLED = 0,
@@ -501,7 +501,7 @@ impl<'a, const O: u8> CMD_DAT_RX_PHASE_CLR_W<'a, O> {
 #[doc = "Field `mode_select` reader - "]
 pub type MODE_SELECT_R = crate::BitReader<MODE_SELECT_A>;
 #[doc = "\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum MODE_SELECT_A {
     #[doc = "0: Old mode of Sample/Output Timing"]
     OLD_MODE = 0,
@@ -599,46 +599,55 @@ impl R {
 impl W {
     #[doc = "Bit 0"]
     #[inline(always)]
+    #[must_use]
     pub fn hs400_new_sample_en(&mut self) -> HS400_NEW_SAMPLE_EN_W<0> {
         HS400_NEW_SAMPLE_EN_W::new(self)
     }
     #[doc = "Bits 4:5"]
     #[inline(always)]
+    #[must_use]
     pub fn cmd_sample_timing_phase(&mut self) -> CMD_SAMPLE_TIMING_PHASE_W<4> {
         CMD_SAMPLE_TIMING_PHASE_W::new(self)
     }
     #[doc = "Bits 8:9"]
     #[inline(always)]
+    #[must_use]
     pub fn dat_sample_timing_phase(&mut self) -> DAT_SAMPLE_TIMING_PHASE_W<8> {
         DAT_SAMPLE_TIMING_PHASE_W::new(self)
     }
     #[doc = "Bit 16 - Clear command rx phase before sending the command"]
     #[inline(always)]
+    #[must_use]
     pub fn cmd_send_rx_phase_clr(&mut self) -> CMD_SEND_RX_PHASE_CLR_W<16> {
         CMD_SEND_RX_PHASE_CLR_W::new(self)
     }
     #[doc = "Bit 20 - Clear the input phase of data lines before receiving the data"]
     #[inline(always)]
+    #[must_use]
     pub fn dat_recv_rx_phase_clr(&mut self) -> DAT_RECV_RX_PHASE_CLR_W<20> {
         DAT_RECV_RX_PHASE_CLR_W::new(self)
     }
     #[doc = "Bit 21 - Clear the input phase of data lines before transferring the data"]
     #[inline(always)]
+    #[must_use]
     pub fn dat_trans_rx_phase_clr(&mut self) -> DAT_TRANS_RX_PHASE_CLR_W<21> {
         DAT_TRANS_RX_PHASE_CLR_W::new(self)
     }
     #[doc = "Bit 22 - Clear the input phase of data lines before receiving the CRC status"]
     #[inline(always)]
+    #[must_use]
     pub fn dat_crc_status_rx_phase_clr(&mut self) -> DAT_CRC_STATUS_RX_PHASE_CLR_W<22> {
         DAT_CRC_STATUS_RX_PHASE_CLR_W::new(self)
     }
     #[doc = "Bit 24 - Clear the input phase of command lines and data lines during the update clock operation"]
     #[inline(always)]
+    #[must_use]
     pub fn cmd_dat_rx_phase_clr(&mut self) -> CMD_DAT_RX_PHASE_CLR_W<24> {
         CMD_DAT_RX_PHASE_CLR_W::new(self)
     }
     #[doc = "Bit 31"]
     #[inline(always)]
+    #[must_use]
     pub fn mode_select(&mut self) -> MODE_SELECT_W<31> {
         MODE_SELECT_W::new(self)
     }
@@ -661,11 +670,10 @@ impl crate::Readable for SMHC_NTSR_SPEC {
 #[doc = "`write(|w| ..)` method takes [smhc_ntsr::W](W) writer structure"]
 impl crate::Writable for SMHC_NTSR_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets smhc_ntsr to value 0"]
 impl crate::Resettable for SMHC_NTSR_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

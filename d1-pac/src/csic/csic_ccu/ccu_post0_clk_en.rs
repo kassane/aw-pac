@@ -37,13 +37,11 @@ impl From<crate::W<CCU_POST0_CLK_EN_SPEC>> for W {
 #[doc = "Field `mcsi_bk_clk_enable[0-1]` reader - "]
 pub type MCSI_BK_CLK_ENABLE_R = crate::BitReader<MCSI_BK_CLK_ENABLE_A>;
 #[doc = "\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum MCSI_BK_CLK_ENABLE_A {
-    #[doc = "0: BK\\[i\\]
-clock disable"]
+    #[doc = "0: BK\\[i\\] clock disable"]
     DISABLE = 0,
-    #[doc = "1: BK\\[i\\]
-clock enable,when MCSI_POST0_CLK_ENABLE is 1"]
+    #[doc = "1: BK\\[i\\] clock enable,when MCSI_POST0_CLK_ENABLE is 1"]
     ENABLE = 1,
 }
 impl From<MCSI_BK_CLK_ENABLE_A> for bool {
@@ -76,14 +74,12 @@ impl MCSI_BK_CLK_ENABLE_R {
 pub type MCSI_BK_CLK_ENABLE_W<'a, const O: u8> =
     crate::BitWriter<'a, u32, CCU_POST0_CLK_EN_SPEC, MCSI_BK_CLK_ENABLE_A, O>;
 impl<'a, const O: u8> MCSI_BK_CLK_ENABLE_W<'a, O> {
-    #[doc = "BK\\[i\\]
-clock disable"]
+    #[doc = "BK\\[i\\] clock disable"]
     #[inline(always)]
     pub fn disable(self) -> &'a mut W {
         self.variant(MCSI_BK_CLK_ENABLE_A::DISABLE)
     }
-    #[doc = "BK\\[i\\]
-clock enable,when MCSI_POST0_CLK_ENABLE is 1"]
+    #[doc = "BK\\[i\\] clock enable,when MCSI_POST0_CLK_ENABLE is 1"]
     #[inline(always)]
     pub fn enable(self) -> &'a mut W {
         self.variant(MCSI_BK_CLK_ENABLE_A::ENABLE)
@@ -92,7 +88,7 @@ clock enable,when MCSI_POST0_CLK_ENABLE is 1"]
 #[doc = "Field `mcsi_post0_clk_enable` reader - "]
 pub type MCSI_POST0_CLK_ENABLE_R = crate::BitReader<MCSI_POST0_CLK_ENABLE_A>;
 #[doc = "\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum MCSI_POST0_CLK_ENABLE_A {
     #[doc = "0: POST0 clock disable"]
     DISABLE = 0,
@@ -165,21 +161,25 @@ impl R {
 impl W {
     #[doc = ""]
     #[inline(always)]
+    #[must_use]
     pub unsafe fn mcsi_bk_clk_enable<const O: u8>(&mut self) -> MCSI_BK_CLK_ENABLE_W<O> {
         MCSI_BK_CLK_ENABLE_W::new(self)
     }
     #[doc = "Bit 0"]
     #[inline(always)]
+    #[must_use]
     pub fn mcsi_bk0_clk_enable(&mut self) -> MCSI_BK_CLK_ENABLE_W<0> {
         MCSI_BK_CLK_ENABLE_W::new(self)
     }
     #[doc = "Bit 1"]
     #[inline(always)]
+    #[must_use]
     pub fn mcsi_bk1_clk_enable(&mut self) -> MCSI_BK_CLK_ENABLE_W<1> {
         MCSI_BK_CLK_ENABLE_W::new(self)
     }
     #[doc = "Bit 16"]
     #[inline(always)]
+    #[must_use]
     pub fn mcsi_post0_clk_enable(&mut self) -> MCSI_POST0_CLK_ENABLE_W<16> {
         MCSI_POST0_CLK_ENABLE_W::new(self)
     }
@@ -202,11 +202,10 @@ impl crate::Readable for CCU_POST0_CLK_EN_SPEC {
 #[doc = "`write(|w| ..)` method takes [ccu_post0_clk_en::W](W) writer structure"]
 impl crate::Writable for CCU_POST0_CLK_EN_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets ccu_post0_clk_en to value 0"]
 impl crate::Resettable for CCU_POST0_CLK_EN_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

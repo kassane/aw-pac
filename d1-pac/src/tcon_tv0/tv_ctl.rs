@@ -37,7 +37,7 @@ impl From<crate::W<TV_CTL_SPEC>> for W {
 #[doc = "Field `tv_src_sel` reader - TV Source Select\n\nNote: The priority of this bit is higher than TV_SRC_SEL(bit\\[2:0\\]) in TV_SRC_CTL_REG."]
 pub type TV_SRC_SEL_R = crate::BitReader<TV_SRC_SEL_A>;
 #[doc = "TV Source Select\n\nNote: The priority of this bit is higher than TV_SRC_SEL(bit\\[2:0\\]) in TV_SRC_CTL_REG.\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum TV_SRC_SEL_A {
     #[doc = "1: BLUE data"]
     BLUE_DATA = 1,
@@ -76,17 +76,15 @@ impl<'a, const O: u8> TV_SRC_SEL_W<'a, O> {
 pub type START_DELAY_R = crate::FieldReader<u8, u8>;
 #[doc = "Field `start_delay` writer - This is for DE0 and DE1."]
 pub type START_DELAY_W<'a, const O: u8> = crate::FieldWriter<'a, u32, TV_CTL_SPEC, u8, u8, 5, O>;
-#[doc = "Field `tv_en` reader - When enable TCON_TV, this bit and the 0x0000\\[bit31\\]
-need to be enabled."]
+#[doc = "Field `tv_en` reader - When enable TCON_TV, this bit and the 0x0000\\[bit31\\] need to be enabled."]
 pub type TV_EN_R = crate::BitReader<TV_EN_A>;
-#[doc = "When enable TCON_TV, this bit and the 0x0000\\[bit31\\]
-need to be enabled.\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[doc = "When enable TCON_TV, this bit and the 0x0000\\[bit31\\] need to be enabled.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum TV_EN_A {
     #[doc = "0: Disable"]
-    D_ISABLE = 0,
+    DISABLE = 0,
     #[doc = "1: Enable"]
-    E_NABLE = 1,
+    ENABLE = 1,
 }
 impl From<TV_EN_A> for bool {
     #[inline(always)]
@@ -99,34 +97,33 @@ impl TV_EN_R {
     #[inline(always)]
     pub fn variant(&self) -> TV_EN_A {
         match self.bits {
-            false => TV_EN_A::D_ISABLE,
-            true => TV_EN_A::E_NABLE,
+            false => TV_EN_A::DISABLE,
+            true => TV_EN_A::ENABLE,
         }
     }
-    #[doc = "Checks if the value of the field is `D_ISABLE`"]
+    #[doc = "Checks if the value of the field is `DISABLE`"]
     #[inline(always)]
-    pub fn is_d_isable(&self) -> bool {
-        *self == TV_EN_A::D_ISABLE
+    pub fn is_disable(&self) -> bool {
+        *self == TV_EN_A::DISABLE
     }
-    #[doc = "Checks if the value of the field is `E_NABLE`"]
+    #[doc = "Checks if the value of the field is `ENABLE`"]
     #[inline(always)]
-    pub fn is_e_nable(&self) -> bool {
-        *self == TV_EN_A::E_NABLE
+    pub fn is_enable(&self) -> bool {
+        *self == TV_EN_A::ENABLE
     }
 }
-#[doc = "Field `tv_en` writer - When enable TCON_TV, this bit and the 0x0000\\[bit31\\]
-need to be enabled."]
+#[doc = "Field `tv_en` writer - When enable TCON_TV, this bit and the 0x0000\\[bit31\\] need to be enabled."]
 pub type TV_EN_W<'a, const O: u8> = crate::BitWriter<'a, u32, TV_CTL_SPEC, TV_EN_A, O>;
 impl<'a, const O: u8> TV_EN_W<'a, O> {
     #[doc = "Disable"]
     #[inline(always)]
-    pub fn d_isable(self) -> &'a mut W {
-        self.variant(TV_EN_A::D_ISABLE)
+    pub fn disable(self) -> &'a mut W {
+        self.variant(TV_EN_A::DISABLE)
     }
     #[doc = "Enable"]
     #[inline(always)]
-    pub fn e_nable(self) -> &'a mut W {
-        self.variant(TV_EN_A::E_NABLE)
+    pub fn enable(self) -> &'a mut W {
+        self.variant(TV_EN_A::ENABLE)
     }
 }
 impl R {
@@ -140,8 +137,7 @@ impl R {
     pub fn start_delay(&self) -> START_DELAY_R {
         START_DELAY_R::new(((self.bits >> 4) & 0x1f) as u8)
     }
-    #[doc = "Bit 31 - When enable TCON_TV, this bit and the 0x0000\\[bit31\\]
-need to be enabled."]
+    #[doc = "Bit 31 - When enable TCON_TV, this bit and the 0x0000\\[bit31\\] need to be enabled."]
     #[inline(always)]
     pub fn tv_en(&self) -> TV_EN_R {
         TV_EN_R::new(((self.bits >> 31) & 1) != 0)
@@ -150,17 +146,19 @@ need to be enabled."]
 impl W {
     #[doc = "Bit 1 - TV Source Select\n\nNote: The priority of this bit is higher than TV_SRC_SEL(bit\\[2:0\\]) in TV_SRC_CTL_REG."]
     #[inline(always)]
+    #[must_use]
     pub fn tv_src_sel(&mut self) -> TV_SRC_SEL_W<1> {
         TV_SRC_SEL_W::new(self)
     }
     #[doc = "Bits 4:8 - This is for DE0 and DE1."]
     #[inline(always)]
+    #[must_use]
     pub fn start_delay(&mut self) -> START_DELAY_W<4> {
         START_DELAY_W::new(self)
     }
-    #[doc = "Bit 31 - When enable TCON_TV, this bit and the 0x0000\\[bit31\\]
-need to be enabled."]
+    #[doc = "Bit 31 - When enable TCON_TV, this bit and the 0x0000\\[bit31\\] need to be enabled."]
     #[inline(always)]
+    #[must_use]
     pub fn tv_en(&mut self) -> TV_EN_W<31> {
         TV_EN_W::new(self)
     }
@@ -183,11 +181,10 @@ impl crate::Readable for TV_CTL_SPEC {
 #[doc = "`write(|w| ..)` method takes [tv_ctl::W](W) writer structure"]
 impl crate::Writable for TV_CTL_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets tv_ctl to value 0"]
 impl crate::Resettable for TV_CTL_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

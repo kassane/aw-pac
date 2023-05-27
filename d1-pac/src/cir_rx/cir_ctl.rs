@@ -37,7 +37,7 @@ impl From<crate::W<CIR_CTL_SPEC>> for W {
 #[doc = "Field `gen` reader - Global Enable\n\nA disable on this bit overrides any other block or channel enables and flushes all FIFOs."]
 pub type GEN_R = crate::BitReader<GEN_A>;
 #[doc = "Global Enable\n\nA disable on this bit overrides any other block or channel enables and flushes all FIFOs.\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum GEN_A {
     #[doc = "0: Disable"]
     DISABLE = 0,
@@ -87,7 +87,7 @@ impl<'a, const O: u8> GEN_W<'a, O> {
 #[doc = "Field `rxen` reader - Receiver Block Enable"]
 pub type RXEN_R = crate::BitReader<RXEN_A>;
 #[doc = "Receiver Block Enable\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum RXEN_A {
     #[doc = "0: Disable"]
     DISABLE = 0,
@@ -137,7 +137,7 @@ impl<'a, const O: u8> RXEN_W<'a, O> {
 #[doc = "Field `ciren` reader - CIR Enable"]
 pub type CIREN_R = crate::FieldReader<u8, CIREN_A>;
 #[doc = "CIR Enable\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum CIREN_A {
     #[doc = "3: CIR mode enable"]
@@ -176,7 +176,7 @@ impl<'a, const O: u8> CIREN_W<'a, O> {
 #[doc = "Field `apam` reader - Active Pulse Accept Mode"]
 pub type APAM_R = crate::FieldReader<u8, APAM_A>;
 #[doc = "Active Pulse Accept Mode\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum APAM_A {
     #[doc = "0: Both positive and negative pulses are valid as a leading code"]
@@ -263,21 +263,25 @@ impl R {
 impl W {
     #[doc = "Bit 0 - Global Enable\n\nA disable on this bit overrides any other block or channel enables and flushes all FIFOs."]
     #[inline(always)]
+    #[must_use]
     pub fn gen(&mut self) -> GEN_W<0> {
         GEN_W::new(self)
     }
     #[doc = "Bit 1 - Receiver Block Enable"]
     #[inline(always)]
+    #[must_use]
     pub fn rxen(&mut self) -> RXEN_W<1> {
         RXEN_W::new(self)
     }
     #[doc = "Bits 4:5 - CIR Enable"]
     #[inline(always)]
+    #[must_use]
     pub fn ciren(&mut self) -> CIREN_W<4> {
         CIREN_W::new(self)
     }
     #[doc = "Bits 6:7 - Active Pulse Accept Mode"]
     #[inline(always)]
+    #[must_use]
     pub fn apam(&mut self) -> APAM_W<6> {
         APAM_W::new(self)
     }
@@ -300,11 +304,10 @@ impl crate::Readable for CIR_CTL_SPEC {
 #[doc = "`write(|w| ..)` method takes [cir_ctl::W](W) writer structure"]
 impl crate::Writable for CIR_CTL_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets cir_ctl to value 0"]
 impl crate::Resettable for CIR_CTL_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

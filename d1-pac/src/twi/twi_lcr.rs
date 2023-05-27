@@ -37,7 +37,7 @@ impl From<crate::W<TWI_LCR_SPEC>> for W {
 #[doc = "Field `sda_ctl_en` reader - TWI_SDA Line State Control Enable"]
 pub type SDA_CTL_EN_R = crate::BitReader<SDA_CTL_EN_A>;
 #[doc = "TWI_SDA Line State Control Enable\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum SDA_CTL_EN_A {
     #[doc = "0: `0`"]
     DISABLE = 0,
@@ -87,7 +87,7 @@ impl<'a, const O: u8> SDA_CTL_EN_W<'a, O> {
 #[doc = "Field `sda_ctl` reader - TWI_SDA Line State Control Bit"]
 pub type SDA_CTL_R = crate::BitReader<SDA_CTL_A>;
 #[doc = "TWI_SDA Line State Control Bit\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum SDA_CTL_A {
     #[doc = "0: `0`"]
     LOW = 0,
@@ -137,7 +137,7 @@ impl<'a, const O: u8> SDA_CTL_W<'a, O> {
 #[doc = "Field `scl_ctl_en` reader - TWI_SCL Line State Control Enable"]
 pub type SCL_CTL_EN_R = crate::BitReader<SCL_CTL_EN_A>;
 #[doc = "TWI_SCL Line State Control Enable\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum SCL_CTL_EN_A {
     #[doc = "0: `0`"]
     DISABLE = 0,
@@ -187,7 +187,7 @@ impl<'a, const O: u8> SCL_CTL_EN_W<'a, O> {
 #[doc = "Field `scl_ctl` reader - TWI_SCL Line State Control Bit"]
 pub type SCL_CTL_R = crate::BitReader<SCL_CTL_A>;
 #[doc = "TWI_SCL Line State Control Bit\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum SCL_CTL_A {
     #[doc = "0: `0`"]
     LOW = 0,
@@ -237,7 +237,7 @@ impl<'a, const O: u8> SCL_CTL_W<'a, O> {
 #[doc = "Field `sda_state` reader - Current State of TWI_SDA"]
 pub type SDA_STATE_R = crate::BitReader<SDA_STATE_A>;
 #[doc = "Current State of TWI_SDA\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum SDA_STATE_A {
     #[doc = "0: `0`"]
     LOW = 0,
@@ -273,7 +273,7 @@ impl SDA_STATE_R {
 #[doc = "Field `scl_state` reader - Current State of TWI_SCL"]
 pub type SCL_STATE_R = crate::BitReader<SCL_STATE_A>;
 #[doc = "Current State of TWI_SCL\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum SCL_STATE_A {
     #[doc = "0: `0`"]
     LOW = 0,
@@ -341,21 +341,25 @@ impl R {
 impl W {
     #[doc = "Bit 0 - TWI_SDA Line State Control Enable"]
     #[inline(always)]
+    #[must_use]
     pub fn sda_ctl_en(&mut self) -> SDA_CTL_EN_W<0> {
         SDA_CTL_EN_W::new(self)
     }
     #[doc = "Bit 1 - TWI_SDA Line State Control Bit"]
     #[inline(always)]
+    #[must_use]
     pub fn sda_ctl(&mut self) -> SDA_CTL_W<1> {
         SDA_CTL_W::new(self)
     }
     #[doc = "Bit 2 - TWI_SCL Line State Control Enable"]
     #[inline(always)]
+    #[must_use]
     pub fn scl_ctl_en(&mut self) -> SCL_CTL_EN_W<2> {
         SCL_CTL_EN_W::new(self)
     }
     #[doc = "Bit 3 - TWI_SCL Line State Control Bit"]
     #[inline(always)]
+    #[must_use]
     pub fn scl_ctl(&mut self) -> SCL_CTL_W<3> {
         SCL_CTL_W::new(self)
     }
@@ -378,11 +382,10 @@ impl crate::Readable for TWI_LCR_SPEC {
 #[doc = "`write(|w| ..)` method takes [twi_lcr::W](W) writer structure"]
 impl crate::Writable for TWI_LCR_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets twi_lcr to value 0"]
 impl crate::Resettable for TWI_LCR_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

@@ -37,7 +37,7 @@ impl From<crate::W<PRS_CH_INT_EN_SPEC>> for W {
 #[doc = "Field `input_para_int_en[0-1]` reader - "]
 pub type INPUT_PARA_INT_EN_R = crate::BitReader<INPUT_PARA_INT_EN_A>;
 #[doc = "\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum INPUT_PARA_INT_EN_A {
     #[doc = "0: `0`"]
     DISABLE = 0,
@@ -88,7 +88,7 @@ impl<'a, const O: u8> INPUT_PARA_INT_EN_W<'a, O> {
 #[doc = "Field `mul_err_int_en` reader - Multi-channel writing error\n\nIndicates error has been detected for writing data to a wrong channel"]
 pub type MUL_ERR_INT_EN_R = crate::BitReader<MUL_ERR_INT_EN_A>;
 #[doc = "Multi-channel writing error\n\nIndicates error has been detected for writing data to a wrong channel\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum MUL_ERR_INT_EN_A {
     #[doc = "0: `0`"]
     DISABLE = 0,
@@ -161,21 +161,25 @@ impl R {
 impl W {
     #[doc = ""]
     #[inline(always)]
+    #[must_use]
     pub unsafe fn input_para_int_en<const O: u8>(&mut self) -> INPUT_PARA_INT_EN_W<O> {
         INPUT_PARA_INT_EN_W::new(self)
     }
     #[doc = "Bit 0"]
     #[inline(always)]
+    #[must_use]
     pub fn input_para0_int_en(&mut self) -> INPUT_PARA_INT_EN_W<0> {
         INPUT_PARA_INT_EN_W::new(self)
     }
     #[doc = "Bit 1"]
     #[inline(always)]
+    #[must_use]
     pub fn input_para1_int_en(&mut self) -> INPUT_PARA_INT_EN_W<1> {
         INPUT_PARA_INT_EN_W::new(self)
     }
     #[doc = "Bit 2 - Multi-channel writing error\n\nIndicates error has been detected for writing data to a wrong channel"]
     #[inline(always)]
+    #[must_use]
     pub fn mul_err_int_en(&mut self) -> MUL_ERR_INT_EN_W<2> {
         MUL_ERR_INT_EN_W::new(self)
     }
@@ -186,8 +190,7 @@ impl W {
         self
     }
 }
-#[doc = "Parser Channel\\[i\\]
-Interrupt Enable Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [prs_ch_int_en](index.html) module"]
+#[doc = "Parser Channel\\[i\\] Interrupt Enable Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [prs_ch_int_en](index.html) module"]
 pub struct PRS_CH_INT_EN_SPEC;
 impl crate::RegisterSpec for PRS_CH_INT_EN_SPEC {
     type Ux = u32;
@@ -199,11 +202,10 @@ impl crate::Readable for PRS_CH_INT_EN_SPEC {
 #[doc = "`write(|w| ..)` method takes [prs_ch_int_en::W](W) writer structure"]
 impl crate::Writable for PRS_CH_INT_EN_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets prs_ch%s_int_en to value 0"]
 impl crate::Resettable for PRS_CH_INT_EN_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

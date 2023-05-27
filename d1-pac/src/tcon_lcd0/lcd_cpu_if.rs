@@ -37,7 +37,7 @@ impl From<crate::W<LCD_CPU_IF_SPEC>> for W {
 #[doc = "Field `tri_en` reader - Enable trigger mode"]
 pub type TRI_EN_R = crate::BitReader<TRI_EN_A>;
 #[doc = "Enable trigger mode\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum TRI_EN_A {
     #[doc = "0: Trigger mode disable"]
     DISABLE = 0,
@@ -91,12 +91,12 @@ pub type TRI_START_W<'a, const O: u8> = crate::BitWriter1S<'a, u32, LCD_CPU_IF_S
 #[doc = "Field `tri_fifo_en` reader - Enable the trigger FIFO"]
 pub type TRI_FIFO_EN_R = crate::BitReader<TRI_FIFO_EN_A>;
 #[doc = "Enable the trigger FIFO\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum TRI_FIFO_EN_A {
     #[doc = "0: Disable"]
-    D_ISABLE = 0,
+    DISABLE = 0,
     #[doc = "1: Enable"]
-    E_NABLE = 1,
+    ENABLE = 1,
 }
 impl From<TRI_FIFO_EN_A> for bool {
     #[inline(always)]
@@ -109,19 +109,19 @@ impl TRI_FIFO_EN_R {
     #[inline(always)]
     pub fn variant(&self) -> TRI_FIFO_EN_A {
         match self.bits {
-            false => TRI_FIFO_EN_A::D_ISABLE,
-            true => TRI_FIFO_EN_A::E_NABLE,
+            false => TRI_FIFO_EN_A::DISABLE,
+            true => TRI_FIFO_EN_A::ENABLE,
         }
     }
-    #[doc = "Checks if the value of the field is `D_ISABLE`"]
+    #[doc = "Checks if the value of the field is `DISABLE`"]
     #[inline(always)]
-    pub fn is_d_isable(&self) -> bool {
-        *self == TRI_FIFO_EN_A::D_ISABLE
+    pub fn is_disable(&self) -> bool {
+        *self == TRI_FIFO_EN_A::DISABLE
     }
-    #[doc = "Checks if the value of the field is `E_NABLE`"]
+    #[doc = "Checks if the value of the field is `ENABLE`"]
     #[inline(always)]
-    pub fn is_e_nable(&self) -> bool {
-        *self == TRI_FIFO_EN_A::E_NABLE
+    pub fn is_enable(&self) -> bool {
+        *self == TRI_FIFO_EN_A::ENABLE
     }
 }
 #[doc = "Field `tri_fifo_en` writer - Enable the trigger FIFO"]
@@ -130,24 +130,24 @@ pub type TRI_FIFO_EN_W<'a, const O: u8> =
 impl<'a, const O: u8> TRI_FIFO_EN_W<'a, O> {
     #[doc = "Disable"]
     #[inline(always)]
-    pub fn d_isable(self) -> &'a mut W {
-        self.variant(TRI_FIFO_EN_A::D_ISABLE)
+    pub fn disable(self) -> &'a mut W {
+        self.variant(TRI_FIFO_EN_A::DISABLE)
     }
     #[doc = "Enable"]
     #[inline(always)]
-    pub fn e_nable(self) -> &'a mut W {
-        self.variant(TRI_FIFO_EN_A::E_NABLE)
+    pub fn enable(self) -> &'a mut W {
+        self.variant(TRI_FIFO_EN_A::ENABLE)
     }
 }
 #[doc = "Field `tri_fifo_bist_en` reader - Entry address is 0xFF8"]
 pub type TRI_FIFO_BIST_EN_R = crate::BitReader<TRI_FIFO_BIST_EN_A>;
 #[doc = "Entry address is 0xFF8\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum TRI_FIFO_BIST_EN_A {
     #[doc = "0: Disable"]
-    D_ISABLE = 0,
+    DISABLE = 0,
     #[doc = "1: Enable"]
-    E_NABLE = 1,
+    ENABLE = 1,
 }
 impl From<TRI_FIFO_BIST_EN_A> for bool {
     #[inline(always)]
@@ -160,19 +160,19 @@ impl TRI_FIFO_BIST_EN_R {
     #[inline(always)]
     pub fn variant(&self) -> TRI_FIFO_BIST_EN_A {
         match self.bits {
-            false => TRI_FIFO_BIST_EN_A::D_ISABLE,
-            true => TRI_FIFO_BIST_EN_A::E_NABLE,
+            false => TRI_FIFO_BIST_EN_A::DISABLE,
+            true => TRI_FIFO_BIST_EN_A::ENABLE,
         }
     }
-    #[doc = "Checks if the value of the field is `D_ISABLE`"]
+    #[doc = "Checks if the value of the field is `DISABLE`"]
     #[inline(always)]
-    pub fn is_d_isable(&self) -> bool {
-        *self == TRI_FIFO_BIST_EN_A::D_ISABLE
+    pub fn is_disable(&self) -> bool {
+        *self == TRI_FIFO_BIST_EN_A::DISABLE
     }
-    #[doc = "Checks if the value of the field is `E_NABLE`"]
+    #[doc = "Checks if the value of the field is `ENABLE`"]
     #[inline(always)]
-    pub fn is_e_nable(&self) -> bool {
-        *self == TRI_FIFO_BIST_EN_A::E_NABLE
+    pub fn is_enable(&self) -> bool {
+        *self == TRI_FIFO_BIST_EN_A::ENABLE
     }
 }
 #[doc = "Field `tri_fifo_bist_en` writer - Entry address is 0xFF8"]
@@ -181,13 +181,13 @@ pub type TRI_FIFO_BIST_EN_W<'a, const O: u8> =
 impl<'a, const O: u8> TRI_FIFO_BIST_EN_W<'a, O> {
     #[doc = "Disable"]
     #[inline(always)]
-    pub fn d_isable(self) -> &'a mut W {
-        self.variant(TRI_FIFO_BIST_EN_A::D_ISABLE)
+    pub fn disable(self) -> &'a mut W {
+        self.variant(TRI_FIFO_BIST_EN_A::DISABLE)
     }
     #[doc = "Enable"]
     #[inline(always)]
-    pub fn e_nable(self) -> &'a mut W {
-        self.variant(TRI_FIFO_BIST_EN_A::E_NABLE)
+    pub fn enable(self) -> &'a mut W {
+        self.variant(TRI_FIFO_BIST_EN_A::ENABLE)
     }
 }
 #[doc = "Field `flush` reader - Direct transfer mode\n\nIf it is enabled, FIFO1 is regardless of the HV timing, the pixels data keep being transferred unless the input FIFO was empty.\n\nData output rate is controlled by DCLK."]
@@ -201,7 +201,7 @@ pub type AUTO_W<'a, const O: u8> = crate::BitWriter<'a, u32, LCD_CPU_IF_SPEC, bo
 #[doc = "Field `rd_flag` reader - The status of read operation."]
 pub type RD_FLAG_R = crate::BitReader<RD_FLAG_A>;
 #[doc = "The status of read operation.\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum RD_FLAG_A {
     #[doc = "0: Read operation is finishing"]
     FINISHING = 0,
@@ -237,7 +237,7 @@ impl RD_FLAG_R {
 #[doc = "Field `wr_flag` reader - The status of write operation."]
 pub type WR_FLAG_R = crate::BitReader<WR_FLAG_A>;
 #[doc = "The status of write operation.\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum WR_FLAG_A {
     #[doc = "0: Write operation is finishing"]
     FINISHING = 0,
@@ -281,7 +281,7 @@ pub type DA_W<'a, const O: u8> = crate::BitWriter<'a, u32, LCD_CPU_IF_SPEC, bool
 #[doc = "Field `cpu_mode` reader - Set the cpu interface work mode"]
 pub type CPU_MODE_R = crate::FieldReader<u8, CPU_MODE_A>;
 #[doc = "Set the cpu interface work mode\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum CPU_MODE_A {
     #[doc = "0: 18-bit/256K mode"]
@@ -482,46 +482,55 @@ impl R {
 impl W {
     #[doc = "Bit 0 - Enable trigger mode"]
     #[inline(always)]
+    #[must_use]
     pub fn tri_en(&mut self) -> TRI_EN_W<0> {
         TRI_EN_W::new(self)
     }
     #[doc = "Bit 1 - Software must make sure that write '1' only when this flag is '0'.\n\nWriting '1' starts a frame flush and writing '0' has no effect.\n\nThis flag indicates the frame flush is running."]
     #[inline(always)]
+    #[must_use]
     pub fn tri_start(&mut self) -> TRI_START_W<1> {
         TRI_START_W::new(self)
     }
     #[doc = "Bit 2 - Enable the trigger FIFO"]
     #[inline(always)]
+    #[must_use]
     pub fn tri_fifo_en(&mut self) -> TRI_FIFO_EN_W<2> {
         TRI_FIFO_EN_W::new(self)
     }
     #[doc = "Bit 3 - Entry address is 0xFF8"]
     #[inline(always)]
+    #[must_use]
     pub fn tri_fifo_bist_en(&mut self) -> TRI_FIFO_BIST_EN_W<3> {
         TRI_FIFO_BIST_EN_W::new(self)
     }
     #[doc = "Bit 16 - Direct transfer mode\n\nIf it is enabled, FIFO1 is regardless of the HV timing, the pixels data keep being transferred unless the input FIFO was empty.\n\nData output rate is controlled by DCLK."]
     #[inline(always)]
+    #[must_use]
     pub fn flush(&mut self) -> FLUSH_W<16> {
         FLUSH_W::new(self)
     }
     #[doc = "Bit 17 - Auto transfer mode\n\nIf it is 1, all the valid data during this frame are written to panel.\n\nNote: This bit is sampled by Vsync."]
     #[inline(always)]
+    #[must_use]
     pub fn auto(&mut self) -> AUTO_W<17> {
         AUTO_W::new(self)
     }
     #[doc = "Bit 25 - Pin A1 value in 8080 mode WR/RD execute"]
     #[inline(always)]
+    #[must_use]
     pub fn ca(&mut self) -> CA_W<25> {
         CA_W::new(self)
     }
     #[doc = "Bit 26 - Pin A1 value in 8080 mode auto/flash states"]
     #[inline(always)]
+    #[must_use]
     pub fn da(&mut self) -> DA_W<26> {
         DA_W::new(self)
     }
     #[doc = "Bits 28:31 - Set the cpu interface work mode"]
     #[inline(always)]
+    #[must_use]
     pub fn cpu_mode(&mut self) -> CPU_MODE_W<28> {
         CPU_MODE_W::new(self)
     }
@@ -544,11 +553,10 @@ impl crate::Readable for LCD_CPU_IF_SPEC {
 #[doc = "`write(|w| ..)` method takes [lcd_cpu_if::W](W) writer structure"]
 impl crate::Writable for LCD_CPU_IF_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0x02;
 }
 #[doc = "`reset()` method sets lcd_cpu_if to value 0"]
 impl crate::Resettable for LCD_CPU_IF_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

@@ -37,7 +37,7 @@ impl From<crate::W<EMAC_INT_STA_SPEC>> for W {
 #[doc = "Field `tx_p` reader - Frame Transmission Interrupt Pending"]
 pub type TX_P_R = crate::BitReader<TX_P_A>;
 #[doc = "Frame Transmission Interrupt Pending\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum TX_P_A {
     #[doc = "0: `0`"]
     NO_PENDING = 0,
@@ -87,7 +87,7 @@ impl<'a, const O: u8> TX_P_W<'a, O> {
 #[doc = "Field `tx_dma_stopped_p` reader - Transmission DMA Stopped Interrupt Pending"]
 pub type TX_DMA_STOPPED_P_R = crate::BitReader<TX_DMA_STOPPED_P_A>;
 #[doc = "Transmission DMA Stopped Interrupt Pending\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum TX_DMA_STOPPED_P_A {
     #[doc = "0: `0`"]
     NO_PENDING = 0,
@@ -138,7 +138,7 @@ impl<'a, const O: u8> TX_DMA_STOPPED_P_W<'a, O> {
 #[doc = "Field `tx_buf_ua_p` reader - TX Buffer UA Interrupt Pending"]
 pub type TX_BUF_UA_P_R = crate::BitReader<TX_BUF_UA_P_A>;
 #[doc = "TX Buffer UA Interrupt Pending\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum TX_BUF_UA_P_A {
     #[doc = "0: `0`"]
     NO_PENDING = 0,
@@ -189,7 +189,7 @@ impl<'a, const O: u8> TX_BUF_UA_P_W<'a, O> {
 #[doc = "Field `tx_timeout_p` reader - Transmitter Timeout Interrupt Pending"]
 pub type TX_TIMEOUT_P_R = crate::BitReader<TX_TIMEOUT_P_A>;
 #[doc = "Transmitter Timeout Interrupt Pending\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum TX_TIMEOUT_P_A {
     #[doc = "0: `0`"]
     NO_PENDING = 0,
@@ -240,7 +240,7 @@ impl<'a, const O: u8> TX_TIMEOUT_P_W<'a, O> {
 #[doc = "Field `tx_underflow_p` reader - TX FIFO Underflow Interrupt Pending"]
 pub type TX_UNDERFLOW_P_R = crate::BitReader<TX_UNDERFLOW_P_A>;
 #[doc = "TX FIFO Underflow Interrupt Pending\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum TX_UNDERFLOW_P_A {
     #[doc = "0: `0`"]
     NO_PENDING = 0,
@@ -291,7 +291,7 @@ impl<'a, const O: u8> TX_UNDERFLOW_P_W<'a, O> {
 #[doc = "Field `tx_early_p` reader - Total interrupt pending which the frame is transmitted to FIFO"]
 pub type TX_EARLY_P_R = crate::BitReader<TX_EARLY_P_A>;
 #[doc = "Total interrupt pending which the frame is transmitted to FIFO\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum TX_EARLY_P_A {
     #[doc = "0: `0`"]
     NO_PENDING = 0,
@@ -342,7 +342,7 @@ impl<'a, const O: u8> TX_EARLY_P_W<'a, O> {
 #[doc = "Field `rx_p` reader - Frame RX Completed Interrupt Pending"]
 pub type RX_P_R = crate::BitReader<RX_P_A>;
 #[doc = "Frame RX Completed Interrupt Pending\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum RX_P_A {
     #[doc = "0: `0`"]
     NO_PENDING = 0,
@@ -392,7 +392,7 @@ impl<'a, const O: u8> RX_P_W<'a, O> {
 #[doc = "Field `rx_buf_ua_p` reader - RX Buffer UA Interrupt Pending"]
 pub type RX_BUF_UA_P_R = crate::BitReader<RX_BUF_UA_P_A>;
 #[doc = "RX Buffer UA Interrupt Pending\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum RX_BUF_UA_P_A {
     #[doc = "0: `0`"]
     NO_PENDING = 0,
@@ -448,7 +448,7 @@ pub type RX_DMA_STOPPED_P_W<'a, const O: u8> =
 #[doc = "Field `rx_timeout_p` reader - RX Timeout Interrupt Pending"]
 pub type RX_TIMEOUT_P_R = crate::BitReader<RX_TIMEOUT_P_A>;
 #[doc = "RX Timeout Interrupt Pending\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum RX_TIMEOUT_P_A {
     #[doc = "0: `0`"]
     NO_PENDING = 0,
@@ -499,7 +499,7 @@ impl<'a, const O: u8> RX_TIMEOUT_P_W<'a, O> {
 #[doc = "Field `rx_overflow_p` reader - RX FIFO Overflow Error Interrupt Pending"]
 pub type RX_OVERFLOW_P_R = crate::BitReader<RX_OVERFLOW_P_A>;
 #[doc = "RX FIFO Overflow Error Interrupt Pending\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum RX_OVERFLOW_P_A {
     #[doc = "0: `0`"]
     NO_PENDING = 0,
@@ -550,7 +550,7 @@ impl<'a, const O: u8> RX_OVERFLOW_P_W<'a, O> {
 #[doc = "Field `rx_early_p` reader - RX DMA Filled First Data Buffer of the Receive Frame Interrupt Pending"]
 pub type RX_EARLY_P_R = crate::BitReader<RX_EARLY_P_A>;
 #[doc = "RX DMA Filled First Data Buffer of the Receive Frame Interrupt Pending\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum RX_EARLY_P_A {
     #[doc = "0: `0`"]
     NO_PENDING = 0,
@@ -601,7 +601,7 @@ impl<'a, const O: u8> RX_EARLY_P_W<'a, O> {
 #[doc = "Field `rgmii_link_sta_p` reader - RMII Link Status Changed Interrupt Pending"]
 pub type RGMII_LINK_STA_P_R = crate::BitReader<RGMII_LINK_STA_P_A>;
 #[doc = "RMII Link Status Changed Interrupt Pending\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum RGMII_LINK_STA_P_A {
     #[doc = "0: `0`"]
     NO_PENDING = 0,
@@ -719,66 +719,79 @@ impl R {
 impl W {
     #[doc = "Bit 0 - Frame Transmission Interrupt Pending"]
     #[inline(always)]
+    #[must_use]
     pub fn tx_p(&mut self) -> TX_P_W<0> {
         TX_P_W::new(self)
     }
     #[doc = "Bit 1 - Transmission DMA Stopped Interrupt Pending"]
     #[inline(always)]
+    #[must_use]
     pub fn tx_dma_stopped_p(&mut self) -> TX_DMA_STOPPED_P_W<1> {
         TX_DMA_STOPPED_P_W::new(self)
     }
     #[doc = "Bit 2 - TX Buffer UA Interrupt Pending"]
     #[inline(always)]
+    #[must_use]
     pub fn tx_buf_ua_p(&mut self) -> TX_BUF_UA_P_W<2> {
         TX_BUF_UA_P_W::new(self)
     }
     #[doc = "Bit 3 - Transmitter Timeout Interrupt Pending"]
     #[inline(always)]
+    #[must_use]
     pub fn tx_timeout_p(&mut self) -> TX_TIMEOUT_P_W<3> {
         TX_TIMEOUT_P_W::new(self)
     }
     #[doc = "Bit 4 - TX FIFO Underflow Interrupt Pending"]
     #[inline(always)]
+    #[must_use]
     pub fn tx_underflow_p(&mut self) -> TX_UNDERFLOW_P_W<4> {
         TX_UNDERFLOW_P_W::new(self)
     }
     #[doc = "Bit 5 - Total interrupt pending which the frame is transmitted to FIFO"]
     #[inline(always)]
+    #[must_use]
     pub fn tx_early_p(&mut self) -> TX_EARLY_P_W<5> {
         TX_EARLY_P_W::new(self)
     }
     #[doc = "Bit 8 - Frame RX Completed Interrupt Pending"]
     #[inline(always)]
+    #[must_use]
     pub fn rx_p(&mut self) -> RX_P_W<8> {
         RX_P_W::new(self)
     }
     #[doc = "Bit 9 - RX Buffer UA Interrupt Pending"]
     #[inline(always)]
+    #[must_use]
     pub fn rx_buf_ua_p(&mut self) -> RX_BUF_UA_P_W<9> {
         RX_BUF_UA_P_W::new(self)
     }
     #[doc = "Bit 10 - When this bit asserted, the RX DMA FSM is stopped."]
     #[inline(always)]
+    #[must_use]
     pub fn rx_dma_stopped_p(&mut self) -> RX_DMA_STOPPED_P_W<10> {
         RX_DMA_STOPPED_P_W::new(self)
     }
     #[doc = "Bit 11 - RX Timeout Interrupt Pending"]
     #[inline(always)]
+    #[must_use]
     pub fn rx_timeout_p(&mut self) -> RX_TIMEOUT_P_W<11> {
         RX_TIMEOUT_P_W::new(self)
     }
     #[doc = "Bit 12 - RX FIFO Overflow Error Interrupt Pending"]
     #[inline(always)]
+    #[must_use]
     pub fn rx_overflow_p(&mut self) -> RX_OVERFLOW_P_W<12> {
         RX_OVERFLOW_P_W::new(self)
     }
     #[doc = "Bit 13 - RX DMA Filled First Data Buffer of the Receive Frame Interrupt Pending"]
     #[inline(always)]
+    #[must_use]
     pub fn rx_early_p(&mut self) -> RX_EARLY_P_W<13> {
         RX_EARLY_P_W::new(self)
     }
     #[doc = "Bit 16 - RMII Link Status Changed Interrupt Pending"]
     #[inline(always)]
+    #[must_use]
     pub fn rgmii_link_sta_p(&mut self) -> RGMII_LINK_STA_P_W<16> {
         RGMII_LINK_STA_P_W::new(self)
     }
@@ -801,11 +814,10 @@ impl crate::Readable for EMAC_INT_STA_SPEC {
 #[doc = "`write(|w| ..)` method takes [emac_int_sta::W](W) writer structure"]
 impl crate::Writable for EMAC_INT_STA_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0x0001_3f3f;
 }
 #[doc = "`reset()` method sets emac_int_sta to value 0"]
 impl crate::Resettable for EMAC_INT_STA_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

@@ -37,7 +37,7 @@ impl From<crate::W<FRE_DET_CTRL_SPEC>> for W {
 #[doc = "Field `fre_det_fun_en` reader - Frequence Detect Function Enable"]
 pub type FRE_DET_FUN_EN_R = crate::BitReader<FRE_DET_FUN_EN_A>;
 #[doc = "Frequence Detect Function Enable\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum FRE_DET_FUN_EN_A {
     #[doc = "0: `0`"]
     DISABLE = 0,
@@ -88,7 +88,7 @@ impl<'a, const O: u8> FRE_DET_FUN_EN_W<'a, O> {
 #[doc = "Field `fre_det_irq_en` reader - Frequence Detect IRQ Enable"]
 pub type FRE_DET_IRQ_EN_R = crate::BitReader<FRE_DET_IRQ_EN_A>;
 #[doc = "Frequence Detect IRQ Enable\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum FRE_DET_IRQ_EN_A {
     #[doc = "0: `0`"]
     DISABLE = 0,
@@ -143,7 +143,7 @@ pub type DET_TIME_W<'a, const O: u8> = crate::FieldWriter<'a, u32, FRE_DET_CTRL_
 #[doc = "Field `error_flag` reader - Error Flag"]
 pub type ERROR_FLAG_R = crate::BitReader<ERROR_FLAG_A>;
 #[doc = "Error Flag\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum ERROR_FLAG_A {
     #[doc = "0: `0`"]
     W0C = 0,
@@ -216,21 +216,25 @@ impl R {
 impl W {
     #[doc = "Bit 0 - Frequence Detect Function Enable"]
     #[inline(always)]
+    #[must_use]
     pub fn fre_det_fun_en(&mut self) -> FRE_DET_FUN_EN_W<0> {
         FRE_DET_FUN_EN_W::new(self)
     }
     #[doc = "Bit 1 - Frequence Detect IRQ Enable"]
     #[inline(always)]
+    #[must_use]
     pub fn fre_det_irq_en(&mut self) -> FRE_DET_IRQ_EN_W<1> {
         FRE_DET_IRQ_EN_W::new(self)
     }
     #[doc = "Bits 4:8 - Detect Time"]
     #[inline(always)]
+    #[must_use]
     pub fn det_time(&mut self) -> DET_TIME_W<4> {
         DET_TIME_W::new(self)
     }
     #[doc = "Bit 31 - Error Flag"]
     #[inline(always)]
+    #[must_use]
     pub fn error_flag(&mut self) -> ERROR_FLAG_W<31> {
         ERROR_FLAG_W::new(self)
     }
@@ -253,11 +257,10 @@ impl crate::Readable for FRE_DET_CTRL_SPEC {
 #[doc = "`write(|w| ..)` method takes [fre_det_ctrl::W](W) writer structure"]
 impl crate::Writable for FRE_DET_CTRL_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0x8000_0000;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets fre_det_ctrl to value 0"]
 impl crate::Resettable for FRE_DET_CTRL_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

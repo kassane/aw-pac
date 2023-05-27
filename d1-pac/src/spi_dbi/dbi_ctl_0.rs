@@ -37,7 +37,7 @@ impl From<crate::W<DBI_CTL_0_SPEC>> for W {
 #[doc = "Field `vi_src_type` reader - Video Source Type"]
 pub type VI_SRC_TYPE_R = crate::BitReader<VI_SRC_TYPE_A>;
 #[doc = "Video Source Type\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum VI_SRC_TYPE_A {
     #[doc = "0: `0`"]
     RGB32 = 0,
@@ -88,7 +88,7 @@ impl<'a, const O: u8> VI_SRC_TYPE_W<'a, O> {
 #[doc = "Field `element_a_pos` reader - Element A Position"]
 pub type ELEMENT_A_POS_R = crate::BitReader<ELEMENT_A_POS_A>;
 #[doc = "Element A Position\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum ELEMENT_A_POS_A {
     #[doc = "0: `0`"]
     _31_24 = 0,
@@ -139,7 +139,7 @@ impl<'a, const O: u8> ELEMENT_A_POS_W<'a, O> {
 #[doc = "Field `rgb_bo` reader - RGB Bit Order"]
 pub type RGB_BO_R = crate::BitReader<RGB_BO_A>;
 #[doc = "RGB Bit Order\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum RGB_BO_A {
     #[doc = "0: `0`"]
     DATA = 0,
@@ -193,7 +193,7 @@ pub type DUM_VAL_W<'a, const O: u8> = crate::BitWriter<'a, u32, DBI_CTL_0_SPEC, 
 #[doc = "Field `rgb_src_fmt` reader - RGB Source Format"]
 pub type RGB_SRC_FMT_R = crate::FieldReader<u8, RGB_SRC_FMT_A>;
 #[doc = "RGB Source Format\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum RGB_SRC_FMT_A {
     #[doc = "0: `0`"]
@@ -350,7 +350,7 @@ impl<'a, const O: u8> RGB_SRC_FMT_W<'a, O> {
 #[doc = "Field `dbi_interface` reader - "]
 pub type DBI_INTERFACE_R = crate::FieldReader<u8, DBI_INTERFACE_A>;
 #[doc = "\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum DBI_INTERFACE_A {
     #[doc = "0: 3 Line Interface I"]
@@ -442,7 +442,7 @@ impl<'a, const O: u8> DBI_INTERFACE_W<'a, O> {
 #[doc = "Field `dat_fmt` reader - Output Data Format"]
 pub type DAT_FMT_R = crate::FieldReader<u8, DAT_FMT_A>;
 #[doc = "Output Data Format\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum DAT_FMT_A {
     #[doc = "0: `0`"]
@@ -534,7 +534,7 @@ impl<'a, const O: u8> DAT_FMT_W<'a, O> {
 #[doc = "Field `tran_mod` reader - Transmit Mode"]
 pub type TRAN_MOD_R = crate::BitReader<TRAN_MOD_A>;
 #[doc = "Transmit Mode\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum TRAN_MOD_A {
     #[doc = "0: `0`"]
     COMMAND_PARAMETER = 0,
@@ -584,7 +584,7 @@ impl<'a, const O: u8> TRAN_MOD_W<'a, O> {
 #[doc = "Field `rgb_seq` reader - Output RGB Sequence"]
 pub type RGB_SEQ_R = crate::FieldReader<u8, RGB_SEQ_A>;
 #[doc = "Output RGB Sequence\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum RGB_SEQ_A {
     #[doc = "0: `0`"]
@@ -689,7 +689,7 @@ impl<'a, const O: u8> RGB_SEQ_W<'a, O> {
 #[doc = "Field `dat_seq` reader - Output Data Sequence"]
 pub type DAT_SEQ_R = crate::BitReader<DAT_SEQ_A>;
 #[doc = "Output Data Sequence\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum DAT_SEQ_A {
     #[doc = "0: `0`"]
     MSB = 0,
@@ -743,7 +743,7 @@ pub type WCDC_W<'a, const O: u8> = crate::FieldWriter<'a, u32, DBI_CTL_0_SPEC, u
 #[doc = "Field `cmdt` reader - Command Type"]
 pub type CMDT_R = crate::BitReader<CMDT_A>;
 #[doc = "Command Type\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum CMDT_A {
     #[doc = "0: `0`"]
     WRITE = 0,
@@ -855,61 +855,73 @@ impl R {
 impl W {
     #[doc = "Bit 0 - Video Source Type"]
     #[inline(always)]
+    #[must_use]
     pub fn vi_src_type(&mut self) -> VI_SRC_TYPE_W<0> {
         VI_SRC_TYPE_W::new(self)
     }
     #[doc = "Bit 1 - Element A Position"]
     #[inline(always)]
+    #[must_use]
     pub fn element_a_pos(&mut self) -> ELEMENT_A_POS_W<1> {
         ELEMENT_A_POS_W::new(self)
     }
     #[doc = "Bit 2 - RGB Bit Order"]
     #[inline(always)]
+    #[must_use]
     pub fn rgb_bo(&mut self) -> RGB_BO_W<2> {
         RGB_BO_W::new(self)
     }
     #[doc = "Bit 3 - Dummy Cycle Value"]
     #[inline(always)]
+    #[must_use]
     pub fn dum_val(&mut self) -> DUM_VAL_W<3> {
         DUM_VAL_W::new(self)
     }
     #[doc = "Bits 4:7 - RGB Source Format"]
     #[inline(always)]
+    #[must_use]
     pub fn rgb_src_fmt(&mut self) -> RGB_SRC_FMT_W<4> {
         RGB_SRC_FMT_W::new(self)
     }
     #[doc = "Bits 8:10"]
     #[inline(always)]
+    #[must_use]
     pub fn dbi_interface(&mut self) -> DBI_INTERFACE_W<8> {
         DBI_INTERFACE_W::new(self)
     }
     #[doc = "Bits 12:14 - Output Data Format"]
     #[inline(always)]
+    #[must_use]
     pub fn dat_fmt(&mut self) -> DAT_FMT_W<12> {
         DAT_FMT_W::new(self)
     }
     #[doc = "Bit 15 - Transmit Mode"]
     #[inline(always)]
+    #[must_use]
     pub fn tran_mod(&mut self) -> TRAN_MOD_W<15> {
         TRAN_MOD_W::new(self)
     }
     #[doc = "Bits 16:18 - Output RGB Sequence"]
     #[inline(always)]
+    #[must_use]
     pub fn rgb_seq(&mut self) -> RGB_SEQ_W<16> {
         RGB_SEQ_W::new(self)
     }
     #[doc = "Bit 19 - Output Data Sequence"]
     #[inline(always)]
+    #[must_use]
     pub fn dat_seq(&mut self) -> DAT_SEQ_W<19> {
         DAT_SEQ_W::new(self)
     }
     #[doc = "Bits 20:30 - Write Command Dummy Cycles"]
     #[inline(always)]
+    #[must_use]
     pub fn wcdc(&mut self) -> WCDC_W<20> {
         WCDC_W::new(self)
     }
     #[doc = "Bit 31 - Command Type"]
     #[inline(always)]
+    #[must_use]
     pub fn cmdt(&mut self) -> CMDT_W<31> {
         CMDT_W::new(self)
     }
@@ -932,11 +944,10 @@ impl crate::Readable for DBI_CTL_0_SPEC {
 #[doc = "`write(|w| ..)` method takes [dbi_ctl_0::W](W) writer structure"]
 impl crate::Writable for DBI_CTL_0_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets dbi_ctl_0 to value 0"]
 impl crate::Resettable for DBI_CTL_0_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

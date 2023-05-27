@@ -34,7 +34,25 @@ impl From<crate::W<AC_DAC_DRC_LKE_SPEC>> for W {
         W(writer)
     }
 }
+#[doc = "Field `dac_drc_lke` reader - The slope of the expander, which is determined by the equation that Ke = 1/R. R is the ratio of the expander, which is always an integer and the ke must larger than 50. The format is 8.24. (The default value is <1:5>)"]
+pub type DAC_DRC_LKE_R = crate::FieldReader<u16, u16>;
+#[doc = "Field `dac_drc_lke` writer - The slope of the expander, which is determined by the equation that Ke = 1/R. R is the ratio of the expander, which is always an integer and the ke must larger than 50. The format is 8.24. (The default value is <1:5>)"]
+pub type DAC_DRC_LKE_W<'a, const O: u8> =
+    crate::FieldWriter<'a, u32, AC_DAC_DRC_LKE_SPEC, u16, u16, 16, O>;
+impl R {
+    #[doc = "Bits 0:15 - The slope of the expander, which is determined by the equation that Ke = 1/R. R is the ratio of the expander, which is always an integer and the ke must larger than 50. The format is 8.24. (The default value is <1:5>)"]
+    #[inline(always)]
+    pub fn dac_drc_lke(&self) -> DAC_DRC_LKE_R {
+        DAC_DRC_LKE_R::new((self.bits & 0xffff) as u16)
+    }
+}
 impl W {
+    #[doc = "Bits 0:15 - The slope of the expander, which is determined by the equation that Ke = 1/R. R is the ratio of the expander, which is always an integer and the ke must larger than 50. The format is 8.24. (The default value is <1:5>)"]
+    #[inline(always)]
+    #[must_use]
+    pub fn dac_drc_lke(&mut self) -> DAC_DRC_LKE_W<0> {
+        DAC_DRC_LKE_W::new(self)
+    }
     #[doc = "Writes raw bits to the register."]
     #[inline(always)]
     pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
@@ -54,11 +72,10 @@ impl crate::Readable for AC_DAC_DRC_LKE_SPEC {
 #[doc = "`write(|w| ..)` method takes [ac_dac_drc_lke::W](W) writer structure"]
 impl crate::Writable for AC_DAC_DRC_LKE_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets ac_dac_drc_lke to value 0"]
 impl crate::Resettable for AC_DAC_DRC_LKE_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

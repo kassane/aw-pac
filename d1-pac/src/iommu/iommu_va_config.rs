@@ -37,10 +37,10 @@ impl From<crate::W<IOMMU_VA_CONFIG_SPEC>> for W {
 #[doc = "Field `va_config_start` reader - "]
 pub type VA_CONFIG_START_R = crate::BitReader<VA_CONFIG_START_A>;
 #[doc = "\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum VA_CONFIG_START_A {
     #[doc = "0: No operation or operation is completed"]
-    N_O_OPERATION_OR_COMPLETED = 0,
+    NO_OPERATION_OR_COMPLETED = 0,
     #[doc = "1: Start"]
     S_TART = 1,
 }
@@ -55,14 +55,14 @@ impl VA_CONFIG_START_R {
     #[inline(always)]
     pub fn variant(&self) -> VA_CONFIG_START_A {
         match self.bits {
-            false => VA_CONFIG_START_A::N_O_OPERATION_OR_COMPLETED,
+            false => VA_CONFIG_START_A::NO_OPERATION_OR_COMPLETED,
             true => VA_CONFIG_START_A::S_TART,
         }
     }
-    #[doc = "Checks if the value of the field is `N_O_OPERATION_OR_COMPLETED`"]
+    #[doc = "Checks if the value of the field is `NO_OPERATION_OR_COMPLETED`"]
     #[inline(always)]
-    pub fn is_n_o_operation_or_completed(&self) -> bool {
-        *self == VA_CONFIG_START_A::N_O_OPERATION_OR_COMPLETED
+    pub fn is_no_operation_or_completed(&self) -> bool {
+        *self == VA_CONFIG_START_A::NO_OPERATION_OR_COMPLETED
     }
     #[doc = "Checks if the value of the field is `S_TART`"]
     #[inline(always)]
@@ -76,8 +76,8 @@ pub type VA_CONFIG_START_W<'a, const O: u8> =
 impl<'a, const O: u8> VA_CONFIG_START_W<'a, O> {
     #[doc = "No operation or operation is completed"]
     #[inline(always)]
-    pub fn n_o_operation_or_completed(self) -> &'a mut W {
-        self.variant(VA_CONFIG_START_A::N_O_OPERATION_OR_COMPLETED)
+    pub fn no_operation_or_completed(self) -> &'a mut W {
+        self.variant(VA_CONFIG_START_A::NO_OPERATION_OR_COMPLETED)
     }
     #[doc = "Start"]
     #[inline(always)]
@@ -88,7 +88,7 @@ impl<'a, const O: u8> VA_CONFIG_START_W<'a, O> {
 #[doc = "Field `va_config` reader - Virtual Address Configuration"]
 pub type VA_CONFIG_R = crate::BitReader<VA_CONFIG_A>;
 #[doc = "Virtual Address Configuration\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum VA_CONFIG_A {
     #[doc = "0: Read operation"]
     R_EAD = 0,
@@ -139,7 +139,7 @@ impl<'a, const O: u8> VA_CONFIG_W<'a, O> {
 #[doc = "Field `mode_sel` reader - "]
 pub type MODE_SEL_R = crate::BitReader<MODE_SEL_A>;
 #[doc = "\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum MODE_SEL_A {
     #[doc = "0: Prefetch"]
     P_REFETCH = 0,
@@ -207,16 +207,19 @@ impl R {
 impl W {
     #[doc = "Bit 0"]
     #[inline(always)]
+    #[must_use]
     pub fn va_config_start(&mut self) -> VA_CONFIG_START_W<0> {
         VA_CONFIG_START_W::new(self)
     }
     #[doc = "Bit 8 - Virtual Address Configuration"]
     #[inline(always)]
+    #[must_use]
     pub fn va_config(&mut self) -> VA_CONFIG_W<8> {
         VA_CONFIG_W::new(self)
     }
     #[doc = "Bit 31"]
     #[inline(always)]
+    #[must_use]
     pub fn mode_sel(&mut self) -> MODE_SEL_W<31> {
         MODE_SEL_W::new(self)
     }
@@ -239,11 +242,10 @@ impl crate::Readable for IOMMU_VA_CONFIG_SPEC {
 #[doc = "`write(|w| ..)` method takes [iommu_va_config::W](W) writer structure"]
 impl crate::Writable for IOMMU_VA_CONFIG_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets iommu_va_config to value 0"]
 impl crate::Resettable for IOMMU_VA_CONFIG_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

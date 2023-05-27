@@ -37,12 +37,12 @@ impl From<crate::W<CSIC_TOP_EN_SPEC>> for W {
 #[doc = "Field `csic_top_en` reader - "]
 pub type CSIC_TOP_EN_R = crate::BitReader<CSIC_TOP_EN_A>;
 #[doc = "\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum CSIC_TOP_EN_A {
     #[doc = "0: Reset and disable the CSIC module"]
-    R_ESET_DISABLE = 0,
+    RESET_DISABLE = 0,
     #[doc = "1: Enable the CSIC module"]
-    E_NABLE = 1,
+    ENABLE = 1,
 }
 impl From<CSIC_TOP_EN_A> for bool {
     #[inline(always)]
@@ -55,19 +55,19 @@ impl CSIC_TOP_EN_R {
     #[inline(always)]
     pub fn variant(&self) -> CSIC_TOP_EN_A {
         match self.bits {
-            false => CSIC_TOP_EN_A::R_ESET_DISABLE,
-            true => CSIC_TOP_EN_A::E_NABLE,
+            false => CSIC_TOP_EN_A::RESET_DISABLE,
+            true => CSIC_TOP_EN_A::ENABLE,
         }
     }
-    #[doc = "Checks if the value of the field is `R_ESET_DISABLE`"]
+    #[doc = "Checks if the value of the field is `RESET_DISABLE`"]
     #[inline(always)]
-    pub fn is_r_eset_disable(&self) -> bool {
-        *self == CSIC_TOP_EN_A::R_ESET_DISABLE
+    pub fn is_reset_disable(&self) -> bool {
+        *self == CSIC_TOP_EN_A::RESET_DISABLE
     }
-    #[doc = "Checks if the value of the field is `E_NABLE`"]
+    #[doc = "Checks if the value of the field is `ENABLE`"]
     #[inline(always)]
-    pub fn is_e_nable(&self) -> bool {
-        *self == CSIC_TOP_EN_A::E_NABLE
+    pub fn is_enable(&self) -> bool {
+        *self == CSIC_TOP_EN_A::ENABLE
     }
 }
 #[doc = "Field `csic_top_en` writer - "]
@@ -76,19 +76,19 @@ pub type CSIC_TOP_EN_W<'a, const O: u8> =
 impl<'a, const O: u8> CSIC_TOP_EN_W<'a, O> {
     #[doc = "Reset and disable the CSIC module"]
     #[inline(always)]
-    pub fn r_eset_disable(self) -> &'a mut W {
-        self.variant(CSIC_TOP_EN_A::R_ESET_DISABLE)
+    pub fn reset_disable(self) -> &'a mut W {
+        self.variant(CSIC_TOP_EN_A::RESET_DISABLE)
     }
     #[doc = "Enable the CSIC module"]
     #[inline(always)]
-    pub fn e_nable(self) -> &'a mut W {
-        self.variant(CSIC_TOP_EN_A::E_NABLE)
+    pub fn enable(self) -> &'a mut W {
+        self.variant(CSIC_TOP_EN_A::ENABLE)
     }
 }
 #[doc = "Field `bist_mode_en` reader - "]
 pub type BIST_MODE_EN_R = crate::BitReader<BIST_MODE_EN_A>;
 #[doc = "\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum BIST_MODE_EN_A {
     #[doc = "0: Closed"]
     C_LOSED = 0,
@@ -151,11 +151,13 @@ impl R {
 impl W {
     #[doc = "Bit 0"]
     #[inline(always)]
+    #[must_use]
     pub fn csic_top_en(&mut self) -> CSIC_TOP_EN_W<0> {
         CSIC_TOP_EN_W::new(self)
     }
     #[doc = "Bit 2"]
     #[inline(always)]
+    #[must_use]
     pub fn bist_mode_en(&mut self) -> BIST_MODE_EN_W<2> {
         BIST_MODE_EN_W::new(self)
     }
@@ -178,11 +180,10 @@ impl crate::Readable for CSIC_TOP_EN_SPEC {
 #[doc = "`write(|w| ..)` method takes [csic_top_en::W](W) writer structure"]
 impl crate::Writable for CSIC_TOP_EN_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets csic_top_en to value 0"]
 impl crate::Resettable for CSIC_TOP_EN_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

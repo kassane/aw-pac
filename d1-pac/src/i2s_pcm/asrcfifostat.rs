@@ -34,7 +34,25 @@ impl From<crate::W<ASRCFIFOSTAT_SPEC>> for W {
         W(writer)
     }
 }
+#[doc = "Field `asrc_rx_fifo_full_leval` reader - ASRC RXFIFO Full Level\n\nThe manually-configured FIFO fill level for the ratio value of the received data."]
+pub type ASRC_RX_FIFO_FULL_LEVAL_R = crate::FieldReader<u16, u16>;
+#[doc = "Field `asrc_rx_fifo_full_leval` writer - ASRC RXFIFO Full Level\n\nThe manually-configured FIFO fill level for the ratio value of the received data."]
+pub type ASRC_RX_FIFO_FULL_LEVAL_W<'a, const O: u8> =
+    crate::FieldWriter<'a, u32, ASRCFIFOSTAT_SPEC, u16, u16, 9, O>;
+impl R {
+    #[doc = "Bits 0:8 - ASRC RXFIFO Full Level\n\nThe manually-configured FIFO fill level for the ratio value of the received data."]
+    #[inline(always)]
+    pub fn asrc_rx_fifo_full_leval(&self) -> ASRC_RX_FIFO_FULL_LEVAL_R {
+        ASRC_RX_FIFO_FULL_LEVAL_R::new((self.bits & 0x01ff) as u16)
+    }
+}
 impl W {
+    #[doc = "Bits 0:8 - ASRC RXFIFO Full Level\n\nThe manually-configured FIFO fill level for the ratio value of the received data."]
+    #[inline(always)]
+    #[must_use]
+    pub fn asrc_rx_fifo_full_leval(&mut self) -> ASRC_RX_FIFO_FULL_LEVAL_W<0> {
+        ASRC_RX_FIFO_FULL_LEVAL_W::new(self)
+    }
     #[doc = "Writes raw bits to the register."]
     #[inline(always)]
     pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
@@ -54,11 +72,10 @@ impl crate::Readable for ASRCFIFOSTAT_SPEC {
 #[doc = "`write(|w| ..)` method takes [asrcfifostat::W](W) writer structure"]
 impl crate::Writable for ASRCFIFOSTAT_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets asrcfifostat to value 0"]
 impl crate::Resettable for ASRCFIFOSTAT_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

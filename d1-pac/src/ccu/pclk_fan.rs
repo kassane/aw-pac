@@ -41,7 +41,7 @@ pub type DIV_W<'a, const O: u8> = crate::FieldWriter<'a, u32, PCLK_FAN_SPEC, u8,
 #[doc = "Field `gating` reader - Gating for PCLK"]
 pub type GATING_R = crate::BitReader<GATING_A>;
 #[doc = "Gating for PCLK\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum GATING_A {
     #[doc = "0: `0`"]
     OFF = 0,
@@ -103,11 +103,13 @@ impl R {
 impl W {
     #[doc = "Bits 0:4 - Factor M"]
     #[inline(always)]
+    #[must_use]
     pub fn div(&mut self) -> DIV_W<0> {
         DIV_W::new(self)
     }
     #[doc = "Bit 31 - Gating for PCLK"]
     #[inline(always)]
+    #[must_use]
     pub fn gating(&mut self) -> GATING_W<31> {
         GATING_W::new(self)
     }
@@ -130,11 +132,10 @@ impl crate::Readable for PCLK_FAN_SPEC {
 #[doc = "`write(|w| ..)` method takes [pclk_fan::W](W) writer structure"]
 impl crate::Writable for PCLK_FAN_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets pclk_fan to value 0"]
 impl crate::Resettable for PCLK_FAN_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

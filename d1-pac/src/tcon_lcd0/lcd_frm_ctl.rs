@@ -37,7 +37,7 @@ impl From<crate::W<LCD_FRM_CTL_SPEC>> for W {
 #[doc = "Field `lcd_frm_test` reader - Set the test mode of dither function"]
 pub type LCD_FRM_TEST_R = crate::FieldReader<u8, LCD_FRM_TEST_A>;
 #[doc = "Set the test mode of dither function\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum LCD_FRM_TEST_A {
     #[doc = "0: FRM"]
@@ -116,7 +116,7 @@ impl<'a, const O: u8> LCD_FRM_TEST_W<'a, O> {
 #[doc = "Field `lcd_frm_mode_b` reader - The B component output bits in dither function"]
 pub type LCD_FRM_MODE_B_R = crate::BitReader<LCD_FRM_MODE_B_A>;
 #[doc = "The B component output bits in dither function\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum LCD_FRM_MODE_B_A {
     #[doc = "0: 6-bit frm output"]
     B_IT6 = 0,
@@ -167,7 +167,7 @@ impl<'a, const O: u8> LCD_FRM_MODE_B_W<'a, O> {
 #[doc = "Field `lcd_frm_mode_g` reader - The G component output bits in dither function"]
 pub type LCD_FRM_MODE_G_R = crate::BitReader<LCD_FRM_MODE_G_A>;
 #[doc = "The G component output bits in dither function\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum LCD_FRM_MODE_G_A {
     #[doc = "0: 6-bit frm output"]
     B_IT6 = 0,
@@ -218,7 +218,7 @@ impl<'a, const O: u8> LCD_FRM_MODE_G_W<'a, O> {
 #[doc = "Field `lcd_frm_mode_r` reader - The R component output bits in dither function"]
 pub type LCD_FRM_MODE_R_R = crate::BitReader<LCD_FRM_MODE_R_A>;
 #[doc = "The R component output bits in dither function\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum LCD_FRM_MODE_R_A {
     #[doc = "0: 6-bit frm output"]
     B_IT6 = 0,
@@ -269,12 +269,12 @@ impl<'a, const O: u8> LCD_FRM_MODE_R_W<'a, O> {
 #[doc = "Field `lcd_frm_en` reader - Enable the dither function"]
 pub type LCD_FRM_EN_R = crate::BitReader<LCD_FRM_EN_A>;
 #[doc = "Enable the dither function\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum LCD_FRM_EN_A {
     #[doc = "0: Disable"]
-    D_ISABLE = 0,
+    DISABLE = 0,
     #[doc = "1: Enable"]
-    E_NABLE = 1,
+    ENABLE = 1,
 }
 impl From<LCD_FRM_EN_A> for bool {
     #[inline(always)]
@@ -287,19 +287,19 @@ impl LCD_FRM_EN_R {
     #[inline(always)]
     pub fn variant(&self) -> LCD_FRM_EN_A {
         match self.bits {
-            false => LCD_FRM_EN_A::D_ISABLE,
-            true => LCD_FRM_EN_A::E_NABLE,
+            false => LCD_FRM_EN_A::DISABLE,
+            true => LCD_FRM_EN_A::ENABLE,
         }
     }
-    #[doc = "Checks if the value of the field is `D_ISABLE`"]
+    #[doc = "Checks if the value of the field is `DISABLE`"]
     #[inline(always)]
-    pub fn is_d_isable(&self) -> bool {
-        *self == LCD_FRM_EN_A::D_ISABLE
+    pub fn is_disable(&self) -> bool {
+        *self == LCD_FRM_EN_A::DISABLE
     }
-    #[doc = "Checks if the value of the field is `E_NABLE`"]
+    #[doc = "Checks if the value of the field is `ENABLE`"]
     #[inline(always)]
-    pub fn is_e_nable(&self) -> bool {
-        *self == LCD_FRM_EN_A::E_NABLE
+    pub fn is_enable(&self) -> bool {
+        *self == LCD_FRM_EN_A::ENABLE
     }
 }
 #[doc = "Field `lcd_frm_en` writer - Enable the dither function"]
@@ -308,13 +308,13 @@ pub type LCD_FRM_EN_W<'a, const O: u8> =
 impl<'a, const O: u8> LCD_FRM_EN_W<'a, O> {
     #[doc = "Disable"]
     #[inline(always)]
-    pub fn d_isable(self) -> &'a mut W {
-        self.variant(LCD_FRM_EN_A::D_ISABLE)
+    pub fn disable(self) -> &'a mut W {
+        self.variant(LCD_FRM_EN_A::DISABLE)
     }
     #[doc = "Enable"]
     #[inline(always)]
-    pub fn e_nable(self) -> &'a mut W {
-        self.variant(LCD_FRM_EN_A::E_NABLE)
+    pub fn enable(self) -> &'a mut W {
+        self.variant(LCD_FRM_EN_A::ENABLE)
     }
 }
 impl R {
@@ -347,26 +347,31 @@ impl R {
 impl W {
     #[doc = "Bits 0:1 - Set the test mode of dither function"]
     #[inline(always)]
+    #[must_use]
     pub fn lcd_frm_test(&mut self) -> LCD_FRM_TEST_W<0> {
         LCD_FRM_TEST_W::new(self)
     }
     #[doc = "Bit 4 - The B component output bits in dither function"]
     #[inline(always)]
+    #[must_use]
     pub fn lcd_frm_mode_b(&mut self) -> LCD_FRM_MODE_B_W<4> {
         LCD_FRM_MODE_B_W::new(self)
     }
     #[doc = "Bit 5 - The G component output bits in dither function"]
     #[inline(always)]
+    #[must_use]
     pub fn lcd_frm_mode_g(&mut self) -> LCD_FRM_MODE_G_W<5> {
         LCD_FRM_MODE_G_W::new(self)
     }
     #[doc = "Bit 6 - The R component output bits in dither function"]
     #[inline(always)]
+    #[must_use]
     pub fn lcd_frm_mode_r(&mut self) -> LCD_FRM_MODE_R_W<6> {
         LCD_FRM_MODE_R_W::new(self)
     }
     #[doc = "Bit 31 - Enable the dither function"]
     #[inline(always)]
+    #[must_use]
     pub fn lcd_frm_en(&mut self) -> LCD_FRM_EN_W<31> {
         LCD_FRM_EN_W::new(self)
     }
@@ -389,11 +394,10 @@ impl crate::Readable for LCD_FRM_CTL_SPEC {
 #[doc = "`write(|w| ..)` method takes [lcd_frm_ctl::W](W) writer structure"]
 impl crate::Writable for LCD_FRM_CTL_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets lcd_frm_ctl to value 0"]
 impl crate::Resettable for LCD_FRM_CTL_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

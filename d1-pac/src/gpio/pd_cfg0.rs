@@ -37,7 +37,7 @@ impl From<crate::W<PD_CFG0_SPEC>> for W {
 #[doc = "Field `pd0_select` reader - PD0 Select"]
 pub type PD0_SELECT_R = crate::FieldReader<u8, PD0_SELECT_A>;
 #[doc = "PD0 Select\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum PD0_SELECT_A {
     #[doc = "0: `0`"]
@@ -168,7 +168,7 @@ impl<'a, const O: u8> PD0_SELECT_W<'a, O> {
 #[doc = "Field `pd1_select` reader - PD1 Select"]
 pub type PD1_SELECT_R = crate::FieldReader<u8, PD1_SELECT_A>;
 #[doc = "PD1 Select\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum PD1_SELECT_A {
     #[doc = "0: `0`"]
@@ -299,7 +299,7 @@ impl<'a, const O: u8> PD1_SELECT_W<'a, O> {
 #[doc = "Field `pd2_select` reader - PD2 Select"]
 pub type PD2_SELECT_R = crate::FieldReader<u8, PD2_SELECT_A>;
 #[doc = "PD2 Select\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum PD2_SELECT_A {
     #[doc = "0: `0`"]
@@ -430,7 +430,7 @@ impl<'a, const O: u8> PD2_SELECT_W<'a, O> {
 #[doc = "Field `pd3_select` reader - PD3 Select"]
 pub type PD3_SELECT_R = crate::FieldReader<u8, PD3_SELECT_A>;
 #[doc = "PD3 Select\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum PD3_SELECT_A {
     #[doc = "0: `0`"]
@@ -561,7 +561,7 @@ impl<'a, const O: u8> PD3_SELECT_W<'a, O> {
 #[doc = "Field `pd4_select` reader - PD4 Select"]
 pub type PD4_SELECT_R = crate::FieldReader<u8, PD4_SELECT_A>;
 #[doc = "PD4 Select\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum PD4_SELECT_A {
     #[doc = "0: `0`"]
@@ -692,7 +692,7 @@ impl<'a, const O: u8> PD4_SELECT_W<'a, O> {
 #[doc = "Field `pd5_select` reader - PD5 Select"]
 pub type PD5_SELECT_R = crate::FieldReader<u8, PD5_SELECT_A>;
 #[doc = "PD5 Select\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum PD5_SELECT_A {
     #[doc = "0: `0`"]
@@ -823,7 +823,7 @@ impl<'a, const O: u8> PD5_SELECT_W<'a, O> {
 #[doc = "Field `pd6_select` reader - PD6 Select"]
 pub type PD6_SELECT_R = crate::FieldReader<u8, PD6_SELECT_A>;
 #[doc = "PD6 Select\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum PD6_SELECT_A {
     #[doc = "0: `0`"]
@@ -954,7 +954,7 @@ impl<'a, const O: u8> PD6_SELECT_W<'a, O> {
 #[doc = "Field `pd7_select` reader - PD7 Select"]
 pub type PD7_SELECT_R = crate::FieldReader<u8, PD7_SELECT_A>;
 #[doc = "PD7 Select\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum PD7_SELECT_A {
     #[doc = "0: `0`"]
@@ -1127,41 +1127,49 @@ impl R {
 impl W {
     #[doc = "Bits 0:3 - PD0 Select"]
     #[inline(always)]
+    #[must_use]
     pub fn pd0_select(&mut self) -> PD0_SELECT_W<0> {
         PD0_SELECT_W::new(self)
     }
     #[doc = "Bits 4:7 - PD1 Select"]
     #[inline(always)]
+    #[must_use]
     pub fn pd1_select(&mut self) -> PD1_SELECT_W<4> {
         PD1_SELECT_W::new(self)
     }
     #[doc = "Bits 8:11 - PD2 Select"]
     #[inline(always)]
+    #[must_use]
     pub fn pd2_select(&mut self) -> PD2_SELECT_W<8> {
         PD2_SELECT_W::new(self)
     }
     #[doc = "Bits 12:15 - PD3 Select"]
     #[inline(always)]
+    #[must_use]
     pub fn pd3_select(&mut self) -> PD3_SELECT_W<12> {
         PD3_SELECT_W::new(self)
     }
     #[doc = "Bits 16:19 - PD4 Select"]
     #[inline(always)]
+    #[must_use]
     pub fn pd4_select(&mut self) -> PD4_SELECT_W<16> {
         PD4_SELECT_W::new(self)
     }
     #[doc = "Bits 20:23 - PD5 Select"]
     #[inline(always)]
+    #[must_use]
     pub fn pd5_select(&mut self) -> PD5_SELECT_W<20> {
         PD5_SELECT_W::new(self)
     }
     #[doc = "Bits 24:27 - PD6 Select"]
     #[inline(always)]
+    #[must_use]
     pub fn pd6_select(&mut self) -> PD6_SELECT_W<24> {
         PD6_SELECT_W::new(self)
     }
     #[doc = "Bits 28:31 - PD7 Select"]
     #[inline(always)]
+    #[must_use]
     pub fn pd7_select(&mut self) -> PD7_SELECT_W<28> {
         PD7_SELECT_W::new(self)
     }
@@ -1184,11 +1192,10 @@ impl crate::Readable for PD_CFG0_SPEC {
 #[doc = "`write(|w| ..)` method takes [pd_cfg0::W](W) writer structure"]
 impl crate::Writable for PD_CFG0_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets pd_cfg0 to value 0"]
 impl crate::Resettable for PD_CFG0_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

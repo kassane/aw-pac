@@ -37,12 +37,12 @@ impl From<crate::W<IOMMU_PMU_ENABLE_SPEC>> for W {
 #[doc = "Field `pmu_enable` reader - "]
 pub type PMU_ENABLE_R = crate::BitReader<PMU_ENABLE_A>;
 #[doc = "\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum PMU_ENABLE_A {
     #[doc = "0: Disable statistical function"]
-    D_ISABLE = 0,
+    DISABLE = 0,
     #[doc = "1: Enable statistical function"]
-    E_NABLE = 1,
+    ENABLE = 1,
 }
 impl From<PMU_ENABLE_A> for bool {
     #[inline(always)]
@@ -55,19 +55,19 @@ impl PMU_ENABLE_R {
     #[inline(always)]
     pub fn variant(&self) -> PMU_ENABLE_A {
         match self.bits {
-            false => PMU_ENABLE_A::D_ISABLE,
-            true => PMU_ENABLE_A::E_NABLE,
+            false => PMU_ENABLE_A::DISABLE,
+            true => PMU_ENABLE_A::ENABLE,
         }
     }
-    #[doc = "Checks if the value of the field is `D_ISABLE`"]
+    #[doc = "Checks if the value of the field is `DISABLE`"]
     #[inline(always)]
-    pub fn is_d_isable(&self) -> bool {
-        *self == PMU_ENABLE_A::D_ISABLE
+    pub fn is_disable(&self) -> bool {
+        *self == PMU_ENABLE_A::DISABLE
     }
-    #[doc = "Checks if the value of the field is `E_NABLE`"]
+    #[doc = "Checks if the value of the field is `ENABLE`"]
     #[inline(always)]
-    pub fn is_e_nable(&self) -> bool {
-        *self == PMU_ENABLE_A::E_NABLE
+    pub fn is_enable(&self) -> bool {
+        *self == PMU_ENABLE_A::ENABLE
     }
 }
 #[doc = "Field `pmu_enable` writer - "]
@@ -76,13 +76,13 @@ pub type PMU_ENABLE_W<'a, const O: u8> =
 impl<'a, const O: u8> PMU_ENABLE_W<'a, O> {
     #[doc = "Disable statistical function"]
     #[inline(always)]
-    pub fn d_isable(self) -> &'a mut W {
-        self.variant(PMU_ENABLE_A::D_ISABLE)
+    pub fn disable(self) -> &'a mut W {
+        self.variant(PMU_ENABLE_A::DISABLE)
     }
     #[doc = "Enable statistical function"]
     #[inline(always)]
-    pub fn e_nable(self) -> &'a mut W {
-        self.variant(PMU_ENABLE_A::E_NABLE)
+    pub fn enable(self) -> &'a mut W {
+        self.variant(PMU_ENABLE_A::ENABLE)
     }
 }
 impl R {
@@ -95,6 +95,7 @@ impl R {
 impl W {
     #[doc = "Bit 0"]
     #[inline(always)]
+    #[must_use]
     pub fn pmu_enable(&mut self) -> PMU_ENABLE_W<0> {
         PMU_ENABLE_W::new(self)
     }
@@ -117,11 +118,10 @@ impl crate::Readable for IOMMU_PMU_ENABLE_SPEC {
 #[doc = "`write(|w| ..)` method takes [iommu_pmu_enable::W](W) writer structure"]
 impl crate::Writable for IOMMU_PMU_ENABLE_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets iommu_pmu_enable to value 0"]
 impl crate::Resettable for IOMMU_PMU_ENABLE_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

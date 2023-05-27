@@ -37,7 +37,7 @@ impl From<crate::W<EMAC_RX_FRM_FLT_SPEC>> for W {
 #[doc = "Field `rx_all` reader - Receive All Frame"]
 pub type RX_ALL_R = crate::BitReader<RX_ALL_A>;
 #[doc = "Receive All Frame\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum RX_ALL_A {
     #[doc = "0: `0`"]
     RECEIVE_WHEN_PASSED = 0,
@@ -87,7 +87,7 @@ impl<'a, const O: u8> RX_ALL_W<'a, O> {
 #[doc = "Field `flt_md` reader - "]
 pub type FLT_MD_R = crate::BitReader<FLT_MD_A>;
 #[doc = "\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum FLT_MD_A {
     #[doc = "0: `0`"]
     PASSED_WHEN_MATCHED = 0,
@@ -137,7 +137,7 @@ impl<'a, const O: u8> FLT_MD_W<'a, O> {
 #[doc = "Field `da_inv_filter` reader - "]
 pub type DA_INV_FILTER_R = crate::BitReader<DA_INV_FILTER_A>;
 #[doc = "\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum DA_INV_FILTER_A {
     #[doc = "0: `0`"]
     NORMAL = 0,
@@ -188,7 +188,7 @@ impl<'a, const O: u8> DA_INV_FILTER_W<'a, O> {
 #[doc = "Field `sa_inv_filter` reader - Receive SA Invert Filter Set"]
 pub type SA_INV_FILTER_R = crate::BitReader<SA_INV_FILTER_A>;
 #[doc = "Receive SA Invert Filter Set\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum SA_INV_FILTER_A {
     #[doc = "0: `0`"]
     MATCHED = 0,
@@ -239,7 +239,7 @@ impl<'a, const O: u8> SA_INV_FILTER_W<'a, O> {
 #[doc = "Field `sa_filter_en` reader - Receive SA Filter Enable"]
 pub type SA_FILTER_EN_R = crate::BitReader<SA_FILTER_EN_A>;
 #[doc = "Receive SA Filter Enable\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum SA_FILTER_EN_A {
     #[doc = "0: `0`"]
     RECEIVE_UPDATE = 0,
@@ -290,7 +290,7 @@ impl<'a, const O: u8> SA_FILTER_EN_W<'a, O> {
 #[doc = "Field `hash_unicast` reader - Filter Unicast Frames Set"]
 pub type HASH_UNICAST_R = crate::BitReader<HASH_UNICAST_A>;
 #[doc = "Filter Unicast Frames Set\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum HASH_UNICAST_A {
     #[doc = "0: `0`"]
     DA_FIELD = 0,
@@ -341,7 +341,7 @@ impl<'a, const O: u8> HASH_UNICAST_W<'a, O> {
 #[doc = "Field `hash_multicast` reader - Filter Multicast Frames Set"]
 pub type HASH_MULTICAST_R = crate::BitReader<HASH_MULTICAST_A>;
 #[doc = "Filter Multicast Frames Set\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum HASH_MULTICAST_A {
     #[doc = "0: `0`"]
     DA_FIELD = 0,
@@ -392,7 +392,7 @@ impl<'a, const O: u8> HASH_MULTICAST_W<'a, O> {
 #[doc = "Field `ctl_frm_filter` reader - Receive Control Frames Filter"]
 pub type CTL_FRM_FILTER_R = crate::FieldReader<u8, CTL_FRM_FILTER_A>;
 #[doc = "Receive Control Frames Filter\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum CTL_FRM_FILTER_A {
     #[doc = "0: `0`"]
@@ -458,7 +458,7 @@ impl<'a, const O: u8> CTL_FRM_FILTER_W<'a, O> {
 #[doc = "Field `rx_all_multicast` reader - Receive All Multicast Frames Filter"]
 pub type RX_ALL_MULTICAST_R = crate::BitReader<RX_ALL_MULTICAST_A>;
 #[doc = "Receive All Multicast Frames Filter\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum RX_ALL_MULTICAST_A {
     #[doc = "0: `0`"]
     FILTER = 0,
@@ -509,7 +509,7 @@ impl<'a, const O: u8> RX_ALL_MULTICAST_W<'a, O> {
 #[doc = "Field `dis_broadcast` reader - Disable Receive Broadcast Frames"]
 pub type DIS_BROADCAST_R = crate::BitReader<DIS_BROADCAST_A>;
 #[doc = "Disable Receive Broadcast Frames\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum DIS_BROADCAST_A {
     #[doc = "0: `0`"]
     RECEIVE = 0,
@@ -560,7 +560,7 @@ impl<'a, const O: u8> DIS_BROADCAST_W<'a, O> {
 #[doc = "Field `dis_addr_filter` reader - Disable Address Filter"]
 pub type DIS_ADDR_FILTER_R = crate::BitReader<DIS_ADDR_FILTER_A>;
 #[doc = "Disable Address Filter\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum DIS_ADDR_FILTER_A {
     #[doc = "0: `0`"]
     ENABLE = 0,
@@ -668,56 +668,67 @@ impl R {
 impl W {
     #[doc = "Bit 0 - Receive All Frame"]
     #[inline(always)]
+    #[must_use]
     pub fn rx_all(&mut self) -> RX_ALL_W<0> {
         RX_ALL_W::new(self)
     }
     #[doc = "Bit 1"]
     #[inline(always)]
+    #[must_use]
     pub fn flt_md(&mut self) -> FLT_MD_W<1> {
         FLT_MD_W::new(self)
     }
     #[doc = "Bit 4"]
     #[inline(always)]
+    #[must_use]
     pub fn da_inv_filter(&mut self) -> DA_INV_FILTER_W<4> {
         DA_INV_FILTER_W::new(self)
     }
     #[doc = "Bit 5 - Receive SA Invert Filter Set"]
     #[inline(always)]
+    #[must_use]
     pub fn sa_inv_filter(&mut self) -> SA_INV_FILTER_W<5> {
         SA_INV_FILTER_W::new(self)
     }
     #[doc = "Bit 6 - Receive SA Filter Enable"]
     #[inline(always)]
+    #[must_use]
     pub fn sa_filter_en(&mut self) -> SA_FILTER_EN_W<6> {
         SA_FILTER_EN_W::new(self)
     }
     #[doc = "Bit 8 - Filter Unicast Frames Set"]
     #[inline(always)]
+    #[must_use]
     pub fn hash_unicast(&mut self) -> HASH_UNICAST_W<8> {
         HASH_UNICAST_W::new(self)
     }
     #[doc = "Bit 9 - Filter Multicast Frames Set"]
     #[inline(always)]
+    #[must_use]
     pub fn hash_multicast(&mut self) -> HASH_MULTICAST_W<9> {
         HASH_MULTICAST_W::new(self)
     }
     #[doc = "Bits 12:13 - Receive Control Frames Filter"]
     #[inline(always)]
+    #[must_use]
     pub fn ctl_frm_filter(&mut self) -> CTL_FRM_FILTER_W<12> {
         CTL_FRM_FILTER_W::new(self)
     }
     #[doc = "Bit 16 - Receive All Multicast Frames Filter"]
     #[inline(always)]
+    #[must_use]
     pub fn rx_all_multicast(&mut self) -> RX_ALL_MULTICAST_W<16> {
         RX_ALL_MULTICAST_W::new(self)
     }
     #[doc = "Bit 17 - Disable Receive Broadcast Frames"]
     #[inline(always)]
+    #[must_use]
     pub fn dis_broadcast(&mut self) -> DIS_BROADCAST_W<17> {
         DIS_BROADCAST_W::new(self)
     }
     #[doc = "Bit 31 - Disable Address Filter"]
     #[inline(always)]
+    #[must_use]
     pub fn dis_addr_filter(&mut self) -> DIS_ADDR_FILTER_W<31> {
         DIS_ADDR_FILTER_W::new(self)
     }
@@ -740,11 +751,10 @@ impl crate::Readable for EMAC_RX_FRM_FLT_SPEC {
 #[doc = "`write(|w| ..)` method takes [emac_rx_frm_flt::W](W) writer structure"]
 impl crate::Writable for EMAC_RX_FRM_FLT_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets emac_rx_frm_flt to value 0"]
 impl crate::Resettable for EMAC_RX_FRM_FLT_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

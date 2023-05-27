@@ -37,7 +37,7 @@ impl From<crate::W<DMA_REQ_EN_SPEC>> for W {
 #[doc = "Field `rx_req_enable` reader - DMA RX REQ Enable"]
 pub type RX_REQ_ENABLE_R = crate::BitReader<RX_REQ_ENABLE_A>;
 #[doc = "DMA RX REQ Enable\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum RX_REQ_ENABLE_A {
     #[doc = "0: `0`"]
     DISABLE = 0,
@@ -88,7 +88,7 @@ impl<'a, const O: u8> RX_REQ_ENABLE_W<'a, O> {
 #[doc = "Field `tx_req_enable` reader - DMA TX REQ Enable"]
 pub type TX_REQ_ENABLE_R = crate::BitReader<TX_REQ_ENABLE_A>;
 #[doc = "DMA TX REQ Enable\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum TX_REQ_ENABLE_A {
     #[doc = "0: `0`"]
     DISABLE = 0,
@@ -139,7 +139,7 @@ impl<'a, const O: u8> TX_REQ_ENABLE_W<'a, O> {
 #[doc = "Field `timeout_enable` reader - DMA Timeout Enable"]
 pub type TIMEOUT_ENABLE_R = crate::BitReader<TIMEOUT_ENABLE_A>;
 #[doc = "DMA Timeout Enable\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum TIMEOUT_ENABLE_A {
     #[doc = "0: `0`"]
     DISABLE = 0,
@@ -207,16 +207,19 @@ impl R {
 impl W {
     #[doc = "Bit 0 - DMA RX REQ Enable"]
     #[inline(always)]
+    #[must_use]
     pub fn rx_req_enable(&mut self) -> RX_REQ_ENABLE_W<0> {
         RX_REQ_ENABLE_W::new(self)
     }
     #[doc = "Bit 1 - DMA TX REQ Enable"]
     #[inline(always)]
+    #[must_use]
     pub fn tx_req_enable(&mut self) -> TX_REQ_ENABLE_W<1> {
         TX_REQ_ENABLE_W::new(self)
     }
     #[doc = "Bit 2 - DMA Timeout Enable"]
     #[inline(always)]
+    #[must_use]
     pub fn timeout_enable(&mut self) -> TIMEOUT_ENABLE_W<2> {
         TIMEOUT_ENABLE_W::new(self)
     }
@@ -239,11 +242,10 @@ impl crate::Readable for DMA_REQ_EN_SPEC {
 #[doc = "`write(|w| ..)` method takes [dma_req_en::W](W) writer structure"]
 impl crate::Writable for DMA_REQ_EN_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets dma_req_en to value 0"]
 impl crate::Resettable for DMA_REQ_EN_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

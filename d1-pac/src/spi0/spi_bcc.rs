@@ -45,7 +45,7 @@ pub type DBC_W<'a, const O: u8> = crate::FieldWriter<'a, u32, SPI_BCC_SPEC, u8, 
 #[doc = "Field `drm` reader - Master Dual Mode RX Enable"]
 pub type DRM_R = crate::BitReader<DRM_A>;
 #[doc = "Master Dual Mode RX Enable\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum DRM_A {
     #[doc = "0: `0`"]
     SINGLE = 0,
@@ -95,7 +95,7 @@ impl<'a, const O: u8> DRM_W<'a, O> {
 #[doc = "Field `quad_en` reader - Quad Mode Enable"]
 pub type QUAD_EN_R = crate::BitReader<QUAD_EN_A>;
 #[doc = "Quad Mode Enable\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum QUAD_EN_A {
     #[doc = "0: `0`"]
     DISABLE = 0,
@@ -146,7 +146,7 @@ impl R {
     #[doc = "Bits 0:23 - Master Single Mode Transmit Counter"]
     #[inline(always)]
     pub fn stc(&self) -> STC_R {
-        STC_R::new((self.bits & 0x00ff_ffff) as u32)
+        STC_R::new(self.bits & 0x00ff_ffff)
     }
     #[doc = "Bits 24:27 - Master Dummy Burst Counter"]
     #[inline(always)]
@@ -167,21 +167,25 @@ impl R {
 impl W {
     #[doc = "Bits 0:23 - Master Single Mode Transmit Counter"]
     #[inline(always)]
+    #[must_use]
     pub fn stc(&mut self) -> STC_W<0> {
         STC_W::new(self)
     }
     #[doc = "Bits 24:27 - Master Dummy Burst Counter"]
     #[inline(always)]
+    #[must_use]
     pub fn dbc(&mut self) -> DBC_W<24> {
         DBC_W::new(self)
     }
     #[doc = "Bit 28 - Master Dual Mode RX Enable"]
     #[inline(always)]
+    #[must_use]
     pub fn drm(&mut self) -> DRM_W<28> {
         DRM_W::new(self)
     }
     #[doc = "Bit 29 - Quad Mode Enable"]
     #[inline(always)]
+    #[must_use]
     pub fn quad_en(&mut self) -> QUAD_EN_W<29> {
         QUAD_EN_W::new(self)
     }
@@ -204,11 +208,10 @@ impl crate::Readable for SPI_BCC_SPEC {
 #[doc = "`write(|w| ..)` method takes [spi_bcc::W](W) writer structure"]
 impl crate::Writable for SPI_BCC_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets spi_bcc to value 0"]
 impl crate::Resettable for SPI_BCC_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

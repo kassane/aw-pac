@@ -37,7 +37,7 @@ impl From<crate::W<PCCR23_SPEC>> for W {
 #[doc = "Field `pwm23_clk_div_m` reader - PWM23 Clock Divide M"]
 pub type PWM23_CLK_DIV_M_R = crate::FieldReader<u8, PWM23_CLK_DIV_M_A>;
 #[doc = "PWM23 Clock Divide M\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum PWM23_CLK_DIV_M_A {
     #[doc = "0: /1"]
@@ -181,7 +181,7 @@ impl<'a, const O: u8> PWM23_CLK_DIV_M_W<'a, O> {
 #[doc = "Field `pwm23_clk_src_sel` reader - Select PWM23 Clock Source"]
 pub type PWM23_CLK_SRC_SEL_R = crate::FieldReader<u8, PWM23_CLK_SRC_SEL_A>;
 #[doc = "Select PWM23 Clock Source\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum PWM23_CLK_SRC_SEL_A {
     #[doc = "0: HOSC"]
@@ -246,11 +246,13 @@ impl R {
 impl W {
     #[doc = "Bits 0:3 - PWM23 Clock Divide M"]
     #[inline(always)]
+    #[must_use]
     pub fn pwm23_clk_div_m(&mut self) -> PWM23_CLK_DIV_M_W<0> {
         PWM23_CLK_DIV_M_W::new(self)
     }
     #[doc = "Bits 7:8 - Select PWM23 Clock Source"]
     #[inline(always)]
+    #[must_use]
     pub fn pwm23_clk_src_sel(&mut self) -> PWM23_CLK_SRC_SEL_W<7> {
         PWM23_CLK_SRC_SEL_W::new(self)
     }
@@ -273,11 +275,10 @@ impl crate::Readable for PCCR23_SPEC {
 #[doc = "`write(|w| ..)` method takes [pccr23::W](W) writer structure"]
 impl crate::Writable for PCCR23_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets pccr23 to value 0"]
 impl crate::Resettable for PCCR23_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

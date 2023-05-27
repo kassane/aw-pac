@@ -37,12 +37,12 @@ impl From<crate::W<PRS_EN_SPEC>> for W {
 #[doc = "Field `prs_en` reader - "]
 pub type PRS_EN_R = crate::BitReader<PRS_EN_A>;
 #[doc = "\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum PRS_EN_A {
     #[doc = "0: Reset and disable the parser module"]
-    R_ESET_DISABLE = 0,
+    RESET_DISABLE = 0,
     #[doc = "1: Enable the parser module"]
-    E_NABLE = 1,
+    ENABLE = 1,
 }
 impl From<PRS_EN_A> for bool {
     #[inline(always)]
@@ -55,19 +55,19 @@ impl PRS_EN_R {
     #[inline(always)]
     pub fn variant(&self) -> PRS_EN_A {
         match self.bits {
-            false => PRS_EN_A::R_ESET_DISABLE,
-            true => PRS_EN_A::E_NABLE,
+            false => PRS_EN_A::RESET_DISABLE,
+            true => PRS_EN_A::ENABLE,
         }
     }
-    #[doc = "Checks if the value of the field is `R_ESET_DISABLE`"]
+    #[doc = "Checks if the value of the field is `RESET_DISABLE`"]
     #[inline(always)]
-    pub fn is_r_eset_disable(&self) -> bool {
-        *self == PRS_EN_A::R_ESET_DISABLE
+    pub fn is_reset_disable(&self) -> bool {
+        *self == PRS_EN_A::RESET_DISABLE
     }
-    #[doc = "Checks if the value of the field is `E_NABLE`"]
+    #[doc = "Checks if the value of the field is `ENABLE`"]
     #[inline(always)]
-    pub fn is_e_nable(&self) -> bool {
-        *self == PRS_EN_A::E_NABLE
+    pub fn is_enable(&self) -> bool {
+        *self == PRS_EN_A::ENABLE
     }
 }
 #[doc = "Field `prs_en` writer - "]
@@ -75,19 +75,19 @@ pub type PRS_EN_W<'a, const O: u8> = crate::BitWriter<'a, u32, PRS_EN_SPEC, PRS_
 impl<'a, const O: u8> PRS_EN_W<'a, O> {
     #[doc = "Reset and disable the parser module"]
     #[inline(always)]
-    pub fn r_eset_disable(self) -> &'a mut W {
-        self.variant(PRS_EN_A::R_ESET_DISABLE)
+    pub fn reset_disable(self) -> &'a mut W {
+        self.variant(PRS_EN_A::RESET_DISABLE)
     }
     #[doc = "Enable the parser module"]
     #[inline(always)]
-    pub fn e_nable(self) -> &'a mut W {
-        self.variant(PRS_EN_A::E_NABLE)
+    pub fn enable(self) -> &'a mut W {
+        self.variant(PRS_EN_A::ENABLE)
     }
 }
 #[doc = "Field `prs_mode` reader - "]
 pub type PRS_MODE_R = crate::BitReader<PRS_MODE_A>;
 #[doc = "\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum PRS_MODE_A {
     #[doc = "1: MCSI"]
     MCSI = 1,
@@ -125,7 +125,7 @@ impl<'a, const O: u8> PRS_MODE_W<'a, O> {
 #[doc = "Field `prs_ch_mode` reader - "]
 pub type PRS_CH_MODE_R = crate::BitReader<PRS_CH_MODE_A>;
 #[doc = "\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum PRS_CH_MODE_A {
     #[doc = "0: Parser output channel 0-3 corresponding from input channel 0-3"]
     CORRESPONDING = 0,
@@ -175,12 +175,12 @@ impl<'a, const O: u8> PRS_CH_MODE_W<'a, O> {
 #[doc = "Field `pclk_en` reader - "]
 pub type PCLK_EN_R = crate::BitReader<PCLK_EN_A>;
 #[doc = "\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum PCLK_EN_A {
     #[doc = "0: Gate pclk input"]
     G_ATE = 0,
     #[doc = "1: Enable pclk input"]
-    E_NABLE = 1,
+    ENABLE = 1,
 }
 impl From<PCLK_EN_A> for bool {
     #[inline(always)]
@@ -194,7 +194,7 @@ impl PCLK_EN_R {
     pub fn variant(&self) -> PCLK_EN_A {
         match self.bits {
             false => PCLK_EN_A::G_ATE,
-            true => PCLK_EN_A::E_NABLE,
+            true => PCLK_EN_A::ENABLE,
         }
     }
     #[doc = "Checks if the value of the field is `G_ATE`"]
@@ -202,10 +202,10 @@ impl PCLK_EN_R {
     pub fn is_g_ate(&self) -> bool {
         *self == PCLK_EN_A::G_ATE
     }
-    #[doc = "Checks if the value of the field is `E_NABLE`"]
+    #[doc = "Checks if the value of the field is `ENABLE`"]
     #[inline(always)]
-    pub fn is_e_nable(&self) -> bool {
-        *self == PCLK_EN_A::E_NABLE
+    pub fn is_enable(&self) -> bool {
+        *self == PCLK_EN_A::ENABLE
     }
 }
 #[doc = "Field `pclk_en` writer - "]
@@ -218,19 +218,19 @@ impl<'a, const O: u8> PCLK_EN_W<'a, O> {
     }
     #[doc = "Enable pclk input"]
     #[inline(always)]
-    pub fn e_nable(self) -> &'a mut W {
-        self.variant(PCLK_EN_A::E_NABLE)
+    pub fn enable(self) -> &'a mut W {
+        self.variant(PCLK_EN_A::ENABLE)
     }
 }
 #[doc = "Field `ncsic_en` reader - "]
 pub type NCSIC_EN_R = crate::BitReader<NCSIC_EN_A>;
 #[doc = "\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum NCSIC_EN_A {
     #[doc = "0: Reset and disable the NCSIC module"]
-    R_ESET_DISABLE = 0,
+    RESET_DISABLE = 0,
     #[doc = "1: Enable the NCSIC module"]
-    E_NABLE = 1,
+    ENABLE = 1,
 }
 impl From<NCSIC_EN_A> for bool {
     #[inline(always)]
@@ -243,19 +243,19 @@ impl NCSIC_EN_R {
     #[inline(always)]
     pub fn variant(&self) -> NCSIC_EN_A {
         match self.bits {
-            false => NCSIC_EN_A::R_ESET_DISABLE,
-            true => NCSIC_EN_A::E_NABLE,
+            false => NCSIC_EN_A::RESET_DISABLE,
+            true => NCSIC_EN_A::ENABLE,
         }
     }
-    #[doc = "Checks if the value of the field is `R_ESET_DISABLE`"]
+    #[doc = "Checks if the value of the field is `RESET_DISABLE`"]
     #[inline(always)]
-    pub fn is_r_eset_disable(&self) -> bool {
-        *self == NCSIC_EN_A::R_ESET_DISABLE
+    pub fn is_reset_disable(&self) -> bool {
+        *self == NCSIC_EN_A::RESET_DISABLE
     }
-    #[doc = "Checks if the value of the field is `E_NABLE`"]
+    #[doc = "Checks if the value of the field is `ENABLE`"]
     #[inline(always)]
-    pub fn is_e_nable(&self) -> bool {
-        *self == NCSIC_EN_A::E_NABLE
+    pub fn is_enable(&self) -> bool {
+        *self == NCSIC_EN_A::ENABLE
     }
 }
 #[doc = "Field `ncsic_en` writer - "]
@@ -263,13 +263,13 @@ pub type NCSIC_EN_W<'a, const O: u8> = crate::BitWriter<'a, u32, PRS_EN_SPEC, NC
 impl<'a, const O: u8> NCSIC_EN_W<'a, O> {
     #[doc = "Reset and disable the NCSIC module"]
     #[inline(always)]
-    pub fn r_eset_disable(self) -> &'a mut W {
-        self.variant(NCSIC_EN_A::R_ESET_DISABLE)
+    pub fn reset_disable(self) -> &'a mut W {
+        self.variant(NCSIC_EN_A::RESET_DISABLE)
     }
     #[doc = "Enable the NCSIC module"]
     #[inline(always)]
-    pub fn e_nable(self) -> &'a mut W {
-        self.variant(NCSIC_EN_A::E_NABLE)
+    pub fn enable(self) -> &'a mut W {
+        self.variant(NCSIC_EN_A::ENABLE)
     }
 }
 impl R {
@@ -302,26 +302,31 @@ impl R {
 impl W {
     #[doc = "Bit 0"]
     #[inline(always)]
+    #[must_use]
     pub fn prs_en(&mut self) -> PRS_EN_W<0> {
         PRS_EN_W::new(self)
     }
     #[doc = "Bit 1"]
     #[inline(always)]
+    #[must_use]
     pub fn prs_mode(&mut self) -> PRS_MODE_W<1> {
         PRS_MODE_W::new(self)
     }
     #[doc = "Bit 2"]
     #[inline(always)]
+    #[must_use]
     pub fn prs_ch_mode(&mut self) -> PRS_CH_MODE_W<2> {
         PRS_CH_MODE_W::new(self)
     }
     #[doc = "Bit 15"]
     #[inline(always)]
+    #[must_use]
     pub fn pclk_en(&mut self) -> PCLK_EN_W<15> {
         PCLK_EN_W::new(self)
     }
     #[doc = "Bit 16"]
     #[inline(always)]
+    #[must_use]
     pub fn ncsic_en(&mut self) -> NCSIC_EN_W<16> {
         NCSIC_EN_W::new(self)
     }
@@ -344,11 +349,10 @@ impl crate::Readable for PRS_EN_SPEC {
 #[doc = "`write(|w| ..)` method takes [prs_en::W](W) writer structure"]
 impl crate::Writable for PRS_EN_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets prs_en to value 0"]
 impl crate::Resettable for PRS_EN_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

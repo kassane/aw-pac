@@ -37,7 +37,7 @@ impl From<crate::W<PF_CFG0_SPEC>> for W {
 #[doc = "Field `pf0_select` reader - PF0 Select"]
 pub type PF0_SELECT_R = crate::FieldReader<u8, PF0_SELECT_A>;
 #[doc = "PF0 Select\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum PF0_SELECT_A {
     #[doc = "0: `0`"]
@@ -181,7 +181,7 @@ impl<'a, const O: u8> PF0_SELECT_W<'a, O> {
 #[doc = "Field `pf1_select` reader - PF1 Select"]
 pub type PF1_SELECT_R = crate::FieldReader<u8, PF1_SELECT_A>;
 #[doc = "PF1 Select\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum PF1_SELECT_A {
     #[doc = "0: `0`"]
@@ -325,7 +325,7 @@ impl<'a, const O: u8> PF1_SELECT_W<'a, O> {
 #[doc = "Field `pf2_select` reader - PF2 Select"]
 pub type PF2_SELECT_R = crate::FieldReader<u8, PF2_SELECT_A>;
 #[doc = "PF2 Select\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum PF2_SELECT_A {
     #[doc = "0: `0`"]
@@ -469,7 +469,7 @@ impl<'a, const O: u8> PF2_SELECT_W<'a, O> {
 #[doc = "Field `pf3_select` reader - PF3 Select"]
 pub type PF3_SELECT_R = crate::FieldReader<u8, PF3_SELECT_A>;
 #[doc = "PF3 Select\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum PF3_SELECT_A {
     #[doc = "0: `0`"]
@@ -600,7 +600,7 @@ impl<'a, const O: u8> PF3_SELECT_W<'a, O> {
 #[doc = "Field `pf4_select` reader - PF4 Select"]
 pub type PF4_SELECT_R = crate::FieldReader<u8, PF4_SELECT_A>;
 #[doc = "PF4 Select\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum PF4_SELECT_A {
     #[doc = "0: `0`"]
@@ -744,7 +744,7 @@ impl<'a, const O: u8> PF4_SELECT_W<'a, O> {
 #[doc = "Field `pf5_select` reader - PF5 Select"]
 pub type PF5_SELECT_R = crate::FieldReader<u8, PF5_SELECT_A>;
 #[doc = "PF5 Select\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum PF5_SELECT_A {
     #[doc = "0: `0`"]
@@ -875,7 +875,7 @@ impl<'a, const O: u8> PF5_SELECT_W<'a, O> {
 #[doc = "Field `pf6_select` reader - PF6 Select"]
 pub type PF6_SELECT_R = crate::FieldReader<u8, PF6_SELECT_A>;
 #[doc = "PF6 Select\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum PF6_SELECT_A {
     #[doc = "0: `0`"]
@@ -1043,36 +1043,43 @@ impl R {
 impl W {
     #[doc = "Bits 0:3 - PF0 Select"]
     #[inline(always)]
+    #[must_use]
     pub fn pf0_select(&mut self) -> PF0_SELECT_W<0> {
         PF0_SELECT_W::new(self)
     }
     #[doc = "Bits 4:7 - PF1 Select"]
     #[inline(always)]
+    #[must_use]
     pub fn pf1_select(&mut self) -> PF1_SELECT_W<4> {
         PF1_SELECT_W::new(self)
     }
     #[doc = "Bits 8:11 - PF2 Select"]
     #[inline(always)]
+    #[must_use]
     pub fn pf2_select(&mut self) -> PF2_SELECT_W<8> {
         PF2_SELECT_W::new(self)
     }
     #[doc = "Bits 12:15 - PF3 Select"]
     #[inline(always)]
+    #[must_use]
     pub fn pf3_select(&mut self) -> PF3_SELECT_W<12> {
         PF3_SELECT_W::new(self)
     }
     #[doc = "Bits 16:19 - PF4 Select"]
     #[inline(always)]
+    #[must_use]
     pub fn pf4_select(&mut self) -> PF4_SELECT_W<16> {
         PF4_SELECT_W::new(self)
     }
     #[doc = "Bits 20:23 - PF5 Select"]
     #[inline(always)]
+    #[must_use]
     pub fn pf5_select(&mut self) -> PF5_SELECT_W<20> {
         PF5_SELECT_W::new(self)
     }
     #[doc = "Bits 24:27 - PF6 Select"]
     #[inline(always)]
+    #[must_use]
     pub fn pf6_select(&mut self) -> PF6_SELECT_W<24> {
         PF6_SELECT_W::new(self)
     }
@@ -1095,11 +1102,10 @@ impl crate::Readable for PF_CFG0_SPEC {
 #[doc = "`write(|w| ..)` method takes [pf_cfg0::W](W) writer structure"]
 impl crate::Writable for PF_CFG0_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets pf_cfg0 to value 0"]
 impl crate::Resettable for PF_CFG0_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

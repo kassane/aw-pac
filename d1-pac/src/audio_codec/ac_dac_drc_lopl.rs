@@ -34,7 +34,25 @@ impl From<crate::W<AC_DAC_DRC_LOPL_SPEC>> for W {
         W(writer)
     }
 }
+#[doc = "Field `dac_drc_lopl` reader - The output of the limiter, which is determined by equation OPT/6.0206. The format is 8.24. (The default value is -25 dB)"]
+pub type DAC_DRC_LOPL_R = crate::FieldReader<u16, u16>;
+#[doc = "Field `dac_drc_lopl` writer - The output of the limiter, which is determined by equation OPT/6.0206. The format is 8.24. (The default value is -25 dB)"]
+pub type DAC_DRC_LOPL_W<'a, const O: u8> =
+    crate::FieldWriter<'a, u32, AC_DAC_DRC_LOPL_SPEC, u16, u16, 16, O>;
+impl R {
+    #[doc = "Bits 0:15 - The output of the limiter, which is determined by equation OPT/6.0206. The format is 8.24. (The default value is -25 dB)"]
+    #[inline(always)]
+    pub fn dac_drc_lopl(&self) -> DAC_DRC_LOPL_R {
+        DAC_DRC_LOPL_R::new((self.bits & 0xffff) as u16)
+    }
+}
 impl W {
+    #[doc = "Bits 0:15 - The output of the limiter, which is determined by equation OPT/6.0206. The format is 8.24. (The default value is -25 dB)"]
+    #[inline(always)]
+    #[must_use]
+    pub fn dac_drc_lopl(&mut self) -> DAC_DRC_LOPL_W<0> {
+        DAC_DRC_LOPL_W::new(self)
+    }
     #[doc = "Writes raw bits to the register."]
     #[inline(always)]
     pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
@@ -54,11 +72,10 @@ impl crate::Readable for AC_DAC_DRC_LOPL_SPEC {
 #[doc = "`write(|w| ..)` method takes [ac_dac_drc_lopl::W](W) writer structure"]
 impl crate::Writable for AC_DAC_DRC_LOPL_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
-#[doc = "`reset()` method sets ac_dac_drc_lopl to value 0"]
+#[doc = "`reset()` method sets ac_dac_drc_lopl to value 0xfba7"]
 impl crate::Resettable for AC_DAC_DRC_LOPL_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0xfba7;
 }

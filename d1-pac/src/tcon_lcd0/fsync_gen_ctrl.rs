@@ -37,12 +37,12 @@ impl From<crate::W<FSYNC_GEN_CTRL_SPEC>> for W {
 #[doc = "Field `fsync_gen_en` reader - Fsync Generate Enable"]
 pub type FSYNC_GEN_EN_R = crate::BitReader<FSYNC_GEN_EN_A>;
 #[doc = "Fsync Generate Enable\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum FSYNC_GEN_EN_A {
     #[doc = "0: Disable"]
-    D_ISABLE = 0,
+    DISABLE = 0,
     #[doc = "1: Enable"]
-    E_NABLE = 1,
+    ENABLE = 1,
 }
 impl From<FSYNC_GEN_EN_A> for bool {
     #[inline(always)]
@@ -55,19 +55,19 @@ impl FSYNC_GEN_EN_R {
     #[inline(always)]
     pub fn variant(&self) -> FSYNC_GEN_EN_A {
         match self.bits {
-            false => FSYNC_GEN_EN_A::D_ISABLE,
-            true => FSYNC_GEN_EN_A::E_NABLE,
+            false => FSYNC_GEN_EN_A::DISABLE,
+            true => FSYNC_GEN_EN_A::ENABLE,
         }
     }
-    #[doc = "Checks if the value of the field is `D_ISABLE`"]
+    #[doc = "Checks if the value of the field is `DISABLE`"]
     #[inline(always)]
-    pub fn is_d_isable(&self) -> bool {
-        *self == FSYNC_GEN_EN_A::D_ISABLE
+    pub fn is_disable(&self) -> bool {
+        *self == FSYNC_GEN_EN_A::DISABLE
     }
-    #[doc = "Checks if the value of the field is `E_NABLE`"]
+    #[doc = "Checks if the value of the field is `ENABLE`"]
     #[inline(always)]
-    pub fn is_e_nable(&self) -> bool {
-        *self == FSYNC_GEN_EN_A::E_NABLE
+    pub fn is_enable(&self) -> bool {
+        *self == FSYNC_GEN_EN_A::ENABLE
     }
 }
 #[doc = "Field `fsync_gen_en` writer - Fsync Generate Enable"]
@@ -76,19 +76,19 @@ pub type FSYNC_GEN_EN_W<'a, const O: u8> =
 impl<'a, const O: u8> FSYNC_GEN_EN_W<'a, O> {
     #[doc = "Disable"]
     #[inline(always)]
-    pub fn d_isable(self) -> &'a mut W {
-        self.variant(FSYNC_GEN_EN_A::D_ISABLE)
+    pub fn disable(self) -> &'a mut W {
+        self.variant(FSYNC_GEN_EN_A::DISABLE)
     }
     #[doc = "Enable"]
     #[inline(always)]
-    pub fn e_nable(self) -> &'a mut W {
-        self.variant(FSYNC_GEN_EN_A::E_NABLE)
+    pub fn enable(self) -> &'a mut W {
+        self.variant(FSYNC_GEN_EN_A::ENABLE)
     }
 }
 #[doc = "Field `sel_vsync_en` reader - Select Vsync Enable"]
 pub type SEL_VSYNC_EN_R = crate::BitReader<SEL_VSYNC_EN_A>;
 #[doc = "Select Vsync Enable\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum SEL_VSYNC_EN_A {
     #[doc = "0: Select vsync falling edge to start state machine"]
     FALLING = 0,
@@ -139,10 +139,10 @@ impl<'a, const O: u8> SEL_VSYNC_EN_W<'a, O> {
 #[doc = "Field `hsync_pol_sel` reader - Hsync Polarity Select"]
 pub type HSYNC_POL_SEL_R = crate::BitReader<HSYNC_POL_SEL_A>;
 #[doc = "Hsync Polarity Select\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum HSYNC_POL_SEL_A {
     #[doc = "0: Normal"]
-    N_ORMAL = 0,
+    NORMAL = 0,
     #[doc = "1: Opposite hsync to hysnc counter"]
     O_PPOSITE = 1,
 }
@@ -157,14 +157,14 @@ impl HSYNC_POL_SEL_R {
     #[inline(always)]
     pub fn variant(&self) -> HSYNC_POL_SEL_A {
         match self.bits {
-            false => HSYNC_POL_SEL_A::N_ORMAL,
+            false => HSYNC_POL_SEL_A::NORMAL,
             true => HSYNC_POL_SEL_A::O_PPOSITE,
         }
     }
-    #[doc = "Checks if the value of the field is `N_ORMAL`"]
+    #[doc = "Checks if the value of the field is `NORMAL`"]
     #[inline(always)]
-    pub fn is_n_ormal(&self) -> bool {
-        *self == HSYNC_POL_SEL_A::N_ORMAL
+    pub fn is_normal(&self) -> bool {
+        *self == HSYNC_POL_SEL_A::NORMAL
     }
     #[doc = "Checks if the value of the field is `O_PPOSITE`"]
     #[inline(always)]
@@ -178,8 +178,8 @@ pub type HSYNC_POL_SEL_W<'a, const O: u8> =
 impl<'a, const O: u8> HSYNC_POL_SEL_W<'a, O> {
     #[doc = "Normal"]
     #[inline(always)]
-    pub fn n_ormal(self) -> &'a mut W {
-        self.variant(HSYNC_POL_SEL_A::N_ORMAL)
+    pub fn normal(self) -> &'a mut W {
+        self.variant(HSYNC_POL_SEL_A::NORMAL)
     }
     #[doc = "Opposite hsync to hysnc counter"]
     #[inline(always)]
@@ -190,7 +190,7 @@ impl<'a, const O: u8> HSYNC_POL_SEL_W<'a, O> {
 #[doc = "Field `sensor_dis_value` reader - Sensor Disable Value"]
 pub type SENSOR_DIS_VALUE_R = crate::BitReader<SENSOR_DIS_VALUE_A>;
 #[doc = "Sensor Disable Value\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum SENSOR_DIS_VALUE_A {
     #[doc = "0: Fsync disable period output 0"]
     OUTPUT_0 = 0,
@@ -241,7 +241,7 @@ impl<'a, const O: u8> SENSOR_DIS_VALUE_W<'a, O> {
 #[doc = "Field `sensor_act0_value` reader - Sensor Active0 Value"]
 pub type SENSOR_ACT0_VALUE_R = crate::BitReader<SENSOR_ACT0_VALUE_A>;
 #[doc = "Sensor Active0 Value\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum SENSOR_ACT0_VALUE_A {
     #[doc = "0: Fsync active_0 period output 0"]
     OUTPUT_0 = 0,
@@ -292,7 +292,7 @@ impl<'a, const O: u8> SENSOR_ACT0_VALUE_W<'a, O> {
 #[doc = "Field `sensor_act1_value` reader - Sensor Active1 Value"]
 pub type SENSOR_ACT1_VALUE_R = crate::BitReader<SENSOR_ACT1_VALUE_A>;
 #[doc = "Sensor Active1 Value\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum SENSOR_ACT1_VALUE_A {
     #[doc = "0: Fsync active_1 period output 0"]
     OUTPUT_0 = 0,
@@ -385,36 +385,43 @@ impl R {
 impl W {
     #[doc = "Bit 0 - Fsync Generate Enable"]
     #[inline(always)]
+    #[must_use]
     pub fn fsync_gen_en(&mut self) -> FSYNC_GEN_EN_W<0> {
         FSYNC_GEN_EN_W::new(self)
     }
     #[doc = "Bit 1 - Select Vsync Enable"]
     #[inline(always)]
+    #[must_use]
     pub fn sel_vsync_en(&mut self) -> SEL_VSYNC_EN_W<1> {
         SEL_VSYNC_EN_W::new(self)
     }
     #[doc = "Bit 2 - Hsync Polarity Select"]
     #[inline(always)]
+    #[must_use]
     pub fn hsync_pol_sel(&mut self) -> HSYNC_POL_SEL_W<2> {
         HSYNC_POL_SEL_W::new(self)
     }
     #[doc = "Bit 4 - Sensor Disable Value"]
     #[inline(always)]
+    #[must_use]
     pub fn sensor_dis_value(&mut self) -> SENSOR_DIS_VALUE_W<4> {
         SENSOR_DIS_VALUE_W::new(self)
     }
     #[doc = "Bit 5 - Sensor Active0 Value"]
     #[inline(always)]
+    #[must_use]
     pub fn sensor_act0_value(&mut self) -> SENSOR_ACT0_VALUE_W<5> {
         SENSOR_ACT0_VALUE_W::new(self)
     }
     #[doc = "Bit 6 - Sensor Active1 Value"]
     #[inline(always)]
+    #[must_use]
     pub fn sensor_act1_value(&mut self) -> SENSOR_ACT1_VALUE_W<6> {
         SENSOR_ACT1_VALUE_W::new(self)
     }
     #[doc = "Bits 8:18 - Delay 0-2047 Hsync Period\n\nWhen hsync_pol_sel is 0, the actual delay is sensor_dis_time-1.\n\nWhen hsync_pol_sel is 1, the actual delay is sensor_dis_time."]
     #[inline(always)]
+    #[must_use]
     pub fn sensor_dis_time(&mut self) -> SENSOR_DIS_TIME_W<8> {
         SENSOR_DIS_TIME_W::new(self)
     }
@@ -437,11 +444,10 @@ impl crate::Readable for FSYNC_GEN_CTRL_SPEC {
 #[doc = "`write(|w| ..)` method takes [fsync_gen_ctrl::W](W) writer structure"]
 impl crate::Writable for FSYNC_GEN_CTRL_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets fsync_gen_ctrl to value 0"]
 impl crate::Resettable for FSYNC_GEN_CTRL_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

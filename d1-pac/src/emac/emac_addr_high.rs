@@ -47,7 +47,7 @@ pub type MAC_ADDR_BYTE_CTL_W<'a, const O: u8> =
 #[doc = "Field `mac_addr_type` reader - MAC Address Type"]
 pub type MAC_ADDR_TYPE_R = crate::BitReader<MAC_ADDR_TYPE_A>;
 #[doc = "MAC Address Type\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum MAC_ADDR_TYPE_A {
     #[doc = "0: `0`"]
     DST = 0,
@@ -98,7 +98,7 @@ impl<'a, const O: u8> MAC_ADDR_TYPE_W<'a, O> {
 #[doc = "Field `mac_addr_ctl` reader - MAC Address Valid"]
 pub type MAC_ADDR_CTL_R = crate::BitReader<MAC_ADDR_CTL_A>;
 #[doc = "MAC Address Valid\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum MAC_ADDR_CTL_A {
     #[doc = "0: `0`"]
     INVALID = 0,
@@ -171,21 +171,25 @@ impl R {
 impl W {
     #[doc = "Bits 0:15"]
     #[inline(always)]
+    #[must_use]
     pub fn mac_addr_high(&mut self) -> MAC_ADDR_HIGH_W<0> {
         MAC_ADDR_HIGH_W::new(self)
     }
     #[doc = "Bits 24:29 - MAC Address Byte Control Mask"]
     #[inline(always)]
+    #[must_use]
     pub fn mac_addr_byte_ctl(&mut self) -> MAC_ADDR_BYTE_CTL_W<24> {
         MAC_ADDR_BYTE_CTL_W::new(self)
     }
     #[doc = "Bit 30 - MAC Address Type"]
     #[inline(always)]
+    #[must_use]
     pub fn mac_addr_type(&mut self) -> MAC_ADDR_TYPE_W<30> {
         MAC_ADDR_TYPE_W::new(self)
     }
     #[doc = "Bit 31 - MAC Address Valid"]
     #[inline(always)]
+    #[must_use]
     pub fn mac_addr_ctl(&mut self) -> MAC_ADDR_CTL_W<31> {
         MAC_ADDR_CTL_W::new(self)
     }
@@ -208,11 +212,10 @@ impl crate::Readable for EMAC_ADDR_HIGH_SPEC {
 #[doc = "`write(|w| ..)` method takes [emac_addr_high::W](W) writer structure"]
 impl crate::Writable for EMAC_ADDR_HIGH_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets emac_addr_high%s to value 0"]
 impl crate::Resettable for EMAC_ADDR_HIGH_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

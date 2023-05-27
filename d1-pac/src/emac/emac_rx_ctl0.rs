@@ -41,7 +41,7 @@ pub type RX_FLOW_CTL_EN_W<'a, const O: u8> = crate::BitWriter<'a, u32, EMAC_RX_C
 #[doc = "Field `rx_pause_frm_md` reader - "]
 pub type RX_PAUSE_FRM_MD_R = crate::BitReader<RX_PAUSE_FRM_MD_A>;
 #[doc = "\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum RX_PAUSE_FRM_MD_A {
     #[doc = "0: `0`"]
     ONLY_MULTICAST = 0,
@@ -92,7 +92,7 @@ impl<'a, const O: u8> RX_PAUSE_FRM_MD_W<'a, O> {
 #[doc = "Field `check_crc` reader - Check CRC Enable"]
 pub type CHECK_CRC_R = crate::BitReader<CHECK_CRC_A>;
 #[doc = "Check CRC Enable\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum CHECK_CRC_A {
     #[doc = "0: `0`"]
     DISABLE = 0,
@@ -147,7 +147,7 @@ pub type STRIP_FCS_W<'a, const O: u8> = crate::BitWriter<'a, u32, EMAC_RX_CTL0_S
 #[doc = "Field `jumbo_frm_en` reader - Jumbo Frame Enable"]
 pub type JUMBO_FRM_EN_R = crate::BitReader<JUMBO_FRM_EN_A>;
 #[doc = "Jumbo Frame Enable\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum JUMBO_FRM_EN_A {
     #[doc = "0: `0`"]
     DISABLE = 0,
@@ -198,7 +198,7 @@ impl<'a, const O: u8> JUMBO_FRM_EN_W<'a, O> {
 #[doc = "Field `rx_frm_len_ctl` reader - Frame Receive Length Control"]
 pub type RX_FRM_LEN_CTL_R = crate::BitReader<RX_FRM_LEN_CTL_A>;
 #[doc = "Frame Receive Length Control\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum RX_FRM_LEN_CTL_A {
     #[doc = "0: `0`"]
     B2048 = 0,
@@ -249,7 +249,7 @@ impl<'a, const O: u8> RX_FRM_LEN_CTL_W<'a, O> {
 #[doc = "Field `rx_en` reader - Enable Receiver"]
 pub type RX_EN_R = crate::BitReader<RX_EN_A>;
 #[doc = "Enable Receiver\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum RX_EN_A {
     #[doc = "0: `0`"]
     DISABLE = 0,
@@ -336,36 +336,43 @@ impl R {
 impl W {
     #[doc = "Bit 16"]
     #[inline(always)]
+    #[must_use]
     pub fn rx_flow_ctl_en(&mut self) -> RX_FLOW_CTL_EN_W<16> {
         RX_FLOW_CTL_EN_W::new(self)
     }
     #[doc = "Bit 17"]
     #[inline(always)]
+    #[must_use]
     pub fn rx_pause_frm_md(&mut self) -> RX_PAUSE_FRM_MD_W<17> {
         RX_PAUSE_FRM_MD_W::new(self)
     }
     #[doc = "Bit 27 - Check CRC Enable"]
     #[inline(always)]
+    #[must_use]
     pub fn check_crc(&mut self) -> CHECK_CRC_W<27> {
         CHECK_CRC_W::new(self)
     }
     #[doc = "Bit 28"]
     #[inline(always)]
+    #[must_use]
     pub fn strip_fcs(&mut self) -> STRIP_FCS_W<28> {
         STRIP_FCS_W::new(self)
     }
     #[doc = "Bit 29 - Jumbo Frame Enable"]
     #[inline(always)]
+    #[must_use]
     pub fn jumbo_frm_en(&mut self) -> JUMBO_FRM_EN_W<29> {
         JUMBO_FRM_EN_W::new(self)
     }
     #[doc = "Bit 30 - Frame Receive Length Control"]
     #[inline(always)]
+    #[must_use]
     pub fn rx_frm_len_ctl(&mut self) -> RX_FRM_LEN_CTL_W<30> {
         RX_FRM_LEN_CTL_W::new(self)
     }
     #[doc = "Bit 31 - Enable Receiver"]
     #[inline(always)]
+    #[must_use]
     pub fn rx_en(&mut self) -> RX_EN_W<31> {
         RX_EN_W::new(self)
     }
@@ -388,11 +395,10 @@ impl crate::Readable for EMAC_RX_CTL0_SPEC {
 #[doc = "`write(|w| ..)` method takes [emac_rx_ctl0::W](W) writer structure"]
 impl crate::Writable for EMAC_RX_CTL0_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets emac_rx_ctl0 to value 0"]
 impl crate::Resettable for EMAC_RX_CTL0_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

@@ -37,7 +37,7 @@ impl From<crate::W<DMAC_MODE_SPEC>> for W {
 #[doc = "Field `dma_src_mode` reader - Source Communication Mode Select"]
 pub type DMA_SRC_MODE_R = crate::BitReader<DMA_SRC_MODE_A>;
 #[doc = "Source Communication Mode Select\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum DMA_SRC_MODE_A {
     #[doc = "0: `0`"]
     WAITING = 0,
@@ -88,7 +88,7 @@ impl<'a, const O: u8> DMA_SRC_MODE_W<'a, O> {
 #[doc = "Field `dma_dst_mode` reader - Destination Communication Mode Select"]
 pub type DMA_DST_MODE_R = crate::BitReader<DMA_DST_MODE_A>;
 #[doc = "Destination Communication Mode Select\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum DMA_DST_MODE_A {
     #[doc = "0: `0`"]
     WAITING = 0,
@@ -151,11 +151,13 @@ impl R {
 impl W {
     #[doc = "Bit 2 - Source Communication Mode Select"]
     #[inline(always)]
+    #[must_use]
     pub fn dma_src_mode(&mut self) -> DMA_SRC_MODE_W<2> {
         DMA_SRC_MODE_W::new(self)
     }
     #[doc = "Bit 3 - Destination Communication Mode Select"]
     #[inline(always)]
+    #[must_use]
     pub fn dma_dst_mode(&mut self) -> DMA_DST_MODE_W<3> {
         DMA_DST_MODE_W::new(self)
     }
@@ -178,11 +180,10 @@ impl crate::Readable for DMAC_MODE_SPEC {
 #[doc = "`write(|w| ..)` method takes [dmac_mode::W](W) writer structure"]
 impl crate::Writable for DMAC_MODE_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets dmac_mode%s to value 0"]
 impl crate::Resettable for DMAC_MODE_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

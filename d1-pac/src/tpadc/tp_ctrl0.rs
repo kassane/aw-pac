@@ -41,7 +41,7 @@ pub type TACQ_W<'a, const O: u8> = crate::FieldWriter<'a, u32, TP_CTRL0_SPEC, u1
 #[doc = "Field `fs_div` reader - ADC Sample Frequency Divider"]
 pub type FS_DIV_R = crate::FieldReader<u8, FS_DIV_A>;
 #[doc = "ADC Sample Frequency Divider\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum FS_DIV_A {
     #[doc = "0: CLK_IN / 2 ^ (20 - 0)"]
@@ -276,7 +276,7 @@ impl<'a, const O: u8> FS_DIV_W<'a, O> {
 #[doc = "Field `adc_clk_divider` reader - ADC Clock Divider (CLK_IN)"]
 pub type ADC_CLK_DIVIDER_R = crate::FieldReader<u8, ADC_CLK_DIVIDER_A>;
 #[doc = "ADC Clock Divider (CLK_IN)\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum ADC_CLK_DIVIDER_A {
     #[doc = "0: CLK / 2"]
@@ -355,7 +355,7 @@ impl<'a, const O: u8> ADC_CLK_DIVIDER_W<'a, O> {
 #[doc = "Field `adc_first_dly_mode` reader - ADC First Convert Delay Mode Select"]
 pub type ADC_FIRST_DLY_MODE_R = crate::BitReader<ADC_FIRST_DLY_MODE_A>;
 #[doc = "ADC First Convert Delay Mode Select\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum ADC_FIRST_DLY_MODE_A {
     #[doc = "0: CLK_IN / 16"]
     C16 = 0,
@@ -438,26 +438,31 @@ impl R {
 impl W {
     #[doc = "Bits 0:15 - Touch panel ADC acquire time"]
     #[inline(always)]
+    #[must_use]
     pub fn tacq(&mut self) -> TACQ_W<0> {
         TACQ_W::new(self)
     }
     #[doc = "Bits 16:19 - ADC Sample Frequency Divider"]
     #[inline(always)]
+    #[must_use]
     pub fn fs_div(&mut self) -> FS_DIV_W<16> {
         FS_DIV_W::new(self)
     }
     #[doc = "Bits 20:21 - ADC Clock Divider (CLK_IN)"]
     #[inline(always)]
+    #[must_use]
     pub fn adc_clk_divider(&mut self) -> ADC_CLK_DIVIDER_W<20> {
         ADC_CLK_DIVIDER_W::new(self)
     }
     #[doc = "Bit 23 - ADC First Convert Delay Mode Select"]
     #[inline(always)]
+    #[must_use]
     pub fn adc_first_dly_mode(&mut self) -> ADC_FIRST_DLY_MODE_W<23> {
         ADC_FIRST_DLY_MODE_W::new(self)
     }
     #[doc = "Bits 24:31 - ADC First Convert Delay Time (T_FCDT) Setting"]
     #[inline(always)]
+    #[must_use]
     pub fn adc_first_dly(&mut self) -> ADC_FIRST_DLY_W<24> {
         ADC_FIRST_DLY_W::new(self)
     }
@@ -480,11 +485,10 @@ impl crate::Readable for TP_CTRL0_SPEC {
 #[doc = "`write(|w| ..)` method takes [tp_ctrl0::W](W) writer structure"]
 impl crate::Writable for TP_CTRL0_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets tp_ctrl0 to value 0"]
 impl crate::Resettable for TP_CTRL0_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

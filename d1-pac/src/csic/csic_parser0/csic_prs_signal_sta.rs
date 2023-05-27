@@ -39,7 +39,7 @@ pub type DATA_STA_R = crate::FieldReader<u32, u32>;
 #[doc = "Field `pclk_sta` reader - Indicates the pclk status"]
 pub type PCLK_STA_R = crate::BitReader<PCLK_STA_A>;
 #[doc = "Indicates the pclk status\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum PCLK_STA_A {
     #[doc = "0: low"]
     LOW = 0,
@@ -76,7 +76,7 @@ impl R {
     #[doc = "Bits 0:23 - Indicates the Dn status (n=0-23), MSB for D23, LSB for D0"]
     #[inline(always)]
     pub fn data_sta(&self) -> DATA_STA_R {
-        DATA_STA_R::new((self.bits & 0x00ff_ffff) as u32)
+        DATA_STA_R::new(self.bits & 0x00ff_ffff)
     }
     #[doc = "Bit 24 - Indicates the pclk status"]
     #[inline(always)]
@@ -104,11 +104,10 @@ impl crate::Readable for CSIC_PRS_SIGNAL_STA_SPEC {
 #[doc = "`write(|w| ..)` method takes [csic_prs_signal_sta::W](W) writer structure"]
 impl crate::Writable for CSIC_PRS_SIGNAL_STA_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets csic_prs_signal_sta to value 0"]
 impl crate::Resettable for CSIC_PRS_SIGNAL_STA_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

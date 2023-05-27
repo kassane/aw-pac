@@ -42,7 +42,7 @@ pub type C_DELAY_BEFORE_DITHER_W<'a, const O: u8> =
 #[doc = "Field `notch_en` reader - Luma notch filter on/off selection\n\nNote: This bit selects if the luma notch filter is operating or bypassed."]
 pub type NOTCH_EN_R = crate::BitReader<NOTCH_EN_A>;
 #[doc = "Luma notch filter on/off selection\n\nNote: This bit selects if the luma notch filter is operating or bypassed.\n\nValue on reset: 1"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum NOTCH_EN_A {
     #[doc = "0: The luma notch filter is bypassed"]
     BYPASSED = 0,
@@ -93,10 +93,10 @@ impl<'a, const O: u8> NOTCH_EN_W<'a, O> {
 #[doc = "Field `luma_filter_bypass` reader - "]
 pub type LUMA_FILTER_BYPASS_R = crate::BitReader<LUMA_FILTER_BYPASS_A>;
 #[doc = "\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum LUMA_FILTER_BYPASS_A {
     #[doc = "0: Luma Filter Enable"]
-    E_NABLE = 0,
+    ENABLE = 0,
     #[doc = "1: Luma Filter bypass"]
     BYPASS = 1,
 }
@@ -111,14 +111,14 @@ impl LUMA_FILTER_BYPASS_R {
     #[inline(always)]
     pub fn variant(&self) -> LUMA_FILTER_BYPASS_A {
         match self.bits {
-            false => LUMA_FILTER_BYPASS_A::E_NABLE,
+            false => LUMA_FILTER_BYPASS_A::ENABLE,
             true => LUMA_FILTER_BYPASS_A::BYPASS,
         }
     }
-    #[doc = "Checks if the value of the field is `E_NABLE`"]
+    #[doc = "Checks if the value of the field is `ENABLE`"]
     #[inline(always)]
-    pub fn is_e_nable(&self) -> bool {
-        *self == LUMA_FILTER_BYPASS_A::E_NABLE
+    pub fn is_enable(&self) -> bool {
+        *self == LUMA_FILTER_BYPASS_A::ENABLE
     }
     #[doc = "Checks if the value of the field is `BYPASS`"]
     #[inline(always)]
@@ -132,8 +132,8 @@ pub type LUMA_FILTER_BYPASS_W<'a, const O: u8> =
 impl<'a, const O: u8> LUMA_FILTER_BYPASS_W<'a, O> {
     #[doc = "Luma Filter Enable"]
     #[inline(always)]
-    pub fn e_nable(self) -> &'a mut W {
-        self.variant(LUMA_FILTER_BYPASS_A::E_NABLE)
+    pub fn enable(self) -> &'a mut W {
+        self.variant(LUMA_FILTER_BYPASS_A::ENABLE)
     }
     #[doc = "Luma Filter bypass"]
     #[inline(always)]
@@ -144,13 +144,11 @@ impl<'a, const O: u8> LUMA_FILTER_BYPASS_W<'a, O> {
 #[doc = "Field `chroma_filter_stage__bypass[3,2,1]` reader - "]
 pub type CHROMA_FILTER_STAGE__BYPASS_R = crate::BitReader<CHROMA_FILTER_STAGE__BYPASS_A>;
 #[doc = "\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum CHROMA_FILTER_STAGE__BYPASS_A {
-    #[doc = "0: Chroma Filter Stage \\[i\\]
-Enable"]
-    E_NABLE = 0,
-    #[doc = "1: Chroma Filter Stage \\[i\\]
-bypass"]
+    #[doc = "0: Chroma Filter Stage \\[i\\] Enable"]
+    ENABLE = 0,
+    #[doc = "1: Chroma Filter Stage \\[i\\] bypass"]
     BYPASS = 1,
 }
 impl From<CHROMA_FILTER_STAGE__BYPASS_A> for bool {
@@ -164,14 +162,14 @@ impl CHROMA_FILTER_STAGE__BYPASS_R {
     #[inline(always)]
     pub fn variant(&self) -> CHROMA_FILTER_STAGE__BYPASS_A {
         match self.bits {
-            false => CHROMA_FILTER_STAGE__BYPASS_A::E_NABLE,
+            false => CHROMA_FILTER_STAGE__BYPASS_A::ENABLE,
             true => CHROMA_FILTER_STAGE__BYPASS_A::BYPASS,
         }
     }
-    #[doc = "Checks if the value of the field is `E_NABLE`"]
+    #[doc = "Checks if the value of the field is `ENABLE`"]
     #[inline(always)]
-    pub fn is_e_nable(&self) -> bool {
-        *self == CHROMA_FILTER_STAGE__BYPASS_A::E_NABLE
+    pub fn is_enable(&self) -> bool {
+        *self == CHROMA_FILTER_STAGE__BYPASS_A::ENABLE
     }
     #[doc = "Checks if the value of the field is `BYPASS`"]
     #[inline(always)]
@@ -183,14 +181,12 @@ impl CHROMA_FILTER_STAGE__BYPASS_R {
 pub type CHROMA_FILTER_STAGE__BYPASS_W<'a, const O: u8> =
     crate::BitWriter<'a, u32, TVE_NOTCH_DAC_DELAY_SPEC, CHROMA_FILTER_STAGE__BYPASS_A, O>;
 impl<'a, const O: u8> CHROMA_FILTER_STAGE__BYPASS_W<'a, O> {
-    #[doc = "Chroma Filter Stage \\[i\\]
-Enable"]
+    #[doc = "Chroma Filter Stage \\[i\\] Enable"]
     #[inline(always)]
-    pub fn e_nable(self) -> &'a mut W {
-        self.variant(CHROMA_FILTER_STAGE__BYPASS_A::E_NABLE)
+    pub fn enable(self) -> &'a mut W {
+        self.variant(CHROMA_FILTER_STAGE__BYPASS_A::ENABLE)
     }
-    #[doc = "Chroma Filter Stage \\[i\\]
-bypass"]
+    #[doc = "Chroma Filter Stage \\[i\\] bypass"]
     #[inline(always)]
     pub fn bypass(self) -> &'a mut W {
         self.variant(CHROMA_FILTER_STAGE__BYPASS_A::BYPASS)
@@ -199,12 +195,12 @@ bypass"]
 #[doc = "Field `chroma_hd_mode_filter_en` reader - "]
 pub type CHROMA_HD_MODE_FILTER_EN_R = crate::BitReader<CHROMA_HD_MODE_FILTER_EN_A>;
 #[doc = "\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum CHROMA_HD_MODE_FILTER_EN_A {
     #[doc = "0: Chroma HD Filter Disable"]
-    D_ISABLE = 0,
+    DISABLE = 0,
     #[doc = "1: Chroma HD Filter Enable"]
-    E_NABLE = 1,
+    ENABLE = 1,
 }
 impl From<CHROMA_HD_MODE_FILTER_EN_A> for bool {
     #[inline(always)]
@@ -217,19 +213,19 @@ impl CHROMA_HD_MODE_FILTER_EN_R {
     #[inline(always)]
     pub fn variant(&self) -> CHROMA_HD_MODE_FILTER_EN_A {
         match self.bits {
-            false => CHROMA_HD_MODE_FILTER_EN_A::D_ISABLE,
-            true => CHROMA_HD_MODE_FILTER_EN_A::E_NABLE,
+            false => CHROMA_HD_MODE_FILTER_EN_A::DISABLE,
+            true => CHROMA_HD_MODE_FILTER_EN_A::ENABLE,
         }
     }
-    #[doc = "Checks if the value of the field is `D_ISABLE`"]
+    #[doc = "Checks if the value of the field is `DISABLE`"]
     #[inline(always)]
-    pub fn is_d_isable(&self) -> bool {
-        *self == CHROMA_HD_MODE_FILTER_EN_A::D_ISABLE
+    pub fn is_disable(&self) -> bool {
+        *self == CHROMA_HD_MODE_FILTER_EN_A::DISABLE
     }
-    #[doc = "Checks if the value of the field is `E_NABLE`"]
+    #[doc = "Checks if the value of the field is `ENABLE`"]
     #[inline(always)]
-    pub fn is_e_nable(&self) -> bool {
-        *self == CHROMA_HD_MODE_FILTER_EN_A::E_NABLE
+    pub fn is_enable(&self) -> bool {
+        *self == CHROMA_HD_MODE_FILTER_EN_A::ENABLE
     }
 }
 #[doc = "Field `chroma_hd_mode_filter_en` writer - "]
@@ -238,24 +234,24 @@ pub type CHROMA_HD_MODE_FILTER_EN_W<'a, const O: u8> =
 impl<'a, const O: u8> CHROMA_HD_MODE_FILTER_EN_W<'a, O> {
     #[doc = "Chroma HD Filter Disable"]
     #[inline(always)]
-    pub fn d_isable(self) -> &'a mut W {
-        self.variant(CHROMA_HD_MODE_FILTER_EN_A::D_ISABLE)
+    pub fn disable(self) -> &'a mut W {
+        self.variant(CHROMA_HD_MODE_FILTER_EN_A::DISABLE)
     }
     #[doc = "Chroma HD Filter Enable"]
     #[inline(always)]
-    pub fn e_nable(self) -> &'a mut W {
-        self.variant(CHROMA_HD_MODE_FILTER_EN_A::E_NABLE)
+    pub fn enable(self) -> &'a mut W {
+        self.variant(CHROMA_HD_MODE_FILTER_EN_A::ENABLE)
     }
 }
 #[doc = "Field `chroma_filter_1_444_en` reader - "]
 pub type CHROMA_FILTER_1_444_EN_R = crate::BitReader<CHROMA_FILTER_1_444_EN_A>;
 #[doc = "\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum CHROMA_FILTER_1_444_EN_A {
     #[doc = "0: Chroma Filter 1 444 Disable"]
-    D_ISABLE = 0,
+    DISABLE = 0,
     #[doc = "1: Chroma Filter 1 444 Enable"]
-    E_NABLE = 1,
+    ENABLE = 1,
 }
 impl From<CHROMA_FILTER_1_444_EN_A> for bool {
     #[inline(always)]
@@ -268,19 +264,19 @@ impl CHROMA_FILTER_1_444_EN_R {
     #[inline(always)]
     pub fn variant(&self) -> CHROMA_FILTER_1_444_EN_A {
         match self.bits {
-            false => CHROMA_FILTER_1_444_EN_A::D_ISABLE,
-            true => CHROMA_FILTER_1_444_EN_A::E_NABLE,
+            false => CHROMA_FILTER_1_444_EN_A::DISABLE,
+            true => CHROMA_FILTER_1_444_EN_A::ENABLE,
         }
     }
-    #[doc = "Checks if the value of the field is `D_ISABLE`"]
+    #[doc = "Checks if the value of the field is `DISABLE`"]
     #[inline(always)]
-    pub fn is_d_isable(&self) -> bool {
-        *self == CHROMA_FILTER_1_444_EN_A::D_ISABLE
+    pub fn is_disable(&self) -> bool {
+        *self == CHROMA_FILTER_1_444_EN_A::DISABLE
     }
-    #[doc = "Checks if the value of the field is `E_NABLE`"]
+    #[doc = "Checks if the value of the field is `ENABLE`"]
     #[inline(always)]
-    pub fn is_e_nable(&self) -> bool {
-        *self == CHROMA_FILTER_1_444_EN_A::E_NABLE
+    pub fn is_enable(&self) -> bool {
+        *self == CHROMA_FILTER_1_444_EN_A::ENABLE
     }
 }
 #[doc = "Field `chroma_filter_1_444_en` writer - "]
@@ -289,24 +285,24 @@ pub type CHROMA_FILTER_1_444_EN_W<'a, const O: u8> =
 impl<'a, const O: u8> CHROMA_FILTER_1_444_EN_W<'a, O> {
     #[doc = "Chroma Filter 1 444 Disable"]
     #[inline(always)]
-    pub fn d_isable(self) -> &'a mut W {
-        self.variant(CHROMA_FILTER_1_444_EN_A::D_ISABLE)
+    pub fn disable(self) -> &'a mut W {
+        self.variant(CHROMA_FILTER_1_444_EN_A::DISABLE)
     }
     #[doc = "Chroma Filter 1 444 Enable"]
     #[inline(always)]
-    pub fn e_nable(self) -> &'a mut W {
-        self.variant(CHROMA_FILTER_1_444_EN_A::E_NABLE)
+    pub fn enable(self) -> &'a mut W {
+        self.variant(CHROMA_FILTER_1_444_EN_A::ENABLE)
     }
 }
 #[doc = "Field `hd_mode_cr_filter_bypass` reader - "]
 pub type HD_MODE_CR_FILTER_BYPASS_R = crate::BitReader<HD_MODE_CR_FILTER_BYPASS_A>;
 #[doc = "\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum HD_MODE_CR_FILTER_BYPASS_A {
     #[doc = "0: Bypass Enable"]
-    E_NABLE = 0,
+    ENABLE = 0,
     #[doc = "1: Bypass Disable"]
-    D_ISABLE = 1,
+    DISABLE = 1,
 }
 impl From<HD_MODE_CR_FILTER_BYPASS_A> for bool {
     #[inline(always)]
@@ -319,19 +315,19 @@ impl HD_MODE_CR_FILTER_BYPASS_R {
     #[inline(always)]
     pub fn variant(&self) -> HD_MODE_CR_FILTER_BYPASS_A {
         match self.bits {
-            false => HD_MODE_CR_FILTER_BYPASS_A::E_NABLE,
-            true => HD_MODE_CR_FILTER_BYPASS_A::D_ISABLE,
+            false => HD_MODE_CR_FILTER_BYPASS_A::ENABLE,
+            true => HD_MODE_CR_FILTER_BYPASS_A::DISABLE,
         }
     }
-    #[doc = "Checks if the value of the field is `E_NABLE`"]
+    #[doc = "Checks if the value of the field is `ENABLE`"]
     #[inline(always)]
-    pub fn is_e_nable(&self) -> bool {
-        *self == HD_MODE_CR_FILTER_BYPASS_A::E_NABLE
+    pub fn is_enable(&self) -> bool {
+        *self == HD_MODE_CR_FILTER_BYPASS_A::ENABLE
     }
-    #[doc = "Checks if the value of the field is `D_ISABLE`"]
+    #[doc = "Checks if the value of the field is `DISABLE`"]
     #[inline(always)]
-    pub fn is_d_isable(&self) -> bool {
-        *self == HD_MODE_CR_FILTER_BYPASS_A::D_ISABLE
+    pub fn is_disable(&self) -> bool {
+        *self == HD_MODE_CR_FILTER_BYPASS_A::DISABLE
     }
 }
 #[doc = "Field `hd_mode_cr_filter_bypass` writer - "]
@@ -340,24 +336,24 @@ pub type HD_MODE_CR_FILTER_BYPASS_W<'a, const O: u8> =
 impl<'a, const O: u8> HD_MODE_CR_FILTER_BYPASS_W<'a, O> {
     #[doc = "Bypass Enable"]
     #[inline(always)]
-    pub fn e_nable(self) -> &'a mut W {
-        self.variant(HD_MODE_CR_FILTER_BYPASS_A::E_NABLE)
+    pub fn enable(self) -> &'a mut W {
+        self.variant(HD_MODE_CR_FILTER_BYPASS_A::ENABLE)
     }
     #[doc = "Bypass Disable"]
     #[inline(always)]
-    pub fn d_isable(self) -> &'a mut W {
-        self.variant(HD_MODE_CR_FILTER_BYPASS_A::D_ISABLE)
+    pub fn disable(self) -> &'a mut W {
+        self.variant(HD_MODE_CR_FILTER_BYPASS_A::DISABLE)
     }
 }
 #[doc = "Field `hd_mode_cb_filter_bypass` reader - "]
 pub type HD_MODE_CB_FILTER_BYPASS_R = crate::BitReader<HD_MODE_CB_FILTER_BYPASS_A>;
 #[doc = "\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum HD_MODE_CB_FILTER_BYPASS_A {
     #[doc = "0: Bypass Enable"]
-    E_NABLE = 0,
+    ENABLE = 0,
     #[doc = "1: Bypass Disable"]
-    D_ISABLE = 1,
+    DISABLE = 1,
 }
 impl From<HD_MODE_CB_FILTER_BYPASS_A> for bool {
     #[inline(always)]
@@ -370,19 +366,19 @@ impl HD_MODE_CB_FILTER_BYPASS_R {
     #[inline(always)]
     pub fn variant(&self) -> HD_MODE_CB_FILTER_BYPASS_A {
         match self.bits {
-            false => HD_MODE_CB_FILTER_BYPASS_A::E_NABLE,
-            true => HD_MODE_CB_FILTER_BYPASS_A::D_ISABLE,
+            false => HD_MODE_CB_FILTER_BYPASS_A::ENABLE,
+            true => HD_MODE_CB_FILTER_BYPASS_A::DISABLE,
         }
     }
-    #[doc = "Checks if the value of the field is `E_NABLE`"]
+    #[doc = "Checks if the value of the field is `ENABLE`"]
     #[inline(always)]
-    pub fn is_e_nable(&self) -> bool {
-        *self == HD_MODE_CB_FILTER_BYPASS_A::E_NABLE
+    pub fn is_enable(&self) -> bool {
+        *self == HD_MODE_CB_FILTER_BYPASS_A::ENABLE
     }
-    #[doc = "Checks if the value of the field is `D_ISABLE`"]
+    #[doc = "Checks if the value of the field is `DISABLE`"]
     #[inline(always)]
-    pub fn is_d_isable(&self) -> bool {
-        *self == HD_MODE_CB_FILTER_BYPASS_A::D_ISABLE
+    pub fn is_disable(&self) -> bool {
+        *self == HD_MODE_CB_FILTER_BYPASS_A::DISABLE
     }
 }
 #[doc = "Field `hd_mode_cb_filter_bypass` writer - "]
@@ -391,13 +387,13 @@ pub type HD_MODE_CB_FILTER_BYPASS_W<'a, const O: u8> =
 impl<'a, const O: u8> HD_MODE_CB_FILTER_BYPASS_W<'a, O> {
     #[doc = "Bypass Enable"]
     #[inline(always)]
-    pub fn e_nable(self) -> &'a mut W {
-        self.variant(HD_MODE_CB_FILTER_BYPASS_A::E_NABLE)
+    pub fn enable(self) -> &'a mut W {
+        self.variant(HD_MODE_CB_FILTER_BYPASS_A::ENABLE)
     }
     #[doc = "Bypass Disable"]
     #[inline(always)]
-    pub fn d_isable(self) -> &'a mut W {
-        self.variant(HD_MODE_CB_FILTER_BYPASS_A::D_ISABLE)
+    pub fn disable(self) -> &'a mut W {
+        self.variant(HD_MODE_CB_FILTER_BYPASS_A::DISABLE)
     }
 }
 #[doc = "Field `y_delay_before_dither` reader - "]
@@ -408,12 +404,12 @@ pub type Y_DELAY_BEFORE_DITHER_W<'a, const O: u8> =
 #[doc = "Field `luma_filter_lti_enable` reader - "]
 pub type LUMA_FILTER_LTI_ENABLE_R = crate::BitReader<LUMA_FILTER_LTI_ENABLE_A>;
 #[doc = "\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum LUMA_FILTER_LTI_ENABLE_A {
     #[doc = "0: Disable Luma filter lti"]
-    D_ISABLE = 0,
+    DISABLE = 0,
     #[doc = "1: Enable Luma filter lti"]
-    E_NABLE = 1,
+    ENABLE = 1,
 }
 impl From<LUMA_FILTER_LTI_ENABLE_A> for bool {
     #[inline(always)]
@@ -426,19 +422,19 @@ impl LUMA_FILTER_LTI_ENABLE_R {
     #[inline(always)]
     pub fn variant(&self) -> LUMA_FILTER_LTI_ENABLE_A {
         match self.bits {
-            false => LUMA_FILTER_LTI_ENABLE_A::D_ISABLE,
-            true => LUMA_FILTER_LTI_ENABLE_A::E_NABLE,
+            false => LUMA_FILTER_LTI_ENABLE_A::DISABLE,
+            true => LUMA_FILTER_LTI_ENABLE_A::ENABLE,
         }
     }
-    #[doc = "Checks if the value of the field is `D_ISABLE`"]
+    #[doc = "Checks if the value of the field is `DISABLE`"]
     #[inline(always)]
-    pub fn is_d_isable(&self) -> bool {
-        *self == LUMA_FILTER_LTI_ENABLE_A::D_ISABLE
+    pub fn is_disable(&self) -> bool {
+        *self == LUMA_FILTER_LTI_ENABLE_A::DISABLE
     }
-    #[doc = "Checks if the value of the field is `E_NABLE`"]
+    #[doc = "Checks if the value of the field is `ENABLE`"]
     #[inline(always)]
-    pub fn is_e_nable(&self) -> bool {
-        *self == LUMA_FILTER_LTI_ENABLE_A::E_NABLE
+    pub fn is_enable(&self) -> bool {
+        *self == LUMA_FILTER_LTI_ENABLE_A::ENABLE
     }
 }
 #[doc = "Field `luma_filter_lti_enable` writer - "]
@@ -447,24 +443,24 @@ pub type LUMA_FILTER_LTI_ENABLE_W<'a, const O: u8> =
 impl<'a, const O: u8> LUMA_FILTER_LTI_ENABLE_W<'a, O> {
     #[doc = "Disable Luma filter lti"]
     #[inline(always)]
-    pub fn d_isable(self) -> &'a mut W {
-        self.variant(LUMA_FILTER_LTI_ENABLE_A::D_ISABLE)
+    pub fn disable(self) -> &'a mut W {
+        self.variant(LUMA_FILTER_LTI_ENABLE_A::DISABLE)
     }
     #[doc = "Enable Luma filter lti"]
     #[inline(always)]
-    pub fn e_nable(self) -> &'a mut W {
-        self.variant(LUMA_FILTER_LTI_ENABLE_A::E_NABLE)
+    pub fn enable(self) -> &'a mut W {
+        self.variant(LUMA_FILTER_LTI_ENABLE_A::ENABLE)
     }
 }
 #[doc = "Field `chroma_filter_active_valid` reader - "]
 pub type CHROMA_FILTER_ACTIVE_VALID_R = crate::BitReader<CHROMA_FILTER_ACTIVE_VALID_A>;
 #[doc = "\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum CHROMA_FILTER_ACTIVE_VALID_A {
     #[doc = "0: Disable"]
-    D_ISABLE = 0,
+    DISABLE = 0,
     #[doc = "1: Enable"]
-    E_NABLE = 1,
+    ENABLE = 1,
 }
 impl From<CHROMA_FILTER_ACTIVE_VALID_A> for bool {
     #[inline(always)]
@@ -477,19 +473,19 @@ impl CHROMA_FILTER_ACTIVE_VALID_R {
     #[inline(always)]
     pub fn variant(&self) -> CHROMA_FILTER_ACTIVE_VALID_A {
         match self.bits {
-            false => CHROMA_FILTER_ACTIVE_VALID_A::D_ISABLE,
-            true => CHROMA_FILTER_ACTIVE_VALID_A::E_NABLE,
+            false => CHROMA_FILTER_ACTIVE_VALID_A::DISABLE,
+            true => CHROMA_FILTER_ACTIVE_VALID_A::ENABLE,
         }
     }
-    #[doc = "Checks if the value of the field is `D_ISABLE`"]
+    #[doc = "Checks if the value of the field is `DISABLE`"]
     #[inline(always)]
-    pub fn is_d_isable(&self) -> bool {
-        *self == CHROMA_FILTER_ACTIVE_VALID_A::D_ISABLE
+    pub fn is_disable(&self) -> bool {
+        *self == CHROMA_FILTER_ACTIVE_VALID_A::DISABLE
     }
-    #[doc = "Checks if the value of the field is `E_NABLE`"]
+    #[doc = "Checks if the value of the field is `ENABLE`"]
     #[inline(always)]
-    pub fn is_e_nable(&self) -> bool {
-        *self == CHROMA_FILTER_ACTIVE_VALID_A::E_NABLE
+    pub fn is_enable(&self) -> bool {
+        *self == CHROMA_FILTER_ACTIVE_VALID_A::ENABLE
     }
 }
 #[doc = "Field `chroma_filter_active_valid` writer - "]
@@ -498,13 +494,13 @@ pub type CHROMA_FILTER_ACTIVE_VALID_W<'a, const O: u8> =
 impl<'a, const O: u8> CHROMA_FILTER_ACTIVE_VALID_W<'a, O> {
     #[doc = "Disable"]
     #[inline(always)]
-    pub fn d_isable(self) -> &'a mut W {
-        self.variant(CHROMA_FILTER_ACTIVE_VALID_A::D_ISABLE)
+    pub fn disable(self) -> &'a mut W {
+        self.variant(CHROMA_FILTER_ACTIVE_VALID_A::DISABLE)
     }
     #[doc = "Enable"]
     #[inline(always)]
-    pub fn e_nable(self) -> &'a mut W {
-        self.variant(CHROMA_FILTER_ACTIVE_VALID_A::E_NABLE)
+    pub fn enable(self) -> &'a mut W {
+        self.variant(CHROMA_FILTER_ACTIVE_VALID_A::ENABLE)
     }
 }
 impl R {
@@ -577,21 +573,25 @@ impl R {
 impl W {
     #[doc = "Bits 12:15"]
     #[inline(always)]
+    #[must_use]
     pub fn c_delay_before_dither(&mut self) -> C_DELAY_BEFORE_DITHER_W<12> {
         C_DELAY_BEFORE_DITHER_W::new(self)
     }
     #[doc = "Bit 16 - Luma notch filter on/off selection\n\nNote: This bit selects if the luma notch filter is operating or bypassed."]
     #[inline(always)]
+    #[must_use]
     pub fn notch_en(&mut self) -> NOTCH_EN_W<16> {
         NOTCH_EN_W::new(self)
     }
     #[doc = "Bit 17"]
     #[inline(always)]
+    #[must_use]
     pub fn luma_filter_bypass(&mut self) -> LUMA_FILTER_BYPASS_W<17> {
         LUMA_FILTER_BYPASS_W::new(self)
     }
     #[doc = ""]
     #[inline(always)]
+    #[must_use]
     pub unsafe fn chroma_filter_stage__bypass<const O: u8>(
         &mut self,
     ) -> CHROMA_FILTER_STAGE__BYPASS_W<O> {
@@ -599,51 +599,61 @@ impl W {
     }
     #[doc = "Bit 18"]
     #[inline(always)]
+    #[must_use]
     pub fn chroma_filter_stage_3_bypass(&mut self) -> CHROMA_FILTER_STAGE__BYPASS_W<18> {
         CHROMA_FILTER_STAGE__BYPASS_W::new(self)
     }
     #[doc = "Bit 19"]
     #[inline(always)]
+    #[must_use]
     pub fn chroma_filter_stage_2_bypass(&mut self) -> CHROMA_FILTER_STAGE__BYPASS_W<19> {
         CHROMA_FILTER_STAGE__BYPASS_W::new(self)
     }
     #[doc = "Bit 20"]
     #[inline(always)]
+    #[must_use]
     pub fn chroma_filter_stage_1_bypass(&mut self) -> CHROMA_FILTER_STAGE__BYPASS_W<20> {
         CHROMA_FILTER_STAGE__BYPASS_W::new(self)
     }
     #[doc = "Bit 21"]
     #[inline(always)]
+    #[must_use]
     pub fn chroma_hd_mode_filter_en(&mut self) -> CHROMA_HD_MODE_FILTER_EN_W<21> {
         CHROMA_HD_MODE_FILTER_EN_W::new(self)
     }
     #[doc = "Bit 22"]
     #[inline(always)]
+    #[must_use]
     pub fn chroma_filter_1_444_en(&mut self) -> CHROMA_FILTER_1_444_EN_W<22> {
         CHROMA_FILTER_1_444_EN_W::new(self)
     }
     #[doc = "Bit 23"]
     #[inline(always)]
+    #[must_use]
     pub fn hd_mode_cr_filter_bypass(&mut self) -> HD_MODE_CR_FILTER_BYPASS_W<23> {
         HD_MODE_CR_FILTER_BYPASS_W::new(self)
     }
     #[doc = "Bit 24"]
     #[inline(always)]
+    #[must_use]
     pub fn hd_mode_cb_filter_bypass(&mut self) -> HD_MODE_CB_FILTER_BYPASS_W<24> {
         HD_MODE_CB_FILTER_BYPASS_W::new(self)
     }
     #[doc = "Bits 25:27"]
     #[inline(always)]
+    #[must_use]
     pub fn y_delay_before_dither(&mut self) -> Y_DELAY_BEFORE_DITHER_W<25> {
         Y_DELAY_BEFORE_DITHER_W::new(self)
     }
     #[doc = "Bit 30"]
     #[inline(always)]
+    #[must_use]
     pub fn luma_filter_lti_enable(&mut self) -> LUMA_FILTER_LTI_ENABLE_W<30> {
         LUMA_FILTER_LTI_ENABLE_W::new(self)
     }
     #[doc = "Bit 31"]
     #[inline(always)]
+    #[must_use]
     pub fn chroma_filter_active_valid(&mut self) -> CHROMA_FILTER_ACTIVE_VALID_W<31> {
         CHROMA_FILTER_ACTIVE_VALID_W::new(self)
     }
@@ -666,11 +676,10 @@ impl crate::Readable for TVE_NOTCH_DAC_DELAY_SPEC {
 #[doc = "`write(|w| ..)` method takes [tve_notch_dac_delay::W](W) writer structure"]
 impl crate::Writable for TVE_NOTCH_DAC_DELAY_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets tve_notch_dac_delay to value 0x0201_4924"]
 impl crate::Resettable for TVE_NOTCH_DAC_DELAY_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0x0201_4924
-    }
+    const RESET_VALUE: Self::Ux = 0x0201_4924;
 }

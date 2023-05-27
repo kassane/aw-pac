@@ -37,7 +37,7 @@ impl From<crate::W<SMHC_THLD_SPEC>> for W {
 #[doc = "Field `card_rd_thld_enb` reader - Card Read Threshold Enable"]
 pub type CARD_RD_THLD_ENB_R = crate::BitReader<CARD_RD_THLD_ENB_A>;
 #[doc = "Card Read Threshold Enable\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum CARD_RD_THLD_ENB_A {
     #[doc = "0: Card read threshold disabled"]
     DISABLED = 0,
@@ -88,7 +88,7 @@ impl<'a, const O: u8> CARD_RD_THLD_ENB_W<'a, O> {
 #[doc = "Field `bcig` reader - Busy Clear Interrupt Generation"]
 pub type BCIG_R = crate::BitReader<BCIG_A>;
 #[doc = "Busy Clear Interrupt Generation\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum BCIG_A {
     #[doc = "0: Busy clear interrupt disabled"]
     DISABLED = 0,
@@ -138,7 +138,7 @@ impl<'a, const O: u8> BCIG_W<'a, O> {
 #[doc = "Field `card_wr_thld_enb` reader - Card Read/Write Threshold Enable"]
 pub type CARD_WR_THLD_ENB_R = crate::BitReader<CARD_WR_THLD_ENB_A>;
 #[doc = "Card Read/Write Threshold Enable\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum CARD_WR_THLD_ENB_A {
     #[doc = "0: Card write threshold disabled"]
     DISABLED = 0,
@@ -216,21 +216,25 @@ impl R {
 impl W {
     #[doc = "Bit 0 - Card Read Threshold Enable"]
     #[inline(always)]
+    #[must_use]
     pub fn card_rd_thld_enb(&mut self) -> CARD_RD_THLD_ENB_W<0> {
         CARD_RD_THLD_ENB_W::new(self)
     }
     #[doc = "Bit 1 - Busy Clear Interrupt Generation"]
     #[inline(always)]
+    #[must_use]
     pub fn bcig(&mut self) -> BCIG_W<1> {
         BCIG_W::new(self)
     }
     #[doc = "Bit 2 - Card Read/Write Threshold Enable"]
     #[inline(always)]
+    #[must_use]
     pub fn card_wr_thld_enb(&mut self) -> CARD_WR_THLD_ENB_W<2> {
         CARD_WR_THLD_ENB_W::new(self)
     }
     #[doc = "Bits 16:27 - Card Read/Write Threshold Size"]
     #[inline(always)]
+    #[must_use]
     pub fn card_wr_thld(&mut self) -> CARD_WR_THLD_W<16> {
         CARD_WR_THLD_W::new(self)
     }
@@ -253,11 +257,10 @@ impl crate::Readable for SMHC_THLD_SPEC {
 #[doc = "`write(|w| ..)` method takes [smhc_thld::W](W) writer structure"]
 impl crate::Writable for SMHC_THLD_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets smhc_thld to value 0"]
 impl crate::Resettable for SMHC_THLD_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

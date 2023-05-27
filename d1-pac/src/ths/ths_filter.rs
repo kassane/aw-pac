@@ -37,7 +37,7 @@ impl From<crate::W<THS_FILTER_SPEC>> for W {
 #[doc = "Field `filter_type` reader - Averaging filter type"]
 pub type FILTER_TYPE_R = crate::FieldReader<u8, FILTER_TYPE_A>;
 #[doc = "Averaging filter type\n\nValue on reset: 1"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum FILTER_TYPE_A {
     #[doc = "0: 2"]
@@ -116,7 +116,7 @@ impl<'a, const O: u8> FILTER_TYPE_W<'a, O> {
 #[doc = "Field `filter_en` reader - Filter enable"]
 pub type FILTER_EN_R = crate::BitReader<FILTER_EN_A>;
 #[doc = "Filter enable\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum FILTER_EN_A {
     #[doc = "0: Disable"]
     DISABLE = 0,
@@ -178,11 +178,13 @@ impl R {
 impl W {
     #[doc = "Bits 0:1 - Averaging filter type"]
     #[inline(always)]
+    #[must_use]
     pub fn filter_type(&mut self) -> FILTER_TYPE_W<0> {
         FILTER_TYPE_W::new(self)
     }
     #[doc = "Bit 2 - Filter enable"]
     #[inline(always)]
+    #[must_use]
     pub fn filter_en(&mut self) -> FILTER_EN_W<2> {
         FILTER_EN_W::new(self)
     }
@@ -205,11 +207,10 @@ impl crate::Readable for THS_FILTER_SPEC {
 #[doc = "`write(|w| ..)` method takes [ths_filter::W](W) writer structure"]
 impl crate::Writable for THS_FILTER_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets ths_filter to value 0x01"]
 impl crate::Resettable for THS_FILTER_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0x01
-    }
+    const RESET_VALUE: Self::Ux = 0x01;
 }

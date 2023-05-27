@@ -37,7 +37,7 @@ impl From<crate::W<PE_CFG2_SPEC>> for W {
 #[doc = "Field `pe16_select` reader - PE16 Select"]
 pub type PE16_SELECT_R = crate::FieldReader<u8, PE16_SELECT_A>;
 #[doc = "PE16 Select\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum PE16_SELECT_A {
     #[doc = "0: `0`"]
@@ -181,7 +181,7 @@ impl<'a, const O: u8> PE16_SELECT_W<'a, O> {
 #[doc = "Field `pe17_select` reader - PE17 Select"]
 pub type PE17_SELECT_R = crate::FieldReader<u8, PE17_SELECT_A>;
 #[doc = "PE17 Select\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum PE17_SELECT_A {
     #[doc = "0: `0`"]
@@ -337,11 +337,13 @@ impl R {
 impl W {
     #[doc = "Bits 0:3 - PE16 Select"]
     #[inline(always)]
+    #[must_use]
     pub fn pe16_select(&mut self) -> PE16_SELECT_W<0> {
         PE16_SELECT_W::new(self)
     }
     #[doc = "Bits 4:7 - PE17 Select"]
     #[inline(always)]
+    #[must_use]
     pub fn pe17_select(&mut self) -> PE17_SELECT_W<4> {
         PE17_SELECT_W::new(self)
     }
@@ -364,11 +366,10 @@ impl crate::Readable for PE_CFG2_SPEC {
 #[doc = "`write(|w| ..)` method takes [pe_cfg2::W](W) writer structure"]
 impl crate::Writable for PE_CFG2_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets pe_cfg2 to value 0"]
 impl crate::Resettable for PE_CFG2_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

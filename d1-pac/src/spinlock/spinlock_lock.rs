@@ -37,7 +37,7 @@ impl From<crate::W<SPINLOCK_LOCK_SPEC>> for W {
 #[doc = "Field `taken` reader - Lock State"]
 pub type TAKEN_R = crate::BitReader<TAKEN_A>;
 #[doc = "Lock State\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum TAKEN_A {
     #[doc = "0: Read 0x0: The lock was previously Not Taken (free). The requester is granted the lock.\n\nWrite 0x0: Set the lock to Not Taken (free)."]
     FREE = 0,
@@ -94,6 +94,7 @@ impl R {
 impl W {
     #[doc = "Bit 0 - Lock State"]
     #[inline(always)]
+    #[must_use]
     pub fn taken(&mut self) -> TAKEN_W<0> {
         TAKEN_W::new(self)
     }
@@ -116,11 +117,10 @@ impl crate::Readable for SPINLOCK_LOCK_SPEC {
 #[doc = "`write(|w| ..)` method takes [spinlock_lock::W](W) writer structure"]
 impl crate::Writable for SPINLOCK_LOCK_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets spinlock_lock%s to value 0"]
 impl crate::Resettable for SPINLOCK_LOCK_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

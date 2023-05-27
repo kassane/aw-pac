@@ -37,7 +37,7 @@ impl From<crate::W<CE_TSR_SPEC>> for W {
 #[doc = "Field `running_channel_number` reader - Running Channel Number"]
 pub type RUNNING_CHANNEL_NUMBER_R = crate::FieldReader<u8, RUNNING_CHANNEL_NUMBER_A>;
 #[doc = "Running Channel Number\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum RUNNING_CHANNEL_NUMBER_A {
     #[doc = "0: Task channel 0"]
@@ -115,11 +115,10 @@ impl crate::Readable for CE_TSR_SPEC {
 #[doc = "`write(|w| ..)` method takes [ce_tsr::W](W) writer structure"]
 impl crate::Writable for CE_TSR_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets ce_tsr to value 0"]
 impl crate::Resettable for CE_TSR_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

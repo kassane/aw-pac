@@ -37,7 +37,7 @@ impl From<crate::W<PRS_CH_INT_STA_SPEC>> for W {
 #[doc = "Field `input_src_pd[0-1]` reader - "]
 pub type INPUT_SRC_PD_R = crate::BitReader<INPUT_SRC_PD_A>;
 #[doc = "\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum INPUT_SRC_PD_A {
     #[doc = "0: `0`"]
     NO_PENDING = 0,
@@ -88,7 +88,7 @@ impl<'a, const O: u8> INPUT_SRC_PD_W<'a, O> {
 #[doc = "Field `mul_err_pd` reader - Multi-channel writing error pending"]
 pub type MUL_ERR_PD_R = crate::BitReader<MUL_ERR_PD_A>;
 #[doc = "Multi-channel writing error pending\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum MUL_ERR_PD_A {
     #[doc = "0: `0`"]
     NO_PENDING = 0,
@@ -161,21 +161,25 @@ impl R {
 impl W {
     #[doc = ""]
     #[inline(always)]
+    #[must_use]
     pub unsafe fn input_src_pd<const O: u8>(&mut self) -> INPUT_SRC_PD_W<O> {
         INPUT_SRC_PD_W::new(self)
     }
     #[doc = "Bit 0"]
     #[inline(always)]
+    #[must_use]
     pub fn input_src_pd0(&mut self) -> INPUT_SRC_PD_W<0> {
         INPUT_SRC_PD_W::new(self)
     }
     #[doc = "Bit 1"]
     #[inline(always)]
+    #[must_use]
     pub fn input_src_pd1(&mut self) -> INPUT_SRC_PD_W<1> {
         INPUT_SRC_PD_W::new(self)
     }
     #[doc = "Bit 2 - Multi-channel writing error pending"]
     #[inline(always)]
+    #[must_use]
     pub fn mul_err_pd(&mut self) -> MUL_ERR_PD_W<2> {
         MUL_ERR_PD_W::new(self)
     }
@@ -186,8 +190,7 @@ impl W {
         self
     }
 }
-#[doc = "Parser Channel\\[i\\]
-Interrupt Status Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [prs_ch_int_sta](index.html) module"]
+#[doc = "Parser Channel\\[i\\] Interrupt Status Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [prs_ch_int_sta](index.html) module"]
 pub struct PRS_CH_INT_STA_SPEC;
 impl crate::RegisterSpec for PRS_CH_INT_STA_SPEC {
     type Ux = u32;
@@ -199,11 +202,10 @@ impl crate::Readable for PRS_CH_INT_STA_SPEC {
 #[doc = "`write(|w| ..)` method takes [prs_ch_int_sta::W](W) writer structure"]
 impl crate::Writable for PRS_CH_INT_STA_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0x05;
 }
 #[doc = "`reset()` method sets prs_ch%s_int_sta to value 0"]
 impl crate::Resettable for PRS_CH_INT_STA_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

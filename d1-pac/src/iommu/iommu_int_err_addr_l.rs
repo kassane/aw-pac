@@ -13,12 +13,10 @@ impl From<crate::R<IOMMU_INT_ERR_ADDR_L_SPEC>> for R {
         R(reader)
     }
 }
-#[doc = "Field `int_err_addr` reader - Virtual address that caused L\\[i\\]
-page table to interrupt"]
+#[doc = "Field `int_err_addr` reader - Virtual address that caused L\\[i\\] page table to interrupt"]
 pub type INT_ERR_ADDR_R = crate::FieldReader<u32, u32>;
 impl R {
-    #[doc = "Bits 0:31 - Virtual address that caused L\\[i\\]
-page table to interrupt"]
+    #[doc = "Bits 0:31 - Virtual address that caused L\\[i\\] page table to interrupt"]
     #[inline(always)]
     pub fn int_err_addr(&self) -> INT_ERR_ADDR_R {
         INT_ERR_ADDR_R::new(self.bits)
@@ -35,8 +33,5 @@ impl crate::Readable for IOMMU_INT_ERR_ADDR_L_SPEC {
 }
 #[doc = "`reset()` method sets iommu_int_err_addr_l%s to value 0"]
 impl crate::Resettable for IOMMU_INT_ERR_ADDR_L_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

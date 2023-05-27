@@ -34,6 +34,15 @@ impl From<crate::W<AC_ADC_RXDATA_SPEC>> for W {
         W(writer)
     }
 }
+#[doc = "Field `rx_data` reader - RX Sample\n\nThe host can get one sample by reading this register. The left channel sample data comes first and then the right channel sample."]
+pub type RX_DATA_R = crate::FieldReader<u32, u32>;
+impl R {
+    #[doc = "Bits 0:31 - RX Sample\n\nThe host can get one sample by reading this register. The left channel sample data comes first and then the right channel sample."]
+    #[inline(always)]
+    pub fn rx_data(&self) -> RX_DATA_R {
+        RX_DATA_R::new(self.bits)
+    }
+}
 impl W {
     #[doc = "Writes raw bits to the register."]
     #[inline(always)]
@@ -54,11 +63,10 @@ impl crate::Readable for AC_ADC_RXDATA_SPEC {
 #[doc = "`write(|w| ..)` method takes [ac_adc_rxdata::W](W) writer structure"]
 impl crate::Writable for AC_ADC_RXDATA_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets ac_adc_rxdata to value 0"]
 impl crate::Resettable for AC_ADC_RXDATA_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

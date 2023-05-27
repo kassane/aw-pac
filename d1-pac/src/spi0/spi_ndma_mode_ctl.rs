@@ -42,7 +42,7 @@ pub type SPI_DMA_WAIT_W<'a, const O: u8> =
 #[doc = "Field `spi_ack_m` reader - SPI NDMA Acknowledge Mode"]
 pub type SPI_ACK_M_R = crate::BitReader<SPI_ACK_M_A>;
 #[doc = "SPI NDMA Acknowledge Mode\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum SPI_ACK_M_A {
     #[doc = "0: `0`"]
     IGNORE = 0,
@@ -93,7 +93,7 @@ impl<'a, const O: u8> SPI_ACK_M_W<'a, O> {
 #[doc = "Field `spi_act_m` reader - SPI NDMA Active Mode"]
 pub type SPI_ACT_M_R = crate::FieldReader<u8, SPI_ACT_M_A>;
 #[doc = "SPI NDMA Active Mode\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum SPI_ACT_M_A {
     #[doc = "0: `0`"]
@@ -189,16 +189,19 @@ impl R {
 impl W {
     #[doc = "Bits 0:4"]
     #[inline(always)]
+    #[must_use]
     pub fn spi_dma_wait(&mut self) -> SPI_DMA_WAIT_W<0> {
         SPI_DMA_WAIT_W::new(self)
     }
     #[doc = "Bit 5 - SPI NDMA Acknowledge Mode"]
     #[inline(always)]
+    #[must_use]
     pub fn spi_ack_m(&mut self) -> SPI_ACK_M_W<5> {
         SPI_ACK_M_W::new(self)
     }
     #[doc = "Bits 6:7 - SPI NDMA Active Mode"]
     #[inline(always)]
+    #[must_use]
     pub fn spi_act_m(&mut self) -> SPI_ACT_M_W<6> {
         SPI_ACT_M_W::new(self)
     }
@@ -221,11 +224,10 @@ impl crate::Readable for SPI_NDMA_MODE_CTL_SPEC {
 #[doc = "`write(|w| ..)` method takes [spi_ndma_mode_ctl::W](W) writer structure"]
 impl crate::Writable for SPI_NDMA_MODE_CTL_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets spi_ndma_mode_ctl to value 0"]
 impl crate::Resettable for SPI_NDMA_MODE_CTL_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

@@ -37,7 +37,7 @@ impl From<crate::W<WDOG_CTRL_SPEC>> for W {
 #[doc = "Field `wdog_restart` reader - Watchdog Restart"]
 pub type WDOG_RESTART_R = crate::BitReader<WDOG_RESTART_A>;
 #[doc = "Watchdog Restart\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum WDOG_RESTART_A {
     #[doc = "0: `0`"]
     NO_EFFECT = 0,
@@ -98,11 +98,13 @@ impl R {
 impl W {
     #[doc = "Bit 0 - Watchdog Restart"]
     #[inline(always)]
+    #[must_use]
     pub fn wdog_restart(&mut self) -> WDOG_RESTART_W<0> {
         WDOG_RESTART_W::new(self)
     }
     #[doc = "Bits 1:12 - Watchdog Key Field"]
     #[inline(always)]
+    #[must_use]
     pub fn wdog_key_field(&mut self) -> WDOG_KEY_FIELD_W<1> {
         WDOG_KEY_FIELD_W::new(self)
     }
@@ -125,11 +127,10 @@ impl crate::Readable for WDOG_CTRL_SPEC {
 #[doc = "`write(|w| ..)` method takes [wdog_ctrl::W](W) writer structure"]
 impl crate::Writable for WDOG_CTRL_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0x01;
 }
 #[doc = "`reset()` method sets wdog_ctrl to value 0"]
 impl crate::Resettable for WDOG_CTRL_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

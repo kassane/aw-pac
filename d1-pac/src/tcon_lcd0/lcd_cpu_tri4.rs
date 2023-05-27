@@ -46,12 +46,12 @@ pub type A1_FIRST_VALID_W<'a, const O: u8> = crate::BitWriter<'a, u32, LCD_CPU_T
 #[doc = "Field `plug_mode_en` reader - Enable the plug mode used in dsi command mode."]
 pub type PLUG_MODE_EN_R = crate::BitReader<PLUG_MODE_EN_A>;
 #[doc = "Enable the plug mode used in dsi command mode.\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum PLUG_MODE_EN_A {
     #[doc = "0: Disable"]
-    D_ISABLE = 0,
+    DISABLE = 0,
     #[doc = "1: Enable"]
-    E_NABLE = 1,
+    ENABLE = 1,
 }
 impl From<PLUG_MODE_EN_A> for bool {
     #[inline(always)]
@@ -64,19 +64,19 @@ impl PLUG_MODE_EN_R {
     #[inline(always)]
     pub fn variant(&self) -> PLUG_MODE_EN_A {
         match self.bits {
-            false => PLUG_MODE_EN_A::D_ISABLE,
-            true => PLUG_MODE_EN_A::E_NABLE,
+            false => PLUG_MODE_EN_A::DISABLE,
+            true => PLUG_MODE_EN_A::ENABLE,
         }
     }
-    #[doc = "Checks if the value of the field is `D_ISABLE`"]
+    #[doc = "Checks if the value of the field is `DISABLE`"]
     #[inline(always)]
-    pub fn is_d_isable(&self) -> bool {
-        *self == PLUG_MODE_EN_A::D_ISABLE
+    pub fn is_disable(&self) -> bool {
+        *self == PLUG_MODE_EN_A::DISABLE
     }
-    #[doc = "Checks if the value of the field is `E_NABLE`"]
+    #[doc = "Checks if the value of the field is `ENABLE`"]
     #[inline(always)]
-    pub fn is_e_nable(&self) -> bool {
-        *self == PLUG_MODE_EN_A::E_NABLE
+    pub fn is_enable(&self) -> bool {
+        *self == PLUG_MODE_EN_A::ENABLE
     }
 }
 #[doc = "Field `plug_mode_en` writer - Enable the plug mode used in dsi command mode."]
@@ -85,20 +85,20 @@ pub type PLUG_MODE_EN_W<'a, const O: u8> =
 impl<'a, const O: u8> PLUG_MODE_EN_W<'a, O> {
     #[doc = "Disable"]
     #[inline(always)]
-    pub fn d_isable(self) -> &'a mut W {
-        self.variant(PLUG_MODE_EN_A::D_ISABLE)
+    pub fn disable(self) -> &'a mut W {
+        self.variant(PLUG_MODE_EN_A::DISABLE)
     }
     #[doc = "Enable"]
     #[inline(always)]
-    pub fn e_nable(self) -> &'a mut W {
-        self.variant(PLUG_MODE_EN_A::E_NABLE)
+    pub fn enable(self) -> &'a mut W {
+        self.variant(PLUG_MODE_EN_A::ENABLE)
     }
 }
 impl R {
     #[doc = "Bits 0:23 - Valid in first Block."]
     #[inline(always)]
     pub fn d23_to_d0_first_valid(&self) -> D23_TO_D0_FIRST_VALID_R {
-        D23_TO_D0_FIRST_VALID_R::new((self.bits & 0x00ff_ffff) as u32)
+        D23_TO_D0_FIRST_VALID_R::new(self.bits & 0x00ff_ffff)
     }
     #[doc = "Bit 24 - Valid in first Block."]
     #[inline(always)]
@@ -114,16 +114,19 @@ impl R {
 impl W {
     #[doc = "Bits 0:23 - Valid in first Block."]
     #[inline(always)]
+    #[must_use]
     pub fn d23_to_d0_first_valid(&mut self) -> D23_TO_D0_FIRST_VALID_W<0> {
         D23_TO_D0_FIRST_VALID_W::new(self)
     }
     #[doc = "Bit 24 - Valid in first Block."]
     #[inline(always)]
+    #[must_use]
     pub fn a1_first_valid(&mut self) -> A1_FIRST_VALID_W<24> {
         A1_FIRST_VALID_W::new(self)
     }
     #[doc = "Bit 28 - Enable the plug mode used in dsi command mode."]
     #[inline(always)]
+    #[must_use]
     pub fn plug_mode_en(&mut self) -> PLUG_MODE_EN_W<28> {
         PLUG_MODE_EN_W::new(self)
     }
@@ -146,11 +149,10 @@ impl crate::Readable for LCD_CPU_TRI4_SPEC {
 #[doc = "`write(|w| ..)` method takes [lcd_cpu_tri4::W](W) writer structure"]
 impl crate::Writable for LCD_CPU_TRI4_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets lcd_cpu_tri4 to value 0"]
 impl crate::Resettable for LCD_CPU_TRI4_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

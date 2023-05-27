@@ -37,7 +37,7 @@ impl From<crate::W<DMAC_IRQ_PEND0_SPEC>> for W {
 #[doc = "Field `dma_hlaf_irq_pend[0-7]` reader - The IRQ pending bit for the half package interrupt of DMA"]
 pub type DMA_HLAF_IRQ_PEND_R = crate::BitReader<DMA_HLAF_IRQ_PEND_A>;
 #[doc = "The IRQ pending bit for the half package interrupt of DMA\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum DMA_HLAF_IRQ_PEND_A {
     #[doc = "0: `0`"]
     NO_EFFECT = 0,
@@ -88,7 +88,7 @@ impl<'a, const O: u8> DMA_HLAF_IRQ_PEND_W<'a, O> {
 #[doc = "Field `dma_pkg_irq_pend[0-7]` reader - The IRQ pending bit for the package end interrupt of DMA"]
 pub type DMA_PKG_IRQ_PEND_R = crate::BitReader<DMA_PKG_IRQ_PEND_A>;
 #[doc = "The IRQ pending bit for the package end interrupt of DMA\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum DMA_PKG_IRQ_PEND_A {
     #[doc = "0: `0`"]
     NO_EFFECT = 0,
@@ -139,7 +139,7 @@ impl<'a, const O: u8> DMA_PKG_IRQ_PEND_W<'a, O> {
 #[doc = "Field `dma_queue_irq_pend[0-7]` reader - The IRQ pending bit for the queue end interrupt of DMA"]
 pub type DMA_QUEUE_IRQ_PEND_R = crate::BitReader<DMA_QUEUE_IRQ_PEND_A>;
 #[doc = "The IRQ pending bit for the queue end interrupt of DMA\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum DMA_QUEUE_IRQ_PEND_A {
     #[doc = "0: `0`"]
     NO_EFFECT = 0,
@@ -327,136 +327,163 @@ impl R {
 impl W {
     #[doc = "The IRQ pending bit for the half package interrupt of DMA"]
     #[inline(always)]
+    #[must_use]
     pub unsafe fn dma_hlaf_irq_pend<const O: u8>(&mut self) -> DMA_HLAF_IRQ_PEND_W<O> {
         DMA_HLAF_IRQ_PEND_W::new(self)
     }
     #[doc = "Bit 0 - The IRQ pending bit for the half package interrupt of DMA"]
     #[inline(always)]
+    #[must_use]
     pub fn dma0_hlaf_irq_pend(&mut self) -> DMA_HLAF_IRQ_PEND_W<0> {
         DMA_HLAF_IRQ_PEND_W::new(self)
     }
     #[doc = "Bit 4 - The IRQ pending bit for the half package interrupt of DMA"]
     #[inline(always)]
+    #[must_use]
     pub fn dma1_hlaf_irq_pend(&mut self) -> DMA_HLAF_IRQ_PEND_W<4> {
         DMA_HLAF_IRQ_PEND_W::new(self)
     }
     #[doc = "Bit 8 - The IRQ pending bit for the half package interrupt of DMA"]
     #[inline(always)]
+    #[must_use]
     pub fn dma2_hlaf_irq_pend(&mut self) -> DMA_HLAF_IRQ_PEND_W<8> {
         DMA_HLAF_IRQ_PEND_W::new(self)
     }
     #[doc = "Bit 12 - The IRQ pending bit for the half package interrupt of DMA"]
     #[inline(always)]
+    #[must_use]
     pub fn dma3_hlaf_irq_pend(&mut self) -> DMA_HLAF_IRQ_PEND_W<12> {
         DMA_HLAF_IRQ_PEND_W::new(self)
     }
     #[doc = "Bit 16 - The IRQ pending bit for the half package interrupt of DMA"]
     #[inline(always)]
+    #[must_use]
     pub fn dma4_hlaf_irq_pend(&mut self) -> DMA_HLAF_IRQ_PEND_W<16> {
         DMA_HLAF_IRQ_PEND_W::new(self)
     }
     #[doc = "Bit 20 - The IRQ pending bit for the half package interrupt of DMA"]
     #[inline(always)]
+    #[must_use]
     pub fn dma5_hlaf_irq_pend(&mut self) -> DMA_HLAF_IRQ_PEND_W<20> {
         DMA_HLAF_IRQ_PEND_W::new(self)
     }
     #[doc = "Bit 24 - The IRQ pending bit for the half package interrupt of DMA"]
     #[inline(always)]
+    #[must_use]
     pub fn dma6_hlaf_irq_pend(&mut self) -> DMA_HLAF_IRQ_PEND_W<24> {
         DMA_HLAF_IRQ_PEND_W::new(self)
     }
     #[doc = "Bit 28 - The IRQ pending bit for the half package interrupt of DMA"]
     #[inline(always)]
+    #[must_use]
     pub fn dma7_hlaf_irq_pend(&mut self) -> DMA_HLAF_IRQ_PEND_W<28> {
         DMA_HLAF_IRQ_PEND_W::new(self)
     }
     #[doc = "The IRQ pending bit for the package end interrupt of DMA"]
     #[inline(always)]
+    #[must_use]
     pub unsafe fn dma_pkg_irq_pend<const O: u8>(&mut self) -> DMA_PKG_IRQ_PEND_W<O> {
         DMA_PKG_IRQ_PEND_W::new(self)
     }
     #[doc = "Bit 1 - The IRQ pending bit for the package end interrupt of DMA"]
     #[inline(always)]
+    #[must_use]
     pub fn dma0_pkg_irq_pend(&mut self) -> DMA_PKG_IRQ_PEND_W<1> {
         DMA_PKG_IRQ_PEND_W::new(self)
     }
     #[doc = "Bit 5 - The IRQ pending bit for the package end interrupt of DMA"]
     #[inline(always)]
+    #[must_use]
     pub fn dma1_pkg_irq_pend(&mut self) -> DMA_PKG_IRQ_PEND_W<5> {
         DMA_PKG_IRQ_PEND_W::new(self)
     }
     #[doc = "Bit 9 - The IRQ pending bit for the package end interrupt of DMA"]
     #[inline(always)]
+    #[must_use]
     pub fn dma2_pkg_irq_pend(&mut self) -> DMA_PKG_IRQ_PEND_W<9> {
         DMA_PKG_IRQ_PEND_W::new(self)
     }
     #[doc = "Bit 13 - The IRQ pending bit for the package end interrupt of DMA"]
     #[inline(always)]
+    #[must_use]
     pub fn dma3_pkg_irq_pend(&mut self) -> DMA_PKG_IRQ_PEND_W<13> {
         DMA_PKG_IRQ_PEND_W::new(self)
     }
     #[doc = "Bit 17 - The IRQ pending bit for the package end interrupt of DMA"]
     #[inline(always)]
+    #[must_use]
     pub fn dma4_pkg_irq_pend(&mut self) -> DMA_PKG_IRQ_PEND_W<17> {
         DMA_PKG_IRQ_PEND_W::new(self)
     }
     #[doc = "Bit 21 - The IRQ pending bit for the package end interrupt of DMA"]
     #[inline(always)]
+    #[must_use]
     pub fn dma5_pkg_irq_pend(&mut self) -> DMA_PKG_IRQ_PEND_W<21> {
         DMA_PKG_IRQ_PEND_W::new(self)
     }
     #[doc = "Bit 25 - The IRQ pending bit for the package end interrupt of DMA"]
     #[inline(always)]
+    #[must_use]
     pub fn dma6_pkg_irq_pend(&mut self) -> DMA_PKG_IRQ_PEND_W<25> {
         DMA_PKG_IRQ_PEND_W::new(self)
     }
     #[doc = "Bit 29 - The IRQ pending bit for the package end interrupt of DMA"]
     #[inline(always)]
+    #[must_use]
     pub fn dma7_pkg_irq_pend(&mut self) -> DMA_PKG_IRQ_PEND_W<29> {
         DMA_PKG_IRQ_PEND_W::new(self)
     }
     #[doc = "The IRQ pending bit for the queue end interrupt of DMA"]
     #[inline(always)]
+    #[must_use]
     pub unsafe fn dma_queue_irq_pend<const O: u8>(&mut self) -> DMA_QUEUE_IRQ_PEND_W<O> {
         DMA_QUEUE_IRQ_PEND_W::new(self)
     }
     #[doc = "Bit 2 - The IRQ pending bit for the queue end interrupt of DMA"]
     #[inline(always)]
+    #[must_use]
     pub fn dma0_queue_irq_pend(&mut self) -> DMA_QUEUE_IRQ_PEND_W<2> {
         DMA_QUEUE_IRQ_PEND_W::new(self)
     }
     #[doc = "Bit 6 - The IRQ pending bit for the queue end interrupt of DMA"]
     #[inline(always)]
+    #[must_use]
     pub fn dma1_queue_irq_pend(&mut self) -> DMA_QUEUE_IRQ_PEND_W<6> {
         DMA_QUEUE_IRQ_PEND_W::new(self)
     }
     #[doc = "Bit 10 - The IRQ pending bit for the queue end interrupt of DMA"]
     #[inline(always)]
+    #[must_use]
     pub fn dma2_queue_irq_pend(&mut self) -> DMA_QUEUE_IRQ_PEND_W<10> {
         DMA_QUEUE_IRQ_PEND_W::new(self)
     }
     #[doc = "Bit 14 - The IRQ pending bit for the queue end interrupt of DMA"]
     #[inline(always)]
+    #[must_use]
     pub fn dma3_queue_irq_pend(&mut self) -> DMA_QUEUE_IRQ_PEND_W<14> {
         DMA_QUEUE_IRQ_PEND_W::new(self)
     }
     #[doc = "Bit 18 - The IRQ pending bit for the queue end interrupt of DMA"]
     #[inline(always)]
+    #[must_use]
     pub fn dma4_queue_irq_pend(&mut self) -> DMA_QUEUE_IRQ_PEND_W<18> {
         DMA_QUEUE_IRQ_PEND_W::new(self)
     }
     #[doc = "Bit 22 - The IRQ pending bit for the queue end interrupt of DMA"]
     #[inline(always)]
+    #[must_use]
     pub fn dma5_queue_irq_pend(&mut self) -> DMA_QUEUE_IRQ_PEND_W<22> {
         DMA_QUEUE_IRQ_PEND_W::new(self)
     }
     #[doc = "Bit 26 - The IRQ pending bit for the queue end interrupt of DMA"]
     #[inline(always)]
+    #[must_use]
     pub fn dma6_queue_irq_pend(&mut self) -> DMA_QUEUE_IRQ_PEND_W<26> {
         DMA_QUEUE_IRQ_PEND_W::new(self)
     }
     #[doc = "Bit 30 - The IRQ pending bit for the queue end interrupt of DMA"]
     #[inline(always)]
+    #[must_use]
     pub fn dma7_queue_irq_pend(&mut self) -> DMA_QUEUE_IRQ_PEND_W<30> {
         DMA_QUEUE_IRQ_PEND_W::new(self)
     }
@@ -479,11 +506,10 @@ impl crate::Readable for DMAC_IRQ_PEND0_SPEC {
 #[doc = "`write(|w| ..)` method takes [dmac_irq_pend0::W](W) writer structure"]
 impl crate::Writable for DMAC_IRQ_PEND0_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets dmac_irq_pend0 to value 0"]
 impl crate::Resettable for DMAC_IRQ_PEND0_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

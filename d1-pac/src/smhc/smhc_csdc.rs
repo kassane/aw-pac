@@ -37,7 +37,7 @@ impl From<crate::W<SMHC_CSDC_SPEC>> for W {
 #[doc = "Field `crc_det_para` reader - "]
 pub type CRC_DET_PARA_R = crate::FieldReader<u8, CRC_DET_PARA_A>;
 #[doc = "\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum CRC_DET_PARA_A {
     #[doc = "6: `110`"]
@@ -97,6 +97,7 @@ impl R {
 impl W {
     #[doc = "Bits 0:3"]
     #[inline(always)]
+    #[must_use]
     pub fn crc_det_para(&mut self) -> CRC_DET_PARA_W<0> {
         CRC_DET_PARA_W::new(self)
     }
@@ -119,11 +120,10 @@ impl crate::Readable for SMHC_CSDC_SPEC {
 #[doc = "`write(|w| ..)` method takes [smhc_csdc::W](W) writer structure"]
 impl crate::Writable for SMHC_CSDC_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets smhc_csdc to value 0"]
 impl crate::Resettable for SMHC_CSDC_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

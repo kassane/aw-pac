@@ -34,7 +34,40 @@ impl From<crate::W<I2S_PCM_RXCHSEL_SPEC>> for W {
         W(writer)
     }
 }
+#[doc = "Field `chsel` reader - RX Channel (Slot) number select for each output\n\nNum channels = N + 1"]
+pub type CHSEL_R = crate::FieldReader<u8, u8>;
+#[doc = "Field `chsel` writer - RX Channel (Slot) number select for each output\n\nNum channels = N + 1"]
+pub type CHSEL_W<'a, const O: u8> = crate::FieldWriter<'a, u32, I2S_PCM_RXCHSEL_SPEC, u8, u8, 4, O>;
+#[doc = "Field `offset` reader - RX Offset Tune (RX Data offset to LRCK)\n\n0: No offset\n\nN: Data is offset by N BCLKs to LRCK"]
+pub type OFFSET_R = crate::FieldReader<u8, u8>;
+#[doc = "Field `offset` writer - RX Offset Tune (RX Data offset to LRCK)\n\n0: No offset\n\nN: Data is offset by N BCLKs to LRCK"]
+pub type OFFSET_W<'a, const O: u8> =
+    crate::FieldWriter<'a, u32, I2S_PCM_RXCHSEL_SPEC, u8, u8, 2, O>;
+impl R {
+    #[doc = "Bits 16:19 - RX Channel (Slot) number select for each output\n\nNum channels = N + 1"]
+    #[inline(always)]
+    pub fn chsel(&self) -> CHSEL_R {
+        CHSEL_R::new(((self.bits >> 16) & 0x0f) as u8)
+    }
+    #[doc = "Bits 20:21 - RX Offset Tune (RX Data offset to LRCK)\n\n0: No offset\n\nN: Data is offset by N BCLKs to LRCK"]
+    #[inline(always)]
+    pub fn offset(&self) -> OFFSET_R {
+        OFFSET_R::new(((self.bits >> 20) & 3) as u8)
+    }
+}
 impl W {
+    #[doc = "Bits 16:19 - RX Channel (Slot) number select for each output\n\nNum channels = N + 1"]
+    #[inline(always)]
+    #[must_use]
+    pub fn chsel(&mut self) -> CHSEL_W<16> {
+        CHSEL_W::new(self)
+    }
+    #[doc = "Bits 20:21 - RX Offset Tune (RX Data offset to LRCK)\n\n0: No offset\n\nN: Data is offset by N BCLKs to LRCK"]
+    #[inline(always)]
+    #[must_use]
+    pub fn offset(&mut self) -> OFFSET_W<20> {
+        OFFSET_W::new(self)
+    }
     #[doc = "Writes raw bits to the register."]
     #[inline(always)]
     pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
@@ -54,11 +87,10 @@ impl crate::Readable for I2S_PCM_RXCHSEL_SPEC {
 #[doc = "`write(|w| ..)` method takes [i2s_pcm_rxchsel::W](W) writer structure"]
 impl crate::Writable for I2S_PCM_RXCHSEL_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets i2s_pcm_rxchsel to value 0"]
 impl crate::Resettable for I2S_PCM_RXCHSEL_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

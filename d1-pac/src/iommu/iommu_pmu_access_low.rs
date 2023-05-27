@@ -42,8 +42,7 @@ impl W {
         self
     }
 }
-#[doc = "IOMMU PMU Access Low \\[i\\]
-Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [iommu_pmu_access_low](index.html) module"]
+#[doc = "IOMMU PMU Access Low \\[i\\] Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [iommu_pmu_access_low](index.html) module"]
 pub struct IOMMU_PMU_ACCESS_LOW_SPEC;
 impl crate::RegisterSpec for IOMMU_PMU_ACCESS_LOW_SPEC {
     type Ux = u32;
@@ -55,11 +54,10 @@ impl crate::Readable for IOMMU_PMU_ACCESS_LOW_SPEC {
 #[doc = "`write(|w| ..)` method takes [iommu_pmu_access_low::W](W) writer structure"]
 impl crate::Writable for IOMMU_PMU_ACCESS_LOW_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets iommu_pmu_access_low%s to value 0"]
 impl crate::Resettable for IOMMU_PMU_ACCESS_LOW_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

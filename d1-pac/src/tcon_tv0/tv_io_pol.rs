@@ -34,17 +34,15 @@ impl From<crate::W<TV_IO_POL_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `io_inv[0-3]` reader - IO\\[i\\]
-Invert"]
+#[doc = "Field `io_inv[0-3]` reader - IO\\[i\\] Invert"]
 pub type IO_INV_R = crate::BitReader<IO_INV_A>;
-#[doc = "IO\\[i\\]
-Invert\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[doc = "IO\\[i\\] Invert\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum IO_INV_A {
     #[doc = "0: Not invert"]
-    N_OT_INVERT = 0,
+    NOT_INVERT = 0,
     #[doc = "1: Invert"]
-    I_NVERT = 1,
+    INVERT = 1,
 }
 impl From<IO_INV_A> for bool {
     #[inline(always)]
@@ -57,96 +55,90 @@ impl IO_INV_R {
     #[inline(always)]
     pub fn variant(&self) -> IO_INV_A {
         match self.bits {
-            false => IO_INV_A::N_OT_INVERT,
-            true => IO_INV_A::I_NVERT,
+            false => IO_INV_A::NOT_INVERT,
+            true => IO_INV_A::INVERT,
         }
     }
-    #[doc = "Checks if the value of the field is `N_OT_INVERT`"]
+    #[doc = "Checks if the value of the field is `NOT_INVERT`"]
     #[inline(always)]
-    pub fn is_n_ot_invert(&self) -> bool {
-        *self == IO_INV_A::N_OT_INVERT
+    pub fn is_not_invert(&self) -> bool {
+        *self == IO_INV_A::NOT_INVERT
     }
-    #[doc = "Checks if the value of the field is `I_NVERT`"]
+    #[doc = "Checks if the value of the field is `INVERT`"]
     #[inline(always)]
-    pub fn is_i_nvert(&self) -> bool {
-        *self == IO_INV_A::I_NVERT
+    pub fn is_invert(&self) -> bool {
+        *self == IO_INV_A::INVERT
     }
 }
-#[doc = "Field `io_inv[0-3]` writer - IO\\[i\\]
-Invert"]
+#[doc = "Field `io_inv[0-3]` writer - IO\\[i\\] Invert"]
 pub type IO_INV_W<'a, const O: u8> = crate::BitWriter<'a, u32, TV_IO_POL_SPEC, IO_INV_A, O>;
 impl<'a, const O: u8> IO_INV_W<'a, O> {
     #[doc = "Not invert"]
     #[inline(always)]
-    pub fn n_ot_invert(self) -> &'a mut W {
-        self.variant(IO_INV_A::N_OT_INVERT)
+    pub fn not_invert(self) -> &'a mut W {
+        self.variant(IO_INV_A::NOT_INVERT)
     }
     #[doc = "Invert"]
     #[inline(always)]
-    pub fn i_nvert(self) -> &'a mut W {
-        self.variant(IO_INV_A::I_NVERT)
+    pub fn invert(self) -> &'a mut W {
+        self.variant(IO_INV_A::INVERT)
     }
 }
 impl R {
-    #[doc = "IO\\[i\\]
-Invert"]
+    #[doc = "IO\\[i\\] Invert"]
     #[inline(always)]
     pub unsafe fn io_inv(&self, n: u8) -> IO_INV_R {
         IO_INV_R::new(((self.bits >> (n + 24)) & 1) != 0)
     }
-    #[doc = "Bit 24 - IO\\[i\\]
-Invert"]
+    #[doc = "Bit 24 - IO\\[i\\] Invert"]
     #[inline(always)]
     pub fn io0_inv(&self) -> IO_INV_R {
         IO_INV_R::new(((self.bits >> 24) & 1) != 0)
     }
-    #[doc = "Bit 25 - IO\\[i\\]
-Invert"]
+    #[doc = "Bit 25 - IO\\[i\\] Invert"]
     #[inline(always)]
     pub fn io1_inv(&self) -> IO_INV_R {
         IO_INV_R::new(((self.bits >> 25) & 1) != 0)
     }
-    #[doc = "Bit 26 - IO\\[i\\]
-Invert"]
+    #[doc = "Bit 26 - IO\\[i\\] Invert"]
     #[inline(always)]
     pub fn io2_inv(&self) -> IO_INV_R {
         IO_INV_R::new(((self.bits >> 26) & 1) != 0)
     }
-    #[doc = "Bit 27 - IO\\[i\\]
-Invert"]
+    #[doc = "Bit 27 - IO\\[i\\] Invert"]
     #[inline(always)]
     pub fn io3_inv(&self) -> IO_INV_R {
         IO_INV_R::new(((self.bits >> 27) & 1) != 0)
     }
 }
 impl W {
-    #[doc = "IO\\[i\\]
-Invert"]
+    #[doc = "IO\\[i\\] Invert"]
     #[inline(always)]
+    #[must_use]
     pub unsafe fn io_inv<const O: u8>(&mut self) -> IO_INV_W<O> {
         IO_INV_W::new(self)
     }
-    #[doc = "Bit 24 - IO\\[i\\]
-Invert"]
+    #[doc = "Bit 24 - IO\\[i\\] Invert"]
     #[inline(always)]
+    #[must_use]
     pub fn io0_inv(&mut self) -> IO_INV_W<24> {
         IO_INV_W::new(self)
     }
-    #[doc = "Bit 25 - IO\\[i\\]
-Invert"]
+    #[doc = "Bit 25 - IO\\[i\\] Invert"]
     #[inline(always)]
+    #[must_use]
     pub fn io1_inv(&mut self) -> IO_INV_W<25> {
         IO_INV_W::new(self)
     }
-    #[doc = "Bit 26 - IO\\[i\\]
-Invert"]
+    #[doc = "Bit 26 - IO\\[i\\] Invert"]
     #[inline(always)]
+    #[must_use]
     pub fn io2_inv(&mut self) -> IO_INV_W<26> {
         IO_INV_W::new(self)
     }
-    #[doc = "Bit 27 - IO\\[i\\]
-Invert"]
+    #[doc = "Bit 27 - IO\\[i\\] Invert"]
     #[inline(always)]
+    #[must_use]
     pub fn io3_inv(&mut self) -> IO_INV_W<27> {
         IO_INV_W::new(self)
     }
@@ -169,11 +161,10 @@ impl crate::Readable for TV_IO_POL_SPEC {
 #[doc = "`write(|w| ..)` method takes [tv_io_pol::W](W) writer structure"]
 impl crate::Writable for TV_IO_POL_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets tv_io_pol to value 0"]
 impl crate::Resettable for TV_IO_POL_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

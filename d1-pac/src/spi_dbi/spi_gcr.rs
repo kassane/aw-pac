@@ -37,7 +37,7 @@ impl From<crate::W<SPI_GCR_SPEC>> for W {
 #[doc = "Field `en` reader - SPI Module Enable Control"]
 pub type EN_R = crate::BitReader<EN_A>;
 #[doc = "SPI Module Enable Control\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum EN_A {
     #[doc = "0: `0`"]
     DISABLE = 0,
@@ -87,7 +87,7 @@ impl<'a, const O: u8> EN_W<'a, O> {
 #[doc = "Field `mode` reader - SPI Function Mode Select"]
 pub type MODE_R = crate::BitReader<MODE_A>;
 #[doc = "SPI Function Mode Select\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum MODE_A {
     #[doc = "0: `0`"]
     SLAVE = 0,
@@ -137,7 +137,7 @@ impl<'a, const O: u8> MODE_W<'a, O> {
 #[doc = "Field `mode_selec` reader - Sample timing Mode Select"]
 pub type MODE_SELEC_R = crate::BitReader<MODE_SELEC_A>;
 #[doc = "Sample timing Mode Select\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum MODE_SELEC_A {
     #[doc = "0: Old mode of Sample Timing"]
     OLD_MODE = 0,
@@ -187,7 +187,7 @@ impl<'a, const O: u8> MODE_SELEC_W<'a, O> {
 #[doc = "Field `tp_en` reader - Transmit Pause Enable"]
 pub type TP_EN_R = crate::BitReader<TP_EN_A>;
 #[doc = "Transmit Pause Enable\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum TP_EN_A {
     #[doc = "0: normal operation, ignore RXFIFO status"]
     NORMAL = 0,
@@ -268,26 +268,31 @@ impl R {
 impl W {
     #[doc = "Bit 0 - SPI Module Enable Control"]
     #[inline(always)]
+    #[must_use]
     pub fn en(&mut self) -> EN_W<0> {
         EN_W::new(self)
     }
     #[doc = "Bit 1 - SPI Function Mode Select"]
     #[inline(always)]
+    #[must_use]
     pub fn mode(&mut self) -> MODE_W<1> {
         MODE_W::new(self)
     }
     #[doc = "Bit 2 - Sample timing Mode Select"]
     #[inline(always)]
+    #[must_use]
     pub fn mode_selec(&mut self) -> MODE_SELEC_W<2> {
         MODE_SELEC_W::new(self)
     }
     #[doc = "Bit 7 - Transmit Pause Enable"]
     #[inline(always)]
+    #[must_use]
     pub fn tp_en(&mut self) -> TP_EN_W<7> {
         TP_EN_W::new(self)
     }
     #[doc = "Bit 31 - Soft reset"]
     #[inline(always)]
+    #[must_use]
     pub fn srst(&mut self) -> SRST_W<31> {
         SRST_W::new(self)
     }
@@ -310,11 +315,10 @@ impl crate::Readable for SPI_GCR_SPEC {
 #[doc = "`write(|w| ..)` method takes [spi_gcr::W](W) writer structure"]
 impl crate::Writable for SPI_GCR_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets spi_gcr to value 0"]
 impl crate::Resettable for SPI_GCR_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

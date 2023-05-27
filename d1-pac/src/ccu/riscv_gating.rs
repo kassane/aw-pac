@@ -42,7 +42,7 @@ pub type GATING_FIELD_W<'a, const O: u8> =
 #[doc = "Field `gating` reader - Gating Clock"]
 pub type GATING_R = crate::BitReader<GATING_A>;
 #[doc = "Gating Clock\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum GATING_A {
     #[doc = "0: `0`"]
     MASK = 0,
@@ -104,11 +104,13 @@ impl R {
 impl W {
     #[doc = "Bits 0:15"]
     #[inline(always)]
+    #[must_use]
     pub fn gating_field(&mut self) -> GATING_FIELD_W<0> {
         GATING_FIELD_W::new(self)
     }
     #[doc = "Bit 31 - Gating Clock"]
     #[inline(always)]
+    #[must_use]
     pub fn gating(&mut self) -> GATING_W<31> {
         GATING_W::new(self)
     }
@@ -131,11 +133,10 @@ impl crate::Readable for RISCV_GATING_SPEC {
 #[doc = "`write(|w| ..)` method takes [riscv_gating::W](W) writer structure"]
 impl crate::Writable for RISCV_GATING_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets riscv_gating to value 0"]
 impl crate::Resettable for RISCV_GATING_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

@@ -37,7 +37,7 @@ impl From<crate::W<PG_PULL1_SPEC>> for W {
 #[doc = "Field `pg_pull[16-18]` reader - PG Pull_up/down Select"]
 pub type PG_PULL_R = crate::FieldReader<u8, PG_PULL_A>;
 #[doc = "PG Pull_up/down Select\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum PG_PULL_A {
     #[doc = "0: `0`"]
@@ -125,21 +125,25 @@ impl R {
 impl W {
     #[doc = "PG Pull_up/down Select"]
     #[inline(always)]
+    #[must_use]
     pub unsafe fn pg_pull<const O: u8>(&mut self) -> PG_PULL_W<O> {
         PG_PULL_W::new(self)
     }
     #[doc = "Bits 0:1 - PG Pull_up/down Select"]
     #[inline(always)]
+    #[must_use]
     pub fn pg16_pull(&mut self) -> PG_PULL_W<0> {
         PG_PULL_W::new(self)
     }
     #[doc = "Bits 2:3 - PG Pull_up/down Select"]
     #[inline(always)]
+    #[must_use]
     pub fn pg17_pull(&mut self) -> PG_PULL_W<2> {
         PG_PULL_W::new(self)
     }
     #[doc = "Bits 4:5 - PG Pull_up/down Select"]
     #[inline(always)]
+    #[must_use]
     pub fn pg18_pull(&mut self) -> PG_PULL_W<4> {
         PG_PULL_W::new(self)
     }
@@ -162,11 +166,10 @@ impl crate::Readable for PG_PULL1_SPEC {
 #[doc = "`write(|w| ..)` method takes [pg_pull1::W](W) writer structure"]
 impl crate::Writable for PG_PULL1_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets pg_pull1 to value 0"]
 impl crate::Resettable for PG_PULL1_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }
